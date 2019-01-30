@@ -19,11 +19,18 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 ## How to use 
 
 ### Starting for the first time: 
-- start SimpleVideoCutter.exe
-- once started, the config.json is created in the current directory
-- close SimpleVideoCutter.exe and adjust config.json (please at least ensure the ffmpeg path is valid)
-- you are ready to go 
-
+- Unzip release package into a directory 
+- Edit config.json and provide path to ffmpeg.exe.
+- You can also adjust other parameters, for example directory and filename pattern of the output files. Supported variables are: 
+	- `{FileName}` - name of the input video file (with extension)
+	- `{FileNameWithoutExtension}` - name of the input video file (without extension)
+	- `{FileExtension}` - extension of the input video file (with dot)
+	- `{FileDate}` - last modification date of the input file (in format `yyyy-MM-dd-HHmmss`)
+	- `{Timestamp}` - current timestamp (in format `yyyyMMddHHmmss`)
+	- `{UserVideos}` - shortcut for `Environment.SpecialFolder.MyVideos`
+	- `{UserDocuments}` - shortcut for `Environment.SpecialFolder.MyDocuments`
+	- `{MyComputer}` - shortcut for `Environment.SpecialFolder.MyComputer`
+	
 ### Working with the tool:
 - start SimpleVideoCutter.exe
 - open a video file 
@@ -33,7 +40,6 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 - click 'Enqueue clip task' to add task to the queue. 
   The ffmpeg will be used to extract selected portion of the video and save it in a new file. 
 - click 'Show tasks' to see list of pending and running tasks
-
 
 
 ## To do

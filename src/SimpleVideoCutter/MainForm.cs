@@ -175,7 +175,7 @@ namespace SimpleVideoCutter
                 fd.RestoreDirectory = true;
 
                 var filter = "All video files|" + string.Join(";", VideoCutterSettings.VideoFilesExtensions.Select(ex => "*" + ex).ToArray());
-                fd.Filter = filter; 
+                fd.Filter = filter;
 
                 if (fd.ShowDialog() == DialogResult.OK)
                 {
@@ -243,7 +243,7 @@ namespace SimpleVideoCutter
             {
                 PlayPause();
             }
-            
+
 
             if (e.KeyCode == Keys.S)
                 SetStartAtCurrentPosition();
@@ -285,18 +285,18 @@ namespace SimpleVideoCutter
         {
             if (e.PropertyName == "Tasks")
             {
-               listViewTasks.InvokeIfRequired(() =>
-               {
-                   var tasks = taskProcessor.GetTasks();
-                   listViewTasks.Items.Clear();
-                   listViewTasks.Items.AddRange(tasks.Select(
-                       task => 
-                       {
-                           var item = new ListViewItem(task.InputFileName);
-                           item.SubItems.Add(string.Format("{0} sec", Math.Round(task.Duration / 1000.0f, 1)));
-                           return item;
-                       }).ToArray());
-               });
+                listViewTasks.InvokeIfRequired(() =>
+                {
+                    var tasks = taskProcessor.GetTasks();
+                    listViewTasks.Items.Clear();
+                    listViewTasks.Items.AddRange(tasks.Select(
+                        task =>
+                        {
+                            var item = new ListViewItem(task.InputFileName);
+                            item.SubItems.Add(string.Format("{0} sec", Math.Round(task.Duration / 1000.0f, 1)));
+                            return item;
+                        }).ToArray());
+                });
             }
         }
 
@@ -320,6 +320,13 @@ namespace SimpleVideoCutter
                 MessageBox.Show("No selection");
                 return;
             }
+
+            if (VideoCutterSettings.FFmpegPath == null || !File.Exists(MainForm.VideoCutterSettings.FFmpegPath))
+            {
+                MessageBox.Show("FFmpeg path not configured. Please edit config.json and restart the program.");
+                return;
+            }
+
             FileInfo fileInfo = new FileInfo(fileBeingPlayed);
             var outputDir = ReplaceStandardDirectoryPatterns(VideoCutterSettings.OutputDirectory);
             var outputFileName = ReplaceFilePatterns(VideoCutterSettings.OutputFilePattern, fileBeingPlayed);

@@ -79,11 +79,20 @@ namespace SimpleVideoCutter
                         OnTaskProgress(msg);
                     };
 
-                    var options = new ConversionOptions();
-                    options.CutMedia(TimeSpan.FromMilliseconds(currentTask.SelectionStart), TimeSpan.FromMilliseconds(currentTask.Duration));
+                    try
+                    {
+                        var options = new ConversionOptions();
+                        options.CutMedia(TimeSpan.FromMilliseconds(currentTask.SelectionStart), TimeSpan.FromMilliseconds(currentTask.Duration));
 
-                    Task<MediaFile> taskConversion = ffmpeg.ConvertAsync(new MediaFile(currentTask.InputFilePath), new MediaFile(currentTask.OutputFilePath), options);
-                    taskConversion.Wait();
+                        Task<MediaFile> taskConversion = ffmpeg.ConvertAsync(new MediaFile(currentTask.InputFilePath), new MediaFile(currentTask.OutputFilePath), options);
+                        taskConversion.Wait();
+                    }
+                    catch (Exception e)
+                    {
+                        currentTask = null;
+                        OnPropertyChanged("Tasks");
+                        OnTaskProgress("Failure: " + e.Message);
+                    }
                 }
                 else
                 {
