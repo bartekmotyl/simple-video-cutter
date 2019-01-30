@@ -27,8 +27,8 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 ### Working with the tool:
 - start SimpleVideoCutter.exe
 - open a video file 
-- the video playback starts automatically; press space to pause/resume 
-- select a position and slick 'S' to mark start of your cut 
+- the video playback starts automatically; press space to pause/resume (or click in the video area)
+- select a position and click 'S' to mark start of your cut 
 - click 'E' to mark end of your cut 
 - click 'Enqueue clip task' to add task to the queue. 
   The ffmpeg will be used to extract selected portion of the video and save it in a new file. 
