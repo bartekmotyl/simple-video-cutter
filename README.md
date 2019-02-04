@@ -62,3 +62,7 @@ The extraction process is done in background (by ffmpeg), so you can work with n
   (sometimes the marker stays a bit before the actual end). 
 
 
+## Icons 
+
+- [geomicons](https://github.com/jxnblk/geomicons-open)
+- [movie icon](https://www.freeiconspng.com/img/15157)
