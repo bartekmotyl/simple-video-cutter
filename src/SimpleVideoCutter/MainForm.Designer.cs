@@ -286,8 +286,6 @@
             this.videoCutterTimeline1.Location = new System.Drawing.Point(0, 456);
             this.videoCutterTimeline1.Name = "videoCutterTimeline1";
             this.videoCutterTimeline1.Position = ((long)(0));
-            this.videoCutterTimeline1.SelectionEnd = null;
-            this.videoCutterTimeline1.SelectionStart = null;
             this.videoCutterTimeline1.Size = new System.Drawing.Size(922, 32);
             this.videoCutterTimeline1.TabIndex = 4;
             // 

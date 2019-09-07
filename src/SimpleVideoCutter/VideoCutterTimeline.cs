@@ -13,6 +13,7 @@ namespace SimpleVideoCutter
     public partial class VideoCutterTimeline : UserControl
     {
         public event EventHandler<TimelineClickedEventArgs> TimelineClicked;
+        public event EventHandler<SelectionChangedEventArgs> SelectionChanged;
 
         public long Length { get; set; }
 
@@ -49,27 +50,12 @@ namespace SimpleVideoCutter
         public long? SelectionStart
         {
             get { return selectionStart; }
-            set
-            {
-                if ((value == null && selectionEnd != null) ||  (value != null && selectionEnd != null && value.Value >= selectionEnd.Value))
-                    return; 
-
-                selectionStart = value;
-                Invalidate();
-            }
         }
 
         private long? selectionEnd = null;
         public long? SelectionEnd
         {
             get { return selectionEnd; }
-            set
-            {
-                if (selectionStart == null || (value != null && value.Value <= selectionStart))
-                    return;
-                selectionEnd = value;
-                Invalidate();
-            }
         }
 
         private Rectangle timeLineRect = default(Rectangle); 
@@ -193,23 +179,55 @@ namespace SimpleVideoCutter
             {
                 if (SelectionStart != null && SelectionEnd != null)
                 {
-                    SelectionStart = null;
-                    SelectionEnd = null;
+                    SetSelection(pos, null);
                 }
-
-                if (SelectionStart == null)
-                    SelectionStart = pos;
+                else if (SelectionStart == null)
+                {
+                    SetSelection(pos, SelectionEnd);
+                }
                 else
-                    SelectionEnd = pos;
+                {
+                    SetSelection(SelectionStart, pos);
+                }
 
                 Invalidate();
             }
         }
+
+        private void OnSelectionChanged()
+        {
+            SelectionChanged?.Invoke(this, new SelectionChangedEventArgs());
+        }
+
+        /// <summary>
+        /// Creates/updates/clears selection. 
+        /// Once selection is changed, the 'SelectionChanged' event is raised. 
+        /// </summary>
+        public void SetSelection(long? selectionStart, long? selectionEnd)
+        {
+            if ((selectionStart == null && selectionEnd != null) || (selectionStart != null && selectionEnd != null && selectionStart.Value >= selectionEnd.Value))
+                return;
+
+            if ((selectionStart == null && selectionEnd  != null) || (selectionEnd != null && selectionEnd.Value <= selectionStart))
+                return;
+
+            this.selectionStart = selectionStart;
+            this.selectionEnd = selectionEnd;
+
+            Invalidate();
+
+            OnSelectionChanged();
+        }
+            
     }
 
 
     public class TimelineClickedEventArgs : EventArgs
     {
         public long ClickedPosition { get; set; }
+    }
+
+    public class SelectionChangedEventArgs : EventArgs
+    {
     }
 }

@@ -73,6 +73,7 @@ namespace SimpleVideoCutter
             vlcControl1.Video.IsKeyInputEnabled = false;
 
             videoCutterTimeline1.TimelineClicked += VideoCutterTimeline1_TimelineClicked;
+            videoCutterTimeline1.SelectionChanged += VideoCutterTimeline1_SelectionChanged; ;
             videoCutterTimeline1.MouseWheel += VlcControl1_MouseWheel;
 
             taskProcessor.PropertyChanged += TaskProcessor_PropertyChanged;
@@ -257,19 +258,24 @@ namespace SimpleVideoCutter
 
         private void SetStartAtCurrentPosition()
         {
-            videoCutterTimeline1.SelectionStart = videoCutterTimeline1.Position;
-            UpdateSelectionLabel();
-            EnableButtons();
+            // SetSelection raises SelectionChanged event, see VideoCutterTimeline1_SelectionChanged
+            videoCutterTimeline1.SetSelection(videoCutterTimeline1.Position, videoCutterTimeline1.SelectionEnd);
         }
         private void SetEndAtCurrentPosition()
         {
             if (videoCutterTimeline1.SelectionStart != null)
             {
-                videoCutterTimeline1.SelectionEnd = videoCutterTimeline1.Position;
-                UpdateSelectionLabel();
-                EnableButtons();
+                // SetSelection raises SelectionChanged event, see VideoCutterTimeline1_SelectionChanged
+                videoCutterTimeline1.SetSelection(videoCutterTimeline1.SelectionStart, videoCutterTimeline1.Position);
             }
         }
+
+        private void VideoCutterTimeline1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateSelectionLabel();
+            EnableButtons();
+        }
+
 
         private void toolStripButtonSetStart_Click(object sender, EventArgs e)
         {
@@ -353,10 +359,8 @@ namespace SimpleVideoCutter
 
         private void ClearSelection()
         {
-            videoCutterTimeline1.SelectionEnd = null;
-            videoCutterTimeline1.SelectionStart = null;
-            UpdateSelectionLabel();
-            EnableButtons();
+            // SetSelection raises SelectionChanged event, see VideoCutterTimeline1_SelectionChanged
+            videoCutterTimeline1.SetSelection(null, null);
         }
         private void toolStripButtonClearSelection_Click(object sender, EventArgs e)
         {
