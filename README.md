@@ -56,7 +56,7 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 
 
 ## Known issues
-- sometimes the program freezes (how to fix: [see more here](https://github.com/ZeBobo5/Vlc.DotNet/wiki/Vlc.DotNet-freezes-(don't-call-Vlc.DotNet-from-a-Vlc.DotNet-callback)))
+- ~~sometimes the program freezes (how to fix: [see more here](https://github.com/ZeBobo5/Vlc.DotNet/wiki/Vlc.DotNet-freezes-(don't-call-Vlc.DotNet-from-a-Vlc.DotNet-callback)))~~
 - lack of proper error handling in some border cases (IO errors etc.) 
 - location on timeline not updated correctly when video reaches the end 
   (sometimes the marker stays a bit before the actual end). 
