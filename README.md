@@ -1,6 +1,6 @@
 # simple-video-cutter
 
-Windows-based tool to efficiently browse and cut video footage
+Windows-based tool for efficient browsing and cutting video footage
 
 ![Screenshot](screenshot.png)
 
