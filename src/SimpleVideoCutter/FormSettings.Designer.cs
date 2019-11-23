@@ -42,20 +42,20 @@
             this.buttonDefaultDirectory = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.comboBoxDefaultDirectory = new System.Windows.Forms.ComboBox();
+            this.comboBoxOutputDirectory = new System.Windows.Forms.ComboBox();
+            this.textBoxOutputFilePattern = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
-            this.comboBoxDefaultDirectory = new System.Windows.Forms.ComboBox();
-            this.comboBoxOutputDirectory = new System.Windows.Forms.ComboBox();
-            this.textBoxOutputFilePattern = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(8, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 26);
             this.label1.TabIndex = 0;
@@ -64,7 +64,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(3, 29);
+            this.label2.Location = new System.Drawing.Point(8, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 29);
             this.label2.TabIndex = 2;
@@ -73,7 +73,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(3, 58);
+            this.label3.Location = new System.Drawing.Point(8, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 26);
             this.label3.TabIndex = 4;
@@ -82,7 +82,7 @@
             // 
             // textBoxFFmpegPath
             // 
-            this.textBoxFFmpegPath.Location = new System.Drawing.Point(129, 87);
+            this.textBoxFFmpegPath.Location = new System.Drawing.Point(134, 92);
             this.textBoxFFmpegPath.Name = "textBoxFFmpegPath";
             this.textBoxFFmpegPath.Size = new System.Drawing.Size(344, 20);
             this.textBoxFFmpegPath.TabIndex = 7;
@@ -91,7 +91,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(3, 84);
+            this.label4.Location = new System.Drawing.Point(8, 89);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 29);
             this.label4.TabIndex = 6;
@@ -100,7 +100,7 @@
             // 
             // textBoxVideoFileExtensions
             // 
-            this.textBoxVideoFileExtensions.Location = new System.Drawing.Point(129, 116);
+            this.textBoxVideoFileExtensions.Location = new System.Drawing.Point(134, 121);
             this.textBoxVideoFileExtensions.Name = "textBoxVideoFileExtensions";
             this.textBoxVideoFileExtensions.ReadOnly = true;
             this.textBoxVideoFileExtensions.Size = new System.Drawing.Size(344, 20);
@@ -110,7 +110,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(3, 113);
+            this.label5.Location = new System.Drawing.Point(8, 118);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 23);
             this.label5.TabIndex = 8;
@@ -119,7 +119,7 @@
             // 
             // buttonOutputDirectory
             // 
-            this.buttonOutputDirectory.Location = new System.Drawing.Point(479, 32);
+            this.buttonOutputDirectory.Location = new System.Drawing.Point(484, 37);
             this.buttonOutputDirectory.Name = "buttonOutputDirectory";
             this.buttonOutputDirectory.Size = new System.Drawing.Size(30, 23);
             this.buttonOutputDirectory.TabIndex = 10;
@@ -129,7 +129,7 @@
             // 
             // buttonFFmpegPath
             // 
-            this.buttonFFmpegPath.Location = new System.Drawing.Point(479, 87);
+            this.buttonFFmpegPath.Location = new System.Drawing.Point(484, 92);
             this.buttonFFmpegPath.Name = "buttonFFmpegPath";
             this.buttonFFmpegPath.Size = new System.Drawing.Size(30, 23);
             this.buttonFFmpegPath.TabIndex = 12;
@@ -139,13 +139,51 @@
             // 
             // buttonDefaultDirectory
             // 
-            this.buttonDefaultDirectory.Location = new System.Drawing.Point(479, 3);
+            this.buttonDefaultDirectory.Location = new System.Drawing.Point(484, 8);
             this.buttonDefaultDirectory.Name = "buttonDefaultDirectory";
             this.buttonDefaultDirectory.Size = new System.Drawing.Size(30, 23);
             this.buttonDefaultDirectory.TabIndex = 13;
             this.buttonDefaultDirectory.Text = "...";
             this.buttonDefaultDirectory.UseVisualStyleBackColor = true;
             this.buttonDefaultDirectory.Click += new System.EventHandler(this.buttonDefaultDirectory_Click);
+            // 
+            // comboBoxDefaultDirectory
+            // 
+            this.comboBoxDefaultDirectory.FormattingEnabled = true;
+            this.comboBoxDefaultDirectory.Items.AddRange(new object[] {
+            "{UserVideos}",
+            "{UserDocuments}",
+            "{MyComputer}"});
+            this.comboBoxDefaultDirectory.Location = new System.Drawing.Point(134, 8);
+            this.comboBoxDefaultDirectory.Name = "comboBoxDefaultDirectory";
+            this.comboBoxDefaultDirectory.Size = new System.Drawing.Size(344, 21);
+            this.comboBoxDefaultDirectory.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.comboBoxDefaultDirectory, "Initial directory when opening video files. \r\nCan be specified either as absolute" +
+        " path \r\nor by using one of predefined directories: \r\n{UserVideos}\r\n{UserDocument" +
+        "s}\r\n{MyComputer}");
+            // 
+            // comboBoxOutputDirectory
+            // 
+            this.comboBoxOutputDirectory.FormattingEnabled = true;
+            this.comboBoxOutputDirectory.Items.AddRange(new object[] {
+            "{UserVideos}",
+            "{UserDocuments}",
+            "{MyComputer}"});
+            this.comboBoxOutputDirectory.Location = new System.Drawing.Point(134, 37);
+            this.comboBoxOutputDirectory.Name = "comboBoxOutputDirectory";
+            this.comboBoxOutputDirectory.Size = new System.Drawing.Size(344, 21);
+            this.comboBoxOutputDirectory.TabIndex = 15;
+            this.toolTip1.SetToolTip(this.comboBoxOutputDirectory, "Output directory where created files are to be saved. \r\nCan be specified either a" +
+        "s absolute path \r\nor by using one of predefined directories: \r\n{UserVideos}\r\n{Us" +
+        "erDocuments}\r\n{MyComputer}\r\n");
+            // 
+            // textBoxOutputFilePattern
+            // 
+            this.textBoxOutputFilePattern.Location = new System.Drawing.Point(134, 66);
+            this.textBoxOutputFilePattern.Name = "textBoxOutputFilePattern";
+            this.textBoxOutputFilePattern.Size = new System.Drawing.Size(344, 20);
+            this.textBoxOutputFilePattern.TabIndex = 16;
+            this.toolTip1.SetToolTip(this.textBoxOutputFilePattern, resources.GetString("textBoxOutputFilePattern.ToolTip"));
             // 
             // tableLayoutPanel1
             // 
@@ -169,6 +207,7 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(5);
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -176,7 +215,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(549, 162);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(539, 162);
             this.tableLayoutPanel1.TabIndex = 15;
             // 
             // flowLayoutPanel1
@@ -186,14 +225,16 @@
             this.flowLayoutPanel1.Controls.Add(this.buttonOK);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 168);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 173);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(549, 29);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(539, 39);
             this.flowLayoutPanel1.TabIndex = 16;
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(471, 3);
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(451, 8);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 0;
@@ -202,7 +243,7 @@
             // 
             // buttonOK
             // 
-            this.buttonOK.Location = new System.Drawing.Point(390, 3);
+            this.buttonOK.Location = new System.Drawing.Point(370, 8);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
             this.buttonOK.TabIndex = 1;
@@ -210,51 +251,13 @@
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
-            // comboBoxDefaultDirectory
-            // 
-            this.comboBoxDefaultDirectory.FormattingEnabled = true;
-            this.comboBoxDefaultDirectory.Items.AddRange(new object[] {
-            "{UserVideos}",
-            "{UserDocuments}",
-            "{MyComputer}"});
-            this.comboBoxDefaultDirectory.Location = new System.Drawing.Point(129, 3);
-            this.comboBoxDefaultDirectory.Name = "comboBoxDefaultDirectory";
-            this.comboBoxDefaultDirectory.Size = new System.Drawing.Size(344, 21);
-            this.comboBoxDefaultDirectory.TabIndex = 14;
-            this.toolTip1.SetToolTip(this.comboBoxDefaultDirectory, "Initial directory when opening video files. \r\nCan be specified either as absolute" +
-        " path \r\nor by using one of predefined directories: \r\n{UserVideos}\r\n{UserDocument" +
-        "s}\r\n{MyComputer}");
-            // 
-            // comboBoxOutputDirectory
-            // 
-            this.comboBoxOutputDirectory.FormattingEnabled = true;
-            this.comboBoxOutputDirectory.Items.AddRange(new object[] {
-            "{UserVideos}",
-            "{UserDocuments}",
-            "{MyComputer}"});
-            this.comboBoxOutputDirectory.Location = new System.Drawing.Point(129, 32);
-            this.comboBoxOutputDirectory.Name = "comboBoxOutputDirectory";
-            this.comboBoxOutputDirectory.Size = new System.Drawing.Size(344, 21);
-            this.comboBoxOutputDirectory.TabIndex = 15;
-            this.toolTip1.SetToolTip(this.comboBoxOutputDirectory, "Output directory where created files are to be saved. \r\nCan be specified either a" +
-        "s absolute path \r\nor by using one of predefined directories: \r\n{UserVideos}\r\n{Us" +
-        "erDocuments}\r\n{MyComputer}\r\n");
-            // 
-            // textBoxOutputFilePattern
-            // 
-            this.textBoxOutputFilePattern.Location = new System.Drawing.Point(129, 61);
-            this.textBoxOutputFilePattern.Name = "textBoxOutputFilePattern";
-            this.textBoxOutputFilePattern.Size = new System.Drawing.Size(344, 20);
-            this.textBoxOutputFilePattern.TabIndex = 16;
-            this.toolTip1.SetToolTip(this.textBoxOutputFilePattern, resources.GetString("textBoxOutputFilePattern.ToolTip"));
-            // 
             // FormSettings
             // 
             this.AcceptButton = this.buttonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(549, 197);
+            this.ClientSize = new System.Drawing.Size(539, 212);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

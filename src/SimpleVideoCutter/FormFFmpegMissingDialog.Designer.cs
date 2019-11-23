@@ -40,7 +40,7 @@
             // 
             this.buttonOK.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonOK.Location = new System.Drawing.Point(210, 3);
+            this.buttonOK.Location = new System.Drawing.Point(210, 8);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(110, 23);
             this.buttonOK.TabIndex = 0;
@@ -54,11 +54,12 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.buttonOK, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 221);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 211);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(5);
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(530, 29);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(530, 39);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // label1
