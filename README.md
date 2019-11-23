@@ -22,8 +22,9 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 
 - Download the release by [clicking here](https://github.com/bartekmotyl/simple-video-cutter/releases)
 - Unzip release package into a directory 
-- Edit `config.json` and provide path to `ffmpeg.exe`.
-- You can also adjust other parameters, for example directory and filename pattern of the output files. Supported variables are: 
+- Start `SimpleVideoCutter.exe` in that directory
+- Once prompted, select location of ffmpeg.exe (FFmpeg can be downloaded fro free from [FFmpeg release page](https://ffmpeg.zeranoe.com/builds/)   
+- You can also adjust other parameters in settings window, for example directory and filename pattern of the output files. Supported variables are: 
 	- `{FileName}` - name of the input video file (with extension)
 	- `{FileNameWithoutExtension}` - name of the input video file (without extension)
 	- `{FileExtension}` - extension of the input video file (with dot)
@@ -32,16 +33,17 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 	- `{UserVideos}` - shortcut for `Environment.SpecialFolder.MyVideos`
 	- `{UserDocuments}` - shortcut for `Environment.SpecialFolder.MyDocuments`
 	- `{MyComputer}` - shortcut for `Environment.SpecialFolder.MyComputer`
+- Click OK to save settings
 	
 ### Working with the tool:
-- start `SimpleVideoCutter.exe`
-- open a video file 
-- the video playback starts automatically; press space to pause/resume (or click in the video area)
-- select a position and click `S` to mark start of your cut 
-- click `E` to mark end of your cut 
-- click 'Enqueue clip task' to add task to the queue. 
-  The ffmpeg will be used to extract selected portion of the video and save it in a new file. 
-- click 'Show tasks' to see list of pending and running tasks
+- Start `SimpleVideoCutter.exe`
+- Open a video file 
+- The video playback starts automatically; press space to pause/resume (or click in the video area)
+- Select a position and click `S` to mark start of your cut 
+- Click `E` to mark end of your cut 
+- Click 'Enqueue clip task' to add task to the queue. 
+  FFmpeg will be used to extract selected portion of the video and save it in a new file. 
+- Click 'Show tasks' to see list of pending and running tasks
 
 
 ## To do
