@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Simple Video Cutter")]
-[assembly: AssemblyDescription("Windows-based tool to efficiently browse and cut video footage")]
+[assembly: AssemblyDescription("Windows-based tool for efficientl browsing and cutting video footage")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Bartek Motyl")]
 [assembly: AssemblyProduct("SimpleVideoCutter")]

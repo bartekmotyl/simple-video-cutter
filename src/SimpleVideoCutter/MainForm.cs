@@ -152,7 +152,7 @@ namespace SimpleVideoCutter
         {
             var currentAssembly = Assembly.GetEntryAssembly();
             var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;
-            e.VlcLibDirectory = new DirectoryInfo(Path.Combine(currentDirectory, "libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64"));
+            e.VlcLibDirectory = new DirectoryInfo(Path.Combine(currentDirectory, "libvlc", Environment.Is64BitProcess ?  "win-x64" : "win-x86"));
         }
 
         private void toolStripButtonFileOpen_Click(object sender, EventArgs e)
