@@ -75,6 +75,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlExtensions.cs" />
+    <Compile Include="FormFFmpegMissingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFFmpegMissingDialog.Designer.cs">
+      <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSettings.Designer.cs">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +103,12 @@
     <Compile Include="VideoCutterTimeline.Designer.cs">
       <DependentUpon>VideoCutterTimeline.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormFFmpegMissingDialog.resx">
+      <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettings.resx">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,27 +138,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\media-playback-pause-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\media-playback-start-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\media-playback-stop-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\media-seek-backward-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\media-seek-forward-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\media-skip-backward-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\media-skip-forward-2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconfinder_check_293662.png" />
@@ -192,6 +189,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="movie-icon-15157-Windows.ico" />
+    <Content Include="Resources\iconfinder_cog_293670.png" />
+    <Content Include="Resources\movie-icon-15157-Windows.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\VideoLAN.LibVLC.Windows.3.0.6\build\VideoLAN.LibVLC.Windows.targets" Condition="Exists('..\packages\VideoLAN.LibVLC.Windows.3.0.6\build\VideoLAN.LibVLC.Windows.targets')" />

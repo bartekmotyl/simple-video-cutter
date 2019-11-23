@@ -59,7 +59,7 @@ namespace SimpleVideoCutter
             {
                 if (currentTask == null && tasks.TryDequeue(out currentTask))
                 {
-                    var ffmpeg = new Engine(MainForm.VideoCutterSettings.FFmpegPath);
+                    var ffmpeg = new Engine(VideoCutterSettings.Instance.FFmpegPath);
                     ffmpeg.Complete += (object sender, FFmpeg.NET.Events.ConversionCompleteEventArgs e) =>
                     {
                         currentTask = null;

@@ -20,46 +20,34 @@ namespace SimpleVideoCutter
         private string lastDirectory = null;
         private string fileBeingPlayed = null;
         private TaskProcessor taskProcessor = new TaskProcessor();
-        private static VideoCutterSettings videoCutterSettings;
         private int volume = 100;
+        private FormSettings formSettings = new FormSettings();
 
-        public static VideoCutterSettings VideoCutterSettings
+
+        private bool EnsureFFmpegConfigured()
         {
-            get
+            if (VideoCutterSettings.Instance.FFmpegPath == null || !File.Exists(VideoCutterSettings.Instance.FFmpegPath))
             {
-                return videoCutterSettings;
-            }
-        }
-
-
-        static MainForm()
-        {
-            var configFile = "config.json";
-            videoCutterSettings = null;
-            if (File.Exists(configFile))
-            {
-                var json = File.ReadAllText(configFile);
-                try
+                using (var dialog = new FormFFmpegMissingDialog())
                 {
-                    videoCutterSettings = Newtonsoft.Json.JsonConvert.DeserializeObject<VideoCutterSettings>(json);
+                    dialog.Owner = this;
+                    dialog.ShowDialog();
+                    formSettings.ShowSettingsDialog();
                 }
-                catch (Exception)
-                {
-                }
-            }
 
-            if (videoCutterSettings == null)
-            {
-                videoCutterSettings = new VideoCutterSettings();
-                var json = Newtonsoft.Json.JsonConvert.SerializeObject(videoCutterSettings, Formatting.Indented);
-                File.WriteAllText(configFile, json);
+                return false; 
             }
-
+            return true; 
         }
+           
 
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
             vlcControl1.MediaChanged += VlcControl1_MediaChanged;
             vlcControl1.LengthChanged += VlcControl1_LengthChanged;
             vlcControl1.Playing += VlcControl1_Playing;
@@ -78,12 +66,16 @@ namespace SimpleVideoCutter
 
             taskProcessor.PropertyChanged += TaskProcessor_PropertyChanged;
             taskProcessor.TaskProgress += TaskProcessor_TaskProgress;
-
-            taskProcessor.Start();
-
-            EnableButtons();
         }
 
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            VideoCutterSettings.Instance.LoadSettings();
+            EnsureFFmpegConfigured();
+
+            taskProcessor.Start();
+            EnableButtons();
+        }
 
         private void VideoCutterTimeline1_TimelineClicked(object sender, TimelineClickedEventArgs e)
         {
@@ -167,14 +159,14 @@ namespace SimpleVideoCutter
         {
             if (lastDirectory == null)
             {
-                lastDirectory = ReplaceStandardDirectoryPatterns(videoCutterSettings.DefaultInitialDirectory);
+                lastDirectory = ReplaceStandardDirectoryPatterns(VideoCutterSettings.Instance.DefaultInitialDirectory);
             }
             using (OpenFileDialog fd = new OpenFileDialog())
             {
                 fd.InitialDirectory = lastDirectory;
                 fd.RestoreDirectory = true;
 
-                var filter = "All video files|" + string.Join(";", VideoCutterSettings.VideoFilesExtensions.Select(ex => "*" + ex).ToArray());
+                var filter = "All video files|" + string.Join(";", VideoCutterSettings.Instance.VideoFilesExtensions.Select(ex => "*" + ex).ToArray());
                 fd.Filter = filter;
 
                 if (fd.ShowDialog() == DialogResult.OK)
@@ -200,8 +192,8 @@ namespace SimpleVideoCutter
                 .Replace("{FileName}", Path.GetFileName(path))
                 .Replace("{FileNameWithoutExtension}", Path.GetFileNameWithoutExtension(path))
                 .Replace("{FileExtension}", Path.GetExtension(path))
-                .Replace("{FileDate}", string.Format("{0:yyyy-MM-dd-HHmmss}", fileInfo.LastWriteTime))
-                .Replace("{Timestamp}", string.Format("{0:yyyyMMddHHmmss}", DateTime.Now));
+                .Replace("{FileDate}", string.Format("{0:yyyyMMdd-HHmmss}", fileInfo.LastWriteTime))
+                .Replace("{Timestamp}", string.Format("{0:yyyyMMdd-HHmmss}", DateTime.Now));
         }
 
         private void OpenFile(string path)
@@ -329,15 +321,12 @@ namespace SimpleVideoCutter
                 return;
             }
 
-            if (VideoCutterSettings.FFmpegPath == null || !File.Exists(MainForm.VideoCutterSettings.FFmpegPath))
-            {
-                MessageBox.Show("FFmpeg path not configured. Please edit config.json and restart the program.");
-                return;
-            }
+            if (!EnsureFFmpegConfigured())
+                return; 
 
             FileInfo fileInfo = new FileInfo(fileBeingPlayed);
-            var outputDir = ReplaceStandardDirectoryPatterns(VideoCutterSettings.OutputDirectory);
-            var outputFileName = ReplaceFilePatterns(VideoCutterSettings.OutputFilePattern, fileBeingPlayed);
+            var outputDir = ReplaceStandardDirectoryPatterns(VideoCutterSettings.Instance.OutputDirectory);
+            var outputFileName = ReplaceFilePatterns(VideoCutterSettings.Instance.OutputFilePattern, fileBeingPlayed);
             var outputFilePath = Path.Combine(outputDir, outputFileName);
 
             var inputFile = new MediaFile(fileInfo.FullName);
@@ -373,7 +362,7 @@ namespace SimpleVideoCutter
         {
             var currentDir = Path.GetDirectoryName(currentFilePath);
 
-            var extensions = MainForm.VideoCutterSettings.VideoFilesExtensions;
+            var extensions = VideoCutterSettings.Instance.VideoFilesExtensions;
             var allFiles = Directory.EnumerateFiles(currentDir, "*", SearchOption.TopDirectoryOnly);
 
             var videoFilesArr = allFiles
@@ -486,6 +475,11 @@ namespace SimpleVideoCutter
         private void toolStripButtonShowTasks_CheckedChanged(object sender, EventArgs e)
         {
             splitContainer1.Panel2Collapsed = !toolStripButtonShowTasks.Checked;
+        }
+
+        private void toolStripButtonSettings_Click(object sender, EventArgs e)
+        {
+            formSettings.ShowSettingsDialog();
         }
     }
 }

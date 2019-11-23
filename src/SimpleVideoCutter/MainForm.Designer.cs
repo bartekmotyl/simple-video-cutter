@@ -33,16 +33,18 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonFileOpen = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonPreviousFile = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonNextFile = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonSetStart = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSetEnd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonClearSelection = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonAddTask = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonPreviousFile = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonNextFile = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonShowTasks = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonSettings = new System.Windows.Forms.ToolStripButton();
             this.panelTasks = new System.Windows.Forms.Panel();
             this.listViewTasks = new System.Windows.Forms.ListView();
             this.columnFilename = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -98,7 +100,9 @@
             this.toolStripSeparator2,
             this.toolStripButtonAddTask,
             this.toolStripSeparator3,
-            this.toolStripButtonShowTasks});
+            this.toolStripButtonShowTasks,
+            this.toolStripSeparator5,
+            this.toolStripButtonSettings});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(922, 54);
@@ -119,6 +123,31 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 54);
+            // 
+            // toolStripButtonPreviousFile
+            // 
+            this.toolStripButtonPreviousFile.Image = global::SimpleVideoCutter.Properties.Resources.iconfinder_nav_left_293639;
+            this.toolStripButtonPreviousFile.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPreviousFile.Name = "toolStripButtonPreviousFile";
+            this.toolStripButtonPreviousFile.Size = new System.Drawing.Size(75, 51);
+            this.toolStripButtonPreviousFile.Text = "Previous file";
+            this.toolStripButtonPreviousFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButtonPreviousFile.Click += new System.EventHandler(this.toolStripButtonPreviousFile_Click);
+            // 
+            // toolStripButtonNextFile
+            // 
+            this.toolStripButtonNextFile.Image = global::SimpleVideoCutter.Properties.Resources.iconfinder_nav_right_293640;
+            this.toolStripButtonNextFile.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonNextFile.Name = "toolStripButtonNextFile";
+            this.toolStripButtonNextFile.Size = new System.Drawing.Size(55, 51);
+            this.toolStripButtonNextFile.Text = "Next file";
+            this.toolStripButtonNextFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButtonNextFile.Click += new System.EventHandler(this.toolStripButtonNextFile_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 54);
             // 
             // toolStripButtonSetStart
             // 
@@ -170,31 +199,6 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 54);
             // 
-            // toolStripButtonPreviousFile
-            // 
-            this.toolStripButtonPreviousFile.Image = global::SimpleVideoCutter.Properties.Resources.iconfinder_nav_left_293639;
-            this.toolStripButtonPreviousFile.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonPreviousFile.Name = "toolStripButtonPreviousFile";
-            this.toolStripButtonPreviousFile.Size = new System.Drawing.Size(75, 51);
-            this.toolStripButtonPreviousFile.Text = "Previous file";
-            this.toolStripButtonPreviousFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonPreviousFile.Click += new System.EventHandler(this.toolStripButtonPreviousFile_Click);
-            // 
-            // toolStripButtonNextFile
-            // 
-            this.toolStripButtonNextFile.Image = global::SimpleVideoCutter.Properties.Resources.iconfinder_nav_right_293640;
-            this.toolStripButtonNextFile.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonNextFile.Name = "toolStripButtonNextFile";
-            this.toolStripButtonNextFile.Size = new System.Drawing.Size(54, 51);
-            this.toolStripButtonNextFile.Text = "Next file";
-            this.toolStripButtonNextFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonNextFile.Click += new System.EventHandler(this.toolStripButtonNextFile_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 54);
-            // 
             // toolStripButtonShowTasks
             // 
             this.toolStripButtonShowTasks.CheckOnClick = true;
@@ -205,6 +209,22 @@
             this.toolStripButtonShowTasks.Text = "Show tasks";
             this.toolStripButtonShowTasks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButtonShowTasks.CheckedChanged += new System.EventHandler(this.toolStripButtonShowTasks_CheckedChanged);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 54);
+            // 
+            // toolStripButtonSettings
+            // 
+            this.toolStripButtonSettings.Image = global::SimpleVideoCutter.Properties.Resources.iconfinder_cog_293670;
+            this.toolStripButtonSettings.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolStripButtonSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSettings.Name = "toolStripButtonSettings";
+            this.toolStripButtonSettings.Size = new System.Drawing.Size(53, 51);
+            this.toolStripButtonSettings.Text = "Settings";
+            this.toolStripButtonSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButtonSettings.Click += new System.EventHandler(this.toolStripButtonSettings_Click);
             // 
             // panelTasks
             // 
@@ -347,6 +367,8 @@
             this.Name = "MainForm";
             this.Text = "Simple video cutter";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.vlcControl1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
@@ -394,6 +416,8 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelSelection;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripButton toolStripButtonShowTasks;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripButton toolStripButtonSettings;
     }
 }
 
