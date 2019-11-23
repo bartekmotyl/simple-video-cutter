@@ -45,8 +45,8 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 
 
 ## To do
-- configure options in a dialog (currently one need to modify `config.json` file manually)
-- open dialog to select ffmpeg location 
+- ~~configure options in a dialog (currently one need to modify `config.json` file manually)~~
+- ~~open dialog to select ffmpeg location~~ 
 - allow to configure ffmpeg options when (e.g. convert ot a different format / size etc.) 
 - improve timeline control (show seconds ticks etc. )
 - extend list of variables that can be used in file patterns 
