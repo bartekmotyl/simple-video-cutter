@@ -1,4 +1,5 @@
 ﻿using FFmpeg.NET;
+using LibVLCSharp.Shared;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace SimpleVideoCutter
 {
     public partial class MainForm : Form
     {
+        private LibVLC libVLC;
         private string lastDirectory = null;
         private string fileBeingPlayed = null;
         private TaskProcessor taskProcessor = new TaskProcessor();
@@ -48,17 +50,21 @@ namespace SimpleVideoCutter
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            vlcControl1.MediaChanged += VlcControl1_MediaChanged;
-            vlcControl1.LengthChanged += VlcControl1_LengthChanged;
-            vlcControl1.Playing += VlcControl1_Playing;
-            vlcControl1.Paused += VlcControl1_Paused;
-            vlcControl1.Stopped += VlcControl1_Stopped;
-            vlcControl1.PositionChanged += VlcControl1_PositionChanged;
-            vlcControl1.EndReached += VlcControl1_EndReached;
+            Core.Initialize();
+            libVLC = new LibVLC();
+            vlcControl1.MediaPlayer = new MediaPlayer(libVLC);
+
+            vlcControl1.MediaPlayer.MediaChanged += VlcControl1_MediaChanged;
+            vlcControl1.MediaPlayer.LengthChanged += VlcControl1_LengthChanged;
+            vlcControl1.MediaPlayer.Playing += VlcControl1_Playing;
+            vlcControl1.MediaPlayer.Paused += VlcControl1_Paused;
+            vlcControl1.MediaPlayer.Stopped += VlcControl1_Stopped;
+            vlcControl1.MediaPlayer.PositionChanged += VlcControl1_PositionChanged;
+            vlcControl1.MediaPlayer.EndReached += VlcControl1_EndReached;
             vlcControl1.MouseWheel += VlcControl1_MouseWheel;
 
-            vlcControl1.Video.IsMouseInputEnabled = false;
-            vlcControl1.Video.IsKeyInputEnabled = false;
+            //vlcControl1.MediaPlayer.Video.IsMouseInputEnabled = false;
+            //vlcControl1.MediaPlayer.Video.IsKeyInputEnabled = false;
 
             videoCutterTimeline1.TimelineClicked += VideoCutterTimeline1_TimelineClicked;
             videoCutterTimeline1.SelectionChanged += VideoCutterTimeline1_SelectionChanged; ;
@@ -79,9 +85,9 @@ namespace SimpleVideoCutter
 
         private void VideoCutterTimeline1_TimelineClicked(object sender, TimelineClickedEventArgs e)
         {
-            if (vlcControl1.VlcMediaPlayer.IsSeekable)
+            if (vlcControl1.MediaPlayer.IsSeekable)
             {
-                vlcControl1.VlcMediaPlayer.Time = e.ClickedPosition;
+                vlcControl1.MediaPlayer.Time = e.ClickedPosition;
                 videoCutterTimeline1.InvokeIfRequired(() =>
                 {
                     videoCutterTimeline1.Position = (int)(e.ClickedPosition);
@@ -89,9 +95,9 @@ namespace SimpleVideoCutter
             }
         }
 
-        private void VlcControl1_EndReached(object sender, Vlc.DotNet.Core.VlcMediaPlayerEndReachedEventArgs e)
+        private void VlcControl1_EndReached(object sender, EventArgs e)
         {
-            var length = (int)vlcControl1.VlcMediaPlayer.Length;
+            var length = (int)vlcControl1.MediaPlayer.Length;
             videoCutterTimeline1.InvokeIfRequired(() =>
             {
                 videoCutterTimeline1.Position = length;
@@ -99,19 +105,19 @@ namespace SimpleVideoCutter
             EnableButtons();
         }
 
-        private void VlcControl1_PositionChanged(object sender, Vlc.DotNet.Core.VlcMediaPlayerPositionChangedEventArgs e)
+        private void VlcControl1_PositionChanged(object sender, MediaPlayerPositionChangedEventArgs e)
         {
-            var length = (int)vlcControl1.VlcMediaPlayer.Length;
+            var length = (int)vlcControl1.MediaPlayer.Length;
             videoCutterTimeline1.InvokeIfRequired(() =>
             {
-                videoCutterTimeline1.Position = (int)(e.NewPosition * length);
+                videoCutterTimeline1.Position = (int)(e.Position * length);
             });
             EnableButtons();
         }
 
-        private void VlcControl1_LengthChanged(object sender, Vlc.DotNet.Core.VlcMediaPlayerLengthChangedEventArgs e)
+        private void VlcControl1_LengthChanged(object sender, MediaPlayerLengthChangedEventArgs e)
         {
-            var length = (int)vlcControl1.VlcMediaPlayer.Length;
+            var length = (int)vlcControl1.MediaPlayer.Length;
             videoCutterTimeline1.InvokeIfRequired(() =>
             {
                 videoCutterTimeline1.Length = length;
@@ -119,15 +125,15 @@ namespace SimpleVideoCutter
             EnableButtons();
         }
 
-        private void VlcControl1_Stopped(object sender, Vlc.DotNet.Core.VlcMediaPlayerStoppedEventArgs e)
+        private void VlcControl1_Stopped(object sender, EventArgs e)
         {
             EnableButtons();
         }
 
-        private void VlcControl1_Paused(object sender, Vlc.DotNet.Core.VlcMediaPlayerPausedEventArgs e)
+        private void VlcControl1_Paused(object sender, EventArgs e)
         {
-            var length = vlcControl1.VlcMediaPlayer.Length;
-            var position = vlcControl1.VlcMediaPlayer.Position;
+            var length = vlcControl1.MediaPlayer.Length;
+            var position = vlcControl1.MediaPlayer.Position;
             this.InvokeIfRequired(() =>
             {
                 videoCutterTimeline1.Position = (int)(position * length);
@@ -135,7 +141,7 @@ namespace SimpleVideoCutter
             EnableButtons();
         }
 
-        private void VlcControl1_MediaChanged(object sender, Vlc.DotNet.Core.VlcMediaPlayerMediaChangedEventArgs e)
+        private void VlcControl1_MediaChanged(object sender, MediaPlayerMediaChangedEventArgs e)
         {
             var fi = new FileInfo(fileBeingPlayed);
             string fileInfo = string.Format("{0:yyyy/MM/dd HH:mm:ss}", fi.LastWriteTime);
@@ -143,16 +149,9 @@ namespace SimpleVideoCutter
             EnableButtons();
         }
 
-        private void VlcControl1_Playing(object sender, Vlc.DotNet.Core.VlcMediaPlayerPlayingEventArgs e)
+        private void VlcControl1_Playing(object sender, EventArgs e)
         {
             EnableButtons();
-        }
-
-        private void vlcControl1_VlcLibDirectoryNeeded(object sender, Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs e)
-        {
-            var currentAssembly = Assembly.GetEntryAssembly();
-            var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;
-            e.VlcLibDirectory = new DirectoryInfo(Path.Combine(currentDirectory, "libvlc", Environment.Is64BitProcess ?  "win-x64" : "win-x86"));
         }
 
         private void toolStripButtonFileOpen_Click(object sender, EventArgs e)
@@ -201,16 +200,16 @@ namespace SimpleVideoCutter
             fileBeingPlayed = path;
             toolStripStatusLabelFilePath.Text = path;
 
-            if (vlcControl1.VlcMediaPlayer.IsPlaying())
+            if (vlcControl1.MediaPlayer.IsPlaying)
             {
-                ThreadPool.QueueUserWorkItem(_ => vlcControl1.Stop());
+                ThreadPool.QueueUserWorkItem(_ => vlcControl1.MediaPlayer.Stop());
             }
 
             ClearSelection();
             UpdateIndexLabel();
             EnableButtons();
 
-            ThreadPool.QueueUserWorkItem(_ => vlcControl1.Play(new FileInfo(path)));
+            ThreadPool.QueueUserWorkItem(_ => vlcControl1.MediaPlayer.Play(new Media(libVLC, path, FromType.FromPath)));
         }
 
         private void vlcControl1_MouseClick(object sender, MouseEventArgs e)
@@ -220,14 +219,14 @@ namespace SimpleVideoCutter
 
         private void PlayPause()
         {
-            if (vlcControl1.State == Vlc.DotNet.Core.Interops.Signatures.MediaStates.Ended || vlcControl1.State == Vlc.DotNet.Core.Interops.Signatures.MediaStates.Stopped)
+            if (vlcControl1.MediaPlayer.State == VLCState.Ended || vlcControl1.MediaPlayer.State == VLCState.Stopped)
             {
-                vlcControl1.Play(new FileInfo(fileBeingPlayed));
+                vlcControl1.MediaPlayer.Play(new Media(libVLC, fileBeingPlayed, FromType.FromPath));
                 EnableButtons();
             }
             else
             {
-                vlcControl1.Pause();
+                vlcControl1.MediaPlayer.Pause();
                 EnableButtons();
             }
         }
@@ -247,7 +246,7 @@ namespace SimpleVideoCutter
                 SetEndAtCurrentPosition();
 
             if (e.KeyCode == Keys.OemPeriod)
-                vlcControl1.VlcMediaPlayer.NextFrame();
+                vlcControl1.MediaPlayer.NextFrame();
         }
 
         private void SetStartAtCurrentPosition()
@@ -418,7 +417,7 @@ namespace SimpleVideoCutter
                 volume = 200;
 
             toolStripStatusLabelVolume.Text = string.Format("Volume: {0} %", volume);
-            vlcControl1.VlcMediaPlayer.Audio.Volume = volume;
+            vlcControl1.MediaPlayer.Volume = volume;
         }
 
         private void UpdateIndexLabel()

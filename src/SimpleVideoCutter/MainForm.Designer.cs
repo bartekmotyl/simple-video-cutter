@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.vlcControl1 = new Vlc.DotNet.Forms.VlcControl();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonFileOpen = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -59,7 +58,7 @@
             this.toolStripStatusLabelFileDate = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelIndex = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelSelection = new System.Windows.Forms.ToolStripStatusLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.vlcControl1)).BeginInit();
+            this.vlcControl1 = new LibVLCSharp.WinForms.VideoView();
             this.toolStrip1.SuspendLayout();
             this.panelTasks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -67,23 +66,8 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vlcControl1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // vlcControl1
-            // 
-            this.vlcControl1.BackColor = System.Drawing.Color.Black;
-            this.vlcControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vlcControl1.Location = new System.Drawing.Point(0, 0);
-            this.vlcControl1.Name = "vlcControl1";
-            this.vlcControl1.Size = new System.Drawing.Size(922, 488);
-            this.vlcControl1.Spu = -1;
-            this.vlcControl1.TabIndex = 0;
-            this.vlcControl1.Text = "vlcControl1";
-            this.vlcControl1.VlcLibDirectory = null;
-            this.vlcControl1.VlcMediaplayerOptions = new string[] {
-        "--play-and-pause"};
-            this.vlcControl1.VlcLibDirectoryNeeded += new System.EventHandler<Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs>(this.vlcControl1_VlcLibDirectoryNeeded);
-            this.vlcControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.vlcControl1_MouseClick);
             // 
             // toolStrip1
             // 
@@ -243,6 +227,7 @@
             this.columnFilename,
             this.columnDuration});
             this.listViewTasks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewTasks.HideSelection = false;
             this.listViewTasks.Location = new System.Drawing.Point(0, 13);
             this.listViewTasks.Name = "listViewTasks";
             this.listViewTasks.Size = new System.Drawing.Size(96, 74);
@@ -287,8 +272,8 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.videoCutterTimeline1);
             this.splitContainer1.Panel1.Controls.Add(this.vlcControl1);
+            this.splitContainer1.Panel1.Controls.Add(this.videoCutterTimeline1);
             // 
             // splitContainer1.Panel2
             // 
@@ -354,6 +339,17 @@
             this.toolStripStatusLabelSelection.Size = new System.Drawing.Size(73, 17);
             this.toolStripStatusLabelSelection.Text = "No selection";
             // 
+            // vlcControl1
+            // 
+            this.vlcControl1.BackColor = System.Drawing.Color.Black;
+            this.vlcControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.vlcControl1.Location = new System.Drawing.Point(0, 0);
+            this.vlcControl1.MediaPlayer = null;
+            this.vlcControl1.Name = "vlcControl1";
+            this.vlcControl1.Size = new System.Drawing.Size(922, 456);
+            this.vlcControl1.TabIndex = 5;
+            this.vlcControl1.Text = "videoView1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,7 +366,6 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.vlcControl1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panelTasks.ResumeLayout(false);
@@ -381,14 +376,13 @@
             this.splitContainer1.ResumeLayout(false);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vlcControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private Vlc.DotNet.Forms.VlcControl vlcControl1;
         private VideoCutterTimeline videoCutterTimeline1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButtonFileOpen;
@@ -418,6 +412,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonShowTasks;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton toolStripButtonSettings;
+        private LibVLCSharp.WinForms.VideoView vlcControl1;
     }
 }
 
