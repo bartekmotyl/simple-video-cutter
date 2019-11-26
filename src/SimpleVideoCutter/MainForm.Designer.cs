@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonFileOpen = new System.Windows.Forms.ToolStripButton();
@@ -51,7 +52,6 @@
             this.labelTasks = new System.Windows.Forms.Label();
             this.labelProgress = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.videoCutterTimeline1 = new SimpleVideoCutter.VideoCutterTimeline();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelVolume = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelFilePath = new System.Windows.Forms.ToolStripStatusLabel();
@@ -59,6 +59,8 @@
             this.toolStripStatusLabelIndex = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelSelection = new System.Windows.Forms.ToolStripStatusLabel();
             this.vlcControl1 = new LibVLCSharp.WinForms.VideoView();
+            this.videoCutterTimeline1 = new SimpleVideoCutter.VideoCutterTimeline();
+            this.timerPositionChanged = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1.SuspendLayout();
             this.panelTasks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -283,17 +285,6 @@
             this.splitContainer1.SplitterDistance = 741;
             this.splitContainer1.TabIndex = 7;
             // 
-            // videoCutterTimeline1
-            // 
-            this.videoCutterTimeline1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.videoCutterTimeline1.HoverPosition = null;
-            this.videoCutterTimeline1.Length = ((long)(0));
-            this.videoCutterTimeline1.Location = new System.Drawing.Point(0, 456);
-            this.videoCutterTimeline1.Name = "videoCutterTimeline1";
-            this.videoCutterTimeline1.Position = ((long)(0));
-            this.videoCutterTimeline1.Size = new System.Drawing.Size(922, 32);
-            this.videoCutterTimeline1.TabIndex = 4;
-            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -349,6 +340,22 @@
             this.vlcControl1.Size = new System.Drawing.Size(922, 456);
             this.vlcControl1.TabIndex = 5;
             this.vlcControl1.Text = "videoView1";
+            // 
+            // videoCutterTimeline1
+            // 
+            this.videoCutterTimeline1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.videoCutterTimeline1.HoverPosition = null;
+            this.videoCutterTimeline1.Length = ((long)(0));
+            this.videoCutterTimeline1.Location = new System.Drawing.Point(0, 456);
+            this.videoCutterTimeline1.Name = "videoCutterTimeline1";
+            this.videoCutterTimeline1.Position = ((long)(0));
+            this.videoCutterTimeline1.Size = new System.Drawing.Size(922, 32);
+            this.videoCutterTimeline1.TabIndex = 4;
+            // 
+            // timerPositionChanged
+            // 
+            this.timerPositionChanged.Interval = 200;
+            this.timerPositionChanged.Tick += new System.EventHandler(this.timerPositionChanged_Tick);
             // 
             // MainForm
             // 
@@ -413,6 +420,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton toolStripButtonSettings;
         private LibVLCSharp.WinForms.VideoView vlcControl1;
+        private System.Windows.Forms.Timer timerPositionChanged;
     }
 }
 

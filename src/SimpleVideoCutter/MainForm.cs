@@ -107,12 +107,8 @@ namespace SimpleVideoCutter
 
         private void VlcControl1_PositionChanged(object sender, MediaPlayerPositionChangedEventArgs e)
         {
-            var length = (int)vlcControl1.MediaPlayer.Length;
-            videoCutterTimeline1.InvokeIfRequired(() =>
-            {
-                videoCutterTimeline1.Position = (int)(e.Position * length);
-            });
-            EnableButtons();
+            timerPositionChanged.Stop();
+            timerPositionChanged.Start();
         }
 
         private void VlcControl1_LengthChanged(object sender, MediaPlayerLengthChangedEventArgs e)
@@ -479,6 +475,17 @@ namespace SimpleVideoCutter
         private void toolStripButtonSettings_Click(object sender, EventArgs e)
         {
             formSettings.ShowSettingsDialog();
+        }
+
+        private void timerPositionChanged_Tick(object sender, EventArgs e)
+        {
+            var position = videoCutterTimeline1.Position;
+            var length = (int)vlcControl1.MediaPlayer.Length;
+            videoCutterTimeline1.InvokeIfRequired(() =>
+            {
+                videoCutterTimeline1.Position = (int)(position * length);
+            });
+            EnableButtons();
         }
     }
 }
