@@ -19,6 +19,7 @@ namespace SimpleVideoCutter
         public long Length { get; set; }
 
         private Brush brushBackground = new SolidBrush(Color.FromArgb(0x4C, 0x4C, 0x4C));
+        private Brush brushBackgroundInfoArea = new SolidBrush(Color.FromArgb(0x5C, 0x5C, 0x5C));
         private Brush brushBackgroundSelected = new SolidBrush(Color.FromArgb(0xAD, 0xAD, 0xAD));
         private Pen penTick = new Pen(Color.FromArgb(0x5A, 0x5A, 0x5A));
         private Brush brushHoverPosition = new SolidBrush(Color.FromArgb(0xC8, 0x17, 0x17));
@@ -85,17 +86,20 @@ namespace SimpleVideoCutter
         {
             e.Graphics.FillRectangle(brushBackground, ClientRectangle);
 
+            TimelineTooltip timelineTooltip = null;
+
             var infoAreaHeight = 30;
             var infoAreaRect = new Rectangle(ClientRectangle.X, ClientRectangle.Y, ClientRectangle.Width, infoAreaHeight);
 
+            e.Graphics.FillRectangle(brushBackgroundInfoArea, infoAreaRect);
 
             e.Graphics.TranslateTransform(0, infoAreaHeight);
-            
-            var timeLineRect = ClientRectangle;
+
+            int timeLineHeight = ClientRectangle.Height - infoAreaHeight;
 
             if (Length != 0)
             {
-                float pixelsPerSecond = (float)timeLineRect.Width / Length * 1000.0f;
+                float pixelsPerSecond = (float)ClientRectangle.Width / Length * 1000.0f;
                 float pixelsPerMinute = pixelsPerSecond / 60.0f;
 
                 if (pixelsPerSecond > 3)
@@ -104,7 +108,7 @@ namespace SimpleVideoCutter
                     float endPosition = Length / 1000 * pixelsPerSecond;
                     while (position <= endPosition)
                     {
-                        e.Graphics.DrawLine(penTick, (int)position, 0, (int)position, timeLineRect.Height / 4);
+                        e.Graphics.DrawLine(penTick, (int)position, 0, (int)position, timeLineHeight / 4);
                         position += pixelsPerSecond;
                     }
                 }
@@ -114,26 +118,28 @@ namespace SimpleVideoCutter
                 {
                     var pixelsStart = FrameToPixel((long?)SelectionStart.Value);
                     var pixelsEnd = FrameToPixel((long?)SelectionEnd.Value);
-                    var selectionRect = new Rectangle(pixelsStart, 0, pixelsEnd - pixelsStart, timeLineRect.Height);
+                    var selectionRect = new Rectangle(pixelsStart, 0, pixelsEnd - pixelsStart, timeLineHeight);
                     e.Graphics.FillRectangle(brushBackgroundSelected, selectionRect);
                 }
 
                 if (SelectionStart != null)
                 {
-                    var selectionStartRect = PrepareTimeLineRectangle(FrameToPixel((long?)SelectionStart.Value), 5, timeLineRect.Height);
-                    e.Graphics.FillRectangle(brushSelectionMarker, selectionStartRect);
+                    var pixel = FrameToPixel(SelectionStart.Value);
+                    e.Graphics.FillRectangle(brushSelectionMarker, pixel, 0, 2, timeLineHeight);
+                    PaintUpperHalfTriangle(e.Graphics, brushSelectionMarker, pixel, 8, 8, true);
+                    PaintBottomHalfTriangle(e.Graphics, brushSelectionMarker, pixel, 8, 8, true, timeLineHeight);
                 }
                 if (SelectionEnd != null)
                 {
-                    var selectionEndRect = PrepareTimeLineRectangle(FrameToPixel((long?)SelectionEnd.Value), 5, timeLineRect.Height);
-                    e.Graphics.FillRectangle(brushSelectionMarker, selectionEndRect);
+                    var pixel = FrameToPixel(SelectionEnd.Value);
+                    e.Graphics.FillRectangle(brushSelectionMarker, pixel, 0, 2, timeLineHeight);
+                    PaintUpperHalfTriangle(e.Graphics, brushSelectionMarker, pixel, 8, 8, false);
+                    PaintBottomHalfTriangle(e.Graphics, brushSelectionMarker, pixel, 8, 8, false, timeLineHeight);
                 }
 
-                var locationMarkerRect = PrepareTimeLineRectangle(FrameToPixel((long?)Position), 3, timeLineRect.Height / 2);
-                e.Graphics.FillRectangle(brushPosition, locationMarkerRect);
-
-
-                e.Graphics.ResetTransform();
+                var positionPixel = FrameToPixel(Position);
+                PaintTriangle(e.Graphics, brushPosition, positionPixel, 8, 8);
+                e.Graphics.FillRectangle(brushPosition, positionPixel, 0, 1, timeLineHeight);
 
 
 
@@ -141,20 +147,37 @@ namespace SimpleVideoCutter
                 {
                     var pixel = FrameToPixel(HoverPosition);
 
-                    var hoverLocationMarkerRect = PrepareTimeLineRectangle(pixel, 2, timeLineRect.Height);
-                    e.Graphics.FillRectangle(brushHoverPosition, hoverLocationMarkerRect);
+                    if (selectionStartMoveController.IsDragStartPossible(pixel) || selectionStartMoveController.IsDragInProgress())
+                    {
+                        timelineTooltip = new TimelineTooltip() { X = pixel, Text = "move clip start" };
+                    }
+                    if (selectionEndMoveController.IsDragStartPossible(pixel) || selectionEndMoveController.IsDragInProgress())
+                    {
+                        timelineTooltip = new TimelineTooltip() { X = pixel, Text = "move clip end" };
+                    }
+
+
+
+                    e.Graphics.FillRectangle(brushHoverPosition, pixel, 0, 1, timeLineHeight);
+                    PaintTriangle(e.Graphics, brushHoverPosition, FrameToPixel(HoverPosition), 8, 8);
 
                     if (SelectionStart == null)
                     {
-                        PaintStringInBox(e.Graphics, Brushes.LightYellow, Brushes.Gray, "middle click to set clip start here", infoAreaRect, pixel);
+                        timelineTooltip = new TimelineTooltip() { X = pixel, Text = "middle click to set clip start here" };
                     }
                     else if (SelectionEnd == null)
                     {
-                        PaintStringInBox(e.Graphics, Brushes.LightYellow, Brushes.Gray, "middle click to set clip end here", infoAreaRect, pixel);
+                        timelineTooltip = new TimelineTooltip() { X = pixel, Text = "middle click to set clip end here" };
                     }
                 }
 
 
+                e.Graphics.ResetTransform();
+
+                if (timelineTooltip != null)
+                {
+                    PaintStringInBox(e.Graphics, Brushes.LightYellow, Brushes.Gray, timelineTooltip.Text, infoAreaRect, timelineTooltip.X);
+                }
 
             }
         }
@@ -175,6 +198,39 @@ namespace SimpleVideoCutter
             stringFormat.LineAlignment = StringAlignment.Center;
             gr.DrawString(str, font, textBrush, rect, stringFormat);
         }
+
+        private void PaintTriangle(Graphics gr, Brush brush, int location, int width, int height)
+        {
+            gr.FillPolygon(brush, new PointF[]
+            {
+                new PointF(location - width/2.0f, 0),
+                new PointF(location + width/2.0f, 0),
+                new PointF(location, height)
+            });
+        }
+
+
+        private void PaintUpperHalfTriangle(Graphics gr, Brush brush, int location, int width, int height, bool forward)
+        {
+            gr.FillPolygon(brush, new PointF[]
+            {
+                new PointF(location, 0),
+                new PointF(forward ? location + width : location-width, 0),
+                new PointF(location, height)
+            });
+        }
+
+        private void PaintBottomHalfTriangle(Graphics gr, Brush brush, int location, int width, int height, bool forward, int offsetY)
+        {
+            gr.FillPolygon(brush, new PointF[]
+            {
+                new PointF(location, offsetY),
+                new PointF(forward ? location + width : location-width, offsetY),
+                new PointF(location, offsetY-height)
+            });
+        }
+
+
 
         private int FrameToPixel(long? frame)
         {
@@ -317,6 +373,11 @@ namespace SimpleVideoCutter
                 return dragInProgress;
             }
 
+            public bool IsDragStartPossible(int posX)
+            {
+                return !dragInProgress && IsInDragSizeByFrame(posX, GetCurrentPosition());
+            }
+
             public void ProcessMouseMove(MouseEventArgs e)
             {
                 if (dragInProgress)
@@ -402,6 +463,11 @@ namespace SimpleVideoCutter
             }
         }
 
+        private class TimelineTooltip
+        {
+            public int X { get; set; }
+            public string Text { get; set; }
+        }
     }
 
 

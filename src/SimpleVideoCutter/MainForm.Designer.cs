@@ -340,7 +340,7 @@
             this.vlcControl1.Location = new System.Drawing.Point(0, 0);
             this.vlcControl1.MediaPlayer = null;
             this.vlcControl1.Name = "vlcControl1";
-            this.vlcControl1.Size = new System.Drawing.Size(922, 432);
+            this.vlcControl1.Size = new System.Drawing.Size(922, 424);
             this.vlcControl1.TabIndex = 5;
             this.vlcControl1.Text = "videoView1";
             // 
@@ -365,10 +365,10 @@
             this.videoCutterTimeline1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.videoCutterTimeline1.HoverPosition = null;
             this.videoCutterTimeline1.Length = ((long)(0));
-            this.videoCutterTimeline1.Location = new System.Drawing.Point(0, 432);
+            this.videoCutterTimeline1.Location = new System.Drawing.Point(0, 424);
             this.videoCutterTimeline1.Name = "videoCutterTimeline1";
             this.videoCutterTimeline1.Position = ((long)(0));
-            this.videoCutterTimeline1.Size = new System.Drawing.Size(922, 56);
+            this.videoCutterTimeline1.Size = new System.Drawing.Size(922, 64);
             this.videoCutterTimeline1.TabIndex = 4;
             // 
             // MainForm
