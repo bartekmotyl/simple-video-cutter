@@ -16,8 +16,6 @@ namespace SimpleVideoCutter
         public event EventHandler<SelectionChangedEventArgs> SelectionChanged;
         public event EventHandler<PositionChangeRequestEventArgs> PositionChangeRequest;
 
-        public long Length { get; set; }
-
         private Brush brushBackground = new SolidBrush(Color.FromArgb(0x4C, 0x4C, 0x4C));
         private Brush brushBackgroundInfoArea = new SolidBrush(Color.FromArgb(0x5C, 0x5C, 0x5C));
         private Brush brushBackgroundSelected = new SolidBrush(Color.FromArgb(0xAD, 0xAD, 0xAD));
@@ -26,11 +24,15 @@ namespace SimpleVideoCutter
         private Brush brushSelectionMarker = new SolidBrush(Color.FromArgb(0xFF, 0xE9, 0x7F));
         private Brush brushPosition = new SolidBrush(Color.FromArgb(0x00, 0x5C, 0x9E));
 
-        private long position = 0;
-
         private PositionMoveController selectionStartMoveController;
         private PositionMoveController selectionEndMoveController;
 
+        private long position = 0;
+        private long? hoverPosition = null;
+        private long? selectionStart = null;
+        private long? selectionEnd = null;
+
+        public long Length { get; set; }
 
         public long Position
         {
@@ -45,7 +47,6 @@ namespace SimpleVideoCutter
             }
         }
 
-        private long? hoverPosition = null;
         public long? HoverPosition
         {
             get
@@ -63,13 +64,10 @@ namespace SimpleVideoCutter
             }
         }
 
-        private long? selectionStart = null;
         public long? SelectionStart
         {
             get { return selectionStart; }
         }
-
-        private long? selectionEnd = null;
         public long? SelectionEnd
         {
             get { return selectionEnd; }
@@ -246,11 +244,6 @@ namespace SimpleVideoCutter
             return pos;
         }
 
-        private Rectangle PrepareTimeLineRectangle(int positionPixels, int thickness, int height)
-        {
-            return new Rectangle(positionPixels - thickness / 2, 0, thickness, height);
-        }
-
         private void VideoCutterTimeline_Resize(object sender, EventArgs e)
         {
             Invalidate();
@@ -268,10 +261,6 @@ namespace SimpleVideoCutter
 
         }
 
-        private void VideoCutterTimeline_MouseEnter(object sender, EventArgs e)
-        {
-        }
-
         private void VideoCutterTimeline_MouseLeave(object sender, EventArgs e)
         {
             HoverPosition = null;
@@ -281,12 +270,6 @@ namespace SimpleVideoCutter
 
             Cursor = Cursors.Default;
         }
-
-        private void VideoCutterTimeline_MouseClick(object sender, MouseEventArgs e)
-        {
-        }
-
-
 
         private void OnSelectionChanged()
         {
@@ -479,6 +462,7 @@ namespace SimpleVideoCutter
     public class SelectionChangedEventArgs : EventArgs
     {
     }
+
     public class PositionChangeRequestEventArgs : EventArgs
     {
         public long Position { get; set; }

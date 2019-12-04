@@ -343,6 +343,7 @@
             this.vlcControl1.Size = new System.Drawing.Size(922, 424);
             this.vlcControl1.TabIndex = 5;
             this.vlcControl1.Text = "videoView1";
+            this.vlcControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.vlcControl1_MouseClick);
             // 
             // videoViewHover
             // 

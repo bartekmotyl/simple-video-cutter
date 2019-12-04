@@ -69,11 +69,8 @@ namespace SimpleVideoCutter
 
             videoViewHover.MediaPlayer.Volume = 0;
             videoViewHover.MediaPlayer.EnableKeyInput = false; 
-            videoViewHover.MediaPlayer.MediaChanged += VideoViewerHover_MediaPlayer_MediaChanged;
-            videoViewHover.MediaPlayer.PausableChanged += VideoViewerHover_MediaPlayer_PausableChanged;
-            videoViewHover.MediaPlayer.Playing += VideoViewerHover_MediaPlayer_Playing;
             videoViewHover.MediaPlayer.TimeChanged += VideoViewerHover_MediaPlayer_TimeChanged;
-
+            videoViewHover.Visible = false;
 
             videoCutterTimeline1.SelectionChanged += VideoCutterTimeline1_SelectionChanged; ;
             videoCutterTimeline1.MouseWheel += VlcControl1_MouseWheel;
@@ -110,6 +107,18 @@ namespace SimpleVideoCutter
         {
             var length = (long)vlcControl1.MediaPlayer.Length;
             var position = (int)(e.Position * length);
+
+            if (videoCutterTimeline1.SelectionEnd != null && position >= videoCutterTimeline1.SelectionEnd)
+            {
+                if (vlcControl1.MediaPlayer.State == VLCState.Playing)
+                {
+                    if (vlcControl1.MediaPlayer.IsPlaying)
+                    {
+                        ThreadPool.QueueUserWorkItem(_ => vlcControl1.MediaPlayer.SetPause(true));
+                    }
+                }
+            }
+
             videoCutterTimeline1.InvokeIfRequired(() =>
             {
                 videoCutterTimeline1.Position = position;
@@ -218,7 +227,7 @@ namespace SimpleVideoCutter
 
         private void vlcControl1_MouseClick(object sender, MouseEventArgs e)
         {
-            //PlayPause();
+            PlayPause();
         }
 
         private void PlayPause()
@@ -251,6 +260,15 @@ namespace SimpleVideoCutter
 
             if (e.KeyCode == Keys.OemPeriod)
                 vlcControl1.MediaPlayer.NextFrame();
+
+            if (e.KeyCode == Keys.R && videoCutterTimeline1.SelectionStart != null)
+            {
+                ThreadPool.QueueUserWorkItem(_ => {
+                    vlcControl1.MediaPlayer.Position = (float)videoCutterTimeline1.SelectionStart.Value / vlcControl1.MediaPlayer.Length;
+                    vlcControl1.MediaPlayer.SetPause(false);
+                });
+            }
+            
         }
 
         private void SetStartAtCurrentPosition()
@@ -494,6 +512,7 @@ namespace SimpleVideoCutter
 
         private void timerHoverPositionChanged_Tick(object sender, EventArgs e)
         {
+            timerHoverPositionChanged.Stop();
             var pos = videoCutterTimeline1.HoverPosition;
             if (pos != null)
             {
@@ -519,25 +538,6 @@ namespace SimpleVideoCutter
                 videoViewHover.Visible = false;
             }
         }
-
-
-        private void VideoViewerHover_MediaPlayer_MediaChanged(object sender, MediaPlayerMediaChangedEventArgs e)
-        {
-
-        }
-
-
-        private void VideoViewerHover_MediaPlayer_PausableChanged(object sender, MediaPlayerPausableChangedEventArgs e)
-        {
-
-            //videoViewHover.MediaPlayer.SetPause(true);
-            //videoViewHover.MediaPlayer.Time = 1000;
-        }
-
-        private void VideoViewerHover_MediaPlayer_Playing(object sender, EventArgs e)
-        {
-        }
-
 
         private void VideoViewerHover_MediaPlayer_TimeChanged(object sender, MediaPlayerTimeChangedEventArgs e)
         {

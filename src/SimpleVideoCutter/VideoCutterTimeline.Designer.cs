@@ -38,9 +38,7 @@
             this.Name = "VideoCutterTimeline";
             this.Size = new System.Drawing.Size(981, 64);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.VideoCutterTimeline_Paint);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.VideoCutterTimeline_MouseClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.VideoCutterTimeline_MouseDown);
-            this.MouseEnter += new System.EventHandler(this.VideoCutterTimeline_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.VideoCutterTimeline_MouseLeave);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.VideoCutterTimeline_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.VideoCutterTimeline_MouseUp);
