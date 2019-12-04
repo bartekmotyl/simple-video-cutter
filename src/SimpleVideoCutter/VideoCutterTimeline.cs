@@ -33,6 +33,7 @@ namespace SimpleVideoCutter
         private long? selectionEnd = null;
 
         public long Length { get; set; }
+        public long Time { get; set; }
 
         public long Position
         {
@@ -43,7 +44,7 @@ namespace SimpleVideoCutter
             set
             {
                 position = value;
-                Invalidate();
+                Refresh();
             }
         }
 
@@ -88,8 +89,22 @@ namespace SimpleVideoCutter
 
             var infoAreaHeight = 30;
             var infoAreaRect = new Rectangle(ClientRectangle.X, ClientRectangle.Y, ClientRectangle.Width, infoAreaHeight);
-
             e.Graphics.FillRectangle(brushBackgroundInfoArea, infoAreaRect);
+
+            if (Length != 0)
+            {
+                var time = TimeSpan.FromMilliseconds(((float)Position / (float)Length) * Time);
+                var text = string.Format($"Time: {time:hh\\:mm\\:ss\\:fff} ");
+
+                if (HoverPosition != null)
+                {
+                    var hoverTime = TimeSpan.FromMilliseconds(((float)HoverPosition / (float)Length) * Time);
+                    text = text + string.Format($" Hovered time: {hoverTime:hh\\:mm\\:ss\\:fff} ");
+                }
+                PaintStringInBox(e.Graphics, null, Brushes.LightGray, text, infoAreaRect, 10);
+            }
+
+
 
             e.Graphics.TranslateTransform(0, infoAreaHeight);
 
@@ -172,6 +187,7 @@ namespace SimpleVideoCutter
 
                 e.Graphics.ResetTransform();
 
+
                 if (timelineTooltip != null)
                 {
                     PaintStringInBox(e.Graphics, Brushes.LightYellow, Brushes.Gray, timelineTooltip.Text, infoAreaRect, timelineTooltip.X);
@@ -189,8 +205,9 @@ namespace SimpleVideoCutter
             tmpRect.Inflate(2, 2);
 
             var rect = new RectangleF(Math.Max(0, tmpRect.X - tmpRect.Width / 2.0f), tmpRect.Y + (parentRectangle.Height - strSize.Height)/2.0f, tmpRect.Width, tmpRect.Height);
-
-            gr.FillRectangle(background, rect);
+            if (background != null)
+                gr.FillRectangle(background, rect);
+            
             var stringFormat = new StringFormat();
             stringFormat.Alignment = StringAlignment.Center;
             stringFormat.LineAlignment = StringAlignment.Center;

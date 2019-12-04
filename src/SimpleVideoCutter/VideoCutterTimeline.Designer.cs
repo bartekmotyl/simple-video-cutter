@@ -35,6 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.DoubleBuffered = true;
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Name = "VideoCutterTimeline";
             this.Size = new System.Drawing.Size(981, 64);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.VideoCutterTimeline_Paint);

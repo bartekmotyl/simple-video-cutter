@@ -127,10 +127,13 @@ namespace SimpleVideoCutter
 
         private void VlcControl1_LengthChanged(object sender, MediaPlayerLengthChangedEventArgs e)
         {
-            var length = (int)vlcControl1.MediaPlayer.Length;
+            var length = vlcControl1.MediaPlayer.Length;
+            var time = vlcControl1.MediaPlayer.Time;
+            
             videoCutterTimeline1.InvokeIfRequired(() =>
             {
                 videoCutterTimeline1.Length = length;
+                videoCutterTimeline1.Time = length;
             });
             EnableButtons();
         }
@@ -258,7 +261,13 @@ namespace SimpleVideoCutter
                 SetEndAtCurrentPosition();
 
             if (e.KeyCode == Keys.OemPeriod)
+            {
                 vlcControl1.MediaPlayer.NextFrame();
+                videoCutterTimeline1.InvokeIfRequired(() =>
+                {
+                    videoCutterTimeline1.Position = (int)(vlcControl1.MediaPlayer.Position * vlcControl1.MediaPlayer.Length);
+                });
+            }
 
             if (e.KeyCode == Keys.R && videoCutterTimeline1.SelectionStart != null)
             {
