@@ -64,8 +64,8 @@ namespace SimpleVideoCutter
             vlcControl1.MediaPlayer.EndReached += VlcControl1_EndReached;
             vlcControl1.MouseWheel += VlcControl1_MouseWheel;
 
-            //vlcControl1.MediaPlayer.Video.IsMouseInputEnabled = false;
-            //vlcControl1.MediaPlayer.Video.IsKeyInputEnabled = false;
+            vlcControl1.MediaPlayer.EnableMouseInput = false;
+            vlcControl1.MediaPlayer.EnableKeyInput = false;
 
             videoViewHover.MediaPlayer.Volume = 0;
             videoViewHover.MediaPlayer.EnableKeyInput = false; 
@@ -73,7 +73,6 @@ namespace SimpleVideoCutter
             videoViewHover.Visible = false;
 
             videoCutterTimeline1.SelectionChanged += VideoCutterTimeline1_SelectionChanged; ;
-            videoCutterTimeline1.MouseWheel += VlcControl1_MouseWheel;
             videoCutterTimeline1.TimelineHover += VideoCutterTimeline1_TimelineHover;
             videoCutterTimeline1.PositionChangeRequest += VideoCutterTimeline1_PositionChangeRequest; ;
 
