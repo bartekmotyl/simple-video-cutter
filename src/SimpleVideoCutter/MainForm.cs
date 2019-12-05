@@ -492,12 +492,12 @@ namespace SimpleVideoCutter
 
             toolStrip1.InvokeIfRequired(() =>
            {
-               toolStripButtonSetStart.Enabled = isFileLoaded;
-               toolStripButtonSetEnd.Enabled = isFileLoaded && videoCutterTimeline1.SelectionStart != null;
-               toolStripButtonClearSelection.Enabled = isFileLoaded && isSelection;
-               toolStripButtonAddTask.Enabled = isFileLoaded && isSelection;
-               toolStripButtonNextFile.Enabled = isFileLoaded;
-               toolStripButtonPreviousFile.Enabled = isFileLoaded;
+               toolStripButtonSelectionSetStart.Enabled = isFileLoaded;
+               toolStripButtonSelectionSetEnd.Enabled = isFileLoaded && videoCutterTimeline1.SelectionStart != null;
+               toolStripButtonSelectionClear.Enabled = isFileLoaded && isSelection;
+               toolStripButtonSelectionEnqueue.Enabled = isFileLoaded && isSelection;
+               toolStripButtonFileNext.Enabled = isFileLoaded;
+               toolStripButtonFilePrev.Enabled = isFileLoaded;
            });
         }
 

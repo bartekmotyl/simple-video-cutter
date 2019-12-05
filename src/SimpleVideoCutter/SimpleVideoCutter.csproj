@@ -188,6 +188,15 @@
     <Content Include="movie-icon-15157-Windows.ico" />
     <Content Include="Resources\iconfinder_cog_293670.png" />
     <Content Include="Resources\movie-icon-15157-Windows.ico" />
+    <None Include="Resources\streamline\streamline-icon-task-list-clock%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-task-list-add%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-arrow-button-left-3%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-arrow-button-right-3%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-eraser%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-video-player-slider%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-diagram-arrow-dash-left%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-diagram-arrow-dash-right%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-modern-tv-flat-screen%4032x32.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="LibVLCSharp.WinForms">
