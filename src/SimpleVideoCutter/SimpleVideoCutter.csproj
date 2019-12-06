@@ -188,6 +188,14 @@
     <Content Include="movie-icon-15157-Windows.ico" />
     <Content Include="Resources\iconfinder_cog_293670.png" />
     <Content Include="Resources\movie-icon-15157-Windows.ico" />
+    <None Include="Resources\streamline\streamline-icon-navigation-right-to%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-navigation-right-3%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-arrow-rectangle-left-2%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-arrow-rectangle-right%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-controls-pause%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-controls-play%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-controls-movie-forward%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-volume-control-mute%4032x32.png" />
     <None Include="Resources\streamline\streamline-icon-task-list-clock%4032x32.png" />
     <None Include="Resources\streamline\streamline-icon-task-list-add%4032x32.png" />
     <None Include="Resources\streamline\streamline-icon-arrow-button-left-3%4032x32.png" />

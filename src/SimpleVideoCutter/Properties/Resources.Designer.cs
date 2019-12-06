@@ -253,6 +253,56 @@ namespace SimpleVideoCutter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_arrow_rectangle_left_2_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("streamline-icon-arrow-rectangle-left-2@32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_arrow_rectangle_right_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("streamline-icon-arrow-rectangle-right@32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_controls_movie_forward_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("streamline-icon-controls-movie-forward@32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_controls_pause_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("streamline_icon_controls_pause_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_controls_play_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("streamline-icon-controls-play@32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap streamline_icon_diagram_arrow_dash_left_32x32 {
             get {
                 object obj = ResourceManager.GetObject("streamline-icon-diagram-arrow-dash-left@32x32", resourceCulture);
@@ -293,6 +343,26 @@ namespace SimpleVideoCutter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_navigation_right_3_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("streamline-icon-navigation-right-3@32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_navigation_right_to_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("streamline-icon-navigation-right-to@32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap streamline_icon_task_list_add_32x32 {
             get {
                 object obj = ResourceManager.GetObject("streamline-icon-task-list-add@32x32", resourceCulture);
@@ -316,6 +386,16 @@ namespace SimpleVideoCutter.Properties {
         internal static System.Drawing.Bitmap streamline_icon_video_player_slider_32x32 {
             get {
                 object obj = ResourceManager.GetObject("streamline-icon-video-player-slider@32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_volume_control_mute_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("streamline-icon-volume-control-mute@32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

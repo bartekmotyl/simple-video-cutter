@@ -83,7 +83,6 @@ namespace SimpleVideoCutter
                     {
                         var options = new ConversionOptions();
                         options.CutMedia(TimeSpan.FromMilliseconds(currentTask.SelectionStart), TimeSpan.FromMilliseconds(currentTask.Duration));
-
                         Task<MediaFile> taskConversion = ffmpeg.ConvertAsync(new MediaFile(currentTask.InputFilePath), new MediaFile(currentTask.OutputFilePath), options);
                         taskConversion.Wait();
                     }
