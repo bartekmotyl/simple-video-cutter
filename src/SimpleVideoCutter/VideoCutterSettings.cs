@@ -19,6 +19,9 @@ namespace SimpleVideoCutter
         public string[] VideoFilesExtensions { get; set; } = new string[] { ".mov", ".avi", ".mp4", ".wmv", ".rm", ".mpg" };
         public int HoverPreviewSize { get; set; } = 300;
 
+        public bool Mute { get; set; } = false;
+        public bool Autostart { get; set; } = true;
+
         public static VideoCutterSettings Instance { get; }  = new VideoCutterSettings();
 
 
