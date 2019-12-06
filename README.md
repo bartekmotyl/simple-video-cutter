@@ -66,5 +66,5 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 
 ## Icons 
 
-- [geomicons](https://github.com/jxnblk/geomicons-open)
+- [streamline icons](https://streamlineicons.com)
 - [movie icon](https://www.freeiconspng.com/img/15157)
