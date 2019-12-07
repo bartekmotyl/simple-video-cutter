@@ -72,6 +72,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlExtensions.cs" />
     <Compile Include="FormFFmpegMissingDialog.cs">
       <SubType>Form</SubType>
@@ -101,6 +107,9 @@
     <Compile Include="VideoCutterTimeline.Designer.cs">
       <DependentUpon>VideoCutterTimeline.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFFmpegMissingDialog.resx">
       <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +197,7 @@
     <Content Include="movie-icon-15157-Windows.ico" />
     <Content Include="Resources\iconfinder_cog_293670.png" />
     <Content Include="Resources\movie-icon-15157-Windows.ico" />
+    <None Include="Resources\streamline\streamline-icon-information-circle%4032x32.png" />
     <None Include="Resources\streamline\streamline-icon-navigation-right-to%4032x32.png" />
     <None Include="Resources\streamline\streamline-icon-navigation-right-3%4032x32.png" />
     <None Include="Resources\streamline\streamline-icon-arrow-rectangle-left-2%4032x32.png" />

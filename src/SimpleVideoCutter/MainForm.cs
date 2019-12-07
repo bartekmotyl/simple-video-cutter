@@ -115,7 +115,12 @@ namespace SimpleVideoCutter
                 {
                     if (vlcControl1.MediaPlayer.IsPlaying)
                     {
-                        ThreadPool.QueueUserWorkItem(_ => vlcControl1.MediaPlayer.SetPause(true));
+                        vlcControl1.MediaPlayer.SetPause(true);
+                        ThreadPool.QueueUserWorkItem(_ =>
+                        {
+                            vlcControl1.MediaPlayer.SetPause(true);
+                            vlcControl1.MediaPlayer.Position = (float)videoCutterTimeline1.SelectionEnd.Value / vlcControl1.MediaPlayer.Length;
+                        });
                     }
                 }
             }
@@ -688,6 +693,13 @@ namespace SimpleVideoCutter
             else if (e.ClickedItem == toolStripButtonFileSettings)
             {
                 formSettings.ShowSettingsDialog();
+            }
+            else if (e.ClickedItem == toolStripButtonFileAbout)
+            {
+                using (var about = new AboutBox())
+                {
+                    about.ShowDialog();
+                }
             }
         }
     }

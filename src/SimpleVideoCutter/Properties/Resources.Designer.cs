@@ -333,6 +333,16 @@ namespace SimpleVideoCutter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_information_circle_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("streamline-icon-information-circle@32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap streamline_icon_modern_tv_flat_screen_32x32 {
             get {
                 object obj = ResourceManager.GetObject("streamline_icon_modern_tv_flat_screen_32x32", resourceCulture);

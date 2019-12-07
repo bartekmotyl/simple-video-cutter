@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.toolStripTasks = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonTasksShow = new System.Windows.Forms.ToolStripButton();
             this.videoViewHover = new LibVLCSharp.WinForms.VideoView();
             this.vlcControl1 = new LibVLCSharp.WinForms.VideoView();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
@@ -43,7 +42,6 @@
             this.timerHoverPositionChanged = new System.Windows.Forms.Timer(this.components);
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.videoCutterTimeline1 = new SimpleVideoCutter.VideoCutterTimeline();
             this.panelTasks = new System.Windows.Forms.Panel();
             this.listViewTasks = new System.Windows.Forms.ListView();
             this.columnFilename = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -51,6 +49,8 @@
             this.labelTasks = new System.Windows.Forms.Label();
             this.labelProgress = new System.Windows.Forms.Label();
             this.toolStripSelection = new System.Windows.Forms.ToolStrip();
+            this.toolStripFile = new System.Windows.Forms.ToolStrip();
+            this.toolStripPlayback = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonSelectionSetStart = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSelectionSetEnd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSelectionPlay = new System.Windows.Forms.ToolStripButton();
@@ -58,15 +58,16 @@
             this.toolStripButtonSelectionGoToStart = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSelectionGoToEnd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSelectionEnqueue = new System.Windows.Forms.ToolStripButton();
-            this.toolStripFile = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonFileOpen = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFilePrev = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFileNext = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFileSettings = new System.Windows.Forms.ToolStripButton();
-            this.toolStripPlayback = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonFileAbout = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPlabackPlayPause = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPlabackMute = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPlabackAutostart = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonTasksShow = new System.Windows.Forms.ToolStripButton();
+            this.videoCutterTimeline1 = new SimpleVideoCutter.VideoCutterTimeline();
             this.toolStripTasks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.videoViewHover)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vlcControl1)).BeginInit();
@@ -91,22 +92,11 @@
             this.toolStripTasks.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStripTasks.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonTasksShow});
-            this.toolStripTasks.Location = new System.Drawing.Point(257, 0);
+            this.toolStripTasks.Location = new System.Drawing.Point(487, 0);
             this.toolStripTasks.Name = "toolStripTasks";
             this.toolStripTasks.Size = new System.Drawing.Size(81, 54);
             this.toolStripTasks.TabIndex = 5;
             this.toolStripTasks.Text = "Tasks";
-            // 
-            // toolStripButtonTasksShow
-            // 
-            this.toolStripButtonTasksShow.CheckOnClick = true;
-            this.toolStripButtonTasksShow.Image = global::SimpleVideoCutter.Properties.Resources.streamline_icon_task_list_clock_32x32;
-            this.toolStripButtonTasksShow.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonTasksShow.Name = "toolStripButtonTasksShow";
-            this.toolStripButtonTasksShow.Size = new System.Drawing.Size(69, 51);
-            this.toolStripButtonTasksShow.Text = "Show tasks";
-            this.toolStripButtonTasksShow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonTasksShow.CheckedChanged += new System.EventHandler(this.toolStripButtonShowTasks_CheckedChanged);
             // 
             // videoViewHover
             // 
@@ -202,8 +192,8 @@
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripPlayback);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripFile);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripPlayback);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripTasks);
             // 
             // splitContainer1
@@ -225,19 +215,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(895, 685);
             this.splitContainer1.SplitterDistance = 741;
             this.splitContainer1.TabIndex = 7;
-            // 
-            // videoCutterTimeline1
-            // 
-            this.videoCutterTimeline1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.videoCutterTimeline1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.videoCutterTimeline1.HoverPosition = null;
-            this.videoCutterTimeline1.Length = ((long)(0));
-            this.videoCutterTimeline1.Location = new System.Drawing.Point(0, 621);
-            this.videoCutterTimeline1.Name = "videoCutterTimeline1";
-            this.videoCutterTimeline1.Position = ((long)(0));
-            this.videoCutterTimeline1.Size = new System.Drawing.Size(895, 64);
-            this.videoCutterTimeline1.TabIndex = 4;
-            this.videoCutterTimeline1.Time = ((long)(0));
             // 
             // panelTasks
             // 
@@ -313,6 +290,38 @@
             this.toolStripSelection.Text = "Selection";
             this.toolStripSelection.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripSelection_ItemClicked);
             // 
+            // toolStripFile
+            // 
+            this.toolStripFile.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStripFile.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.toolStripFile.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonFileOpen,
+            this.toolStripButtonFilePrev,
+            this.toolStripButtonFileNext,
+            this.toolStripButtonFileSettings,
+            this.toolStripButtonFileAbout});
+            this.toolStripFile.Location = new System.Drawing.Point(3, 0);
+            this.toolStripFile.Name = "toolStripFile";
+            this.toolStripFile.Size = new System.Drawing.Size(298, 54);
+            this.toolStripFile.TabIndex = 20;
+            this.toolStripFile.Text = "File";
+            this.toolStripFile.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripFile_ItemClicked);
+            // 
+            // toolStripPlayback
+            // 
+            this.toolStripPlayback.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStripPlayback.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.toolStripPlayback.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonPlabackPlayPause,
+            this.toolStripButtonPlabackMute,
+            this.toolStripButtonPlabackAutostart});
+            this.toolStripPlayback.Location = new System.Drawing.Point(301, 0);
+            this.toolStripPlayback.Name = "toolStripPlayback";
+            this.toolStripPlayback.Size = new System.Drawing.Size(186, 54);
+            this.toolStripPlayback.TabIndex = 7;
+            this.toolStripPlayback.Text = "toolStrip2";
+            this.toolStripPlayback.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripPlayback_ItemClicked);
+            // 
             // toolStripButtonSelectionSetStart
             // 
             this.toolStripButtonSelectionSetStart.Image = global::SimpleVideoCutter.Properties.Resources.streamline_icon_navigation_right_3_32x32;
@@ -382,22 +391,6 @@
             this.toolStripButtonSelectionEnqueue.Text = "Enqueue";
             this.toolStripButtonSelectionEnqueue.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripFile
-            // 
-            this.toolStripFile.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStripFile.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.toolStripFile.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonFileOpen,
-            this.toolStripButtonFilePrev,
-            this.toolStripButtonFileNext,
-            this.toolStripButtonFileSettings});
-            this.toolStripFile.Location = new System.Drawing.Point(3, 0);
-            this.toolStripFile.Name = "toolStripFile";
-            this.toolStripFile.Size = new System.Drawing.Size(254, 54);
-            this.toolStripFile.TabIndex = 20;
-            this.toolStripFile.Text = "File";
-            this.toolStripFile.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripFile_ItemClicked);
-            // 
             // toolStripButtonFileOpen
             // 
             this.toolStripButtonFileOpen.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFileOpen.Image")));
@@ -434,20 +427,14 @@
             this.toolStripButtonFileSettings.Text = "Settings";
             this.toolStripButtonFileSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripPlayback
+            // toolStripButtonFileAbout
             // 
-            this.toolStripPlayback.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStripPlayback.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.toolStripPlayback.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonPlabackPlayPause,
-            this.toolStripButtonPlabackMute,
-            this.toolStripButtonPlabackAutostart});
-            this.toolStripPlayback.Location = new System.Drawing.Point(338, 0);
-            this.toolStripPlayback.Name = "toolStripPlayback";
-            this.toolStripPlayback.Size = new System.Drawing.Size(186, 54);
-            this.toolStripPlayback.TabIndex = 7;
-            this.toolStripPlayback.Text = "toolStrip2";
-            this.toolStripPlayback.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripPlayback_ItemClicked);
+            this.toolStripButtonFileAbout.Image = global::SimpleVideoCutter.Properties.Resources.streamline_icon_information_circle_32x32;
+            this.toolStripButtonFileAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonFileAbout.Name = "toolStripButtonFileAbout";
+            this.toolStripButtonFileAbout.Size = new System.Drawing.Size(44, 51);
+            this.toolStripButtonFileAbout.Text = "About";
+            this.toolStripButtonFileAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // toolStripButtonPlabackPlayPause
             // 
@@ -475,6 +462,30 @@
             this.toolStripButtonPlabackAutostart.Size = new System.Drawing.Size(60, 51);
             this.toolStripButtonPlabackAutostart.Text = "Autostart";
             this.toolStripButtonPlabackAutostart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripButtonTasksShow
+            // 
+            this.toolStripButtonTasksShow.CheckOnClick = true;
+            this.toolStripButtonTasksShow.Image = global::SimpleVideoCutter.Properties.Resources.streamline_icon_task_list_clock_32x32;
+            this.toolStripButtonTasksShow.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonTasksShow.Name = "toolStripButtonTasksShow";
+            this.toolStripButtonTasksShow.Size = new System.Drawing.Size(69, 51);
+            this.toolStripButtonTasksShow.Text = "Show tasks";
+            this.toolStripButtonTasksShow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButtonTasksShow.CheckedChanged += new System.EventHandler(this.toolStripButtonShowTasks_CheckedChanged);
+            // 
+            // videoCutterTimeline1
+            // 
+            this.videoCutterTimeline1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.videoCutterTimeline1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.videoCutterTimeline1.HoverPosition = null;
+            this.videoCutterTimeline1.Length = ((long)(0));
+            this.videoCutterTimeline1.Location = new System.Drawing.Point(0, 621);
+            this.videoCutterTimeline1.Name = "videoCutterTimeline1";
+            this.videoCutterTimeline1.Position = ((long)(0));
+            this.videoCutterTimeline1.Size = new System.Drawing.Size(895, 64);
+            this.videoCutterTimeline1.TabIndex = 4;
+            this.videoCutterTimeline1.Time = ((long)(0));
             // 
             // MainForm
             // 
@@ -560,6 +571,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonPlabackPlayPause;
         private System.Windows.Forms.ToolStripButton toolStripButtonPlabackMute;
         private System.Windows.Forms.ToolStripButton toolStripButtonPlabackAutostart;
+        private System.Windows.Forms.ToolStripButton toolStripButtonFileAbout;
     }
 }
 
