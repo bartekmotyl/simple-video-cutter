@@ -485,7 +485,6 @@
             this.videoCutterTimeline1.Position = ((long)(0));
             this.videoCutterTimeline1.Size = new System.Drawing.Size(895, 64);
             this.videoCutterTimeline1.TabIndex = 4;
-            this.videoCutterTimeline1.Time = ((long)(0));
             // 
             // MainForm
             // 

@@ -19,7 +19,8 @@ namespace SimpleVideoCutter
         private Brush brushBackground = new SolidBrush(Color.FromArgb(0x4C, 0x4C, 0x4C));
         private Brush brushBackgroundInfoArea = new SolidBrush(Color.FromArgb(0x5C, 0x5C, 0x5C));
         private Brush brushBackgroundSelected = new SolidBrush(Color.FromArgb(0xAD, 0xAD, 0xAD));
-        private Pen penTick = new Pen(Color.FromArgb(0x5A, 0x5A, 0x5A));
+        //private Pen penTick = new Pen(Color.FromArgb(0x5A, 0x5A, 0x5A));
+        private Pen penTick = new Pen(Color.Snow);
         private Brush brushHoverPosition = new SolidBrush(Color.FromArgb(0xC8, 0x17, 0x17));
         private Brush brushSelectionMarker = new SolidBrush(Color.FromArgb(0xFF, 0xE9, 0x7F));
         private Brush brushPosition = new SolidBrush(Color.FromArgb(0x00, 0x5C, 0x9E));
@@ -32,9 +33,11 @@ namespace SimpleVideoCutter
         private long? selectionStart = null;
         private long? selectionEnd = null;
 
-        public long Length { get; set; }
-        public long Time { get; set; }
+        private float scale = 1.0f;
+        private long offset = 0;
 
+        public long Length { get; set; }
+        
         public long Position
         {
             get
@@ -44,6 +47,15 @@ namespace SimpleVideoCutter
             set
             {
                 position = value;
+
+                if (PositionToPixel(position) > ClientRectangle.Width)
+                {
+                    var newOffset = position;
+                    if (newOffset + ClientRectangle.Width * MillisecondsPerPixels() > Length)
+                        newOffset = Length - (long)(ClientRectangle.Width * MillisecondsPerPixels());
+                    offset = newOffset;
+                }
+
                 Refresh();
             }
         }
@@ -81,6 +93,47 @@ namespace SimpleVideoCutter
             selectionEndMoveController = new SelectionEndMoveController(this);
         }
 
+        protected override void OnMouseWheel(MouseEventArgs e)
+        {
+            base.OnMouseWheel(e);
+
+            if (ModifierKeys == Keys.Control)
+            {
+                float newScale = scale + (e.Delta / SystemInformation.MouseWheelScrollDelta * 0.25f);
+
+                if (newScale < 1)
+                    newScale = 1;
+
+                if (newScale > scale)
+                {
+                    // When zooming we try to preserve hovered point in the same place 
+                    var hoveredPosition = PixelToPosition(e.X);
+                }
+                else if (newScale < scale)
+                {
+
+                }
+
+                scale = newScale;
+                Refresh();
+            }
+            else
+            {
+                var step = (ClientRectangle.Width * MillisecondsPerPixels()) / 10.0f;
+                
+                long newOffset = offset - (int)(e.Delta / SystemInformation.MouseWheelScrollDelta * step);
+
+                if (newOffset < 0)
+                    newOffset = 0;
+
+                if (newOffset + ClientRectangle.Width * MillisecondsPerPixels() > Length)
+                    newOffset = Length - (long)(ClientRectangle.Width * MillisecondsPerPixels());
+
+                this.offset = newOffset;
+                Refresh();
+            }
+        }
+
         private void VideoCutterTimeline_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.FillRectangle(brushBackground, ClientRectangle);
@@ -93,17 +146,16 @@ namespace SimpleVideoCutter
 
             if (Length != 0)
             {
-                var time = TimeSpan.FromMilliseconds(((float)Position / (float)Length) * Time);
+                var time = TimeSpan.FromMilliseconds(Position);
                 var text = string.Format($"Time: {time:hh\\:mm\\:ss\\:fff} ");
 
                 if (HoverPosition != null)
                 {
-                    var hoverTime = TimeSpan.FromMilliseconds(((float)HoverPosition / (float)Length) * Time);
+                    var hoverTime = TimeSpan.FromMilliseconds(HoverPosition.Value);
                     text = text + string.Format($" Hovered time: {hoverTime:hh\\:mm\\:ss\\:fff} ");
                 }
                 PaintStringInBox(e.Graphics, null, Brushes.LightGray, text, infoAreaRect, 10);
             }
-
 
 
             e.Graphics.TranslateTransform(0, infoAreaHeight);
@@ -112,45 +164,53 @@ namespace SimpleVideoCutter
 
             if (Length != 0)
             {
-                float pixelsPerSecond = (float)ClientRectangle.Width / Length * 1000.0f;
-                float pixelsPerMinute = pixelsPerSecond / 60.0f;
+                float pixelsPerSecond = PixelsPerMilliseconds() * 1000.0f; 
 
                 if (pixelsPerSecond > 3)
                 {
-                    float position = 0;
-                    float endPosition = Length / 1000 * pixelsPerSecond;
-                    while (position <= endPosition)
+                    for (long position = 0; position <= Length; position += 1000)
                     {
-                        e.Graphics.DrawLine(penTick, (int)position, 0, (int)position, timeLineHeight / 4);
-                        position += pixelsPerSecond;
+                        var posXPixel = (position - offset) * PixelsPerMilliseconds();
+                        if (posXPixel >= -ClientRectangle.Width && posXPixel <= ClientRectangle.Width)
+                        {
+                            e.Graphics.DrawLine(penTick, (int)posXPixel, 0, (int)posXPixel, timeLineHeight / 4);
+                            if (pixelsPerSecond > 30)
+                            {
+                                var time = TimeSpan.FromMilliseconds(position);
+                                var text = string.Format($"{time:hh\\:mm\\:ss\\:fff}");
+                                var rect = new Rectangle((int)posXPixel, 0, 100, 15);
+                                e.Graphics.DrawString(text, this.Font, Brushes.SlateGray, rect, StringFormat.GenericDefault);
+                            }
+                        }
+
                     }
                 }
 
 
                 if (SelectionStart != null && SelectionEnd != null)
                 {
-                    var pixelsStart = FrameToPixel((long?)SelectionStart.Value);
-                    var pixelsEnd = FrameToPixel((long?)SelectionEnd.Value);
+                    var pixelsStart = PositionToPixel((long?)SelectionStart.Value);
+                    var pixelsEnd = PositionToPixel((long?)SelectionEnd.Value);
                     var selectionRect = new Rectangle(pixelsStart, 0, pixelsEnd - pixelsStart, timeLineHeight);
                     e.Graphics.FillRectangle(brushBackgroundSelected, selectionRect);
                 }
 
                 if (SelectionStart != null)
                 {
-                    var pixel = FrameToPixel(SelectionStart.Value);
+                    var pixel = PositionToPixel(SelectionStart.Value);
                     e.Graphics.FillRectangle(brushSelectionMarker, pixel, 0, 2, timeLineHeight);
                     PaintUpperHalfTriangle(e.Graphics, brushSelectionMarker, pixel, 8, 8, true);
                     PaintBottomHalfTriangle(e.Graphics, brushSelectionMarker, pixel, 8, 8, true, timeLineHeight);
                 }
                 if (SelectionEnd != null)
                 {
-                    var pixel = FrameToPixel(SelectionEnd.Value);
+                    var pixel = PositionToPixel(SelectionEnd.Value);
                     e.Graphics.FillRectangle(brushSelectionMarker, pixel, 0, 2, timeLineHeight);
                     PaintUpperHalfTriangle(e.Graphics, brushSelectionMarker, pixel, 8, 8, false);
                     PaintBottomHalfTriangle(e.Graphics, brushSelectionMarker, pixel, 8, 8, false, timeLineHeight);
                 }
 
-                var positionPixel = FrameToPixel(Position);
+                var positionPixel = PositionToPixel(Position);
                 PaintTriangle(e.Graphics, brushPosition, positionPixel, 8, 8);
                 e.Graphics.FillRectangle(brushPosition, positionPixel, 0, 1, timeLineHeight);
 
@@ -158,7 +218,7 @@ namespace SimpleVideoCutter
 
                 if (HoverPosition != null)
                 {
-                    var pixel = FrameToPixel(HoverPosition);
+                    var pixel = PositionToPixel(HoverPosition);
 
                     if (selectionStartMoveController.IsDragStartPossible(pixel) || selectionStartMoveController.IsDragInProgress())
                     {
@@ -172,7 +232,7 @@ namespace SimpleVideoCutter
 
 
                     e.Graphics.FillRectangle(brushHoverPosition, pixel, 0, 1, timeLineHeight);
-                    PaintTriangle(e.Graphics, brushHoverPosition, FrameToPixel(HoverPosition), 8, 8);
+                    PaintTriangle(e.Graphics, brushHoverPosition, PositionToPixel(HoverPosition), 8, 8);
 
                     if (SelectionStart == null)
                     {
@@ -245,20 +305,32 @@ namespace SimpleVideoCutter
             });
         }
 
-
-
-        private int FrameToPixel(long? frame)
+        private float PixelsPerMilliseconds()
         {
-            if (frame == null)
-                return 0;
-
-            return (Length == 0 ? 0 : (int)(((float)frame.Value / (float)(Length)) * ClientRectangle.Width));
+            return ((float)ClientRectangle.Width / Length) * scale;
+        }
+        private float MillisecondsPerPixels()
+        {
+            return ((float)Length / ClientRectangle.Width) / scale;
         }
 
-        private long PixelToFrame(int x)
+
+        private int PositionToPixel(long? position)
         {
-            var pos = (Length == 0 ? (long)0 : (long)(x / (float)ClientRectangle.Width * (float)Length));
-            return pos;
+            if (position == null)
+                return 0;
+
+            if (Length == 0)
+                return 0;
+
+            return (int)((position.Value - offset) * PixelsPerMilliseconds());
+        }
+
+        private long PixelToPosition(float x)
+        {
+            if (Length == 0)
+                return 0;
+            return (long)(offset + x * MillisecondsPerPixels());
         }
 
         private void VideoCutterTimeline_Resize(object sender, EventArgs e)
@@ -269,7 +341,7 @@ namespace SimpleVideoCutter
 
         private void VideoCutterTimeline_MouseMove(object sender, MouseEventArgs e)
         {
-            HoverPosition = PixelToFrame(e.Location.X);
+            HoverPosition = PixelToPosition(e.Location.X);
 
             Cursor = Cursors.Default;
             
@@ -330,7 +402,7 @@ namespace SimpleVideoCutter
         {
             if (!selectionStartMoveController.IsDragInProgress() && !selectionEndMoveController.IsDragInProgress())
             {
-                var frame = PixelToFrame(e.X);
+                var frame = PixelToPosition(e.X);
                 if (e.Button == MouseButtons.Middle && e.Clicks == 1)
                 {
                     if (SelectionStart == null)
@@ -383,7 +455,7 @@ namespace SimpleVideoCutter
                 if (dragInProgress)
                 {
                     ctrl.Cursor = Cursors.SizeWE;
-                    var newPos = ctrl.PixelToFrame(e.X);
+                    var newPos = ctrl.PixelToPosition(e.X);
                     SetCurrentPosition(newPos);
                 }
                 else
@@ -425,7 +497,7 @@ namespace SimpleVideoCutter
             {
                 if (refFrame == null)
                     return false;
-                var refX = ctrl.FrameToPixel(refFrame.Value);
+                var refX = ctrl.PositionToPixel(refFrame.Value);
                 return Math.Abs(testedX - refX) < SystemInformation.DragSize.Width;
             }
         }

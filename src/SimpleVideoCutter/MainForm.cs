@@ -140,7 +140,6 @@ namespace SimpleVideoCutter
             videoCutterTimeline1.InvokeIfRequired(() =>
             {
                 videoCutterTimeline1.Length = length;
-                videoCutterTimeline1.Time = length;
             });
             EnableButtons();
         }
