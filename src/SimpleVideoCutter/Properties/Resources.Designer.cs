@@ -303,6 +303,16 @@ namespace SimpleVideoCutter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_cursor_move_target_right_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("streamline-icon-cursor-move-target-right@32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap streamline_icon_diagram_arrow_dash_left_32x32 {
             get {
                 object obj = ResourceManager.GetObject("streamline-icon-diagram-arrow-dash-left@32x32", resourceCulture);
@@ -323,9 +333,29 @@ namespace SimpleVideoCutter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_direction_button_3_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("streamline-icon-direction-button-3@32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap streamline_icon_eraser_32x32 {
             get {
                 object obj = ResourceManager.GetObject("streamline-icon-eraser@32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_expand_5_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("streamline-icon-expand-5@32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

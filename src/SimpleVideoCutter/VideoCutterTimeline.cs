@@ -375,6 +375,37 @@ namespace SimpleVideoCutter
             return (long)(offset + x * MillisecondsPerPixels());
         }
 
+        public void ZoomOut()
+        {
+            scale = 1.0f;
+            offset = 0;
+            Refresh();
+        }
+
+        public void ZoomAuto()
+        {
+
+            offset = 0;
+            scale = 1.0f;
+            if (Length != 0)
+            {
+                var desiredPixelsPerMs = 50 / 1000.0f;
+                var fullPixelsPerMs = (float)ClientRectangle.Width / length;
+                scale = desiredPixelsPerMs / fullPixelsPerMs;
+                GoToCurrentPosition();
+            }
+            Refresh();
+        }
+        
+        public void GoToCurrentPosition()
+        {
+            if (Length > 0)
+            {
+                offset = Position;
+            }
+            Refresh();
+        }
+
         private void VideoCutterTimeline_Resize(object sender, EventArgs e)
         {
             Invalidate();
@@ -533,7 +564,6 @@ namespace SimpleVideoCutter
                     ctrl.OnPositionChangeRequest(frame);
                 }
             }
-
 
             private bool IsInDragSizeByFrame(int testedX, long? refFrame)
             {

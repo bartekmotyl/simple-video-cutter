@@ -528,6 +528,14 @@ namespace SimpleVideoCutter
             toolStripTasks.InvokeIfRequired(() =>
             {
             });
+
+            toolStripTimeline.InvokeIfRequired(() =>
+            {
+                toolStripButtonTimelineZoomOut.Enabled = isFileLoaded;
+                toolStripButtonTimelineZoomAuto.Enabled = isFileLoaded;
+                toolStripButtonTimelineGoToCurrentPosition.Enabled = isFileLoaded;
+            });
+
         }
 
         private void toolStripButtonShowTasks_CheckedChanged(object sender, EventArgs e)
@@ -699,6 +707,22 @@ namespace SimpleVideoCutter
                 {
                     about.ShowDialog();
                 }
+            }
+        }
+
+        private void toolStripTimeline_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem == toolStripButtonTimelineZoomOut)
+            {
+                videoCutterTimeline1.ZoomOut();
+            }
+            else if (e.ClickedItem == toolStripButtonTimelineZoomAuto)
+            {
+                videoCutterTimeline1.ZoomAuto();
+            }
+            else if (e.ClickedItem == toolStripButtonTimelineGoToCurrentPosition)
+            {
+                videoCutterTimeline1.GoToCurrentPosition();
             }
         }
     }
