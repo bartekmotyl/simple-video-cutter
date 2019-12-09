@@ -551,7 +551,7 @@ namespace SimpleVideoCutter
 
                 videoViewHover.Visible = true;
 
-                int posX = (int)(posFloat * videoCutterTimeline1.Width) - videoViewHover.Width / 2;
+                int posX = videoCutterTimeline1.PositionToPixel(pos) - videoViewHover.Width / 2;
                 posX = Math.Max(posX, 0);
                 posX = Math.Min(posX, videoCutterTimeline1.Width - videoViewHover.Width);
 
