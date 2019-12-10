@@ -106,8 +106,12 @@ namespace SimpleVideoCutter
 
         private void VlcControl1_PositionChanged(object sender, MediaPlayerPositionChangedEventArgs e)
         {
+            AckPositionChange((long)(e.Position * vlcControl1.MediaPlayer.Length));
+        }
+
+        private void AckPositionChange(long position)
+        {
             var length = (long)vlcControl1.MediaPlayer.Length;
-            var position = (int)(e.Position * length);
 
             if (videoCutterTimeline1.SelectionEnd != null && position >= videoCutterTimeline1.SelectionEnd)
             {
@@ -350,8 +354,10 @@ namespace SimpleVideoCutter
             {
                 ThreadPool.QueueUserWorkItem(_ =>
                 {
-                    vlcControl1.MediaPlayer.Position = (float)videoCutterTimeline1.SelectionStart.Value / vlcControl1.MediaPlayer.Length;
-                    videoCutterTimeline1.GoToPosition(videoCutterTimeline1.SelectionStart.Value);
+                    var position = videoCutterTimeline1.SelectionStart.Value;
+                    vlcControl1.MediaPlayer.Position = (float)position / vlcControl1.MediaPlayer.Length;
+                    videoCutterTimeline1.GoToPosition(position);
+                    AckPositionChange(position);
                 });
             }
         }
@@ -362,8 +368,10 @@ namespace SimpleVideoCutter
             {
                 ThreadPool.QueueUserWorkItem(_ =>
                 {
-                    vlcControl1.MediaPlayer.Position = (float)videoCutterTimeline1.SelectionEnd.Value / vlcControl1.MediaPlayer.Length;
-                    videoCutterTimeline1.GoToPosition(videoCutterTimeline1.SelectionEnd.Value);
+                    var position = videoCutterTimeline1.SelectionEnd.Value;
+                    vlcControl1.MediaPlayer.Position = (float)position / vlcControl1.MediaPlayer.Length;
+                    videoCutterTimeline1.GoToPosition(position);
+                    AckPositionChange(position);
                 });
             }
         }

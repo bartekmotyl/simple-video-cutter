@@ -70,6 +70,7 @@ namespace SimpleVideoCutter
                     if (newOffset + ClientRectangle.Width * MillisecondsPerPixels() > Length)
                         newOffset = Length - (long)(ClientRectangle.Width * MillisecondsPerPixels());
                     offset = newOffset;
+                    EnsureOffsetInBounds();
                 }
 
                 Refresh();
@@ -165,13 +166,18 @@ namespace SimpleVideoCutter
                 this.offset = newOffset;
             }
 
+            EnsureOffsetInBounds();
+
+            Refresh();
+
+        }
+
+        private void EnsureOffsetInBounds()
+        {
             if (offset + ClientRectangle.Width * MillisecondsPerPixels() > Length)
                 offset = Length - (long)(ClientRectangle.Width * MillisecondsPerPixels());
 
             offset = Math.Max(offset, 0);
-
-            Refresh();
-
         }
 
         private void VideoCutterTimeline_Paint(object sender, PaintEventArgs e)
@@ -417,6 +423,7 @@ namespace SimpleVideoCutter
                 var desiredPixelsPerMs = 50 / 1000.0f;
                 var fullPixelsPerMs = (float)ClientRectangle.Width / length;
                 scale = desiredPixelsPerMs / fullPixelsPerMs;
+                scale = Math.Max(scale, 1);
                 GoToCurrentPosition();
             }
 
@@ -430,6 +437,7 @@ namespace SimpleVideoCutter
             if (Length > 0)
             {
                 offset = Position;
+                EnsureOffsetInBounds();
             }
             
             this.InvokeIfRequired( () => {
@@ -441,6 +449,7 @@ namespace SimpleVideoCutter
             if (Length > 0)
             {
                 offset = position;
+                EnsureOffsetInBounds();
             }
 
             this.InvokeIfRequired(() => {
