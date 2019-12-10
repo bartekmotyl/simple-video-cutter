@@ -98,7 +98,7 @@
             this.toolStripButtonTasksShow});
             this.toolStripTasks.Location = new System.Drawing.Point(427, 0);
             this.toolStripTasks.Name = "toolStripTasks";
-            this.toolStripTasks.Size = new System.Drawing.Size(112, 54);
+            this.toolStripTasks.Size = new System.Drawing.Size(81, 54);
             this.toolStripTasks.TabIndex = 5;
             this.toolStripTasks.Text = "Tasks";
             // 
@@ -338,7 +338,7 @@
             this.toolStripButtonTimelineGoToCurrentPosition});
             this.toolStripTimeline.Location = new System.Drawing.Point(0, 392);
             this.toolStripTimeline.Name = "toolStripTimeline";
-            this.toolStripTimeline.Size = new System.Drawing.Size(98, 173);
+            this.toolStripTimeline.Size = new System.Drawing.Size(98, 192);
             this.toolStripTimeline.TabIndex = 21;
             this.toolStripTimeline.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripTimeline_ItemClicked);
             // 
@@ -350,7 +350,7 @@
             this.toolStripButtonSelectionSetStart.Size = new System.Drawing.Size(87, 51);
             this.toolStripButtonSelectionSetStart.Text = "Set start";
             this.toolStripButtonSelectionSetStart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonSelectionSetStart.ToolTipText = "Set selection start";
+            this.toolStripButtonSelectionSetStart.ToolTipText = "Set selection start ( [ )";
             // 
             // toolStripButtonSelectionSetEnd
             // 
@@ -360,7 +360,7 @@
             this.toolStripButtonSelectionSetEnd.Size = new System.Drawing.Size(87, 51);
             this.toolStripButtonSelectionSetEnd.Text = "Set end";
             this.toolStripButtonSelectionSetEnd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonSelectionSetEnd.ToolTipText = "Set selection end";
+            this.toolStripButtonSelectionSetEnd.ToolTipText = "Set selection end ( ] )";
             // 
             // toolStripButtonSelectionPlay
             // 
@@ -370,7 +370,7 @@
             this.toolStripButtonSelectionPlay.Size = new System.Drawing.Size(87, 51);
             this.toolStripButtonSelectionPlay.Text = "Play range";
             this.toolStripButtonSelectionPlay.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonSelectionPlay.ToolTipText = "Play selection";
+            this.toolStripButtonSelectionPlay.ToolTipText = "Play selection (R)";
             // 
             // toolStripButtonSelectionClear
             // 
@@ -380,7 +380,7 @@
             this.toolStripButtonSelectionClear.Size = new System.Drawing.Size(87, 51);
             this.toolStripButtonSelectionClear.Text = "Clear selection";
             this.toolStripButtonSelectionClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonSelectionClear.ToolTipText = "Clear selection";
+            this.toolStripButtonSelectionClear.ToolTipText = "Clear selection (Del)";
             // 
             // toolStripButtonSelectionGoToStart
             // 
@@ -390,7 +390,7 @@
             this.toolStripButtonSelectionGoToStart.Size = new System.Drawing.Size(87, 51);
             this.toolStripButtonSelectionGoToStart.Text = "Go to start";
             this.toolStripButtonSelectionGoToStart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonSelectionGoToStart.ToolTipText = "Go to selection start";
+            this.toolStripButtonSelectionGoToStart.ToolTipText = "Go to selection start ( Ctrl+[ }";
             // 
             // toolStripButtonSelectionGoToEnd
             // 
@@ -400,7 +400,7 @@
             this.toolStripButtonSelectionGoToEnd.Size = new System.Drawing.Size(87, 51);
             this.toolStripButtonSelectionGoToEnd.Text = "Go to end";
             this.toolStripButtonSelectionGoToEnd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonSelectionGoToEnd.ToolTipText = "Go to selection end";
+            this.toolStripButtonSelectionGoToEnd.ToolTipText = "Go to selection end ( Ctrl + ] )";
             // 
             // toolStripButtonSelectionEnqueue
             // 
@@ -410,7 +410,7 @@
             this.toolStripButtonSelectionEnqueue.Size = new System.Drawing.Size(87, 51);
             this.toolStripButtonSelectionEnqueue.Text = "Enqueue";
             this.toolStripButtonSelectionEnqueue.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonSelectionEnqueue.ToolTipText = "Enqueue selection to be processed by FFmpeg";
+            this.toolStripButtonSelectionEnqueue.ToolTipText = "Enqueue selection to be processed by FFmpeg (E)";
             // 
             // toolStripButtonTimelineZoomOut
             // 
@@ -420,7 +420,7 @@
             this.toolStripButtonTimelineZoomOut.Size = new System.Drawing.Size(96, 51);
             this.toolStripButtonTimelineZoomOut.Text = "Zoom out";
             this.toolStripButtonTimelineZoomOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonTimelineZoomOut.ToolTipText = "Set timeline to fit into window";
+            this.toolStripButtonTimelineZoomOut.ToolTipText = "Set timeline to fit into window (0)";
             // 
             // toolStripButtonTimelineZoomAuto
             // 
@@ -430,7 +430,7 @@
             this.toolStripButtonTimelineZoomAuto.Size = new System.Drawing.Size(96, 51);
             this.toolStripButtonTimelineZoomAuto.Text = "Zoom auto";
             this.toolStripButtonTimelineZoomAuto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonTimelineZoomAuto.ToolTipText = "Set timeline zoom automatically";
+            this.toolStripButtonTimelineZoomAuto.ToolTipText = "Set timeline zoom automatically (9)";
             // 
             // toolStripButtonTimelineGoToCurrentPosition
             // 
@@ -440,7 +440,7 @@
             this.toolStripButtonTimelineGoToCurrentPosition.Size = new System.Drawing.Size(96, 51);
             this.toolStripButtonTimelineGoToCurrentPosition.Text = "Current position";
             this.toolStripButtonTimelineGoToCurrentPosition.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonTimelineGoToCurrentPosition.ToolTipText = "Scroll timeline to current position";
+            this.toolStripButtonTimelineGoToCurrentPosition.ToolTipText = "Scroll timeline to current position (Ctrl+P)";
             // 
             // toolStripButtonTasksShow
             // 
@@ -451,6 +451,7 @@
             this.toolStripButtonTasksShow.Size = new System.Drawing.Size(69, 51);
             this.toolStripButtonTasksShow.Text = "Show tasks";
             this.toolStripButtonTasksShow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButtonTasksShow.ToolTipText = "Show tasks (T)";
             this.toolStripButtonTasksShow.CheckedChanged += new System.EventHandler(this.toolStripButtonShowTasks_CheckedChanged);
             // 
             // toolStripButtonPlabackPlayPause
@@ -461,6 +462,7 @@
             this.toolStripButtonPlabackPlayPause.Size = new System.Drawing.Size(75, 51);
             this.toolStripButtonPlabackPlayPause.Text = "Play / Pause";
             this.toolStripButtonPlabackPlayPause.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButtonPlabackPlayPause.ToolTipText = "Play / Pause (Space)";
             // 
             // toolStripButtonPlabackMute
             // 
@@ -470,6 +472,7 @@
             this.toolStripButtonPlabackMute.Size = new System.Drawing.Size(39, 51);
             this.toolStripButtonPlabackMute.Text = "Mute";
             this.toolStripButtonPlabackMute.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButtonPlabackMute.ToolTipText = "Mute (Ctrl+M)";
             // 
             // toolStripButtonFileOpen
             // 
@@ -479,6 +482,7 @@
             this.toolStripButtonFileOpen.Size = new System.Drawing.Size(59, 51);
             this.toolStripButtonFileOpen.Text = "Open file";
             this.toolStripButtonFileOpen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButtonFileOpen.ToolTipText = "Open file (Ctrl+O)";
             // 
             // toolStripButtonFilePrev
             // 
@@ -488,6 +492,7 @@
             this.toolStripButtonFilePrev.Size = new System.Drawing.Size(75, 51);
             this.toolStripButtonFilePrev.Text = "Previous file";
             this.toolStripButtonFilePrev.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButtonFilePrev.ToolTipText = "Previous file (Alt+Left)";
             // 
             // toolStripButtonFileNext
             // 
@@ -497,6 +502,7 @@
             this.toolStripButtonFileNext.Size = new System.Drawing.Size(55, 51);
             this.toolStripButtonFileNext.Text = "Next file";
             this.toolStripButtonFileNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButtonFileNext.ToolTipText = "Next file (Alt+Right)";
             // 
             // toolStripButtonFileSettings
             // 
