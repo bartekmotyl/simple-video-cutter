@@ -65,7 +65,6 @@
             this.toolStripButtonTasksShow = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPlabackPlayPause = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPlabackMute = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonPlabackAutostart = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFileOpen = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFilePrev = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFileNext = new System.Windows.Forms.ToolStripButton();
@@ -97,9 +96,9 @@
             this.toolStripTasks.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStripTasks.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonTasksShow});
-            this.toolStripTasks.Location = new System.Drawing.Point(487, 0);
+            this.toolStripTasks.Location = new System.Drawing.Point(427, 0);
             this.toolStripTasks.Name = "toolStripTasks";
-            this.toolStripTasks.Size = new System.Drawing.Size(81, 54);
+            this.toolStripTasks.Size = new System.Drawing.Size(112, 54);
             this.toolStripTasks.TabIndex = 5;
             this.toolStripTasks.Text = "Tasks";
             // 
@@ -205,6 +204,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -219,7 +219,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.panelTasks);
             this.splitContainer1.Panel2Collapsed = true;
             this.splitContainer1.Size = new System.Drawing.Size(886, 585);
-            this.splitContainer1.SplitterDistance = 741;
+            this.splitContainer1.SplitterDistance = 597;
             this.splitContainer1.TabIndex = 7;
             // 
             // panelTasks
@@ -230,7 +230,7 @@
             this.panelTasks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTasks.Location = new System.Drawing.Point(0, 0);
             this.panelTasks.Name = "panelTasks";
-            this.panelTasks.Size = new System.Drawing.Size(96, 100);
+            this.panelTasks.Size = new System.Drawing.Size(285, 585);
             this.panelTasks.TabIndex = 6;
             // 
             // listViewTasks
@@ -239,10 +239,11 @@
             this.columnFilename,
             this.columnDuration});
             this.listViewTasks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewTasks.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewTasks.HideSelection = false;
             this.listViewTasks.Location = new System.Drawing.Point(0, 13);
             this.listViewTasks.Name = "listViewTasks";
-            this.listViewTasks.Size = new System.Drawing.Size(96, 74);
+            this.listViewTasks.Size = new System.Drawing.Size(285, 559);
             this.listViewTasks.TabIndex = 1;
             this.listViewTasks.UseCompatibleStateImageBehavior = false;
             this.listViewTasks.View = System.Windows.Forms.View.Details;
@@ -250,12 +251,12 @@
             // columnFilename
             // 
             this.columnFilename.Text = "Filename";
-            this.columnFilename.Width = 101;
+            this.columnFilename.Width = 200;
             // 
             // columnDuration
             // 
             this.columnDuration.Text = "Duration";
-            this.columnDuration.Width = 69;
+            this.columnDuration.Width = 100;
             // 
             // labelTasks
             // 
@@ -271,7 +272,7 @@
             // 
             this.labelProgress.AutoSize = true;
             this.labelProgress.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.labelProgress.Location = new System.Drawing.Point(0, 87);
+            this.labelProgress.Location = new System.Drawing.Point(0, 572);
             this.labelProgress.Name = "labelProgress";
             this.labelProgress.Size = new System.Drawing.Size(0, 13);
             this.labelProgress.TabIndex = 2;
@@ -319,11 +320,10 @@
             this.toolStripPlayback.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStripPlayback.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonPlabackPlayPause,
-            this.toolStripButtonPlabackMute,
-            this.toolStripButtonPlabackAutostart});
+            this.toolStripButtonPlabackMute});
             this.toolStripPlayback.Location = new System.Drawing.Point(301, 0);
             this.toolStripPlayback.Name = "toolStripPlayback";
-            this.toolStripPlayback.Size = new System.Drawing.Size(186, 54);
+            this.toolStripPlayback.Size = new System.Drawing.Size(126, 54);
             this.toolStripPlayback.TabIndex = 7;
             this.toolStripPlayback.Text = "toolStrip2";
             this.toolStripPlayback.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripPlayback_ItemClicked);
@@ -338,7 +338,7 @@
             this.toolStripButtonTimelineGoToCurrentPosition});
             this.toolStripTimeline.Location = new System.Drawing.Point(0, 392);
             this.toolStripTimeline.Name = "toolStripTimeline";
-            this.toolStripTimeline.Size = new System.Drawing.Size(98, 192);
+            this.toolStripTimeline.Size = new System.Drawing.Size(98, 173);
             this.toolStripTimeline.TabIndex = 21;
             this.toolStripTimeline.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripTimeline_ItemClicked);
             // 
@@ -470,15 +470,6 @@
             this.toolStripButtonPlabackMute.Size = new System.Drawing.Size(39, 51);
             this.toolStripButtonPlabackMute.Text = "Mute";
             this.toolStripButtonPlabackMute.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripButtonPlabackAutostart
-            // 
-            this.toolStripButtonPlabackAutostart.Image = global::SimpleVideoCutter.Properties.Resources.streamline_icon_controls_movie_forward_32x32;
-            this.toolStripButtonPlabackAutostart.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonPlabackAutostart.Name = "toolStripButtonPlabackAutostart";
-            this.toolStripButtonPlabackAutostart.Size = new System.Drawing.Size(60, 51);
-            this.toolStripButtonPlabackAutostart.Text = "Autostart";
-            this.toolStripButtonPlabackAutostart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // toolStripButtonFileOpen
             // 
@@ -622,7 +613,6 @@
         private System.Windows.Forms.ToolStrip toolStripPlayback;
         private System.Windows.Forms.ToolStripButton toolStripButtonPlabackPlayPause;
         private System.Windows.Forms.ToolStripButton toolStripButtonPlabackMute;
-        private System.Windows.Forms.ToolStripButton toolStripButtonPlabackAutostart;
         private System.Windows.Forms.ToolStripButton toolStripButtonFileAbout;
         private System.Windows.Forms.ToolStrip toolStripTimeline;
         private System.Windows.Forms.ToolStripButton toolStripButtonTimelineZoomOut;

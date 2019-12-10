@@ -114,6 +114,7 @@ namespace SimpleVideoCutter
             base.OnMouseWheel(e);
 
             var delta = e.Delta * (ModifierKeys.HasFlag(Keys.Shift) ? 10 : 1);
+            var hoveredPosition = HoverPosition;
 
             HoverPosition = null;
 
@@ -126,16 +127,32 @@ namespace SimpleVideoCutter
 
                 if (newScale > scale)
                 {
-                    // When zooming we try to preserve hovered point in the same place 
-                    var hoveredPosition = PixelToPosition(e.X);
+                    var zoomCenter = ClientRectangle.Width / 2.0f;
+                    
+                    if (hoveredPosition != null)
+                        zoomCenter = PositionToPixel(hoveredPosition);
+
+                    var currPosZoomCenter = PixelToPosition(zoomCenter);
+                    var newPosZoomCenter = PixelToPosition(zoomCenter, newScale);
+
+                    offset = offset + (currPosZoomCenter - newPosZoomCenter);
+                    offset = Math.Max(offset, 0);
                 }
                 else if (newScale < scale)
                 {
+                    var zoomCenter = ClientRectangle.Width / 2.0f;
 
+                    if (hoveredPosition != null)
+                        zoomCenter = PositionToPixel(hoveredPosition);
+
+                    var currPosZoomCenter = PixelToPosition(zoomCenter);
+                    var newPosZoomCenter = PixelToPosition(zoomCenter, newScale);
+
+                    offset = offset + (currPosZoomCenter - newPosZoomCenter);
+                    offset = Math.Max(offset, 0);
                 }
 
                 scale = newScale;
-                Refresh();
             }
             else
             {
@@ -143,15 +160,17 @@ namespace SimpleVideoCutter
                 
                 long newOffset = offset - (int)(delta / SystemInformation.MouseWheelScrollDelta * step);
 
-                if (newOffset < 0)
-                    newOffset = 0;
-
-                if (newOffset + ClientRectangle.Width * MillisecondsPerPixels() > Length)
-                    newOffset = Length - (long)(ClientRectangle.Width * MillisecondsPerPixels());
+                newOffset = Math.Max(newOffset, 0);
 
                 this.offset = newOffset;
-                Refresh();
             }
+
+            if (offset + ClientRectangle.Width * MillisecondsPerPixels() > Length)
+                offset = Length - (long)(ClientRectangle.Width * MillisecondsPerPixels());
+
+            offset = Math.Max(offset, 0);
+
+            Refresh();
 
         }
 
@@ -193,6 +212,14 @@ namespace SimpleVideoCutter
 
             int timeLineHeight = ClientRectangle.Height - infoAreaHeight;
 
+            if (SelectionStart != null && SelectionEnd != null)
+            {
+                var pixelsStart = PositionToPixel((long?)SelectionStart.Value);
+                var pixelsEnd = PositionToPixel((long?)SelectionEnd.Value);
+                var selectionRect = new Rectangle(pixelsStart, 0, pixelsEnd - pixelsStart, timeLineHeight);
+                e.Graphics.FillRectangle(brushBackgroundSelected, selectionRect);
+            }
+
             if (Length != 0)
             {
                 float pixelsPerSecond = PixelsPerMilliseconds() * 1000.0f; 
@@ -229,13 +256,7 @@ namespace SimpleVideoCutter
                 }
 
 
-                if (SelectionStart != null && SelectionEnd != null)
-                {
-                    var pixelsStart = PositionToPixel((long?)SelectionStart.Value);
-                    var pixelsEnd = PositionToPixel((long?)SelectionEnd.Value);
-                    var selectionRect = new Rectangle(pixelsStart, 0, pixelsEnd - pixelsStart, timeLineHeight);
-                    e.Graphics.FillRectangle(brushBackgroundSelected, selectionRect);
-                }
+
 
                 if (SelectionStart != null)
                 {
@@ -347,17 +368,18 @@ namespace SimpleVideoCutter
             });
         }
 
-        private float PixelsPerMilliseconds()
+        private float PixelsPerMilliseconds(float? givenScale = null)
         {
-            return ((float)ClientRectangle.Width / Length) * scale;
+            
+            return ((float)ClientRectangle.Width / Length) * (givenScale ?? scale);
         }
-        private float MillisecondsPerPixels()
+        private float MillisecondsPerPixels(float? givenScale = null)
         {
-            return ((float)Length / ClientRectangle.Width) / scale;
+            return ((float)Length / ClientRectangle.Width) / (givenScale ?? scale);
         }
 
 
-        public int PositionToPixel(long? position)
+        public int PositionToPixel(long? position, float? givenScale = null)
         {
             if (position == null)
                 return 0;
@@ -365,21 +387,24 @@ namespace SimpleVideoCutter
             if (Length == 0)
                 return 0;
 
-            return (int)((position.Value - offset) * PixelsPerMilliseconds());
+            return (int)((position.Value - offset) * PixelsPerMilliseconds(givenScale));
         }
 
-        public long PixelToPosition(float x)
+        public long PixelToPosition(float x, float? givenScale = null)
         {
             if (Length == 0)
                 return 0;
-            return (long)(offset + x * MillisecondsPerPixels());
+            return (long)(offset + x * MillisecondsPerPixels(givenScale));
         }
 
         public void ZoomOut()
         {
             scale = 1.0f;
             offset = 0;
-            Refresh();
+
+            this.InvokeIfRequired(() => {
+                Refresh();
+            });
         }
 
         public void ZoomAuto()
@@ -394,7 +419,10 @@ namespace SimpleVideoCutter
                 scale = desiredPixelsPerMs / fullPixelsPerMs;
                 GoToCurrentPosition();
             }
-            Refresh();
+
+            this.InvokeIfRequired(() => {
+                Refresh();
+            });
         }
         
         public void GoToCurrentPosition()
@@ -403,7 +431,21 @@ namespace SimpleVideoCutter
             {
                 offset = Position;
             }
-            Refresh();
+            
+            this.InvokeIfRequired( () => {
+                Refresh();
+            });
+        }
+        public void GoToPosition(long position)
+        {
+            if (Length > 0)
+            {
+                offset = position;
+            }
+
+            this.InvokeIfRequired(() => {
+                Refresh();
+            });
         }
 
         private void VideoCutterTimeline_Resize(object sender, EventArgs e)
