@@ -106,8 +106,12 @@ namespace SimpleVideoCutter
 
         private void VlcControl1_PositionChanged(object sender, MediaPlayerPositionChangedEventArgs e)
         {
+            AckPositionChange((long)(e.Position * vlcControl1.MediaPlayer.Length));
+        }
+
+        private void AckPositionChange(long position)
+        {
             var length = (long)vlcControl1.MediaPlayer.Length;
-            var position = (int)(e.Position * length);
 
             if (videoCutterTimeline1.SelectionEnd != null && position >= videoCutterTimeline1.SelectionEnd)
             {
@@ -140,7 +144,6 @@ namespace SimpleVideoCutter
             videoCutterTimeline1.InvokeIfRequired(() =>
             {
                 videoCutterTimeline1.Length = length;
-                videoCutterTimeline1.Time = length;
             });
             EnableButtons();
         }
@@ -262,19 +265,64 @@ namespace SimpleVideoCutter
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Space)
+            if (e.KeyCode == Keys.Space || e.KeyCode == Keys.L || e.KeyCode == Keys.K)
             {
                 PlayPause();
             }
 
 
-            if (e.KeyCode == Keys.S)
+            if (e.KeyCode == Keys.OemOpenBrackets && e.Modifiers == Keys.None)
                 SetStartAtCurrentPosition();
 
-            if (e.KeyCode == Keys.E)
+            if (e.KeyCode == Keys.OemCloseBrackets && e.Modifiers == Keys.None)
                 SetEndAtCurrentPosition();
 
-            if (e.KeyCode == Keys.OemPeriod)
+            if (e.KeyCode == Keys.Delete && e.Modifiers == Keys.None)
+                ClearSelection();
+
+            if (e.KeyCode == Keys.E && e.Modifiers == Keys.None)
+                this.EnqeueNewTask();
+
+            if (e.KeyCode == Keys.O && e.Modifiers == Keys.Control)
+                this.OpenFile();
+
+            if (e.KeyCode == Keys.Right && e.Modifiers == Keys.Alt)
+                this.OpenNextFileInDirectory();
+
+            if (e.KeyCode == Keys.Left && e.Modifiers == Keys.Alt)
+                this.OpenPrevFileInDirectory();
+
+            if (e.KeyCode == Keys.T && e.Modifiers == Keys.None)
+                toolStripButtonTasksShow.Checked = !toolStripButtonTasksShow.Checked;
+
+            if (e.KeyCode == Keys.D0 && e.Modifiers == Keys.None)
+                this.videoCutterTimeline1.ZoomOut();
+
+            if (e.KeyCode == Keys.D9 && e.Modifiers == Keys.None)
+                this.videoCutterTimeline1.ZoomAuto();
+
+            if (e.KeyCode == Keys.P &&  e.Modifiers == Keys.Control)
+                this.videoCutterTimeline1.GoToCurrentPosition();
+
+            if (e.KeyCode == Keys.OemOpenBrackets && e.Modifiers == Keys.Control)
+                GoToSelectionStart();
+
+            if (e.KeyCode == Keys.OemCloseBrackets && e.Modifiers == Keys.None)
+                GoToSelectionEnd();
+
+            if (e.KeyCode == Keys.M && e.Modifiers == Keys.Control)
+                Mute();
+
+            if (e.KeyCode == Keys.OemPeriod && e.Modifiers == Keys.None)
+                NextFrame();
+
+            if (e.Modifiers == Keys.None && e.KeyCode == Keys.R && videoCutterTimeline1.SelectionStart != null)
+                PlaySelection();
+
+        }
+        private void NextFrame()
+        {
+            if (fileBeingPlayed != null)
             {
                 ThreadPool.QueueUserWorkItem(_ =>
                 {
@@ -285,12 +333,6 @@ namespace SimpleVideoCutter
                     videoCutterTimeline1.Position = (int)(vlcControl1.MediaPlayer.Position * vlcControl1.MediaPlayer.Length);
                 });
             }
-
-            if (e.KeyCode == Keys.R && videoCutterTimeline1.SelectionStart != null)
-            {
-                PlaySelection();
-            }
-
         }
 
         private void SetStartAtCurrentPosition()
@@ -312,7 +354,10 @@ namespace SimpleVideoCutter
             {
                 ThreadPool.QueueUserWorkItem(_ =>
                 {
-                    vlcControl1.MediaPlayer.Position = (float)videoCutterTimeline1.SelectionStart.Value / vlcControl1.MediaPlayer.Length;
+                    var position = videoCutterTimeline1.SelectionStart.Value;
+                    vlcControl1.MediaPlayer.Position = (float)position / vlcControl1.MediaPlayer.Length;
+                    videoCutterTimeline1.GoToPosition(position);
+                    AckPositionChange(position);
                 });
             }
         }
@@ -323,7 +368,10 @@ namespace SimpleVideoCutter
             {
                 ThreadPool.QueueUserWorkItem(_ =>
                 {
-                    vlcControl1.MediaPlayer.Position = (float)videoCutterTimeline1.SelectionEnd.Value / vlcControl1.MediaPlayer.Length;
+                    var position = videoCutterTimeline1.SelectionEnd.Value;
+                    vlcControl1.MediaPlayer.Position = (float)position / vlcControl1.MediaPlayer.Length;
+                    videoCutterTimeline1.GoToPosition(position);
+                    AckPositionChange(position);
                 });
             }
         }
@@ -373,7 +421,6 @@ namespace SimpleVideoCutter
         {
             if (videoCutterTimeline1.SelectionStart == null || videoCutterTimeline1.SelectionEnd == null)
             {
-                MessageBox.Show("No selection");
                 return;
             }
 
@@ -402,6 +449,7 @@ namespace SimpleVideoCutter
                 TaskId = Guid.NewGuid().ToString(),
             });
             ClearSelection();
+            toolStripButtonTasksShow.Checked = true; 
         }
 
         private void ClearSelection()
@@ -505,7 +553,6 @@ namespace SimpleVideoCutter
                 toolStripButtonPlabackPlayPause.Enabled = isFileLoaded;
                 toolStripButtonPlabackPlayPause.Image = isPlaying ? Resources.streamline_icon_controls_pause_32x32 : Resources.streamline_icon_controls_play_32x32;
                 toolStripButtonPlabackMute.Checked = VideoCutterSettings.Instance.Mute;
-                toolStripButtonPlabackAutostart.Checked = VideoCutterSettings.Instance.Autostart;
             });
 
             toolStripFile.InvokeIfRequired(() =>
@@ -529,13 +576,25 @@ namespace SimpleVideoCutter
             toolStripTasks.InvokeIfRequired(() =>
             {
             });
+
+            toolStripTimeline.InvokeIfRequired(() =>
+            {
+                toolStripButtonTimelineZoomOut.Enabled = isFileLoaded;
+                toolStripButtonTimelineZoomAuto.Enabled = isFileLoaded;
+                toolStripButtonTimelineGoToCurrentPosition.Enabled = isFileLoaded;
+            });
+
         }
 
         private void toolStripButtonShowTasks_CheckedChanged(object sender, EventArgs e)
         {
-            splitContainer1.Panel2Collapsed = !toolStripButtonTasksShow.Checked;
+            ShowHideTasks();
         }
 
+        private void ShowHideTasks()
+        {
+            splitContainer1.Panel2Collapsed = !toolStripButtonTasksShow.Checked;
+        }
 
         private void VideoCutterTimeline1_TimelineHover(object sender, TimelineHoverEventArgs e)
         {
@@ -552,7 +611,7 @@ namespace SimpleVideoCutter
 
                 videoViewHover.Visible = true;
 
-                int posX = (int)(posFloat * videoCutterTimeline1.Width) - videoViewHover.Width / 2;
+                int posX = videoCutterTimeline1.PositionToPixel(pos) - videoViewHover.Width / 2;
                 posX = Math.Max(posX, 0);
                 posX = Math.Min(posX, videoCutterTimeline1.Width - videoViewHover.Width);
 
@@ -629,11 +688,6 @@ namespace SimpleVideoCutter
             {
                 Mute();
             }
-            else if (e.ClickedItem == toolStripButtonPlabackAutostart)
-            {
-                VideoCutterSettings.Instance.Autostart = !VideoCutterSettings.Instance.Autostart;
-                EnableButtons();
-            }
         }
 
         private void toolStripSelection_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -668,6 +722,29 @@ namespace SimpleVideoCutter
             }
         }
 
+        private void OpenNextFileInDirectory()
+        {
+            if (fileBeingPlayed != null)
+            {
+                var newFile = GetNextPrevFileInDirectory(fileBeingPlayed, +1);
+                if (newFile != null && String.Compare(newFile, fileBeingPlayed, true) != 0)
+                {
+                    OpenFile(newFile);
+                }
+            }
+        }
+        private void OpenPrevFileInDirectory()
+        {
+            if (fileBeingPlayed != null)
+            {
+                var newFile = GetNextPrevFileInDirectory(fileBeingPlayed, +1);
+                if (newFile != null && String.Compare(newFile, fileBeingPlayed, true) != 0)
+                {
+                    OpenFile(newFile);
+                }
+            }
+        }
+
         private void toolStripFile_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             if (e.ClickedItem == toolStripButtonFileOpen)
@@ -676,19 +753,11 @@ namespace SimpleVideoCutter
             }
             else if (e.ClickedItem == toolStripButtonFileNext)
             {
-                var newFile = GetNextPrevFileInDirectory(fileBeingPlayed, +1);
-                if (newFile != null && String.Compare(newFile, fileBeingPlayed, true) != 0)
-                {
-                    OpenFile(newFile);
-                }
+                OpenNextFileInDirectory();
             }
             else if (e.ClickedItem == toolStripButtonFilePrev)
             {
-                var newFile = GetNextPrevFileInDirectory(fileBeingPlayed, -1);
-                if (newFile != null && String.Compare(newFile, fileBeingPlayed, true) != 0)
-                {
-                    OpenFile(newFile);
-                }
+                OpenPrevFileInDirectory();
             }
             else if (e.ClickedItem == toolStripButtonFileSettings)
             {
@@ -700,6 +769,22 @@ namespace SimpleVideoCutter
                 {
                     about.ShowDialog();
                 }
+            }
+        }
+
+        private void toolStripTimeline_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem == toolStripButtonTimelineZoomOut)
+            {
+                videoCutterTimeline1.ZoomOut();
+            }
+            else if (e.ClickedItem == toolStripButtonTimelineZoomAuto)
+            {
+                videoCutterTimeline1.ZoomAuto();
+            }
+            else if (e.ClickedItem == toolStripButtonTimelineGoToCurrentPosition)
+            {
+                videoCutterTimeline1.GoToCurrentPosition();
             }
         }
     }
