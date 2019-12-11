@@ -23,7 +23,7 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 - Download the release by [clicking here](https://github.com/bartekmotyl/simple-video-cutter/releases)
 - Unzip release package into a directory 
 - Start `SimpleVideoCutter.exe` in that directory
-- Once prompted, select location of ffmpeg.exe (FFmpeg can be downloaded fro free from [FFmpeg release page](https://ffmpeg.zeranoe.com/builds/)   
+- Once prompted, select location of ffmpeg.exe (FFmpeg can be downloaded for free from [FFmpeg release page](https://ffmpeg.zeranoe.com/builds/)   
 - You can also adjust other parameters in settings window, for example directory and filename pattern of the output files. Supported variables are: 
 	- `{FileName}` - name of the input video file (with extension)
 	- `{FileNameWithoutExtension}` - name of the input video file (without extension)
@@ -33,18 +33,19 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 	- `{UserVideos}` - shortcut for `Environment.SpecialFolder.MyVideos`
 	- `{UserDocuments}` - shortcut for `Environment.SpecialFolder.MyDocuments`
 	- `{MyComputer}` - shortcut for `Environment.SpecialFolder.MyComputer`
-- Click OK to save settings. Setting are saved `config.json` file and cab be edited manually (but please be aware settings file is overwritten when program closes).  
+- Click OK to save settings. Setting are saved in `config.json` file and can be edited manually (but please be aware settings file is overwritten when program closes).  
 	
 ### Working with the tool:
 - Open a video file 
 - The video playback starts automatically; press space to pause/resume (or click in the video area)
-- You can navigate back and forth using timeline control at the botom of the screen. Use mouse wheel (with control key pressed) to zoom in and out the timeline. Mouse wheel without control key scrolls the timeline  forward and backward. Press also Shift for even faster scrolling/zooming. 
+- You can navigate back and forth through video using timeline control at the botom of the screen. Use mouse wheel (with control key pressed) to zoom in and out the timeline. Mouse wheel without control key scrolls the timeline forward and backward. Press shift key for even faster scrolling/zooming. 
 - Select a position and press `[` (or click the correspnding button) to mark start of your cut  
 - Press `]` to mark end of your cut 
 - Press `E` (or click 'Enqueue' button) to add task to the queue. 
   FFmpeg will be used to extract selected portion of the video and save it in a new file. 
-- Tasks lists is shown where you can inspect pending and running tasks. Tasks is processed automatically and disapper once completed. Feel free to open next file (and add next tasks) while task is in progress - they do not interfere. 
-- Use Prev / Next buttons to quickly open next or previous file in the same directory. 
+- In tasks lists you can inspect pending and running tasks. Tasks are processed automatically and disappear once completed. 
+Feel free to open next file (and add next tasks) while task is still in progress - they do not interfere with each other and just queue up. 
+- Use Previos / Next buttons to quickly open next or previous file in the same directory. 
 
 ## To do
 - ~~configure options in a dialog (currently one need to modify `config.json` file manually)~~
@@ -61,7 +62,7 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 - lack of proper error handling in some border cases (IO errors etc.) 
 - location on timeline not updated correctly when video reaches the end 
   (sometimes the marker stays a bit before the actual end). 
-- small preview slide (on top to the hovered position) someetimes stucks and doesn't update with actual hovered frame any more. Known workaround: re-open the file.   
+- small preview slide (on top to the hovered position) sometimes stucks and doesn't update with actual hovered frame any more. Known workaround: re-open the file.   
 
 ## Icons 
 
