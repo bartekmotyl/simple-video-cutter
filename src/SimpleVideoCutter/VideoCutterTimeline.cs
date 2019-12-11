@@ -280,8 +280,8 @@ namespace SimpleVideoCutter
                 }
 
                 var positionPixel = PositionToPixel(Position);
-                PaintTriangle(e.Graphics, brushPosition, positionPixel, 8, 8);
-                e.Graphics.FillRectangle(brushPosition, positionPixel, 0, 1, timeLineHeight);
+                PaintTriangle(e.Graphics, brushPosition, positionPixel+1, 8, 8);
+                e.Graphics.FillRectangle(brushPosition, positionPixel, 0, 2, timeLineHeight);
 
 
 
@@ -300,8 +300,8 @@ namespace SimpleVideoCutter
 
 
 
-                    e.Graphics.FillRectangle(brushHoverPosition, pixel, 0, 1, timeLineHeight);
-                    PaintTriangle(e.Graphics, brushHoverPosition, PositionToPixel(HoverPosition), 8, 8);
+                    e.Graphics.FillRectangle(brushHoverPosition, pixel, 0, 2, timeLineHeight);
+                    PaintTriangle(e.Graphics, brushHoverPosition, PositionToPixel(HoverPosition)+1, 8, 8);
 
                     if (SelectionStart == null)
                     {
@@ -434,21 +434,14 @@ namespace SimpleVideoCutter
         
         public void GoToCurrentPosition()
         {
-            if (Length > 0)
-            {
-                offset = Position;
-                EnsureOffsetInBounds();
-            }
-            
-            this.InvokeIfRequired( () => {
-                Refresh();
-            });
+            GoToPosition(Position);
         }
+
         public void GoToPosition(long position)
         {
             if (Length > 0)
             {
-                offset = position;
+                offset = position - (long)MillisecondsPerPixels() * (ClientSize.Width / 2);
                 EnsureOffsetInBounds();
             }
 

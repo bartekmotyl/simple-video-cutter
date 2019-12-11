@@ -363,6 +363,36 @@ namespace SimpleVideoCutter.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_go_to_end_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("streamline-icon-go-to-end@32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_go_to_start_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("streamline-icon-go-to-start@32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_go_to_start_32x321 {
+            get {
+                object obj = ResourceManager.GetObject("streamline-icon-go-to-start@32x321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap streamline_icon_information_circle_32x32 {
             get {
                 object obj = ResourceManager.GetObject("streamline-icon-information-circle@32x32", resourceCulture);
@@ -396,6 +426,26 @@ namespace SimpleVideoCutter.Properties {
         internal static System.Drawing.Bitmap streamline_icon_navigation_right_to_32x32 {
             get {
                 object obj = ResourceManager.GetObject("streamline-icon-navigation-right-to@32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_set_end_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("streamline-icon-set-end@32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap streamline_icon_set_start_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("streamline-icon-set-start@32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

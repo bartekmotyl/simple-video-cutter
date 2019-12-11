@@ -55,6 +55,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <PlatformTarget>x86</PlatformTarget>
+    <DocumentationFile>
+    </DocumentationFile>
+    <OutputPath>bin\x86\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="netstandard" />
@@ -197,6 +200,10 @@
     <Content Include="movie-icon-15157-Windows.ico" />
     <Content Include="Resources\iconfinder_cog_293670.png" />
     <Content Include="Resources\movie-icon-15157-Windows.ico" />
+    <None Include="Resources\streamline\streamline-icon-go-to-end%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-go-to-start%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-set-end%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-set-start%4032x32.png" />
     <None Include="Resources\streamline\streamline-icon-cursor-move-target-right%4032x32.png" />
     <None Include="Resources\streamline\streamline-icon-direction-button-3%4032x32.png" />
     <None Include="Resources\streamline\streamline-icon-expand-5%4032x32.png" />
