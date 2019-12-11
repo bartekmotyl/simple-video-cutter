@@ -33,28 +33,27 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 	- `{UserVideos}` - shortcut for `Environment.SpecialFolder.MyVideos`
 	- `{UserDocuments}` - shortcut for `Environment.SpecialFolder.MyDocuments`
 	- `{MyComputer}` - shortcut for `Environment.SpecialFolder.MyComputer`
-- Click OK to save settings
+- Click OK to save settings. Setting are saved `config.json` file and cab be edited manually (but please be aware settings file is overwritten when program closes).  
 	
 ### Working with the tool:
-- Start `SimpleVideoCutter.exe`
 - Open a video file 
 - The video playback starts automatically; press space to pause/resume (or click in the video area)
-- Select a position and click `S` to mark start of your cut 
-- Click `E` to mark end of your cut 
-- Click 'Enqueue clip task' to add task to the queue. 
+- You can navigate back and forth using timeline control at the botom of the screen. Use mouse wheel (with control key pressed) to zoom in and out the timeline. Mouse wheel without control key scrolls the timeline  forward and backward. Press also Shift for even faster scrolling/zooming. 
+- Select a position and press `[` (or click the correspnding button) to mark start of your cut  
+- Press `]` to mark end of your cut 
+- Press `E` (or click 'Enqueue' button) to add task to the queue. 
   FFmpeg will be used to extract selected portion of the video and save it in a new file. 
-- Click 'Show tasks' to see list of pending and running tasks
-
+- Tasks lists is shown where you can inspect pending and running tasks. Tasks is processed automatically and disapper once completed. Feel free to open next file (and add next tasks) while task is in progress - they do not interfere. 
+- Use Prev / Next buttons to quickly open next or previous file in the same directory. 
 
 ## To do
 - ~~configure options in a dialog (currently one need to modify `config.json` file manually)~~
 - ~~open dialog to select ffmpeg location~~ 
 - allow to configure ffmpeg options when (e.g. convert ot a different format / size etc.) 
-- improve timeline control (show seconds ticks etc. )
+- ~~improve timeline control (show seconds ticks etc. )~~
 - extend list of variables that can be used in file patterns 
 - jump to first/last video file in the current directory 
 - jump to next/prev directory (sibling to current directory)
-
 
 
 ## Known issues
@@ -62,7 +61,7 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 - lack of proper error handling in some border cases (IO errors etc.) 
 - location on timeline not updated correctly when video reaches the end 
   (sometimes the marker stays a bit before the actual end). 
-
+- small preview slide (on top to the hovered position) someetimes stucks and doesn't update with actual hovered frame any more. Known workaround: re-open the file.   
 
 ## Icons 
 
