@@ -35,6 +35,7 @@
             this.labelCopyright = new System.Windows.Forms.Label();
             this.okButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.linkLabelGithub = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -50,6 +51,7 @@
             this.tableLayoutPanel.Controls.Add(this.labelCopyright, 1, 2);
             this.tableLayoutPanel.Controls.Add(this.okButton, 1, 5);
             this.tableLayoutPanel.Controls.Add(this.textBox1, 1, 4);
+            this.tableLayoutPanel.Controls.Add(this.linkLabelGithub, 1, 3);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(9, 9);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
@@ -134,6 +136,17 @@
             this.textBox1.TabIndex = 25;
             this.textBox1.Text = "Icons: streamlineicons.com\r\nFFmpeg: www.ffmpeg.org";
             // 
+            // linkLabelGithub
+            // 
+            this.linkLabelGithub.AutoSize = true;
+            this.linkLabelGithub.Location = new System.Drawing.Point(140, 93);
+            this.linkLabelGithub.Name = "linkLabelGithub";
+            this.linkLabelGithub.Size = new System.Drawing.Size(247, 13);
+            this.linkLabelGithub.TabIndex = 26;
+            this.linkLabelGithub.TabStop = true;
+            this.linkLabelGithub.Text = "https://github.com/bartekmotyl/simple-video-cutter";
+            this.linkLabelGithub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelGithub_LinkClicked);
+            // 
             // AboutBox
             // 
             this.AcceptButton = this.okButton;
@@ -166,5 +179,6 @@
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.LinkLabel linkLabelGithub;
     }
 }

@@ -123,9 +123,6 @@
   <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>186, 17</value>
-  </metadata>
   <data name="textBoxOutputFilePattern.ToolTip" xml:space="preserve">
     <value>Pattern that defines how filenames of created files will be computed. 
 Static parts are allowed as well as these pseudo-variable 

@@ -202,6 +202,7 @@ namespace SimpleVideoCutter
         private string ReplaceStandardDirectoryPatterns(string str)
         {
             return str
+                .Replace("{SameFolder}",  fileBeingPlayed)
                 .Replace("{UserVideos}", Environment.GetFolderPath(Environment.SpecialFolder.MyVideos))
                 .Replace("{UserDocuments}", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments))
                 .Replace("{MyComputer}", Environment.GetFolderPath(Environment.SpecialFolder.MyComputer));
@@ -804,6 +805,39 @@ namespace SimpleVideoCutter
             else if (e.ClickedItem == toolStripButtonTimelineGoToCurrentPosition)
             {
                 videoCutterTimeline1.GoToCurrentPosition();
+            }
+        }
+
+        private string GetPathOfSingleDraggedFile(IDataObject data)
+        {
+            if (!data.GetDataPresent(DataFormats.FileDrop)) 
+                return null;
+
+            string[] files = (string[])data.GetData(DataFormats.FileDrop);
+            
+            if (files.Length != 1)
+                return null;
+
+            var file = files[0];
+            var ext = System.IO.Path.GetExtension(file);
+            if (VideoCutterSettings.Instance.VideoFilesExtensions.Contains(ext.ToLower()))
+                return file;
+
+            return null;
+        }
+
+        private void MainForm_DragOver(object sender, DragEventArgs e)
+        {
+            if (GetPathOfSingleDraggedFile(e.Data)!=null)
+                e.Effect = DragDropEffects.Copy;
+        }
+
+        private void MainForm_DragDrop(object sender, DragEventArgs e)
+        {
+            var file = GetPathOfSingleDraggedFile(e.Data);
+            if (file != null)
+            {
+                OpenFile(file);
             }
         }
     }

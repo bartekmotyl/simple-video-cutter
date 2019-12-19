@@ -168,7 +168,8 @@
             this.comboBoxOutputDirectory.Items.AddRange(new object[] {
             "{UserVideos}",
             "{UserDocuments}",
-            "{MyComputer}"});
+            "{MyComputer}",
+            "{SameFolder}"});
             this.comboBoxOutputDirectory.Location = new System.Drawing.Point(134, 37);
             this.comboBoxOutputDirectory.Name = "comboBoxOutputDirectory";
             this.comboBoxOutputDirectory.Size = new System.Drawing.Size(344, 21);

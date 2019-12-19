@@ -100,7 +100,7 @@
             this.toolStripTasks.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStripTasks.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonTasksShow});
-            this.toolStripTasks.Location = new System.Drawing.Point(301, 0);
+            this.toolStripTasks.Location = new System.Drawing.Point(306, 0);
             this.toolStripTasks.Name = "toolStripTasks";
             this.toolStripTasks.Size = new System.Drawing.Size(81, 54);
             this.toolStripTasks.TabIndex = 5;
@@ -213,9 +213,9 @@
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripFile);
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripTasks);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripPlayback);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripTasks);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripFile);
             // 
             // splitContainer1
             // 
@@ -465,7 +465,7 @@
             this.toolStripButtonPlabackPlayPause,
             this.toolStripButtonPlabackMute,
             this.toolStripButtonPlabackNextFrame});
-            this.toolStripPlayback.Location = new System.Drawing.Point(382, 0);
+            this.toolStripPlayback.Location = new System.Drawing.Point(388, 0);
             this.toolStripPlayback.Name = "toolStripPlayback";
             this.toolStripPlayback.Size = new System.Drawing.Size(196, 54);
             this.toolStripPlayback.TabIndex = 7;
@@ -512,7 +512,7 @@
             this.toolStripButtonFileNext,
             this.toolStripButtonFileSettings,
             this.toolStripButtonFileAbout});
-            this.toolStripFile.Location = new System.Drawing.Point(3, 0);
+            this.toolStripFile.Location = new System.Drawing.Point(8, 0);
             this.toolStripFile.Name = "toolStripFile";
             this.toolStripFile.Size = new System.Drawing.Size(298, 54);
             this.toolStripFile.TabIndex = 20;
@@ -569,6 +569,7 @@
             // 
             // MainForm
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1084, 761);
@@ -582,6 +583,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
+            this.DragOver += new System.Windows.Forms.DragEventHandler(this.MainForm_DragOver);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.toolStripTasks.ResumeLayout(false);
             this.toolStripTasks.PerformLayout();
