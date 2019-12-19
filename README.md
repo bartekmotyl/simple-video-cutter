@@ -48,7 +48,7 @@ Feel free to open next file (and add next tasks) while task is still in progress
 - Use Previos / Next buttons to quickly open next or previous file in the same directory. 
 
 ## To do
-- support looseles cut 
+- support lossless cut 
 - bundle ffmpeg with the program, do not require user to download it separatelly  
 - allow to configure ffmpeg options (e.g. convert to a different format / size etc.) 
 - extend list of variables that can be used in file patterns 
