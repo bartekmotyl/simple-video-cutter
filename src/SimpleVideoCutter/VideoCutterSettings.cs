@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SimpleVideoCutter.Settings;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,8 +23,12 @@ namespace SimpleVideoCutter
         public bool Mute { get; set; } = false;
         public bool Autostart { get; set; } = true;
 
-        public static VideoCutterSettings Instance { get; }  = new VideoCutterSettings();
+        public FFmpegCutProfile[] FFmpegCutProfiles = new FFmpegCutProfile[]
+        {
+            new FFmpegCutProfile() { Name = "lossless", Arguments = "-codec copy"},
+        };
 
+        public static VideoCutterSettings Instance { get; }  = new VideoCutterSettings();
 
         protected VideoCutterSettings()
         {

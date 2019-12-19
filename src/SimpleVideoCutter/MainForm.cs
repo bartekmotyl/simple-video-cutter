@@ -383,23 +383,35 @@ namespace SimpleVideoCutter
         }
 
 
+        private void RefreshTasks()
+        {
+            listViewTasks.InvokeIfRequired(() =>
+            {
+                var tasks = taskProcessor.GetTasks().Reverse();
 
+                listViewTasks.Items.Clear();
+                listViewTasks.Items.AddRange(tasks.Select(
+                    task =>
+                    {
+                        var item = new ListViewItem(task.StateLabel);
+                        item.SubItems.Add(string.Format("{0}", task.InputFileName));
+                        item.SubItems.Add(string.Format("{0} sec", Math.Round(task.Duration / 1000.0f, 1)));
+                        item.SubItems.Add(string.Format("{0}", task.OutputFilePath));
+                        item.SubItems.Add(string.Format("{0}", task.ErrorMessage));
+                        if (task.State == FFmpegTaskState.FinishedError)
+                            item.BackColor = Color.Tomato;
+                        return item;
+                    }).ToArray());
+
+                listViewTasks.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                columnStatus.Width = 80;
+            });
+        }
         private void TaskProcessor_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "Tasks")
             {
-                listViewTasks.InvokeIfRequired(() =>
-                {
-                    var tasks = taskProcessor.GetTasks();
-                    listViewTasks.Items.Clear();
-                    listViewTasks.Items.AddRange(tasks.Select(
-                        task =>
-                        {
-                            var item = new ListViewItem(task.InputFileName);
-                            item.SubItems.Add(string.Format("{0} sec", Math.Round(task.Duration / 1000.0f, 1)));
-                            return item;
-                        }).ToArray());
-                });
+                RefreshTasks();
             }
         }
 
@@ -447,6 +459,7 @@ namespace SimpleVideoCutter
                 SelectionStart = selectionStart,
                 Duration = selectionEnd - selectionStart,
                 TaskId = Guid.NewGuid().ToString(),
+                Profile = VideoCutterSettings.Instance.FFmpegCutProfiles[0],
             });
             ClearSelection();
             toolStripButtonTasksShow.Checked = true; 
@@ -551,6 +564,7 @@ namespace SimpleVideoCutter
             toolStripPlayback.InvokeIfRequired(() =>
             {
                 toolStripButtonPlabackPlayPause.Enabled = isFileLoaded;
+                toolStripButtonPlabackNextFrame.Enabled = isFileLoaded;
                 toolStripButtonPlabackPlayPause.Image = isPlaying ? Resources.streamline_icon_controls_pause_32x32 : Resources.streamline_icon_controls_play_32x32;
                 toolStripButtonPlabackMute.Checked = VideoCutterSettings.Instance.Mute;
             });
@@ -593,6 +607,7 @@ namespace SimpleVideoCutter
 
         private void ShowHideTasks()
         {
+            RefreshTasks();
             splitContainer1.Panel2Collapsed = !toolStripButtonTasksShow.Checked;
         }
 
@@ -687,6 +702,10 @@ namespace SimpleVideoCutter
             else if (e.ClickedItem == toolStripButtonPlabackMute)
             {
                 Mute();
+            }
+            else if (e.ClickedItem == toolStripButtonPlabackNextFrame)
+            {
+                NextFrame();
             }
         }
 
