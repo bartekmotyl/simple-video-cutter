@@ -838,6 +838,7 @@ namespace SimpleVideoCutter
             if (file != null)
             {
                 OpenFile(file);
+                Activate();
             }
         }
     }
