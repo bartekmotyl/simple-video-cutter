@@ -33,7 +33,7 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 	- `{UserVideos}` - shortcut for `Environment.SpecialFolder.MyVideos`
 	- `{UserDocuments}` - shortcut for `Environment.SpecialFolder.MyDocuments`
 	- `{MyComputer}` - shortcut for `Environment.SpecialFolder.MyComputer`
-	- `{SameFolder}` - allows to save files in same folder when original video file is located
+	- ~~`{SameFolder}` - allows to save files in same folder when original video file is located~~ (temporary unavailable due to issue in release 0.11)
 - Click OK to save settings. Setting are saved in `config.json` file and can be edited manually (but please be aware settings file is overwritten when program closes).  
 	
 ### Working with the tool:
