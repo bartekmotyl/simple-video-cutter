@@ -202,6 +202,7 @@ namespace SimpleVideoCutter
         private string ReplaceStandardDirectoryPatterns(string str)
         {
             return str
+                .Replace("{SameFolder}",  fileBeingPlayed)
                 .Replace("{UserVideos}", Environment.GetFolderPath(Environment.SpecialFolder.MyVideos))
                 .Replace("{UserDocuments}", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments))
                 .Replace("{MyComputer}", Environment.GetFolderPath(Environment.SpecialFolder.MyComputer));
@@ -383,23 +384,35 @@ namespace SimpleVideoCutter
         }
 
 
+        private void RefreshTasks()
+        {
+            listViewTasks.InvokeIfRequired(() =>
+            {
+                var tasks = taskProcessor.GetTasks().Reverse();
 
+                listViewTasks.Items.Clear();
+                listViewTasks.Items.AddRange(tasks.Select(
+                    task =>
+                    {
+                        var item = new ListViewItem(task.StateLabel);
+                        item.SubItems.Add(string.Format("{0}", task.InputFileName));
+                        item.SubItems.Add(string.Format("{0} sec", Math.Round(task.Duration / 1000.0f, 1)));
+                        item.SubItems.Add(string.Format("{0}", task.OutputFilePath));
+                        item.SubItems.Add(string.Format("{0}", task.ErrorMessage));
+                        if (task.State == FFmpegTaskState.FinishedError)
+                            item.BackColor = Color.Tomato;
+                        return item;
+                    }).ToArray());
+
+                listViewTasks.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                columnStatus.Width = 80;
+            });
+        }
         private void TaskProcessor_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "Tasks")
             {
-                listViewTasks.InvokeIfRequired(() =>
-                {
-                    var tasks = taskProcessor.GetTasks();
-                    listViewTasks.Items.Clear();
-                    listViewTasks.Items.AddRange(tasks.Select(
-                        task =>
-                        {
-                            var item = new ListViewItem(task.InputFileName);
-                            item.SubItems.Add(string.Format("{0} sec", Math.Round(task.Duration / 1000.0f, 1)));
-                            return item;
-                        }).ToArray());
-                });
+                RefreshTasks();
             }
         }
 
@@ -447,6 +460,7 @@ namespace SimpleVideoCutter
                 SelectionStart = selectionStart,
                 Duration = selectionEnd - selectionStart,
                 TaskId = Guid.NewGuid().ToString(),
+                Profile = VideoCutterSettings.Instance.FFmpegCutProfiles[0],
             });
             ClearSelection();
             toolStripButtonTasksShow.Checked = true; 
@@ -551,6 +565,7 @@ namespace SimpleVideoCutter
             toolStripPlayback.InvokeIfRequired(() =>
             {
                 toolStripButtonPlabackPlayPause.Enabled = isFileLoaded;
+                toolStripButtonPlabackNextFrame.Enabled = isFileLoaded;
                 toolStripButtonPlabackPlayPause.Image = isPlaying ? Resources.streamline_icon_controls_pause_32x32 : Resources.streamline_icon_controls_play_32x32;
                 toolStripButtonPlabackMute.Checked = VideoCutterSettings.Instance.Mute;
             });
@@ -593,6 +608,7 @@ namespace SimpleVideoCutter
 
         private void ShowHideTasks()
         {
+            RefreshTasks();
             splitContainer1.Panel2Collapsed = !toolStripButtonTasksShow.Checked;
         }
 
@@ -687,6 +703,10 @@ namespace SimpleVideoCutter
             else if (e.ClickedItem == toolStripButtonPlabackMute)
             {
                 Mute();
+            }
+            else if (e.ClickedItem == toolStripButtonPlabackNextFrame)
+            {
+                NextFrame();
             }
         }
 
@@ -785,6 +805,39 @@ namespace SimpleVideoCutter
             else if (e.ClickedItem == toolStripButtonTimelineGoToCurrentPosition)
             {
                 videoCutterTimeline1.GoToCurrentPosition();
+            }
+        }
+
+        private string GetPathOfSingleDraggedFile(IDataObject data)
+        {
+            if (!data.GetDataPresent(DataFormats.FileDrop)) 
+                return null;
+
+            string[] files = (string[])data.GetData(DataFormats.FileDrop);
+            
+            if (files.Length != 1)
+                return null;
+
+            var file = files[0];
+            var ext = System.IO.Path.GetExtension(file);
+            if (VideoCutterSettings.Instance.VideoFilesExtensions.Contains(ext.ToLower()))
+                return file;
+
+            return null;
+        }
+
+        private void MainForm_DragOver(object sender, DragEventArgs e)
+        {
+            if (GetPathOfSingleDraggedFile(e.Data)!=null)
+                e.Effect = DragDropEffects.Copy;
+        }
+
+        private void MainForm_DragDrop(object sender, DragEventArgs e)
+        {
+            var file = GetPathOfSingleDraggedFile(e.Data);
+            if (file != null)
+            {
+                OpenFile(file);
             }
         }
     }

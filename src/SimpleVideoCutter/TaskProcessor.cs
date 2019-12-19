@@ -1,4 +1,6 @@
 ﻿using FFmpeg.NET;
+using SimpleVideoCutter.FFmpegNET;
+using SimpleVideoCutter.Settings;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -12,7 +14,7 @@ namespace SimpleVideoCutter
 {
     public class TaskProcessor : INotifyPropertyChanged
     {
-        private ConcurrentQueue<FFmpegTask> tasks = new ConcurrentQueue<FFmpegTask>();
+        private IList<FFmpegTask> tasks = new List<FFmpegTask>();
         private FFmpegTask currentTask = null;
         private Thread workerThread = null;
 
@@ -30,18 +32,20 @@ namespace SimpleVideoCutter
 
         public void EnqueueTask(FFmpegTask task)
         {
-            tasks.Enqueue(task);
+            lock (tasks)
+            {
+                tasks.Add(task);
+            }
             OnPropertyChanged("Tasks");
         }
 
         public IList<FFmpegTask> GetTasks()
         {
-            var result = tasks.ToList();
-
-            if (currentTask != null)
-                result.Insert(0, currentTask);
-
-            return result; 
+            lock (tasks)
+            {
+                var result = tasks.ToList();
+                return result;
+            }
         }
 
         private void OnPropertyChanged(string propertyName)
@@ -57,17 +61,33 @@ namespace SimpleVideoCutter
         {
             while (!StopRequest)
             {
-                if (currentTask == null && tasks.TryDequeue(out currentTask))
+                if (currentTask == null)
                 {
+                    FFmpegTask taskToSchedule = null;
+                    lock (tasks)
+                    {
+                        taskToSchedule = tasks.FirstOrDefault(t => t.State == FFmpegTaskState.Scheduled);
+                        if (taskToSchedule == null)
+                        {
+                            Thread.Sleep(100);
+                            continue;
+                        }
+                    }
+
+                    currentTask = taskToSchedule;
+
                     var ffmpeg = new Engine(VideoCutterSettings.Instance.FFmpegPath);
                     ffmpeg.Complete += (object sender, FFmpeg.NET.Events.ConversionCompleteEventArgs e) =>
                     {
+                        currentTask.State = FFmpegTaskState.FinishedOK;
                         currentTask = null;
                         OnPropertyChanged("Tasks");
                         OnTaskProgress("Done");
                     };
                     ffmpeg.Error += (object sender, FFmpeg.NET.Events.ConversionErrorEventArgs e) =>
                     {
+                        currentTask.State = FFmpegTaskState.FinishedError;
+                        currentTask.ErrorMessage = e.Exception.Message;
                         currentTask = null;
                         OnPropertyChanged("Tasks");
                         OnTaskProgress("Failure: "+e.Exception.Message);
@@ -81,13 +101,23 @@ namespace SimpleVideoCutter
 
                     try
                     {
-                        var options = new ConversionOptions();
-                        options.CutMedia(TimeSpan.FromMilliseconds(currentTask.SelectionStart), TimeSpan.FromMilliseconds(currentTask.Duration));
-                        Task<MediaFile> taskConversion = ffmpeg.ConvertAsync(new MediaFile(currentTask.InputFilePath), new MediaFile(currentTask.OutputFilePath), options);
+                        var ffmpegCutArguments = FFmpegArgumentBuilder.BuildArgumentsCutOperation(
+                            currentTask.InputFilePath, 
+                            currentTask.OutputFilePath, 
+                            TimeSpan.FromMilliseconds(currentTask.SelectionStart), 
+                            TimeSpan.FromMilliseconds(currentTask.Duration),
+                            currentTask.Profile.Arguments);
+
+                        currentTask.State = FFmpegTaskState.InProgress;
+                        OnPropertyChanged("Tasks");
+
+                        Task taskConversion = ffmpeg.ExecuteAsync(ffmpegCutArguments);
                         taskConversion.Wait();
                     }
                     catch (Exception e)
                     {
+                        currentTask.State = FFmpegTaskState.FinishedError;
+                        currentTask.ErrorMessage = e.Message;
                         currentTask = null;
                         OnPropertyChanged("Tasks");
                         OnTaskProgress("Failure: " + e.Message);
@@ -95,7 +125,7 @@ namespace SimpleVideoCutter
                 }
                 else
                 {
-                    Thread.Sleep(1000);
+                    Thread.Sleep(100);
                 }
             }
         }
@@ -109,6 +139,32 @@ namespace SimpleVideoCutter
         public string InputFileName { get; set; }
         public long SelectionStart { get; set; }
         public long Duration { get; set; }
+        public FFmpegCutProfile Profile { get; set; }
+        public FFmpegTaskState State { get; set; }
+        public string ErrorMessage { get; set; }
+
+
+        public string StateLabel
+        {
+            get
+            {
+                switch (State)
+                {
+                    case FFmpegTaskState.Scheduled: return "Scheduled";
+                    case FFmpegTaskState.InProgress: return "In progress";
+                    case FFmpegTaskState.FinishedOK: return "Done";
+                    case FFmpegTaskState.FinishedError: return "Error";
+                    default: return "Unrecognized";
+                }
+            }
+        }
+    }
+    public enum FFmpegTaskState
+    {
+        Scheduled,
+        InProgress,
+        FinishedOK,
+        FinishedError,
     }
 
     public class TaskProgressEventArgs : EventArgs

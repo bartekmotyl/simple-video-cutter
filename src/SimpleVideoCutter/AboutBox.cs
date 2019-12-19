@@ -100,5 +100,10 @@ namespace SimpleVideoCutter
             }
         }
         #endregion
+
+        private void linkLabelGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(linkLabelGithub.Text);
+        }
     }
 }
