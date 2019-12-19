@@ -48,13 +48,15 @@ Feel free to open next file (and add next tasks) while task is still in progress
 - Use Previos / Next buttons to quickly open next or previous file in the same directory. 
 
 ## To do
-- ~~configure options in a dialog (currently one need to modify `config.json` file manually)~~
-- ~~open dialog to select ffmpeg location~~ 
-- allow to configure ffmpeg options when (e.g. convert ot a different format / size etc.) 
-- ~~improve timeline control (show seconds ticks etc. )~~
+- support looseles cut 
+- bundle ffmpeg with the program, do not require user to download it separatelly  
+- allow to configure ffmpeg options (e.g. convert to a different format / size etc.) 
 - extend list of variables that can be used in file patterns 
 - jump to first/last video file in the current directory 
 - jump to next/prev directory (sibling to current directory)
+- ~~configure options in a dialog (currently one need to modify `config.json` file manually)~~
+- ~~open dialog to select ffmpeg location~~ 
+- ~~improve timeline control (show seconds ticks etc. )~~
 
 
 ## Known issues
