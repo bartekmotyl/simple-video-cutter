@@ -202,7 +202,7 @@ namespace SimpleVideoCutter
         private string ReplaceStandardDirectoryPatterns(string str)
         {
             return str
-                .Replace("{SameFolder}",  fileBeingPlayed)
+                .Replace("{SameFolder}",  Path.GetDirectoryName(fileBeingPlayed))
                 .Replace("{UserVideos}", Environment.GetFolderPath(Environment.SpecialFolder.MyVideos))
                 .Replace("{UserDocuments}", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments))
                 .Replace("{MyComputer}", Environment.GetFolderPath(Environment.SpecialFolder.MyComputer));
