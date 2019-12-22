@@ -131,6 +131,7 @@ namespace SimpleVideoCutter
         }
     }
 
+    [Serializable]
     public class FFmpegTask
     {
         public string TaskId { get; set; }
@@ -159,6 +160,8 @@ namespace SimpleVideoCutter
             }
         }
     }
+
+    [Serializable]
     public enum FFmpegTaskState
     {
         Scheduled,

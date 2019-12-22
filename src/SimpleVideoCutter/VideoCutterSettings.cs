@@ -22,11 +22,14 @@ namespace SimpleVideoCutter
 
         public bool Mute { get; set; } = false;
         public bool Autostart { get; set; } = true;
+        public bool ShowTaskWindow { get; set; } = true;
 
         public FFmpegCutProfile[] FFmpegCutProfiles = new FFmpegCutProfile[]
         {
-            new FFmpegCutProfile() { Name = "lossless", Arguments = "-codec copy"},
+            new FFmpegCutProfile() { Name = "lossless", Arguments = "-codec copy", FileType = null},
         };
+
+        public string SelectedFFmpegCutProfile { get; set; } = "lossless";
 
         public static VideoCutterSettings Instance { get; }  = new VideoCutterSettings();
 

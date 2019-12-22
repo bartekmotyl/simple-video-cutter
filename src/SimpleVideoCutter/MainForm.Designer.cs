@@ -411,7 +411,7 @@
             this.toolStripButtonSelectionEnqueue.Size = new System.Drawing.Size(87, 51);
             this.toolStripButtonSelectionEnqueue.Text = "Enqueue";
             this.toolStripButtonSelectionEnqueue.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonSelectionEnqueue.ToolTipText = "Enqueue selection to be processed by FFmpeg (E)";
+            this.toolStripButtonSelectionEnqueue.ToolTipText = "Enqueue selection to be processed by FFmpeg (E). Press also Shift to open task dialog.";
             // 
             // toolStripTimeline
             // 
