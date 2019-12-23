@@ -395,6 +395,7 @@ namespace SimpleVideoCutter
                     task =>
                     {
                         var item = new ListViewItem(task.StateLabel);
+                        item.SubItems.Add(string.Format("{0}", task.Profile.Name));
                         item.SubItems.Add(string.Format("{0}", task.InputFileName));
                         item.SubItems.Add(string.Format("{0} sec", Math.Round(task.Duration / 1000.0f, 1)));
                         item.SubItems.Add(string.Format("{0}", task.OutputFilePath));
@@ -448,7 +449,12 @@ namespace SimpleVideoCutter
             long selectionStart = videoCutterTimeline1.SelectionStart.Value;
             long selectionEnd = videoCutterTimeline1.SelectionEnd.Value;
 
-            var profile = VideoCutterSettings.Instance.FFmpegCutProfiles.First();
+
+
+            var profile = VideoCutterSettings.Instance.FFmpegCutProfiles.FirstOrDefault(
+                p => p.Name == VideoCutterSettings.Instance.SelectedFFmpegCutProfile) ??
+                VideoCutterSettings.Instance.FFmpegCutProfiles.First();
+            
 
             // If 'FileType' in profile is not null or empty then 
             // we assume it specifies file extension (format) to be used 
