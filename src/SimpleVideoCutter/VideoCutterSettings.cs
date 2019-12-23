@@ -34,6 +34,7 @@ namespace SimpleVideoCutter
 
         public Rectangle MainWindowLocation { get; set; } = Rectangle.Empty;
         public bool MainWindowMaximized { get; set; } = false;
+        public bool RestoreToolbarsLayout { get; set; } = true;
 
         public static VideoCutterSettings Instance { get; }  = new VideoCutterSettings();
 

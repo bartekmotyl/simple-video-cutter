@@ -58,8 +58,9 @@ namespace SimpleVideoCutter
             {
                 this.WindowState = FormWindowState.Maximized;
             }
+
         }
-        
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             Core.Initialize();
@@ -92,6 +93,12 @@ namespace SimpleVideoCutter
 
             taskProcessor.PropertyChanged += TaskProcessor_PropertyChanged;
             taskProcessor.TaskProgress += TaskProcessor_TaskProgress;
+
+            if (VideoCutterSettings.Instance.RestoreToolbarsLayout)
+                ToolStripManager.LoadSettings(this, "SimpleVideoCutterMainForm");
+
+            VideoCutterSettings.Instance.RestoreToolbarsLayout = true;
+
         }
 
 
@@ -442,6 +449,9 @@ namespace SimpleVideoCutter
 
             VideoCutterSettings.Instance.MainWindowLocation = new Rectangle(Location, Size);
             VideoCutterSettings.Instance.MainWindowMaximized = WindowState == FormWindowState.Maximized;
+
+            ToolStripManager.SaveSettings(this, "SimpleVideoCutterMainForm");
+            
 
             VideoCutterSettings.Instance.StoreSettings();
         }
@@ -885,6 +895,12 @@ namespace SimpleVideoCutter
                 OpenFile(file);
                 Activate();
             }
+        }
+
+        private void resetToolbarsLayoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VideoCutterSettings.Instance.RestoreToolbarsLayout = false;
+            MessageBox.Show("Default layout will be restored when after application restart.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
