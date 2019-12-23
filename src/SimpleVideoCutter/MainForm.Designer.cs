@@ -43,7 +43,6 @@
             this.timerHoverPositionChanged = new System.Windows.Forms.Timer(this.components);
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.videoCutterTimeline1 = new SimpleVideoCutter.VideoCutterTimeline();
             this.panelTasks = new System.Windows.Forms.Panel();
             this.listViewTasks = new System.Windows.Forms.ListView();
             this.columnStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -75,6 +74,8 @@
             this.toolStripButtonFileNext = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFileSettings = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFileAbout = new System.Windows.Forms.ToolStripButton();
+            this.columnProfile = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.videoCutterTimeline1 = new SimpleVideoCutter.VideoCutterTimeline();
             this.toolStripTasks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.videoViewHover)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vlcControl1)).BeginInit();
@@ -100,7 +101,7 @@
             this.toolStripTasks.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStripTasks.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonTasksShow});
-            this.toolStripTasks.Location = new System.Drawing.Point(306, 0);
+            this.toolStripTasks.Location = new System.Drawing.Point(301, 0);
             this.toolStripTasks.Name = "toolStripTasks";
             this.toolStripTasks.Size = new System.Drawing.Size(81, 54);
             this.toolStripTasks.TabIndex = 5;
@@ -235,20 +236,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.panelTasks);
             this.splitContainer1.Panel2Collapsed = true;
             this.splitContainer1.Size = new System.Drawing.Size(986, 685);
-            this.splitContainer1.SplitterDistance = 693;
+            this.splitContainer1.SplitterDistance = 689;
             this.splitContainer1.TabIndex = 7;
-            // 
-            // videoCutterTimeline1
-            // 
-            this.videoCutterTimeline1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.videoCutterTimeline1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.videoCutterTimeline1.HoverPosition = null;
-            this.videoCutterTimeline1.Length = ((long)(0));
-            this.videoCutterTimeline1.Location = new System.Drawing.Point(0, 621);
-            this.videoCutterTimeline1.Name = "videoCutterTimeline1";
-            this.videoCutterTimeline1.Position = ((long)(0));
-            this.videoCutterTimeline1.Size = new System.Drawing.Size(986, 64);
-            this.videoCutterTimeline1.TabIndex = 4;
             // 
             // panelTasks
             // 
@@ -258,13 +247,14 @@
             this.panelTasks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTasks.Location = new System.Drawing.Point(0, 0);
             this.panelTasks.Name = "panelTasks";
-            this.panelTasks.Size = new System.Drawing.Size(96, 100);
+            this.panelTasks.Size = new System.Drawing.Size(293, 577);
             this.panelTasks.TabIndex = 6;
             // 
             // listViewTasks
             // 
             this.listViewTasks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnStatus,
+            this.columnProfile,
             this.columnFilename,
             this.columnDuration,
             this.columnOutputFile,
@@ -276,7 +266,7 @@
             this.listViewTasks.HideSelection = false;
             this.listViewTasks.Location = new System.Drawing.Point(0, 13);
             this.listViewTasks.Name = "listViewTasks";
-            this.listViewTasks.Size = new System.Drawing.Size(96, 74);
+            this.listViewTasks.Size = new System.Drawing.Size(293, 551);
             this.listViewTasks.TabIndex = 1;
             this.listViewTasks.UseCompatibleStateImageBehavior = false;
             this.listViewTasks.View = System.Windows.Forms.View.Details;
@@ -318,7 +308,7 @@
             // 
             this.labelProgress.AutoSize = true;
             this.labelProgress.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.labelProgress.Location = new System.Drawing.Point(0, 87);
+            this.labelProgress.Location = new System.Drawing.Point(0, 564);
             this.labelProgress.Name = "labelProgress";
             this.labelProgress.Size = new System.Drawing.Size(0, 13);
             this.labelProgress.TabIndex = 2;
@@ -411,7 +401,8 @@
             this.toolStripButtonSelectionEnqueue.Size = new System.Drawing.Size(87, 51);
             this.toolStripButtonSelectionEnqueue.Text = "Enqueue";
             this.toolStripButtonSelectionEnqueue.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonSelectionEnqueue.ToolTipText = "Enqueue selection to be processed by FFmpeg (E)";
+            this.toolStripButtonSelectionEnqueue.ToolTipText = "Enqueue selection to be processed by FFmpeg (E). Press also Shift to open task di" +
+    "alog.";
             // 
             // toolStripTimeline
             // 
@@ -465,7 +456,7 @@
             this.toolStripButtonPlabackPlayPause,
             this.toolStripButtonPlabackMute,
             this.toolStripButtonPlabackNextFrame});
-            this.toolStripPlayback.Location = new System.Drawing.Point(388, 0);
+            this.toolStripPlayback.Location = new System.Drawing.Point(382, 0);
             this.toolStripPlayback.Name = "toolStripPlayback";
             this.toolStripPlayback.Size = new System.Drawing.Size(196, 54);
             this.toolStripPlayback.TabIndex = 7;
@@ -512,7 +503,7 @@
             this.toolStripButtonFileNext,
             this.toolStripButtonFileSettings,
             this.toolStripButtonFileAbout});
-            this.toolStripFile.Location = new System.Drawing.Point(8, 0);
+            this.toolStripFile.Location = new System.Drawing.Point(3, 0);
             this.toolStripFile.Name = "toolStripFile";
             this.toolStripFile.Size = new System.Drawing.Size(298, 54);
             this.toolStripFile.TabIndex = 20;
@@ -566,6 +557,22 @@
             this.toolStripButtonFileAbout.Size = new System.Drawing.Size(44, 51);
             this.toolStripButtonFileAbout.Text = "About";
             this.toolStripButtonFileAbout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // columnProfile
+            // 
+            this.columnProfile.Text = "Profile";
+            // 
+            // videoCutterTimeline1
+            // 
+            this.videoCutterTimeline1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.videoCutterTimeline1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.videoCutterTimeline1.HoverPosition = null;
+            this.videoCutterTimeline1.Length = ((long)(0));
+            this.videoCutterTimeline1.Location = new System.Drawing.Point(0, 621);
+            this.videoCutterTimeline1.Name = "videoCutterTimeline1";
+            this.videoCutterTimeline1.Position = ((long)(0));
+            this.videoCutterTimeline1.Size = new System.Drawing.Size(986, 64);
+            this.videoCutterTimeline1.TabIndex = 4;
             // 
             // MainForm
             // 
@@ -664,6 +671,7 @@
         private System.Windows.Forms.ColumnHeader columnError;
         private System.Windows.Forms.ColumnHeader columnOutputFile;
         private System.Windows.Forms.ToolStripButton toolStripButtonPlabackNextFrame;
+        private System.Windows.Forms.ColumnHeader columnProfile;
     }
 }
 

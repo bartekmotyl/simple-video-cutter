@@ -281,7 +281,7 @@ namespace SimpleVideoCutter
             if (e.KeyCode == Keys.Delete && e.Modifiers == Keys.None)
                 ClearSelection();
 
-            if (e.KeyCode == Keys.E && e.Modifiers == Keys.None)
+            if (e.KeyCode == Keys.E && (e.Modifiers == Keys.None || e.Modifiers == Keys.Shift))
                 this.EnqeueNewTask();
 
             if (e.KeyCode == Keys.O && e.Modifiers == Keys.Control)
@@ -395,6 +395,7 @@ namespace SimpleVideoCutter
                     task =>
                     {
                         var item = new ListViewItem(task.StateLabel);
+                        item.SubItems.Add(string.Format("{0}", task.Profile.Name));
                         item.SubItems.Add(string.Format("{0}", task.InputFileName));
                         item.SubItems.Add(string.Format("{0} sec", Math.Round(task.Duration / 1000.0f, 1)));
                         item.SubItems.Add(string.Format("{0}", task.OutputFilePath));
@@ -445,14 +446,25 @@ namespace SimpleVideoCutter
             var outputFileName = ReplaceFilePatterns(VideoCutterSettings.Instance.OutputFilePattern, fileBeingPlayed);
             var outputFilePath = Path.Combine(outputDir, outputFileName);
 
-            var inputFile = new MediaFile(fileInfo.FullName);
-            var outputFile = new MediaFile(outputFilePath);
-
-
             long selectionStart = videoCutterTimeline1.SelectionStart.Value;
             long selectionEnd = videoCutterTimeline1.SelectionEnd.Value;
 
-            taskProcessor.EnqueueTask(new FFmpegTask()
+
+
+            var profile = VideoCutterSettings.Instance.FFmpegCutProfiles.FirstOrDefault(
+                p => p.Name == VideoCutterSettings.Instance.SelectedFFmpegCutProfile) ??
+                VideoCutterSettings.Instance.FFmpegCutProfiles.First();
+            
+
+            // If 'FileType' in profile is not null or empty then 
+            // we assume it specifies file extension (format) to be used 
+            if (!string.IsNullOrEmpty(profile.FileType))
+            {
+                var extension = profile.FileType.StartsWith(".") ? profile.FileType.Substring(1) : profile.FileType;
+                outputFilePath = Path.ChangeExtension(outputFilePath, extension);
+            }
+
+            var task = new FFmpegTask()
             {
                 InputFilePath = fileInfo.FullName,
                 OutputFilePath = outputFilePath,
@@ -460,8 +472,26 @@ namespace SimpleVideoCutter
                 SelectionStart = selectionStart,
                 Duration = selectionEnd - selectionStart,
                 TaskId = Guid.NewGuid().ToString(),
-                Profile = VideoCutterSettings.Instance.FFmpegCutProfiles[0],
-            });
+                Profile = profile,
+            };
+
+            bool shiftPressed = ModifierKeys == Keys.Shift;
+            if (VideoCutterSettings.Instance.ShowTaskWindow || shiftPressed)
+            {
+                using (var addTaskDialog = new FormAddTask(task))
+                {
+                    var result = addTaskDialog.ShowDialog(this);
+                    if (result != DialogResult.OK)
+                        return;
+
+                    task = addTaskDialog.Task;
+                }
+            }
+
+            VideoCutterSettings.Instance.ShowTaskWindow = false;
+            VideoCutterSettings.Instance.SelectedFFmpegCutProfile = task.Profile.Name;
+
+            taskProcessor.EnqueueTask(task);
             ClearSelection();
             toolStripButtonTasksShow.Checked = true; 
         }
