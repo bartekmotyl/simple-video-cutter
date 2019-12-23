@@ -2,6 +2,7 @@
 using SimpleVideoCutter.Settings;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,9 @@ namespace SimpleVideoCutter
         };
 
         public string SelectedFFmpegCutProfile { get; set; } = "lossless";
+
+        public Rectangle MainWindowLocation { get; set; } = Rectangle.Empty;
+        public bool MainWindowMaximized { get; set; } = false;
 
         public static VideoCutterSettings Instance { get; }  = new VideoCutterSettings();
 

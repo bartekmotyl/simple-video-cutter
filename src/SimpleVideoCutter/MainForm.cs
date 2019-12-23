@@ -46,8 +46,20 @@ namespace SimpleVideoCutter
         public MainForm()
         {
             InitializeComponent();
-        }
+            VideoCutterSettings.Instance.LoadSettings();
 
+            if (VideoCutterSettings.Instance.MainWindowLocation != Rectangle.Empty)
+            {
+                this.StartPosition = FormStartPosition.Manual;
+                this.Location = VideoCutterSettings.Instance.MainWindowLocation.Location;
+                this.Size = VideoCutterSettings.Instance.MainWindowLocation.Size;
+            }
+            if (VideoCutterSettings.Instance.MainWindowMaximized)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+        
         private void MainForm_Load(object sender, EventArgs e)
         {
             Core.Initialize();
@@ -86,7 +98,6 @@ namespace SimpleVideoCutter
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
-            VideoCutterSettings.Instance.LoadSettings();
             EnsureFFmpegConfigured();
 
             taskProcessor.Start();
@@ -428,6 +439,10 @@ namespace SimpleVideoCutter
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             taskProcessor.StopRequest = true;
+
+            VideoCutterSettings.Instance.MainWindowLocation = new Rectangle(Location, Size);
+            VideoCutterSettings.Instance.MainWindowMaximized = WindowState == FormWindowState.Maximized;
+
             VideoCutterSettings.Instance.StoreSettings();
         }
 
