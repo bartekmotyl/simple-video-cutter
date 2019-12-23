@@ -219,6 +219,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="movie-icon-15157-Windows.ico" />
+    <None Include="Resources\film-reels.jpg" />
     <Content Include="Resources\iconfinder_cog_293670.png" />
     <Content Include="Resources\movie-icon-15157-Windows.ico" />
     <None Include="Resources\streamline\streamline-icon-arrow-button-circle-right%4032x32.png" />
