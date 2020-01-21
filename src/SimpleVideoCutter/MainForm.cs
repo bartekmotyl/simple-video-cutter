@@ -812,7 +812,7 @@ namespace SimpleVideoCutter
         {
             if (fileBeingPlayed != null)
             {
-                var newFile = GetNextPrevFileInDirectory(fileBeingPlayed, +1);
+                var newFile = GetNextPrevFileInDirectory(fileBeingPlayed, -1);
                 if (newFile != null && String.Compare(newFile, fileBeingPlayed, true) != 0)
                 {
                     OpenFile(newFile);
