@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,13 @@ namespace SimpleVideoCutter
                 memory_stream.Position = 0;
                 return (T)formatter.Deserialize(memory_stream);
             }
+        }
+
+        public static string GetCurrentRelease()
+        {
+            var currVer = Assembly.GetExecutingAssembly().GetName().Version;
+            var currentRelease = $"{currVer.Major}.{currVer.Minor}.{currVer.Build}";
+            return currentRelease;
         }
     }
 }

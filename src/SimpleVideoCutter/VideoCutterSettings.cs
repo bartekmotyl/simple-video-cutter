@@ -36,7 +36,12 @@ namespace SimpleVideoCutter
         public bool MainWindowMaximized { get; set; } = false;
         public bool RestoreToolbarsLayout { get; set; } = true;
 
-        public static VideoCutterSettings Instance { get; }  = new VideoCutterSettings();
+        public string ConfigVersion { get; set; } = "0.0.0";
+
+        public static VideoCutterSettings Instance { get; }  = new VideoCutterSettings()
+        {
+            ConfigVersion = Utils.GetCurrentRelease()
+        };
 
         protected VideoCutterSettings()
         {
@@ -56,6 +61,15 @@ namespace SimpleVideoCutter
                 }
             }
 
+            // After upgrading to new release we avoid restoring layouts, 
+            // as usually the strcutre of layouts change in new relese and trying 
+            // to restore incompatble layout leads to empty screen. 
+            var appVer = new Version(Utils.GetCurrentRelease());
+            var configVer = new Version(ConfigVersion);
+            if (configVer != appVer) 
+            {
+                RestoreToolbarsLayout = false; 
+            }
         }
         public void StoreSettings()
         {

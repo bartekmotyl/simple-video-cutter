@@ -61,7 +61,7 @@ namespace SimpleVideoCutter
 
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void MainForm_Load(object sender, EventArgs e)
         {
             Core.Initialize();
             libVLC = new LibVLC(new string[] { "--play-and-pause" });
@@ -99,9 +99,12 @@ namespace SimpleVideoCutter
 
             VideoCutterSettings.Instance.RestoreToolbarsLayout = true;
 
+            var latestRelease = await GitHubVersionCheck.GetLatestReleaseVersionFromGitHub();
+            if (latestRelease != null && latestRelease != Utils.GetCurrentRelease())
+            {
+                this.toolStripButtonInternetVersionCheck.ForeColor = Color.Red;
+            }
         }
-
-
 
         private void MainForm_Shown(object sender, EventArgs e)
         {

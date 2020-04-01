@@ -54,10 +54,7 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
             this.tableLayoutPanel1.Controls.Add(this.buttonSaveProfile, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.labelFFmpegArguments, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBoxDuration, 1, 6);
@@ -72,232 +69,131 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxFileType, 1, 3);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 104);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(20);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.tableLayoutPanel1.RowCount = 10;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(623, 181);
-            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // buttonSaveProfile
             // 
-            this.buttonSaveProfile.Location = new System.Drawing.Point(450, 66);
+            resources.ApplyResources(this.buttonSaveProfile, "buttonSaveProfile");
             this.buttonSaveProfile.Name = "buttonSaveProfile";
-            this.buttonSaveProfile.Size = new System.Drawing.Size(160, 23);
-            this.buttonSaveProfile.TabIndex = 1;
-            this.buttonSaveProfile.Text = "Create or update profile";
             this.buttonSaveProfile.UseVisualStyleBackColor = true;
             this.buttonSaveProfile.Click += new System.EventHandler(this.buttonSaveProfile_Click);
             // 
             // labelFFmpegArguments
             // 
-            this.labelFFmpegArguments.AutoSize = true;
-            this.labelFFmpegArguments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelFFmpegArguments.Location = new System.Drawing.Point(13, 63);
+            resources.ApplyResources(this.labelFFmpegArguments, "labelFFmpegArguments");
             this.labelFFmpegArguments.Name = "labelFFmpegArguments";
-            this.labelFFmpegArguments.Size = new System.Drawing.Size(97, 29);
-            this.labelFFmpegArguments.TabIndex = 1;
-            this.labelFFmpegArguments.Text = "FFmpeg arguments";
-            this.labelFFmpegArguments.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxDuration
             // 
-            this.textBoxDuration.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDuration.Location = new System.Drawing.Point(116, 148);
+            resources.ApplyResources(this.textBoxDuration, "textBoxDuration");
             this.textBoxDuration.Name = "textBoxDuration";
             this.textBoxDuration.ReadOnly = true;
-            this.textBoxDuration.Size = new System.Drawing.Size(328, 20);
-            this.textBoxDuration.TabIndex = 2;
             // 
             // labelFFmpegProfile
             // 
-            this.labelFFmpegProfile.AutoSize = true;
-            this.labelFFmpegProfile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelFFmpegProfile.Location = new System.Drawing.Point(13, 36);
+            resources.ApplyResources(this.labelFFmpegProfile, "labelFFmpegProfile");
             this.labelFFmpegProfile.Name = "labelFFmpegProfile";
-            this.labelFFmpegProfile.Size = new System.Drawing.Size(97, 27);
-            this.labelFFmpegProfile.TabIndex = 4;
-            this.labelFFmpegProfile.Text = "FFmpeg profile:";
-            this.labelFFmpegProfile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxOutputFilePath
             // 
-            this.textBoxOutputFilePath.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxOutputFilePath.Location = new System.Drawing.Point(116, 122);
+            resources.ApplyResources(this.textBoxOutputFilePath, "textBoxOutputFilePath");
             this.textBoxOutputFilePath.Name = "textBoxOutputFilePath";
             this.textBoxOutputFilePath.ReadOnly = true;
-            this.textBoxOutputFilePath.Size = new System.Drawing.Size(328, 20);
-            this.textBoxOutputFilePath.TabIndex = 2;
             // 
             // labelOriginalFilePath
             // 
-            this.labelOriginalFilePath.AutoSize = true;
-            this.labelOriginalFilePath.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelOriginalFilePath.Location = new System.Drawing.Point(13, 10);
+            resources.ApplyResources(this.labelOriginalFilePath, "labelOriginalFilePath");
             this.labelOriginalFilePath.Name = "labelOriginalFilePath";
-            this.labelOriginalFilePath.Size = new System.Drawing.Size(97, 26);
-            this.labelOriginalFilePath.TabIndex = 0;
-            this.labelOriginalFilePath.Text = "Original file path:";
-            this.labelOriginalFilePath.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxOriginalFilePath
             // 
-            this.textBoxOriginalFilePath.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxOriginalFilePath.Location = new System.Drawing.Point(116, 13);
+            resources.ApplyResources(this.textBoxOriginalFilePath, "textBoxOriginalFilePath");
             this.textBoxOriginalFilePath.Name = "textBoxOriginalFilePath";
             this.textBoxOriginalFilePath.ReadOnly = true;
-            this.textBoxOriginalFilePath.Size = new System.Drawing.Size(328, 20);
-            this.textBoxOriginalFilePath.TabIndex = 1;
             // 
             // labelOutputFilePath
             // 
-            this.labelOutputFilePath.AutoSize = true;
-            this.labelOutputFilePath.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelOutputFilePath.Location = new System.Drawing.Point(13, 119);
+            resources.ApplyResources(this.labelOutputFilePath, "labelOutputFilePath");
             this.labelOutputFilePath.Name = "labelOutputFilePath";
-            this.labelOutputFilePath.Size = new System.Drawing.Size(97, 26);
-            this.labelOutputFilePath.TabIndex = 1;
-            this.labelOutputFilePath.Text = "Output file path:";
-            this.labelOutputFilePath.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // comboBoxFFmpegProfile
             // 
-            this.comboBoxFFmpegProfile.Dock = System.Windows.Forms.DockStyle.Fill;
+            resources.ApplyResources(this.comboBoxFFmpegProfile, "comboBoxFFmpegProfile");
             this.comboBoxFFmpegProfile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFFmpegProfile.FormattingEnabled = true;
-            this.comboBoxFFmpegProfile.Location = new System.Drawing.Point(116, 39);
             this.comboBoxFFmpegProfile.Name = "comboBoxFFmpegProfile";
-            this.comboBoxFFmpegProfile.Size = new System.Drawing.Size(328, 21);
-            this.comboBoxFFmpegProfile.TabIndex = 3;
             this.comboBoxFFmpegProfile.SelectedIndexChanged += new System.EventHandler(this.comboBoxFFmpegProfile_SelectedIndexChanged);
             // 
             // textBoxFFmpegArguments
             // 
-            this.textBoxFFmpegArguments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxFFmpegArguments.Location = new System.Drawing.Point(116, 66);
+            resources.ApplyResources(this.textBoxFFmpegArguments, "textBoxFFmpegArguments");
             this.textBoxFFmpegArguments.Name = "textBoxFFmpegArguments";
-            this.textBoxFFmpegArguments.Size = new System.Drawing.Size(328, 20);
-            this.textBoxFFmpegArguments.TabIndex = 6;
             this.textBoxFFmpegArguments.TextChanged += new System.EventHandler(this.textBoxFFmpegArguments_TextChanged);
             // 
             // labelDuration
             // 
-            this.labelDuration.AutoSize = true;
-            this.labelDuration.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelDuration.Location = new System.Drawing.Point(13, 145);
+            resources.ApplyResources(this.labelDuration, "labelDuration");
             this.labelDuration.Name = "labelDuration";
-            this.labelDuration.Size = new System.Drawing.Size(97, 26);
-            this.labelDuration.TabIndex = 2;
-            this.labelDuration.Text = "Duration:";
-            this.labelDuration.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(13, 92);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 27);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Output file type:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(450, 119);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 26);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Hint: can be changed in settings";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // comboBoxFileType
             // 
-            this.comboBoxFileType.Dock = System.Windows.Forms.DockStyle.Fill;
+            resources.ApplyResources(this.comboBoxFileType, "comboBoxFileType");
             this.comboBoxFileType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFileType.FormattingEnabled = true;
-            this.comboBoxFileType.Location = new System.Drawing.Point(116, 95);
             this.comboBoxFileType.Name = "comboBoxFileType";
-            this.comboBoxFileType.Size = new System.Drawing.Size(328, 21);
-            this.comboBoxFileType.TabIndex = 11;
             this.comboBoxFileType.SelectedIndexChanged += new System.EventHandler(this.comboBoxFileType_SelectedIndexChanged);
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.buttonEnqueue);
             this.flowLayoutPanel1.Controls.Add(this.buttonCancel);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 298);
+            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(623, 46);
-            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // buttonEnqueue
             // 
             this.buttonEnqueue.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonEnqueue.Location = new System.Drawing.Point(525, 13);
+            resources.ApplyResources(this.buttonEnqueue, "buttonEnqueue");
             this.buttonEnqueue.Name = "buttonEnqueue";
-            this.buttonEnqueue.Size = new System.Drawing.Size(75, 23);
-            this.buttonEnqueue.TabIndex = 1;
-            this.buttonEnqueue.Text = "Enqueue";
             this.buttonEnqueue.UseVisualStyleBackColor = true;
             // 
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(444, 13);
+            resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 2;
-            this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.LightYellow;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(10);
-            this.label3.Size = new System.Drawing.Size(623, 104);
-            this.label3.TabIndex = 2;
-            this.label3.Text = resources.GetString("label3.Text");
             // 
             // FormAddTask
             // 
             this.AcceptButton = this.buttonEnqueue;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(623, 344);
             this.ControlBox = false;
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label3);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormAddTask";
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Enqueue task";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
