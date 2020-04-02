@@ -1,4 +1,5 @@
-﻿using SimpleVideoCutter.Settings;
+﻿using SimpleVideoCutter.Properties;
+using SimpleVideoCutter.Settings;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -81,7 +82,7 @@ namespace SimpleVideoCutter
             comboBoxFileType.Items.Clear();
             comboBoxFileType.Items.Add(new ComboBoxItem()
             {
-                Title = "(same as source)",
+                Title = $"({GlobalStrings.FormAddTask_SameAsSource})",
                 Value = "",
             });
 
@@ -176,7 +177,8 @@ namespace SimpleVideoCutter
                 var existingProfile = VideoCutterSettings.Instance.FFmpegCutProfiles.FirstOrDefault(p => p.Name == profileName);
                 if (existingProfile != null)
                 {
-                    var answer = MessageBox.Show($"Are you sure you want to overwrite profile '{existingProfile.Name}'?", "Question", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    var msg = string.Format($"{GlobalStrings.FormAddTask_OverwwriteProfileQuestion}", existingProfile.Name);
+                    var answer = MessageBox.Show(msg, GlobalStrings.GlobalQuestion, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                     if (answer != DialogResult.OK)
                         return;
 

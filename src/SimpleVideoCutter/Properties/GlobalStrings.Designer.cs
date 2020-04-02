@@ -61,6 +61,15 @@ namespace SimpleVideoCutter.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string AboutBox_About {
+            get {
+                return ResourceManager.GetString("AboutBox_About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New version is available! Please visit project page..
         /// </summary>
         internal static string AboutBox_NewVersionAvailable {
@@ -88,6 +97,42 @@ namespace SimpleVideoCutter.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to overwrite profile {0}?.
+        /// </summary>
+        internal static string FormAddTask_OverwwriteProfileQuestion {
+            get {
+                return ResourceManager.GetString("FormAddTask_OverwwriteProfileQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to same as source.
+        /// </summary>
+        internal static string FormAddTask_SameAsSource {
+            get {
+                return ResourceManager.GetString("FormAddTask_SameAsSource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to executable files.
+        /// </summary>
+        internal static string FormSettings_ExecutableFiles {
+            get {
+                return ResourceManager.GetString("FormSettings_ExecutableFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        internal static string GlobalInformation {
+            get {
+                return ResourceManager.GetString("GlobalInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Question.
         /// </summary>
         internal static string GlobalQuestion {
@@ -97,11 +142,119 @@ namespace SimpleVideoCutter.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All video files.
+        /// </summary>
+        internal static string MainForm_AllVideoFiles {
+            get {
+                return ResourceManager.GetString("MainForm_AllVideoFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default layout will be restored when after application restart..
+        /// </summary>
+        internal static string MainForm_DeaultLayoutrestoredAfterRestart {
+            get {
+                return ResourceManager.GetString("MainForm_DeaultLayoutrestoredAfterRestart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No selection.
+        /// </summary>
+        internal static string MainForm_NoSelection {
+            get {
+                return ResourceManager.GetString("MainForm_NoSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to In order to use new language settings application needs to be restarted. Do you want to restart now?.
         /// </summary>
         internal static string MainForm_QuestionRestartNewLanguage {
             get {
                 return ResourceManager.GetString("MainForm_QuestionRestartNewLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selection.
+        /// </summary>
+        internal static string MainForm_Selection {
+            get {
+                return ResourceManager.GetString("MainForm_Selection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Volume.
+        /// </summary>
+        internal static string MainForm_Volume {
+            get {
+                return ResourceManager.GetString("MainForm_Volume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Done.
+        /// </summary>
+        internal static string TaskProcessor_Done {
+            get {
+                return ResourceManager.GetString("TaskProcessor_Done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failure.
+        /// </summary>
+        internal static string TaskProcessor_Failure {
+            get {
+                return ResourceManager.GetString("TaskProcessor_Failure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processed {0} seconds.
+        /// </summary>
+        internal static string TaskProcessor_Processed {
+            get {
+                return ResourceManager.GetString("TaskProcessor_Processed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string TaskProcessor_State_FinishedError {
+            get {
+                return ResourceManager.GetString("TaskProcessor_State_FinishedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Done.
+        /// </summary>
+        internal static string TaskProcessor_State_FinishedOK {
+            get {
+                return ResourceManager.GetString("TaskProcessor_State_FinishedOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In progress.
+        /// </summary>
+        internal static string TaskProcessor_State_InProgress {
+            get {
+                return ResourceManager.GetString("TaskProcessor_State_InProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scheduled.
+        /// </summary>
+        internal static string TaskProcessor_State_Scheduled {
+            get {
+                return ResourceManager.GetString("TaskProcessor_State_Scheduled", resourceCulture);
             }
         }
     }

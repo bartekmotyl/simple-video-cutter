@@ -1,5 +1,6 @@
 ﻿using FFmpeg.NET;
 using SimpleVideoCutter.FFmpegNET;
+using SimpleVideoCutter.Properties;
 using SimpleVideoCutter.Settings;
 using System;
 using System.Collections.Concurrent;
@@ -82,7 +83,7 @@ namespace SimpleVideoCutter
                         currentTask.State = FFmpegTaskState.FinishedOK;
                         currentTask = null;
                         OnPropertyChanged("Tasks");
-                        OnTaskProgress("Done");
+                        OnTaskProgress(GlobalStrings.TaskProcessor_Done);
                     };
                     ffmpeg.Error += (object sender, FFmpeg.NET.Events.ConversionErrorEventArgs e) =>
                     {
@@ -90,12 +91,12 @@ namespace SimpleVideoCutter
                         currentTask.ErrorMessage = e.Exception.Message;
                         currentTask = null;
                         OnPropertyChanged("Tasks");
-                        OnTaskProgress("Failure: "+e.Exception.Message);
+                        OnTaskProgress($"{GlobalStrings.TaskProcessor_Failure}: " + e.Exception.Message);
                     };
 
                     ffmpeg.Progress += (object sender, FFmpeg.NET.Events.ConversionProgressEventArgs e) =>
                     {
-                        var msg = string.Format("Processed {0} seconds", e.ProcessedDuration.TotalSeconds);
+                        var msg = string.Format(GlobalStrings.TaskProcessor_Processed, e.ProcessedDuration.TotalSeconds);
                         OnTaskProgress(msg);
                     };
 
@@ -120,7 +121,7 @@ namespace SimpleVideoCutter
                         currentTask.ErrorMessage = e.Message;
                         currentTask = null;
                         OnPropertyChanged("Tasks");
-                        OnTaskProgress("Failure: " + e.Message);
+                        OnTaskProgress($"{GlobalStrings.TaskProcessor_Failure}: " + e.Message);
                     }
                 }
                 else
@@ -151,10 +152,10 @@ namespace SimpleVideoCutter
             {
                 switch (State)
                 {
-                    case FFmpegTaskState.Scheduled: return "Scheduled";
-                    case FFmpegTaskState.InProgress: return "In progress";
-                    case FFmpegTaskState.FinishedOK: return "Done";
-                    case FFmpegTaskState.FinishedError: return "Error";
+                    case FFmpegTaskState.Scheduled: return GlobalStrings.TaskProcessor_State_Scheduled;
+                    case FFmpegTaskState.InProgress: return GlobalStrings.TaskProcessor_State_InProgress;
+                    case FFmpegTaskState.FinishedOK: return GlobalStrings.TaskProcessor_State_FinishedOK;
+                    case FFmpegTaskState.FinishedError: return GlobalStrings.TaskProcessor_State_FinishedError;
                     default: return "Unrecognized";
                 }
             }

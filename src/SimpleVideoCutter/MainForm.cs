@@ -212,7 +212,7 @@ namespace SimpleVideoCutter
                 fd.InitialDirectory = lastDirectory;
                 fd.RestoreDirectory = true;
 
-                var filter = "All video files|" + string.Join(";", VideoCutterSettings.Instance.VideoFilesExtensions.Select(ex => "*" + ex).ToArray());
+                var filter = $"{GlobalStrings.MainForm_AllVideoFiles}|" + string.Join(";", VideoCutterSettings.Instance.VideoFilesExtensions.Select(ex => "*" + ex).ToArray());
                 fd.Filter = filter;
 
                 if (fd.ShowDialog() == DialogResult.OK)
@@ -574,7 +574,7 @@ namespace SimpleVideoCutter
             else if (volume > 200)
                 volume = 200;
 
-            toolStripStatusLabelVolume.Text = string.Format("Volume: {0} %", volume);
+            toolStripStatusLabelVolume.Text = $"{GlobalStrings.MainForm_Volume}: {volume} %";
 
             ThreadPool.QueueUserWorkItem(_ =>
             {
@@ -600,18 +600,18 @@ namespace SimpleVideoCutter
         {
             if (fileBeingPlayed == null)
             {
-                toolStripStatusLabelSelection.Text = "No selection";
+                toolStripStatusLabelSelection.Text = GlobalStrings.MainForm_NoSelection;
             }
             else
             {
                 if (videoCutterTimeline1.SelectionStart == null || videoCutterTimeline1.SelectionEnd == null)
                 {
-                    toolStripStatusLabelSelection.Text = "No selection";
+                    toolStripStatusLabelSelection.Text = GlobalStrings.MainForm_NoSelection;
                 }
                 else
                 {
                     long timeMs = videoCutterTimeline1.SelectionEnd.Value - videoCutterTimeline1.SelectionStart.Value;
-                    toolStripStatusLabelSelection.Text = string.Format("Selection: {0:####.##} s", (float)timeMs / 1000.0);
+                    toolStripStatusLabelSelection.Text = string.Format("{0}: {1:####.##} s", GlobalStrings.MainForm_Selection, (float)timeMs / 1000.0);
                 }
             }
 
@@ -953,7 +953,8 @@ namespace SimpleVideoCutter
         private void resetToolbarsLayoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VideoCutterSettings.Instance.RestoreToolbarsLayout = false;
-            MessageBox.Show("Default layout will be restored when after application restart.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(GlobalStrings.MainForm_DeaultLayoutrestoredAfterRestart, GlobalStrings.GlobalInformation, 
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 

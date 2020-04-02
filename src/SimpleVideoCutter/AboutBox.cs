@@ -15,7 +15,7 @@ namespace SimpleVideoCutter
         public AboutBox()
         {
             InitializeComponent();
-            this.Text = String.Format("About {0}", AssemblyTitle);
+            this.Text = $"{GlobalStrings.AboutBox_About} {AssemblyTitle}";
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = $"{GlobalStrings.AboutBox_Version} {AssemblyVersion}";
             this.labelCopyright.Text = AssemblyCopyright;

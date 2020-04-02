@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleVideoCutter.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,7 +60,7 @@ namespace SimpleVideoCutter
             {
                 dialog.DefaultExt = "exe";
                 dialog.CheckFileExists = true;
-                dialog.Filter = "executable files (*.exe)|*.exe";
+                dialog.Filter = $"{GlobalStrings.FormSettings_ExecutableFiles} (*.exe)|*.exe";
 
                 var result = dialog.ShowDialog(this);
                 if (result == DialogResult.OK)
