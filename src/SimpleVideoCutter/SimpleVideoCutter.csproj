@@ -116,6 +116,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\GlobalStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GlobalStrings.resx</DependentUpon>
+    </Compile>
     <Compile Include="Settings\FFmpegCutProfile.cs" />
     <Compile Include="TaskProcessor.cs" />
     <Compile Include="Utils.cs" />
@@ -154,6 +159,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Properties\GlobalStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GlobalStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="VideoCutterTimeline.resx">
       <DependentUpon>VideoCutterTimeline.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +235,7 @@
     <Content Include="Resources\streamline\streamline-icon-folder-file-1%4032x32.png" />
     <Content Include="Resources\streamline\streamline-icon-laptop-download%4032x32.png" />
     <Content Include="Resources\streamline\streamline-icon-navigation-left-3%4032x32.png" />
+    <None Include="Resources\streamline\streamline-icon-translate%4032x32.png" />
     <Content Include="Resources\streamline\streamline-icon-video-edit-cut%4048x48.png" />
     <None Include="Resources\film-reels.jpg" />
     <Content Include="Resources\iconfinder_cog_293670.png" />

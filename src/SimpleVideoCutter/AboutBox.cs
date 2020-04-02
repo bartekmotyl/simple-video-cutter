@@ -17,9 +17,11 @@ namespace SimpleVideoCutter
             InitializeComponent();
             this.Text = String.Format("About {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
+            this.labelVersion.Text = $"{GlobalStrings.AboutBox_Version} {AssemblyVersion}";
             this.labelCopyright.Text = AssemblyCopyright;
+
         }
+
 
         #region Assembly Attribute Accessors
 
@@ -105,5 +107,25 @@ namespace SimpleVideoCutter
         {
             System.Diagnostics.Process.Start(linkLabelGithub.Text);
         }
+        private void linkLabelGithubreleases_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(linkLabelGithub.Text);
+        }
+
+        private async void AboutBox_Load(object sender, EventArgs e)
+        {
+            var latestRelease = await GitHubVersionCheck.GetLatestReleaseVersionFromGitHub();
+            if (latestRelease != null && latestRelease != Utils.GetCurrentRelease())
+            {
+                this.labelVersion.Text = $"{GlobalStrings.AboutBox_Version} {AssemblyVersion}"
+                    + $" - {GlobalStrings.AboutBox_NewVersionAvailable}";
+            }
+            else
+            {
+                this.labelVersion.Text = $"{GlobalStrings.AboutBox_Version} {AssemblyVersion}"
+                    + $" - {GlobalStrings.AboutBox_VersionUpToDate}";
+            }
+        }
+
     }
 }

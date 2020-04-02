@@ -38,6 +38,8 @@ namespace SimpleVideoCutter
 
         public string ConfigVersion { get; set; } = "0.0.0";
 
+        public string Language { get; set; }
+
         public static VideoCutterSettings Instance { get; }  = new VideoCutterSettings()
         {
             ConfigVersion = Utils.GetCurrentRelease()

@@ -36,6 +36,7 @@
             this.okButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.linkLabelGithub = new System.Windows.Forms.LinkLabel();
+            this.linkLabelGithubReleases = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -47,9 +48,10 @@
             this.tableLayoutPanel.Controls.Add(this.labelProductName, 1, 0);
             this.tableLayoutPanel.Controls.Add(this.labelVersion, 1, 1);
             this.tableLayoutPanel.Controls.Add(this.labelCopyright, 1, 2);
-            this.tableLayoutPanel.Controls.Add(this.okButton, 1, 5);
-            this.tableLayoutPanel.Controls.Add(this.textBox1, 1, 4);
-            this.tableLayoutPanel.Controls.Add(this.linkLabelGithub, 1, 3);
+            this.tableLayoutPanel.Controls.Add(this.okButton, 1, 6);
+            this.tableLayoutPanel.Controls.Add(this.textBox1, 1, 5);
+            this.tableLayoutPanel.Controls.Add(this.linkLabelGithub, 1, 4);
+            this.tableLayoutPanel.Controls.Add(this.linkLabelGithubReleases, 1, 3);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             // 
             // logoPictureBox
@@ -57,7 +59,7 @@
             resources.ApplyResources(this.logoPictureBox, "logoPictureBox");
             this.logoPictureBox.Image = global::SimpleVideoCutter.Properties.Resources.film_reels;
             this.logoPictureBox.Name = "logoPictureBox";
-            this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 6);
+            this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 7);
             this.logoPictureBox.TabStop = false;
             // 
             // labelProductName
@@ -95,6 +97,13 @@
             this.linkLabelGithub.TabStop = true;
             this.linkLabelGithub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelGithub_LinkClicked);
             // 
+            // linkLabelGithubReleases
+            // 
+            resources.ApplyResources(this.linkLabelGithubReleases, "linkLabelGithubReleases");
+            this.linkLabelGithubReleases.Name = "linkLabelGithubReleases";
+            this.linkLabelGithubReleases.TabStop = true;
+            this.linkLabelGithubReleases.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelGithubreleases_LinkClicked);
+            // 
             // AboutBox
             // 
             this.AcceptButton = this.okButton;
@@ -107,6 +116,7 @@
             this.Name = "AboutBox";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.Load += new System.EventHandler(this.AboutBox_Load);
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
@@ -124,5 +134,6 @@
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.LinkLabel linkLabelGithub;
+        private System.Windows.Forms.LinkLabel linkLabelGithubReleases;
     }
 }

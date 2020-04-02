@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -45,8 +46,9 @@ namespace SimpleVideoCutter
 
         public MainForm()
         {
+
+
             InitializeComponent();
-            VideoCutterSettings.Instance.LoadSettings();
 
             if (VideoCutterSettings.Instance.MainWindowLocation != Rectangle.Empty)
             {
@@ -104,6 +106,7 @@ namespace SimpleVideoCutter
             {
                 this.toolStripButtonInternetVersionCheck.ForeColor = Color.Red;
             }
+
         }
 
         private void MainForm_Shown(object sender, EventArgs e)
@@ -800,6 +803,17 @@ namespace SimpleVideoCutter
             }
         }
 
+        private void toolStripInternet_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem == toolStripButtonInternetVersionCheck)
+            {
+                using (var about = new AboutBox())
+                {
+                    about.ShowDialog();
+                }
+            }
+        }
+
         private void OpenNextFileInDirectory()
         {
             if (fileBeingPlayed != null)
@@ -846,6 +860,42 @@ namespace SimpleVideoCutter
                 using (var about = new AboutBox())
                 {
                     about.ShowDialog();
+                }
+            }
+        }
+
+        private void toolStripDropDownButtonFileLanguage_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            var culture = "en-US";
+
+            if (e.ClickedItem == toolStripMenuItemLangEnglish)
+                culture = "en-US";
+            else if (e.ClickedItem == toolStripMenuItemLangGerman)
+                culture = "de-DE";
+            else if (e.ClickedItem == toolStripMenuItemLangPolish)
+                culture = "pl-PL";
+            else if (e.ClickedItem == toolStripMenuItemLangFrench)
+                culture = "fr-FR";
+            else if (e.ClickedItem == toolStripMenuItemLangItalian)
+                culture = "it-IT";
+            else if (e.ClickedItem == toolStripMenuItemLangSpanish)
+                culture = "es-ES";
+            else if (e.ClickedItem == toolStripMenuItemLangChinese)
+                culture = "zh-CN";
+            else if (e.ClickedItem == toolStripMenuItemLangJapanese)
+                culture = "ja-JP";
+
+            if (Thread.CurrentThread.CurrentUICulture.Name != culture)
+            {
+                VideoCutterSettings.Instance.Language = culture;
+                var answer = MessageBox.Show(this, GlobalStrings.MainForm_QuestionRestartNewLanguage, 
+                    GlobalStrings.GlobalQuestion, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, 
+                    MessageBoxDefaultButton.Button3);
+
+                if (answer == DialogResult.Yes)
+                {
+                    Application.Restart();
+                    Environment.Exit(0);
                 }
             }
         }
@@ -905,5 +955,7 @@ namespace SimpleVideoCutter
             VideoCutterSettings.Instance.RestoreToolbarsLayout = false;
             MessageBox.Show("Default layout will be restored when after application restart.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+
     }
 }

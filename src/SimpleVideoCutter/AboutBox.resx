@@ -130,7 +130,7 @@
     <value>3, 3</value>
   </data>
   <data name="logoPictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 240</value>
+    <value>150, 240</value>
   </data>
   <data name="logoPictureBox.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -157,7 +157,7 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
   <data name="labelProductName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 0</value>
+    <value>162, 0</value>
   </data>
   <data name="labelProductName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 0, 3, 0</value>
@@ -166,7 +166,7 @@
     <value>0, 17</value>
   </data>
   <data name="labelProductName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 17</value>
+    <value>308, 17</value>
   </data>
   <data name="labelProductName.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -193,7 +193,7 @@
     <value>Fill</value>
   </data>
   <data name="labelVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 31</value>
+    <value>162, 27</value>
   </data>
   <data name="labelVersion.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 0, 3, 0</value>
@@ -202,7 +202,7 @@
     <value>0, 17</value>
   </data>
   <data name="labelVersion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 17</value>
+    <value>308, 17</value>
   </data>
   <data name="labelVersion.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -229,7 +229,7 @@
     <value>Fill</value>
   </data>
   <data name="labelCopyright.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 62</value>
+    <value>162, 54</value>
   </data>
   <data name="labelCopyright.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 0, 3, 0</value>
@@ -238,7 +238,7 @@
     <value>0, 17</value>
   </data>
   <data name="labelCopyright.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 17</value>
+    <value>308, 17</value>
   </data>
   <data name="labelCopyright.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -265,7 +265,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="okButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 220</value>
+    <value>395, 220</value>
   </data>
   <data name="okButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -292,13 +292,13 @@
     <value>Fill</value>
   </data>
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 123</value>
+    <value>159, 138</value>
   </data>
   <data name="textBox1.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 87</value>
+    <value>311, 76</value>
   </data>
   <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -323,8 +323,11 @@ Photo by Denise Jans on Unsplash</value>
   <data name="linkLabelGithub.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="linkLabelGithub.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="linkLabelGithub.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 93</value>
+    <value>159, 108</value>
   </data>
   <data name="linkLabelGithub.Size" type="System.Drawing.Size, System.Drawing">
     <value>247, 13</value>
@@ -347,6 +350,33 @@ Photo by Denise Jans on Unsplash</value>
   <data name="&gt;&gt;linkLabelGithub.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="linkLabelGithubReleases.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="linkLabelGithubReleases.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 81</value>
+  </data>
+  <data name="linkLabelGithubReleases.Size" type="System.Drawing.Size, System.Drawing">
+    <value>291, 13</value>
+  </data>
+  <data name="linkLabelGithubReleases.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="linkLabelGithubReleases.Text" xml:space="preserve">
+    <value>https://github.com/bartekmotyl/simple-video-cutter/releases</value>
+  </data>
+  <data name="&gt;&gt;linkLabelGithubReleases.Name" xml:space="preserve">
+    <value>linkLabelGithubReleases</value>
+  </data>
+  <data name="&gt;&gt;linkLabelGithubReleases.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkLabelGithubReleases.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;linkLabelGithubReleases.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="tableLayoutPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -354,10 +384,10 @@ Photo by Denise Jans on Unsplash</value>
     <value>9, 9</value>
   </data>
   <data name="tableLayoutPanel.RowCount" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="tableLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>417, 246</value>
+    <value>473, 246</value>
   </data>
   <data name="tableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -375,7 +405,7 @@ Photo by Denise Jans on Unsplash</value>
     <value>0</value>
   </data>
   <data name="tableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="logoPictureBox" Row="0" RowSpan="6" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelProductName" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelVersion" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCopyright" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="okButton" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBox1" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="linkLabelGithub" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33,Percent,67" /&gt;&lt;Rows Styles="Percent,11,11111,Percent,11,11111,Percent,11,11111,Absolute,27,Percent,33,33333,Percent,11,11111" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="logoPictureBox" Row="0" RowSpan="7" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelProductName" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelVersion" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCopyright" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="okButton" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBox1" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="linkLabelGithub" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="linkLabelGithubReleases" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33,Percent,67" /&gt;&lt;Rows Styles="Percent,14,28572,Percent,14,28572,Percent,14,28572,Absolute,27,Absolute,27,Percent,42,85714,Percent,14,28572,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -384,7 +414,7 @@ Photo by Denise Jans on Unsplash</value>
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>435, 264</value>
+    <value>491, 264</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>9, 9, 9, 9</value>
