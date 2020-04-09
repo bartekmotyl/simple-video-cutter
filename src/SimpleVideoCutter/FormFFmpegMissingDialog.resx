@@ -201,7 +201,7 @@
   <data name="label1.Text" xml:space="preserve">
     <value>This program requires FFmpeg to be installed in your system. FFmpeg is a free, open source solution for converting video files. 
 Please visit the page linked below, download portable distribution and unzip it onto local disk. Release, 64bit static version is recommended.
-Once FFmpeg is installed, please provide path to ffmpeg executable in the settings window. </value>
+Once FFmpeg is installed, please provide path to ffmpeg executable in the settings window.</value>
   </data>
   <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -235,6 +235,7 @@ Once FFmpeg is installed, please provide path to ffmpeg executable in the settin
   </data>
   <data name="linkLabel1.Text" xml:space="preserve">
     <value>https://ffmpeg.zeranoe.com/builds/</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="linkLabel1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>

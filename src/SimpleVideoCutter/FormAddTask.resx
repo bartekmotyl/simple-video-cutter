@@ -568,7 +568,7 @@
     <value>1</value>
   </data>
   <data name="buttonEnqueue.Text" xml:space="preserve">
-    <value>Enqueue</value>
+    <value>Begin</value>
   </data>
   <data name="&gt;&gt;buttonEnqueue.Name" xml:space="preserve">
     <value>buttonEnqueue</value>
@@ -652,9 +652,9 @@
     <value>2</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>In this window you can select from existing FFmpeg profiles (or define a new one) that will be used when converting the video. FFmpeg profile is a set of arguments passed to FFmpeg to cut your video. Don't worry if you do not know anything about FFmpeg - just press Enqueue and task will start automatically (using default profile) and this window will not be shown again. But you can always bring it back by holding Shift when clicking on 'Enqueue'.
+    <value>In this window you can select from existing FFmpeg profiles (or define a new one) that will be used when converting the video. FFmpeg profile is a set of arguments passed to FFmpeg to cut your video. Don't worry if you do not know anything about FFmpeg - just press Begin and task will start automatically (using default profile) and this window will not be shown again. But you can always bring it back by holding Shift when clicking on 'Perform cut'.
 
-TL;DR: just press 'Enqueue'. Window will not be shown again. </value>
+TL;DR: just press 'Begin'. Window will not be shown again.</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>

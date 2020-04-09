@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SimpleVideoCutter.Properties;
 
 namespace SimpleVideoCutter
 {
@@ -203,12 +204,13 @@ namespace SimpleVideoCutter
             if (Length != 0)
             {
                 var time = TimeSpan.FromMilliseconds(Position);
-                var text = string.Format($"Time: {time:hh\\:mm\\:ss\\:fff} ");
+
+                var text = string.Format($"{GlobalStrings.VideoCutterTimeline_Time}: {time:hh\\:mm\\:ss\\:fff} ");
 
                 if (HoverPosition != null)
                 {
                     var hoverTime = TimeSpan.FromMilliseconds(HoverPosition.Value);
-                    text = text + string.Format($" Hovered time: {hoverTime:hh\\:mm\\:ss\\:fff} ");
+                    text = text + string.Format($" {GlobalStrings.VideoCutterTimeline_HoveredTime}: {hoverTime:hh\\:mm\\:ss\\:fff} ");
                 }
                 PaintStringInBox(e.Graphics, null, Brushes.LightGray, text, infoAreaRect, 10);
             }
@@ -291,11 +293,11 @@ namespace SimpleVideoCutter
 
                     if (selectionStartMoveController.IsDragStartPossible(pixel) || selectionStartMoveController.IsDragInProgress())
                     {
-                        timelineTooltip = new TimelineTooltip() { X = pixel, Text = "move clip start" };
+                        timelineTooltip = new TimelineTooltip() { X = pixel, Text = GlobalStrings.VideoCutterTimeline_MoveClipStart };
                     }
                     if (selectionEndMoveController.IsDragStartPossible(pixel) || selectionEndMoveController.IsDragInProgress())
                     {
-                        timelineTooltip = new TimelineTooltip() { X = pixel, Text = "move clip end" };
+                        timelineTooltip = new TimelineTooltip() { X = pixel, Text = GlobalStrings.VideoCutterTimeline_MoveClipEnd };
                     }
 
 
@@ -305,11 +307,11 @@ namespace SimpleVideoCutter
 
                     if (SelectionStart == null)
                     {
-                        timelineTooltip = new TimelineTooltip() { X = pixel, Text = "middle click to set clip start here" };
+                        timelineTooltip = new TimelineTooltip() { X = pixel, Text = GlobalStrings.VideoCutterTimeline_SetClipStartHere };
                     }
                     else if (SelectionEnd == null && HoverPosition.Value > SelectionStart.Value)
                     {
-                        timelineTooltip = new TimelineTooltip() { X = pixel, Text = "middle click to set clip end here" };
+                        timelineTooltip = new TimelineTooltip() { X = pixel, Text = GlobalStrings.VideoCutterTimeline_SetClipEndHere };
                     }
                 }
 

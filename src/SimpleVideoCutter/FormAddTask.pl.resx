@@ -117,88 +117,42 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AboutBox_About" xml:space="preserve">
-    <value>About</value>
+  <data name="buttonSaveProfile.Text" xml:space="preserve">
+    <value>Tworzenie lub aktualizacja profilu</value>
   </data>
-  <data name="AboutBox_NewVersionAvailable" xml:space="preserve">
-    <value>New version is available! Please visit project page.</value>
+  <data name="labelFFmpegArguments.Text" xml:space="preserve">
+    <value>Argumenty FFmpeg</value>
   </data>
-  <data name="AboutBox_Version" xml:space="preserve">
-    <value>Version</value>
+  <data name="labelFFmpegProfile.Text" xml:space="preserve">
+    <value>Profil FFmpeg:</value>
   </data>
-  <data name="AboutBox_VersionUpToDate" xml:space="preserve">
-    <value>You are running the latest version.</value>
+  <data name="labelOriginalFilePath.Text" xml:space="preserve">
+    <value>Oryginalna ścieżka pliku:</value>
   </data>
-  <data name="FormAddTask_OverwwriteProfileQuestion" xml:space="preserve">
-    <value>Are you sure you want to overwrite profile {0}?</value>
+  <data name="labelOutputFilePath.Text" xml:space="preserve">
+    <value>Ścieżka pliku wynikowego:</value>
   </data>
-  <data name="FormAddTask_SameAsSource" xml:space="preserve">
-    <value>same as source</value>
+  <data name="labelDuration.Text" xml:space="preserve">
+    <value>Czas trwania:</value>
   </data>
-  <data name="FormSettings_ExecutableFiles" xml:space="preserve">
-    <value>executable files</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Typ pliku wyjściowego:</value>
   </data>
-  <data name="GlobalInformation" xml:space="preserve">
-    <value>Information</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Wskazówka: może być zmienione w ustawieniach</value>
   </data>
-  <data name="GlobalQuestion" xml:space="preserve">
-    <value>Question</value>
+  <data name="buttonEnqueue.Text" xml:space="preserve">
+    <value>Rozpocznij</value>
   </data>
-  <data name="MainForm_AllVideoFiles" xml:space="preserve">
-    <value>All video files</value>
+  <data name="buttonCancel.Text" xml:space="preserve">
+    <value>Anuluj</value>
   </data>
-  <data name="MainForm_DeaultLayoutrestoredAfterRestart" xml:space="preserve">
-    <value>Default layout will be restored when after application restart.</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>W tym oknie można wybrać jeden z istniejących profili FFmpeg (lub zdefiniować nowy), który będzie używany podczas konwersji wideo. Profil FFmpeg jest zestawem argumentów przekazywanych do FFmpeg w celu wycięcia fragmentu wideo. Nie martw się, jeżeli nie wiesz nic o FFmpeg - wystarczy nacisnąć przycisk Rozpocznij, a zadanie rozpocznie się automatycznie (przy użyciu domyślnego profilu) i to okno nie zostanie ponownie wyświetlone. Ale zawsze możesz je pkazać ponownie przytrzymując klawisz Shift podczas klikania na 'Wycinaj'.
+
+TL;DR: po prostu naciśnij 'Rozpocznij'. Okno nie zostanie pokazane ponownie.</value>
   </data>
-  <data name="MainForm_NoSelection" xml:space="preserve">
-    <value>No selection</value>
-  </data>
-  <data name="MainForm_QuestionRestartNewLanguage" xml:space="preserve">
-    <value>In order to use new language settings application needs to be restarted. Do you want to restart now?</value>
-  </data>
-  <data name="MainForm_Selection" xml:space="preserve">
-    <value>Selection</value>
-  </data>
-  <data name="MainForm_Volume" xml:space="preserve">
-    <value>Volume</value>
-  </data>
-  <data name="TaskProcessor_Done" xml:space="preserve">
-    <value>Done</value>
-  </data>
-  <data name="TaskProcessor_Failure" xml:space="preserve">
-    <value>Failure</value>
-  </data>
-  <data name="TaskProcessor_Processed" xml:space="preserve">
-    <value>Processed {0} seconds</value>
-  </data>
-  <data name="TaskProcessor_State_FinishedError" xml:space="preserve">
-    <value>Error</value>
-  </data>
-  <data name="TaskProcessor_State_FinishedOK" xml:space="preserve">
-    <value>Done</value>
-  </data>
-  <data name="TaskProcessor_State_InProgress" xml:space="preserve">
-    <value>In progress</value>
-  </data>
-  <data name="TaskProcessor_State_Scheduled" xml:space="preserve">
-    <value>Scheduled</value>
-  </data>
-  <data name="VideoCutterTimeline_HoveredTime" xml:space="preserve">
-    <value>Hovered time</value>
-  </data>
-  <data name="VideoCutterTimeline_MoveClipEnd" xml:space="preserve">
-    <value>move clip end</value>
-  </data>
-  <data name="VideoCutterTimeline_MoveClipStart" xml:space="preserve">
-    <value>move clip start</value>
-  </data>
-  <data name="VideoCutterTimeline_SetClipEndHere" xml:space="preserve">
-    <value>middle click to set clip end here</value>
-  </data>
-  <data name="VideoCutterTimeline_SetClipStartHere" xml:space="preserve">
-    <value>middle click to set clip start here</value>
-  </data>
-  <data name="VideoCutterTimeline_Time" xml:space="preserve">
-    <value>Time</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Kolejkuj zadanie</value>
   </data>
 </root>

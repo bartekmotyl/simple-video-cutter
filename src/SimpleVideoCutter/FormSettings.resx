@@ -183,7 +183,7 @@
     <value>4</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>Output file pattern:</value>
+    <value>Output file name pattern:</value>
   </data>
   <data name="label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -266,7 +266,7 @@
   <data name="textBoxVideoFileExtensions.ToolTip" xml:space="preserve">
     <value>Comma separated list of extensions (with dot) 
 of video files to be considered. Important when 
-navigating to previous/next video file in directory. </value>
+navigating to previous/next video file in directory.</value>
   </data>
   <data name="&gt;&gt;textBoxVideoFileExtensions.Name" xml:space="preserve">
     <value>textBoxVideoFileExtensions</value>
@@ -318,6 +318,7 @@ navigating to previous/next video file in directory. </value>
   </data>
   <data name="buttonOutputDirectory.Text" xml:space="preserve">
     <value>...</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;buttonOutputDirectory.Name" xml:space="preserve">
     <value>buttonOutputDirectory</value>
@@ -342,6 +343,7 @@ navigating to previous/next video file in directory. </value>
   </data>
   <data name="buttonFFmpegPath.Text" xml:space="preserve">
     <value>...</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;buttonFFmpegPath.Name" xml:space="preserve">
     <value>buttonFFmpegPath</value>
@@ -366,6 +368,7 @@ navigating to previous/next video file in directory. </value>
   </data>
   <data name="buttonDefaultDirectory.Text" xml:space="preserve">
     <value>...</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;buttonDefaultDirectory.Name" xml:space="preserve">
     <value>buttonDefaultDirectory</value>
@@ -384,12 +387,15 @@ navigating to previous/next video file in directory. </value>
   </metadata>
   <data name="comboBoxDefaultDirectory.Items" xml:space="preserve">
     <value>{UserVideos}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="comboBoxDefaultDirectory.Items1" xml:space="preserve">
     <value>{UserDocuments}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="comboBoxDefaultDirectory.Items2" xml:space="preserve">
     <value>{MyComputer}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="comboBoxDefaultDirectory.Location" type="System.Drawing.Point, System.Drawing">
     <value>134, 8</value>
@@ -401,7 +407,7 @@ navigating to previous/next video file in directory. </value>
     <value>14</value>
   </data>
   <data name="comboBoxDefaultDirectory.ToolTip" xml:space="preserve">
-    <value>Initial directory when opening video files. 
+    <value>Default directory when opening video files. 
 Can be specified either as absolute path 
 or by using one of predefined directories: 
 {UserVideos}
@@ -422,15 +428,19 @@ or by using one of predefined directories:
   </data>
   <data name="comboBoxOutputDirectory.Items" xml:space="preserve">
     <value>{UserVideos}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="comboBoxOutputDirectory.Items1" xml:space="preserve">
     <value>{UserDocuments}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="comboBoxOutputDirectory.Items2" xml:space="preserve">
     <value>{MyComputer}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="comboBoxOutputDirectory.Items3" xml:space="preserve">
     <value>{SameFolder}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="comboBoxOutputDirectory.Location" type="System.Drawing.Point, System.Drawing">
     <value>134, 37</value>
@@ -447,8 +457,7 @@ Can be specified either as absolute path
 or by using one of predefined directories: 
 {UserVideos}
 {UserDocuments}
-{MyComputer}
-</value>
+{MyComputer}</value>
   </data>
   <data name="&gt;&gt;comboBoxOutputDirectory.Name" xml:space="preserve">
     <value>comboBoxOutputDirectory</value>

@@ -337,6 +337,7 @@ Photo by Denise Jans on Unsplash</value>
   </data>
   <data name="linkLabelGithub.Text" xml:space="preserve">
     <value>https://github.com/bartekmotyl/simple-video-cutter</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;linkLabelGithub.Name" xml:space="preserve">
     <value>linkLabelGithub</value>
@@ -364,6 +365,7 @@ Photo by Denise Jans on Unsplash</value>
   </data>
   <data name="linkLabelGithubReleases.Text" xml:space="preserve">
     <value>https://github.com/bartekmotyl/simple-video-cutter/releases</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;linkLabelGithubReleases.Name" xml:space="preserve">
     <value>linkLabelGithubReleases</value>
@@ -424,6 +426,7 @@ Photo by Denise Jans on Unsplash</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>AboutBox</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AboutBox</value>

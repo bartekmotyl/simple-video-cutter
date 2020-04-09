@@ -88,7 +88,7 @@ namespace SimpleVideoCutter.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You are running the latest version. .
+        ///   Looks up a localized string similar to You are running the latest version..
         /// </summary>
         internal static string AboutBox_VersionUpToDate {
             get {
@@ -255,6 +255,60 @@ namespace SimpleVideoCutter.Properties {
         internal static string TaskProcessor_State_Scheduled {
             get {
                 return ResourceManager.GetString("TaskProcessor_State_Scheduled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wskazywana pozycja.
+        /// </summary>
+        internal static string VideoCutterTimeline_HoveredTime {
+            get {
+                return ResourceManager.GetString("VideoCutterTimeline_HoveredTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to move clip end.
+        /// </summary>
+        internal static string VideoCutterTimeline_MoveClipEnd {
+            get {
+                return ResourceManager.GetString("VideoCutterTimeline_MoveClipEnd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to move clip start.
+        /// </summary>
+        internal static string VideoCutterTimeline_MoveClipStart {
+            get {
+                return ResourceManager.GetString("VideoCutterTimeline_MoveClipStart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to middle click to set clip end here.
+        /// </summary>
+        internal static string VideoCutterTimeline_SetClipEndHere {
+            get {
+                return ResourceManager.GetString("VideoCutterTimeline_SetClipEndHere", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to middle click to set clip start here.
+        /// </summary>
+        internal static string VideoCutterTimeline_SetClipStartHere {
+            get {
+                return ResourceManager.GetString("VideoCutterTimeline_SetClipStartHere", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        internal static string VideoCutterTimeline_Time {
+            get {
+                return ResourceManager.GetString("VideoCutterTimeline_Time", resourceCulture);
             }
         }
     }

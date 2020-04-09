@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="toolStripStatusLabelVolume.Text" xml:space="preserve">
+    <value>Głośność: 100%</value>
+  </data>
+  <data name="toolStripStatusLabelFilePath.Text" xml:space="preserve">
+    <value>Nie załadowano pliku</value>
+  </data>
+  <data name="toolStripStatusLabelIndex.Text" xml:space="preserve">
+    <value>0/0</value>
+  </data>
+  <data name="toolStripStatusLabelSelection.Text" xml:space="preserve">
+    <value>Brak zaznaczenia</value>
+  </data>
+  <data name="toolStripSelection.Text" xml:space="preserve">
+    <value>Zaznaczenie</value>
+  </data>
+  <data name="toolStripButtonInternetVersionCheck.Text" xml:space="preserve">
+    <value>Sprawdź aktualizacje</value>
+  </data>
+  <data name="toolStripButtonTasksShow.Text" xml:space="preserve">
+    <value>Pokaż zadania</value>
+  </data>
+  <data name="toolStripButtonTasksShow.ToolTipText" xml:space="preserve">
+    <value>Pokaż zadania (T)</value>
+  </data>
+  <data name="toolStripTasks.Text" xml:space="preserve">
+    <value>Zadania</value>
+  </data>
+  <data name="toolStripButtonPlabackPlayPause.Text" xml:space="preserve">
+    <value>Odtwarzanie / Pauza</value>
+  </data>
+  <data name="toolStripButtonPlabackPlayPause.ToolTipText" xml:space="preserve">
+    <value>Odtwarzanie / Pauza (Spacja)</value>
+  </data>
+  <data name="toolStripButtonPlabackMute.Text" xml:space="preserve">
+    <value>Wycisz</value>
+  </data>
+  <data name="toolStripButtonPlabackMute.ToolTipText" xml:space="preserve">
+    <value>Wycisz (Ctrl+M)</value>
+  </data>
+  <data name="toolStripButtonPlabackNextFrame.Text" xml:space="preserve">
+    <value>Następna klatka</value>
+  </data>
+  <data name="toolStripButtonPlabackNextFrame.ToolTipText" xml:space="preserve">
+    <value>Następna klatka (.)</value>
+  </data>
+  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
+    <value>Otwórz plik</value>
+  </data>
+  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
+    <value>Otwórz plik (Ctrl+O)</value>
+  </data>
+  <data name="toolStripButtonFilePrev.Text" xml:space="preserve">
+    <value>Poprzedni plik</value>
+  </data>
+  <data name="toolStripButtonFilePrev.ToolTipText" xml:space="preserve">
+    <value>Poprzedni plik (Alt+Left)</value>
+  </data>
+  <data name="toolStripButtonFileNext.Text" xml:space="preserve">
+    <value>Następny plik</value>
+  </data>
+  <data name="toolStripButtonFileNext.ToolTipText" xml:space="preserve">
+    <value>Następny plik (Alt+Right)</value>
+  </data>
+  <data name="toolStripButtonFileSettings.Text" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
+  <data name="toolStripButtonFileAbout.Text" xml:space="preserve">
+    <value>O programie</value>
+  </data>
+  <data name="toolStripDropDownButtonFileLanguage.Text" xml:space="preserve">
+    <value>Język</value>
+  </data>
+  <data name="toolStripFile.Text" xml:space="preserve">
+    <value>Plik</value>
+  </data>
+  <data name="columnStatus.Text" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="columnProfile.Text" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="columnFilename.Text" xml:space="preserve">
+    <value>Plik źródłowy</value>
+  </data>
+  <data name="columnDuration.Text" xml:space="preserve">
+    <value>Czas trwania</value>
+  </data>
+  <data name="columnOutputFile.Text" xml:space="preserve">
+    <value>Plik docelowy</value>
+  </data>
+  <data name="columnError.Text" xml:space="preserve">
+    <value>Komunikat</value>
+  </data>
+  <data name="labelTasks.Text" xml:space="preserve">
+    <value>Zadania</value>
+  </data>
+  <data name="resetToolbarsLayoutToolStripMenuItem.Text" xml:space="preserve">
+    <value>Resetuj układu pasków narzędzi</value>
+  </data>
+  <data name="toolStripButtonSelectionSetStart.Text" xml:space="preserve">
+    <value>Ustaw początek</value>
+  </data>
+  <data name="toolStripButtonSelectionSetStart.ToolTipText" xml:space="preserve">
+    <value>Ustaw początek zaznaczenia ( [ )</value>
+  </data>
+  <data name="toolStripButtonSelectionSetEnd.Text" xml:space="preserve">
+    <value>Ustaw początek</value>
+  </data>
+  <data name="toolStripButtonSelectionSetEnd.ToolTipText" xml:space="preserve">
+    <value>Ustaw koniec zaznaczenia ( ] )</value>
+  </data>
+  <data name="toolStripButtonSelectionPlay.Text" xml:space="preserve">
+    <value>Odtwarzaj zakres</value>
+  </data>
+  <data name="toolStripButtonSelectionPlay.ToolTipText" xml:space="preserve">
+    <value>Odtwarzaj zaznaczenie (R)</value>
+  </data>
+  <data name="toolStripButtonSelectionClear.Text" xml:space="preserve">
+    <value>Wyczyść zaznaczenie</value>
+  </data>
+  <data name="toolStripButtonSelectionClear.ToolTipText" xml:space="preserve">
+    <value>Wyczyść zaznaczenie (Del)</value>
+  </data>
+  <data name="toolStripButtonSelectionGoToStart.Text" xml:space="preserve">
+    <value>Idź na początek</value>
+  </data>
+  <data name="toolStripButtonSelectionGoToStart.ToolTipText" xml:space="preserve">
+    <value>Przejdź do początku zaznaczenia ( Ctrl+[ )</value>
+  </data>
+  <data name="toolStripButtonSelectionGoToEnd.Text" xml:space="preserve">
+    <value>Idź na koniec</value>
+  </data>
+  <data name="toolStripButtonSelectionGoToEnd.ToolTipText" xml:space="preserve">
+    <value>Przejdź do końca zaznaczenia ( Ctrl + ] )</value>
+  </data>
+  <data name="toolStripButtonSelectionEnqueue.Text" xml:space="preserve">
+    <value>Wycinaj</value>
+  </data>
+  <data name="toolStripButtonSelectionEnqueue.ToolTipText" xml:space="preserve">
+    <value>Dodaj zaznaczony obszar do przetworzenia przez FFmpeg (E). Przytrzymaj również Shift, aby otworzyć okienko w którym zmienisz ustawienia tego zadania.</value>
+  </data>
+  <data name="toolStripButtonTimelineZoomOut.Text" xml:space="preserve">
+    <value>Powiększ widok</value>
+  </data>
+  <data name="toolStripButtonTimelineZoomOut.ToolTipText" xml:space="preserve">
+    <value>Ustaw oś czasu aby pasowała do okna (0)</value>
+  </data>
+  <data name="toolStripButtonTimelineZoomAuto.Text" xml:space="preserve">
+    <value>Dostosuj
+powiększenie</value>
+  </data>
+  <data name="toolStripButtonTimelineZoomAuto.ToolTipText" xml:space="preserve">
+    <value>Automatyczne powiększenia osi czasu (9)</value>
+  </data>
+  <data name="toolStripButtonTimelineGoToCurrentPosition.Text" xml:space="preserve">
+    <value>Aktualna pozycja</value>
+  </data>
+  <data name="toolStripButtonTimelineGoToCurrentPosition.ToolTipText" xml:space="preserve">
+    <value>Przewiń oś czasu do aktualnej pozycji (Ctrl+P)</value>
+  </data>
+  <data name="toolStripMenuItemLangEnglish.Text" xml:space="preserve">
+    <value>Angielski</value>
+  </data>
+  <data name="toolStripMenuItemLangGerman.Text" xml:space="preserve">
+    <value>Niemiecki (tłumaczenie maszynowe)</value>
+  </data>
+  <data name="toolStripMenuItemLangFrench.Text" xml:space="preserve">
+    <value>Francuski (tłumaczenie maszynowe)</value>
+  </data>
+  <data name="toolStripMenuItemLangSpanish.Text" xml:space="preserve">
+    <value>Hiszpański (tłumaczenie maszynowe)</value>
+  </data>
+  <data name="toolStripMenuItemLangItalian.Text" xml:space="preserve">
+    <value>Włoski (tłumaczenie maszynowe)</value>
+  </data>
+  <data name="toolStripMenuItemLangChinese.Text" xml:space="preserve">
+    <value>Chiński (tłumaczenie maszynowe)</value>
+  </data>
+  <data name="toolStripMenuItemLangJapanese.Text" xml:space="preserve">
+    <value>Japoński (tłumaczenie maszynowe)</value>
+  </data>
+  <data name="toolStripMenuItemLangPolish.Text" xml:space="preserve">
+    <value>Polski</value>
+  </data>
+</root>

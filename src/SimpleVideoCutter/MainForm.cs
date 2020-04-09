@@ -47,8 +47,31 @@ namespace SimpleVideoCutter
         public MainForm()
         {
 
+            VideoCutterSettings.Instance.LoadSettings();
+
+            if (VideoCutterSettings.Instance.Language == null)
+            {
+                VideoCutterSettings.Instance.Language = Thread.CurrentThread.CurrentUICulture.Name;
+            }
+            else
+            {
+                var culture = CultureInfo.GetCultureInfo(VideoCutterSettings.Instance.Language);
+                if (culture != null)
+                {
+                    Thread.CurrentThread.CurrentUICulture = culture;
+                }
+            }
 
             InitializeComponent();
+
+            this.toolStripContainerMain.TopToolStripPanel.Controls.Clear();
+            this.toolStripContainerMain.TopToolStripPanel.Join(toolStripInternet, 0);
+            this.toolStripContainerMain.TopToolStripPanel.Join(toolStripTasks, 0);
+            this.toolStripContainerMain.TopToolStripPanel.Join(toolStripPlayback, 0);
+            this.toolStripContainerMain.TopToolStripPanel.Join(toolStripFile, 0);
+            this.toolStripContainerMain.LeftToolStripPanel.Controls.Clear();
+            this.toolStripContainerMain.LeftToolStripPanel.Join(toolStripTimeline);
+            this.toolStripContainerMain.LeftToolStripPanel.Join(toolStripSelection);
 
             if (VideoCutterSettings.Instance.MainWindowLocation != Rectangle.Empty)
             {
@@ -106,7 +129,6 @@ namespace SimpleVideoCutter
             {
                 this.toolStripButtonInternetVersionCheck.ForeColor = Color.Red;
             }
-
         }
 
         private void MainForm_Shown(object sender, EventArgs e)
@@ -192,7 +214,10 @@ namespace SimpleVideoCutter
         {
             var fi = new FileInfo(fileBeingPlayed);
             string fileInfo = string.Format("{0:yyyy/MM/dd HH:mm:ss}", fi.LastWriteTime);
-            toolStripStatusLabelFileDate.Text = fileInfo;
+            statusStrip.InvokeIfRequired(() =>
+            {
+               toolStripStatusLabelFileDate.Text = fileInfo;
+            });
             EnableButtons();
         }
 
@@ -246,7 +271,10 @@ namespace SimpleVideoCutter
         private void OpenFile(string path)
         {
             fileBeingPlayed = path;
-            toolStripStatusLabelFilePath.Text = path;
+            statusStrip.InvokeIfRequired(() =>
+            {
+                toolStripStatusLabelFilePath.Text = path;
+            });
 
             if (vlcControl1.MediaPlayer.IsPlaying)
             {
@@ -452,13 +480,14 @@ namespace SimpleVideoCutter
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             taskProcessor.StopRequest = true;
+            StoreSettings();
+        }
 
+        private void StoreSettings()
+        {
             VideoCutterSettings.Instance.MainWindowLocation = new Rectangle(Location, Size);
             VideoCutterSettings.Instance.MainWindowMaximized = WindowState == FormWindowState.Maximized;
-
             ToolStripManager.SaveSettings(this, "SimpleVideoCutterMainForm");
-            
-
             VideoCutterSettings.Instance.StoreSettings();
         }
 
@@ -574,7 +603,10 @@ namespace SimpleVideoCutter
             else if (volume > 200)
                 volume = 200;
 
-            toolStripStatusLabelVolume.Text = $"{GlobalStrings.MainForm_Volume}: {volume} %";
+            statusStrip.InvokeIfRequired(() =>
+            {
+                toolStripStatusLabelVolume.Text = $"{GlobalStrings.MainForm_Volume}: {volume} %";
+            });
 
             ThreadPool.QueueUserWorkItem(_ =>
             {
@@ -586,13 +618,19 @@ namespace SimpleVideoCutter
         {
             if (fileBeingPlayed == null)
             {
-                toolStripStatusLabelIndex.Text = "0/0";
+                statusStrip.InvokeIfRequired(() =>
+                {
+                    toolStripStatusLabelIndex.Text = "0/0";
+                });
             }
             else
             {
                 var videoFilesArr = GetVideoFilesInDirectory(fileBeingPlayed);
                 int index = videoFilesArr.IndexOf(Path.GetFileName(fileBeingPlayed).ToLowerInvariant());
-                toolStripStatusLabelIndex.Text = string.Format("{0}/{1}", index + 1, videoFilesArr.Count);
+                statusStrip.InvokeIfRequired(() =>
+                {
+                    toolStripStatusLabelIndex.Text = string.Format("{0}/{1}", index + 1, videoFilesArr.Count);
+                });
             }
 
         }
@@ -600,18 +638,27 @@ namespace SimpleVideoCutter
         {
             if (fileBeingPlayed == null)
             {
-                toolStripStatusLabelSelection.Text = GlobalStrings.MainForm_NoSelection;
+                statusStrip.InvokeIfRequired(() =>
+                {
+                    toolStripStatusLabelSelection.Text = GlobalStrings.MainForm_NoSelection;
+                });
             }
             else
             {
                 if (videoCutterTimeline1.SelectionStart == null || videoCutterTimeline1.SelectionEnd == null)
                 {
-                    toolStripStatusLabelSelection.Text = GlobalStrings.MainForm_NoSelection;
+                    statusStrip.InvokeIfRequired(() =>
+                    {
+                        toolStripStatusLabelSelection.Text = GlobalStrings.MainForm_NoSelection;
+                    });
                 }
                 else
                 {
                     long timeMs = videoCutterTimeline1.SelectionEnd.Value - videoCutterTimeline1.SelectionStart.Value;
-                    toolStripStatusLabelSelection.Text = string.Format("{0}: {1:####.##} s", GlobalStrings.MainForm_Selection, (float)timeMs / 1000.0);
+                    statusStrip.InvokeIfRequired(() =>
+                    {
+                        toolStripStatusLabelSelection.Text = string.Format("{0}: {1:####.##} s", GlobalStrings.MainForm_Selection, (float)timeMs / 1000.0);
+                    });
                 }
             }
 
@@ -894,6 +941,7 @@ namespace SimpleVideoCutter
 
                 if (answer == DialogResult.Yes)
                 {
+                    VideoCutterSettings.Instance.RestoreToolbarsLayout = false;
                     Application.Restart();
                     Environment.Exit(0);
                 }

@@ -118,87 +118,87 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutBox_About" xml:space="preserve">
-    <value>About</value>
+    <value>O programie</value>
   </data>
   <data name="AboutBox_NewVersionAvailable" xml:space="preserve">
-    <value>New version is available! Please visit project page.</value>
+    <value>Nowa wersja jest dostępna! Proszę odwiedzić stronę projektu.</value>
   </data>
   <data name="AboutBox_Version" xml:space="preserve">
-    <value>Version</value>
+    <value>Wersja</value>
   </data>
   <data name="AboutBox_VersionUpToDate" xml:space="preserve">
-    <value>You are running the latest version.</value>
+    <value>Używasz najnowszej wersji.</value>
   </data>
   <data name="FormAddTask_OverwwriteProfileQuestion" xml:space="preserve">
-    <value>Are you sure you want to overwrite profile {0}?</value>
+    <value>Jesteś pewien, że chcesz nadpisać profil {0}?</value>
   </data>
   <data name="FormAddTask_SameAsSource" xml:space="preserve">
-    <value>same as source</value>
+    <value>taki sam jak źródło</value>
   </data>
   <data name="FormSettings_ExecutableFiles" xml:space="preserve">
-    <value>executable files</value>
+    <value>pliki wykonywalne</value>
   </data>
   <data name="GlobalInformation" xml:space="preserve">
-    <value>Information</value>
+    <value>Informacja</value>
   </data>
   <data name="GlobalQuestion" xml:space="preserve">
-    <value>Question</value>
+    <value>Pytanie</value>
   </data>
   <data name="MainForm_AllVideoFiles" xml:space="preserve">
-    <value>All video files</value>
+    <value>Wszystkie pliki wideo</value>
   </data>
   <data name="MainForm_DeaultLayoutrestoredAfterRestart" xml:space="preserve">
-    <value>Default layout will be restored when after application restart.</value>
+    <value>Domyślny układ zostanie przywrócony po ponownym uruchomieniu aplikacji.</value>
   </data>
   <data name="MainForm_NoSelection" xml:space="preserve">
-    <value>No selection</value>
+    <value>Brak wyboru</value>
   </data>
   <data name="MainForm_QuestionRestartNewLanguage" xml:space="preserve">
-    <value>In order to use new language settings application needs to be restarted. Do you want to restart now?</value>
+    <value>W celu skorzystania z nowych ustawień językowych należy ponownie uruchomić aplikację. Czy chcesz zrestartować aplikację teraz?</value>
   </data>
   <data name="MainForm_Selection" xml:space="preserve">
-    <value>Selection</value>
+    <value>Zaznaczenie</value>
   </data>
   <data name="MainForm_Volume" xml:space="preserve">
-    <value>Volume</value>
+    <value>Głośność</value>
   </data>
   <data name="TaskProcessor_Done" xml:space="preserve">
-    <value>Done</value>
+    <value>Wykonano</value>
   </data>
   <data name="TaskProcessor_Failure" xml:space="preserve">
-    <value>Failure</value>
+    <value>Niepowodzenie</value>
   </data>
   <data name="TaskProcessor_Processed" xml:space="preserve">
-    <value>Processed {0} seconds</value>
+    <value>Przetworzono {0} sekund</value>
   </data>
   <data name="TaskProcessor_State_FinishedError" xml:space="preserve">
-    <value>Error</value>
+    <value>Błąd</value>
   </data>
   <data name="TaskProcessor_State_FinishedOK" xml:space="preserve">
-    <value>Done</value>
+    <value>Wykonano</value>
   </data>
   <data name="TaskProcessor_State_InProgress" xml:space="preserve">
-    <value>In progress</value>
+    <value>W toku</value>
   </data>
   <data name="TaskProcessor_State_Scheduled" xml:space="preserve">
-    <value>Scheduled</value>
+    <value>Zaplanowany</value>
   </data>
   <data name="VideoCutterTimeline_HoveredTime" xml:space="preserve">
-    <value>Hovered time</value>
+    <value>Wskazywana pozycja</value>
   </data>
   <data name="VideoCutterTimeline_MoveClipEnd" xml:space="preserve">
-    <value>move clip end</value>
+    <value>przesuń koniec zaznaczenia</value>
   </data>
   <data name="VideoCutterTimeline_MoveClipStart" xml:space="preserve">
-    <value>move clip start</value>
+    <value>przesuń początek zaznaczenia</value>
   </data>
   <data name="VideoCutterTimeline_SetClipEndHere" xml:space="preserve">
-    <value>middle click to set clip end here</value>
+    <value>środkowy przycisk ustawia koniec zaznaczenia</value>
   </data>
   <data name="VideoCutterTimeline_SetClipStartHere" xml:space="preserve">
-    <value>middle click to set clip start here</value>
+    <value>środkowy przycisk ustawia początek zaznaczenia</value>
   </data>
   <data name="VideoCutterTimeline_Time" xml:space="preserve">
-    <value>Time</value>
+    <value>Czas</value>
   </data>
 </root>
