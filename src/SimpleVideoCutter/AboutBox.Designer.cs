@@ -37,6 +37,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.linkLabelGithub = new System.Windows.Forms.LinkLabel();
             this.linkLabelGithubReleases = new System.Windows.Forms.LinkLabel();
+            this.linkLabelEmail = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -48,10 +49,11 @@
             this.tableLayoutPanel.Controls.Add(this.labelProductName, 1, 0);
             this.tableLayoutPanel.Controls.Add(this.labelVersion, 1, 1);
             this.tableLayoutPanel.Controls.Add(this.labelCopyright, 1, 2);
-            this.tableLayoutPanel.Controls.Add(this.okButton, 1, 6);
-            this.tableLayoutPanel.Controls.Add(this.textBox1, 1, 5);
+            this.tableLayoutPanel.Controls.Add(this.okButton, 1, 7);
+            this.tableLayoutPanel.Controls.Add(this.textBox1, 1, 6);
             this.tableLayoutPanel.Controls.Add(this.linkLabelGithub, 1, 4);
             this.tableLayoutPanel.Controls.Add(this.linkLabelGithubReleases, 1, 3);
+            this.tableLayoutPanel.Controls.Add(this.linkLabelEmail, 1, 5);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             // 
             // logoPictureBox
@@ -59,7 +61,7 @@
             resources.ApplyResources(this.logoPictureBox, "logoPictureBox");
             this.logoPictureBox.Image = global::SimpleVideoCutter.Properties.Resources.film_reels;
             this.logoPictureBox.Name = "logoPictureBox";
-            this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 7);
+            this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 8);
             this.logoPictureBox.TabStop = false;
             // 
             // labelProductName
@@ -104,6 +106,13 @@
             this.linkLabelGithubReleases.TabStop = true;
             this.linkLabelGithubReleases.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelGithubreleases_LinkClicked);
             // 
+            // linkLabelEmail
+            // 
+            resources.ApplyResources(this.linkLabelEmail, "linkLabelEmail");
+            this.linkLabelEmail.Name = "linkLabelEmail";
+            this.linkLabelEmail.TabStop = true;
+            this.linkLabelEmail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelEmail_LinkClicked);
+            // 
             // AboutBox
             // 
             this.AcceptButton = this.okButton;
@@ -135,5 +144,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.LinkLabel linkLabelGithub;
         private System.Windows.Forms.LinkLabel linkLabelGithubReleases;
+        private System.Windows.Forms.LinkLabel linkLabelEmail;
     }
 }

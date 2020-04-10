@@ -127,5 +127,9 @@ namespace SimpleVideoCutter
             }
         }
 
+        private void linkLabelEmail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("mailto:simple.video.cutter@gmail.com"); 
+        }
     }
 }
