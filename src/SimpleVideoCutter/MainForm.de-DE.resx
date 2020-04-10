@@ -118,184 +118,184 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="toolStripStatusLabelVolume.Text" xml:space="preserve">
-    <value>Głośność: 100%</value>
+    <value>Umfang: 100 %</value>
   </data>
   <data name="toolStripStatusLabelFilePath.Text" xml:space="preserve">
-    <value>Nie załadowano pliku</value>
+    <value>Keine Datei geladen</value>
   </data>
   <data name="toolStripStatusLabelIndex.Text" xml:space="preserve">
     <value>0/0</value>
   </data>
   <data name="toolStripStatusLabelSelection.Text" xml:space="preserve">
-    <value>Brak zaznaczenia</value>
+    <value>Kein Häkchen</value>
   </data>
   <data name="toolStripSelection.Text" xml:space="preserve">
-    <value>Zaznaczenie</value>
-  </data>
-  <data name="toolStripButtonInternetVersionCheck.Text" xml:space="preserve">
-    <value>Sprawdź aktualizacje</value>
-  </data>
-  <data name="toolStripButtonTasksShow.Text" xml:space="preserve">
-    <value>Pokaż zadania</value>
-  </data>
-  <data name="toolStripButtonTasksShow.ToolTipText" xml:space="preserve">
-    <value>Pokaż zadania (T)</value>
-  </data>
-  <data name="toolStripTasks.Text" xml:space="preserve">
-    <value>Zadania</value>
+    <value>überprüfen</value>
   </data>
   <data name="toolStripButtonPlabackPlayPause.Text" xml:space="preserve">
-    <value>Odtwarzanie / Pauza</value>
+    <value>Wiedergabe/Pause</value>
   </data>
   <data name="toolStripButtonPlabackPlayPause.ToolTipText" xml:space="preserve">
-    <value>Odtwarzanie / Pauza (Spacja)</value>
+    <value>Wiedergabe/Pause (Leerzeichen)</value>
   </data>
   <data name="toolStripButtonPlabackMute.Text" xml:space="preserve">
-    <value>Wycisz</value>
+    <value>Stumm</value>
   </data>
   <data name="toolStripButtonPlabackMute.ToolTipText" xml:space="preserve">
-    <value>Wycisz (Ctrl+M)</value>
+    <value>Stummschalten (Strg+M)</value>
   </data>
   <data name="toolStripButtonPlabackNextFrame.Text" xml:space="preserve">
-    <value>Następna klatka</value>
+    <value>Nächster Käfig</value>
   </data>
   <data name="toolStripButtonPlabackNextFrame.ToolTipText" xml:space="preserve">
-    <value>Następna klatka (.)</value>
+    <value>Der nächste Käfig (.)</value>
   </data>
   <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
-    <value>Otwórz plik</value>
+    <value>Öffnen Sie die Datei</value>
   </data>
   <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
-    <value>Otwórz plik (Ctrl+O)</value>
+    <value>Datei öffnen (Strg+O)</value>
   </data>
   <data name="toolStripButtonFilePrev.Text" xml:space="preserve">
-    <value>Poprzedni plik</value>
+    <value>Vorherige Datei</value>
   </data>
   <data name="toolStripButtonFilePrev.ToolTipText" xml:space="preserve">
-    <value>Poprzedni plik (Alt+Left)</value>
+    <value>Vorherige Datei (Alt+Links)</value>
   </data>
   <data name="toolStripButtonFileNext.Text" xml:space="preserve">
-    <value>Następny plik</value>
+    <value>Nächste Datei</value>
   </data>
   <data name="toolStripButtonFileNext.ToolTipText" xml:space="preserve">
-    <value>Następny plik (Alt+Right)</value>
+    <value>Nächste Datei (Alt+Rechts)</value>
   </data>
   <data name="toolStripButtonFileSettings.Text" xml:space="preserve">
-    <value>Ustawienia</value>
+    <value>Einstellungen</value>
   </data>
   <data name="toolStripButtonFileAbout.Text" xml:space="preserve">
-    <value>O programie</value>
+    <value>Über das Programm</value>
   </data>
   <data name="toolStripDropDownButtonFileLanguage.Text" xml:space="preserve">
-    <value>Język</value>
+    <value>Sprache</value>
   </data>
   <data name="toolStripFile.Text" xml:space="preserve">
-    <value>Plik</value>
+    <value>Datei</value>
+  </data>
+  <data name="toolStripButtonTasksShow.Text" xml:space="preserve">
+    <value>Aufgaben anzeigen</value>
+  </data>
+  <data name="toolStripButtonTasksShow.ToolTipText" xml:space="preserve">
+    <value>Aufgaben anzeigen (T)</value>
+  </data>
+  <data name="toolStripTasks.Text" xml:space="preserve">
+    <value>Aufgaben</value>
+  </data>
+  <data name="toolStripButtonInternetVersionCheck.Text" xml:space="preserve">
+    <value>Nach Updates suchen</value>
   </data>
   <data name="columnStatus.Text" xml:space="preserve">
-    <value>Status</value>
+    <value>Stand</value>
   </data>
   <data name="columnProfile.Text" xml:space="preserve">
     <value>Profil</value>
   </data>
   <data name="columnFilename.Text" xml:space="preserve">
-    <value>Plik źródłowy</value>
+    <value>Quelldatei</value>
   </data>
   <data name="columnDuration.Text" xml:space="preserve">
-    <value>Czas trwania</value>
+    <value>Dauer</value>
   </data>
   <data name="columnOutputFile.Text" xml:space="preserve">
-    <value>Plik docelowy</value>
+    <value>Zieldatei</value>
   </data>
   <data name="columnError.Text" xml:space="preserve">
-    <value>Komunikat</value>
+    <value>Kommunikation</value>
   </data>
   <data name="labelTasks.Text" xml:space="preserve">
-    <value>Zadania</value>
+    <value>Aufgaben</value>
   </data>
   <data name="resetToolbarsLayoutToolStripMenuItem.Text" xml:space="preserve">
-    <value>Resetuj układu pasków narzędzi</value>
+    <value>Symbolleisten-Layout zurücksetzen</value>
   </data>
   <data name="toolStripButtonSelectionSetStart.Text" xml:space="preserve">
-    <value>Ustaw początek</value>
+    <value>Den Start festlegen</value>
   </data>
   <data name="toolStripButtonSelectionSetStart.ToolTipText" xml:space="preserve">
-    <value>Ustaw początek zaznaczenia ( [ )</value>
+    <value>Den Anfang der Auswahl festlegen ( [ )</value>
   </data>
   <data name="toolStripButtonSelectionSetEnd.Text" xml:space="preserve">
-    <value>Ustaw początek</value>
+    <value>Den Start festlegen</value>
   </data>
   <data name="toolStripButtonSelectionSetEnd.ToolTipText" xml:space="preserve">
-    <value>Ustaw koniec zaznaczenia ( ] )</value>
+    <value>Das Ende der Auswahl festlegen ( ] )</value>
   </data>
   <data name="toolStripButtonSelectionPlay.Text" xml:space="preserve">
-    <value>Odtwarzaj zakres</value>
+    <value>Den Bereich spielen</value>
   </data>
   <data name="toolStripButtonSelectionPlay.ToolTipText" xml:space="preserve">
-    <value>Odtwarzaj zaznaczenie (R)</value>
+    <value>Die Auswahl abspielen (R)</value>
   </data>
   <data name="toolStripButtonSelectionClear.Text" xml:space="preserve">
-    <value>Wyczyść zaznaczenie</value>
+    <value>Auswahl löschen</value>
   </data>
   <data name="toolStripButtonSelectionClear.ToolTipText" xml:space="preserve">
-    <value>Wyczyść zaznaczenie (Del)</value>
+    <value>Auswahl löschen (Del)</value>
   </data>
   <data name="toolStripButtonSelectionGoToStart.Text" xml:space="preserve">
-    <value>Idź na początek</value>
+    <value>Fangen Sie an</value>
   </data>
   <data name="toolStripButtonSelectionGoToStart.ToolTipText" xml:space="preserve">
-    <value>Przejdź do początku zaznaczenia ( Ctrl+[ )</value>
+    <value>Gehen Sie zum Anfang der Auswahl ( Strg+[ )</value>
   </data>
   <data name="toolStripButtonSelectionGoToEnd.Text" xml:space="preserve">
-    <value>Idź na koniec</value>
+    <value>Zum Ende gehen</value>
   </data>
   <data name="toolStripButtonSelectionGoToEnd.ToolTipText" xml:space="preserve">
-    <value>Przejdź do końca zaznaczenia ( Ctrl + ] )</value>
+    <value>Gehen Sie zum Ende der Auswahl ( Strg + ] )</value>
   </data>
   <data name="toolStripButtonSelectionEnqueue.Text" xml:space="preserve">
-    <value>Wycinaj</value>
+    <value>Ausschneiden</value>
   </data>
   <data name="toolStripButtonSelectionEnqueue.ToolTipText" xml:space="preserve">
-    <value>Dodaj zaznaczony obszar do przetworzenia przez FFmpeg (E). Przytrzymaj również Shift, aby otworzyć okienko w którym zmienisz ustawienia tego zadania.</value>
+    <value>Fügen Sie den ausgewählten Bereich hinzu, der von FFmpeg bearbeitet werden soll (E). Halten Sie auch die Umschalttaste gedrückt, um ein Fenster zu öffnen, in dem Sie die Einstellungen für diese Aufgabe ändern können.</value>
   </data>
   <data name="toolStripButtonTimelineZoomOut.Text" xml:space="preserve">
-    <value>Powiększ widok</value>
+    <value>Vergrößern Sie die Ansicht</value>
   </data>
   <data name="toolStripButtonTimelineZoomOut.ToolTipText" xml:space="preserve">
-    <value>Ustaw oś czasu aby pasowała do okna (0)</value>
+    <value>Stellen Sie die Zeitachse so ein, dass sie mit dem Fenster übereinstimmt (0)</value>
   </data>
   <data name="toolStripButtonTimelineZoomAuto.Text" xml:space="preserve">
-    <value>Dostosuj
-powiększenie</value>
+    <value>anpassen
+Die Erweiterung</value>
   </data>
   <data name="toolStripButtonTimelineZoomAuto.ToolTipText" xml:space="preserve">
-    <value>Automatyczne powiększenia osi czasu (9)</value>
+    <value>Automatische Zeitleisten-Vergrößerung (9)</value>
   </data>
   <data name="toolStripButtonTimelineGoToCurrentPosition.Text" xml:space="preserve">
-    <value>Aktualna pozycja</value>
+    <value>Gegenwärtige Position</value>
   </data>
   <data name="toolStripButtonTimelineGoToCurrentPosition.ToolTipText" xml:space="preserve">
-    <value>Przewiń oś czasu do aktualnej pozycji (Ctrl+P)</value>
+    <value>Scrollen Sie die Zeitleiste zur aktuellen Position (Strg+P)</value>
   </data>
   <data name="toolStripMenuItemLangGerman.Text" xml:space="preserve">
-    <value>Niemiecki (tłumaczenie maszynowe)</value>
+    <value>Deutsch (maschinelle Übersetzung)</value>
   </data>
   <data name="toolStripMenuItemLangFrench.Text" xml:space="preserve">
-    <value>Francuski (tłumaczenie maszynowe)</value>
+    <value>Französisch (maschinelle Übersetzung)</value>
   </data>
   <data name="toolStripMenuItemLangSpanish.Text" xml:space="preserve">
-    <value>Hiszpański (tłumaczenie maszynowe)</value>
+    <value>Spanisch (maschinelle Übersetzung)</value>
   </data>
   <data name="toolStripMenuItemLangItalian.Text" xml:space="preserve">
-    <value>Włoski (tłumaczenie maszynowe)</value>
+    <value>Italienisch (Maschinenübersetzung)</value>
   </data>
   <data name="toolStripMenuItemLangChinese.Text" xml:space="preserve">
-    <value>Chiński (tłumaczenie maszynowe)</value>
+    <value>Chinesisch (maschinelle Übersetzung)</value>
   </data>
   <data name="toolStripMenuItemLangJapanese.Text" xml:space="preserve">
-    <value>Japoński (tłumaczenie maszynowe)</value>
+    <value>Japanisch (maschinelle Übersetzung)</value>
   </data>
   <data name="toolStripMenuItemLangPolish.Text" xml:space="preserve">
-    <value>Polski</value>
+    <value>Polnisch</value>
   </data>
 </root>
