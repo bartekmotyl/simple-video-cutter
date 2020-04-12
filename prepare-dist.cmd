@@ -1,0 +1,1 @@
+powershell -ExecutionPolicy Unrestricted -File build.ps1 -ScriptArgs '-appversion=0.0.0.0'
