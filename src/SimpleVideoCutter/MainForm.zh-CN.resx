@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="toolStripStatusLabelVolume.Text" xml:space="preserve">
+    <value>数量：100%</value>
+  </data>
+  <data name="toolStripStatusLabelFilePath.Text" xml:space="preserve">
+    <value>未加载文件</value>
+  </data>
+  <data name="toolStripStatusLabelIndex.Text" xml:space="preserve">
+    <value>0/0</value>
+  </data>
+  <data name="toolStripStatusLabelSelection.Text" xml:space="preserve">
+    <value>没有选择</value>
+  </data>
+  <data name="columnStatus.Text" xml:space="preserve">
+    <value>状况</value>
+  </data>
+  <data name="columnProfile.Text" xml:space="preserve">
+    <value>讎りｦ</value>
+  </data>
+  <data name="columnFilename.Text" xml:space="preserve">
+    <value>源文件</value>
+  </data>
+  <data name="columnDuration.Text" xml:space="preserve">
+    <value>时间</value>
+  </data>
+  <data name="columnOutputFile.Text" xml:space="preserve">
+    <value>目标文件</value>
+  </data>
+  <data name="columnError.Text" xml:space="preserve">
+    <value>訊息</value>
+  </data>
+  <data name="labelTasks.Text" xml:space="preserve">
+    <value>任务</value>
+  </data>
+  <data name="resetToolbarsLayoutToolStripMenuItem.Text" xml:space="preserve">
+    <value>重置工具栏布局</value>
+  </data>
+  <data name="toolStripButtonSelectionSetStart.Text" xml:space="preserve">
+    <value>设置启动</value>
+  </data>
+  <data name="toolStripButtonSelectionSetStart.ToolTipText" xml:space="preserve">
+    <value>设置选择开始 ( [)</value>
+  </data>
+  <data name="toolStripButtonSelectionSetEnd.Text" xml:space="preserve">
+    <value>设置结束语</value>
+  </data>
+  <data name="toolStripButtonSelectionSetEnd.ToolTipText" xml:space="preserve">
+    <value>设置选择结束（ ]</value>
+  </data>
+  <data name="toolStripButtonSelectionPlay.Text" xml:space="preserve">
+    <value>播放范围</value>
+  </data>
+  <data name="toolStripButtonSelectionPlay.ToolTipText" xml:space="preserve">
+    <value>游戏选择（R）</value>
+  </data>
+  <data name="toolStripButtonSelectionClear.Text" xml:space="preserve">
+    <value>明确的选择</value>
+  </data>
+  <data name="toolStripButtonSelectionClear.ToolTipText" xml:space="preserve">
+    <value>明确选择(Del)</value>
+  </data>
+  <data name="toolStripButtonSelectionGoToStart.Text" xml:space="preserve">
+    <value>转到开始</value>
+  </data>
+  <data name="toolStripButtonSelectionGoToStart.ToolTipText" xml:space="preserve">
+    <value>转到选择开始 ( Ctrl+[ )</value>
+  </data>
+  <data name="toolStripButtonSelectionGoToEnd.Text" xml:space="preserve">
+    <value>转到最后</value>
+  </data>
+  <data name="toolStripButtonSelectionGoToEnd.ToolTipText" xml:space="preserve">
+    <value>转到选择端 ( Ctrl + ] )</value>
+  </data>
+  <data name="toolStripButtonSelectionEnqueue.ToolTipText" xml:space="preserve">
+    <value>用 FFmpeg (E) 处理所选区域。也按Shift打开任务对话框，在这里你可以改变这个任务的细节。</value>
+  </data>
+  <data name="toolStripSelection.Text" xml:space="preserve">
+    <value>挑选</value>
+  </data>
+  <data name="toolStripButtonTimelineZoomOut.Text" xml:space="preserve">
+    <value>缩小</value>
+  </data>
+  <data name="toolStripButtonTimelineZoomOut.ToolTipText" xml:space="preserve">
+    <value>设置时间轴以适应窗口(0)</value>
+  </data>
+  <data name="toolStripButtonTimelineZoomAuto.Text" xml:space="preserve">
+    <value>自动放大</value>
+  </data>
+  <data name="toolStripButtonTimelineZoomAuto.ToolTipText" xml:space="preserve">
+    <value>自动设置时间轴缩放 (9)</value>
+  </data>
+  <data name="toolStripButtonTimelineGoToCurrentPosition.Text" xml:space="preserve">
+    <value>现任职务</value>
+  </data>
+  <data name="toolStripButtonTimelineGoToCurrentPosition.ToolTipText" xml:space="preserve">
+    <value>滚动时间轴到当前位置 (Ctrl+P)</value>
+  </data>
+  <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
+    <value>打开文件</value>
+  </data>
+  <data name="toolStripButtonFileOpen.ToolTipText" xml:space="preserve">
+    <value>打开文件 (Ctrl+O)</value>
+  </data>
+  <data name="toolStripButtonFilePrev.Text" xml:space="preserve">
+    <value>上一个文件</value>
+  </data>
+  <data name="toolStripButtonFilePrev.ToolTipText" xml:space="preserve">
+    <value>上一个文件 (Alt+左键)</value>
+  </data>
+  <data name="toolStripButtonFileNext.Text" xml:space="preserve">
+    <value>下一个文件</value>
+  </data>
+  <data name="toolStripButtonFileNext.ToolTipText" xml:space="preserve">
+    <value>下一个文件 (Alt+右键)</value>
+  </data>
+  <data name="toolStripButtonFileSettings.Text" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="toolStripButtonFileAbout.Text" xml:space="preserve">
+    <value>关于我们</value>
+  </data>
+  <data name="toolStripMenuItemLangGerman.Text" xml:space="preserve">
+    <value>德文</value>
+  </data>
+  <data name="toolStripMenuItemLangFrench.Text" xml:space="preserve">
+    <value>法文</value>
+  </data>
+  <data name="toolStripMenuItemLangSpanish.Text" xml:space="preserve">
+    <value>西班牙文</value>
+  </data>
+  <data name="toolStripMenuItemLangItalian.Text" xml:space="preserve">
+    <value>意大利语</value>
+  </data>
+  <data name="toolStripMenuItemLangChinese.Text" xml:space="preserve">
+    <value>中文</value>
+  </data>
+  <data name="toolStripMenuItemLangJapanese.Text" xml:space="preserve">
+    <value>日文</value>
+  </data>
+  <data name="toolStripMenuItemLangPolish.Text" xml:space="preserve">
+    <value>波兰语</value>
+  </data>
+  <data name="toolStripDropDownButtonFileLanguage.Text" xml:space="preserve">
+    <value>语系</value>
+  </data>
+  <data name="toolStripFile.Text" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="toolStripButtonPlabackPlayPause.Text" xml:space="preserve">
+    <value>播放/暂停</value>
+  </data>
+  <data name="toolStripButtonPlabackPlayPause.ToolTipText" xml:space="preserve">
+    <value>播放/暂停(空间)</value>
+  </data>
+  <data name="toolStripButtonPlabackMute.Text" xml:space="preserve">
+    <value>静音</value>
+  </data>
+  <data name="toolStripButtonPlabackMute.ToolTipText" xml:space="preserve">
+    <value>静音 (Ctrl+M)</value>
+  </data>
+  <data name="toolStripButtonPlabackNextFrame.Text" xml:space="preserve">
+    <value>下一帧</value>
+  </data>
+  <data name="toolStripButtonPlabackNextFrame.ToolTipText" xml:space="preserve">
+    <value>下一帧（.</value>
+  </data>
+  <data name="toolStripButtonTasksShow.Text" xml:space="preserve">
+    <value>显示任务</value>
+  </data>
+  <data name="toolStripButtonTasksShow.ToolTipText" xml:space="preserve">
+    <value>显示任务(T)</value>
+  </data>
+  <data name="toolStripTasks.Text" xml:space="preserve">
+    <value>任务</value>
+  </data>
+  <data name="toolStripButtonInternetVersionCheck.Text" xml:space="preserve">
+    <value>查看更新信息</value>
+  </data>
+</root>
