@@ -25,7 +25,7 @@ namespace SimpleVideoCutter
         private string fileBeingPlayed = null;
         private TaskProcessor taskProcessor = new TaskProcessor();
         private int volume = 100;
-        private FormSettings formSettings = new FormSettings();
+        private FormSettings formSettings;
 
         private bool EnsureFFmpegConfigured()
         {
@@ -59,8 +59,11 @@ namespace SimpleVideoCutter
                 if (culture != null)
                 {
                     Thread.CurrentThread.CurrentUICulture = culture;
+                    CultureInfo.DefaultThreadCurrentUICulture = culture;
                 }
             }
+
+            formSettings = new FormSettings(); 
 
             InitializeComponent();
 

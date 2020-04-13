@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,6 +18,12 @@ namespace SimpleVideoCutter
         public FormSettings()
         {
             InitializeComponent();
+
+            var culture = CultureInfo.GetCultureInfo(VideoCutterSettings.Instance.Language);
+            if (culture != null)
+            {
+                Thread.CurrentThread.CurrentUICulture = culture;
+            }
 
             this.toolTip1.SetToolTip(this.comboBoxDefaultDirectory, string.Format(
                 GlobalStrings.FormSettings_DefaultDirecttoryTooltip,

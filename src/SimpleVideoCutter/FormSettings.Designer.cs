@@ -57,16 +57,19 @@
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
+            this.toolTip1.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
             // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
+            this.toolTip1.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
             // 
             // label3
             // 
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
+            this.toolTip1.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
             // 
             // textBoxFFmpegPath
             // 
@@ -79,6 +82,7 @@
             // 
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
+            this.toolTip1.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
             // 
             // textBoxVideoFileExtensions
             // 
@@ -91,11 +95,13 @@
             // 
             resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
+            this.toolTip1.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
             // 
             // buttonOutputDirectory
             // 
             resources.ApplyResources(this.buttonOutputDirectory, "buttonOutputDirectory");
             this.buttonOutputDirectory.Name = "buttonOutputDirectory";
+            this.toolTip1.SetToolTip(this.buttonOutputDirectory, resources.GetString("buttonOutputDirectory.ToolTip"));
             this.buttonOutputDirectory.UseVisualStyleBackColor = true;
             this.buttonOutputDirectory.Click += new System.EventHandler(this.buttonOutputDirectory_Click);
             // 
@@ -103,6 +109,7 @@
             // 
             resources.ApplyResources(this.buttonFFmpegPath, "buttonFFmpegPath");
             this.buttonFFmpegPath.Name = "buttonFFmpegPath";
+            this.toolTip1.SetToolTip(this.buttonFFmpegPath, resources.GetString("buttonFFmpegPath.ToolTip"));
             this.buttonFFmpegPath.UseVisualStyleBackColor = true;
             this.buttonFFmpegPath.Click += new System.EventHandler(this.buttonFFmpegPath_Click);
             // 
@@ -110,29 +117,34 @@
             // 
             resources.ApplyResources(this.buttonDefaultDirectory, "buttonDefaultDirectory");
             this.buttonDefaultDirectory.Name = "buttonDefaultDirectory";
+            this.toolTip1.SetToolTip(this.buttonDefaultDirectory, resources.GetString("buttonDefaultDirectory.ToolTip"));
             this.buttonDefaultDirectory.UseVisualStyleBackColor = true;
             this.buttonDefaultDirectory.Click += new System.EventHandler(this.buttonDefaultDirectory_Click);
             // 
+            // folderBrowserDialog1
+            // 
+            resources.ApplyResources(this.folderBrowserDialog1, "folderBrowserDialog1");
+            // 
             // comboBoxDefaultDirectory
             // 
+            resources.ApplyResources(this.comboBoxDefaultDirectory, "comboBoxDefaultDirectory");
             this.comboBoxDefaultDirectory.FormattingEnabled = true;
             this.comboBoxDefaultDirectory.Items.AddRange(new object[] {
             resources.GetString("comboBoxDefaultDirectory.Items"),
             resources.GetString("comboBoxDefaultDirectory.Items1"),
             resources.GetString("comboBoxDefaultDirectory.Items2")});
-            resources.ApplyResources(this.comboBoxDefaultDirectory, "comboBoxDefaultDirectory");
             this.comboBoxDefaultDirectory.Name = "comboBoxDefaultDirectory";
             this.toolTip1.SetToolTip(this.comboBoxDefaultDirectory, resources.GetString("comboBoxDefaultDirectory.ToolTip"));
             // 
             // comboBoxOutputDirectory
             // 
+            resources.ApplyResources(this.comboBoxOutputDirectory, "comboBoxOutputDirectory");
             this.comboBoxOutputDirectory.FormattingEnabled = true;
             this.comboBoxOutputDirectory.Items.AddRange(new object[] {
             resources.GetString("comboBoxOutputDirectory.Items"),
             resources.GetString("comboBoxOutputDirectory.Items1"),
             resources.GetString("comboBoxOutputDirectory.Items2"),
             resources.GetString("comboBoxOutputDirectory.Items3")});
-            resources.ApplyResources(this.comboBoxOutputDirectory, "comboBoxOutputDirectory");
             this.comboBoxOutputDirectory.Name = "comboBoxOutputDirectory";
             this.toolTip1.SetToolTip(this.comboBoxOutputDirectory, resources.GetString("comboBoxOutputDirectory.ToolTip"));
             // 
@@ -159,6 +171,7 @@
             this.tableLayoutPanel1.Controls.Add(this.comboBoxDefaultDirectory, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBoxOutputFilePattern, 1, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.toolTip1.SetToolTip(this.tableLayoutPanel1, resources.GetString("tableLayoutPanel1.ToolTip"));
             // 
             // flowLayoutPanel1
             // 
@@ -166,18 +179,21 @@
             this.flowLayoutPanel1.Controls.Add(this.buttonCancel);
             this.flowLayoutPanel1.Controls.Add(this.buttonOK);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.toolTip1.SetToolTip(this.flowLayoutPanel1, resources.GetString("flowLayoutPanel1.ToolTip"));
             // 
             // buttonCancel
             // 
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             resources.ApplyResources(this.buttonCancel, "buttonCancel");
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Name = "buttonCancel";
+            this.toolTip1.SetToolTip(this.buttonCancel, resources.GetString("buttonCancel.ToolTip"));
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // buttonOK
             // 
             resources.ApplyResources(this.buttonOK, "buttonOK");
             this.buttonOK.Name = "buttonOK";
+            this.toolTip1.SetToolTip(this.buttonOK, resources.GetString("buttonOK.ToolTip"));
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
@@ -195,6 +211,7 @@
             this.Name = "FormSettings";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.toolTip1.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
