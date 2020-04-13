@@ -653,6 +653,7 @@
   </data>
   <data name="labelExplanation.Text" xml:space="preserve">
     <value>_Explanation</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;labelExplanation.Name" xml:space="preserve">
     <value>labelExplanation</value>

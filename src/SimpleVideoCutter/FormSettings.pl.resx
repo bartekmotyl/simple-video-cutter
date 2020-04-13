@@ -139,31 +139,6 @@ Ma znaczenie podczas nawigacji do poprzedniego/następnego pliku wideo w katalog
   <data name="label5.Text" xml:space="preserve">
     <value>Rozszerzenia plików wideo:</value>
   </data>
-  <data name="comboBoxDefaultDirectory.ToolTip" xml:space="preserve">
-    <value>Domyślny katalog podczas otwierania plików wideo.
-Może być określony albo jako ścieżka bezwzględna
-lub przy użyciu jednego z predefiniowanych katalogów:
-{UserVideos}
-(UserDocuments)
-{MyComputer}</value>
-  </data>
-  <data name="comboBoxOutputDirectory.ToolTip" xml:space="preserve">
-    <value>Katalog wyjściowy, w którym mają być zapisywane utworzone pliki.
-Może być określony albo jako ścieżka bezwzględna
-lub przy użyciu jednego z predefiniowanych katalogów:
-{UserVideos}
-{UserDocuments}
-{MyComputer}</value>
-  </data>
-  <data name="textBoxOutputFilePattern.ToolTip" xml:space="preserve">
-    <value>Szablon określający sposób nadawania nazw tworzonym plikom.
-Dozwolone są zarówno części statyczne, jak i predefiniowane zmienne:
-  {FileName} - nazwa pliku oryginalnego
-  {FileNameWithoutExtension} - nazwa oryginalnego pliku, bez rozszerzenia
-  {FileExtension} - rozszerzenie oryginalnego pliku wideo
-  {FileDate} - data pliku oryginalnego pliku wideo
-  (Timestamp) - aktualny znacznik czasu</value>
-  </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Anuluj</value>
   </data>

@@ -147,11 +147,6 @@
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Anuluj</value>
   </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>W tym oknie można wybrać jeden z istniejących profili FFmpeg (lub zdefiniować nowy), który będzie używany podczas konwersji wideo. Profil FFmpeg jest zestawem argumentów przekazywanych do FFmpeg w celu wycięcia fragmentu wideo. Nie martw się, jeżeli nie wiesz nic o FFmpeg - wystarczy nacisnąć przycisk Rozpocznij, a zadanie rozpocznie się automatycznie (przy użyciu domyślnego profilu) i to okno nie zostanie ponownie wyświetlone. Ale zawsze możesz je pkazać ponownie przytrzymując klawisz Shift podczas klikania na 'Wycinaj'.
-
-TL;DR: po prostu naciśnij 'Rozpocznij'. Okno nie zostanie pokazane ponownie.</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Kolejkuj zadanie</value>
   </data>

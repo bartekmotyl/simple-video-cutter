@@ -252,9 +252,6 @@
   <data name="toolStripButtonSelectionGoToEnd.ToolTipText" xml:space="preserve">
     <value>Przejdź do końca zaznaczenia ( Ctrl + ] )</value>
   </data>
-  <data name="toolStripButtonSelectionEnqueue.Text" xml:space="preserve">
-    <value>Wycinaj</value>
-  </data>
   <data name="toolStripButtonSelectionEnqueue.ToolTipText" xml:space="preserve">
     <value>Dodaj zaznaczony obszar do przetworzenia przez FFmpeg (E). Przytrzymaj również Shift, aby otworzyć okienko w którym zmienisz ustawienia tego zadania.</value>
   </data>

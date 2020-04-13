@@ -318,6 +318,7 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="buttonOutputDirectory.Text" xml:space="preserve">
     <value>...</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;buttonOutputDirectory.Name" xml:space="preserve">
     <value>buttonOutputDirectory</value>
@@ -342,6 +343,7 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="buttonFFmpegPath.Text" xml:space="preserve">
     <value>...</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;buttonFFmpegPath.Name" xml:space="preserve">
     <value>buttonFFmpegPath</value>
@@ -366,6 +368,7 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="buttonDefaultDirectory.Text" xml:space="preserve">
     <value>...</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;buttonDefaultDirectory.Name" xml:space="preserve">
     <value>buttonDefaultDirectory</value>
@@ -384,12 +387,15 @@ navigating to previous/next video file in directory.</value>
   </metadata>
   <data name="comboBoxDefaultDirectory.Items" xml:space="preserve">
     <value>{UserVideos}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="comboBoxDefaultDirectory.Items1" xml:space="preserve">
     <value>{UserDocuments}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="comboBoxDefaultDirectory.Items2" xml:space="preserve">
     <value>{MyComputer}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="comboBoxDefaultDirectory.Location" type="System.Drawing.Point, System.Drawing">
     <value>134, 8</value>
@@ -402,6 +408,7 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="comboBoxDefaultDirectory.ToolTip" xml:space="preserve">
     <value>_Tooltip</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;comboBoxDefaultDirectory.Name" xml:space="preserve">
     <value>comboBoxDefaultDirectory</value>
@@ -417,15 +424,19 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="comboBoxOutputDirectory.Items" xml:space="preserve">
     <value>{UserVideos}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="comboBoxOutputDirectory.Items1" xml:space="preserve">
     <value>{UserDocuments}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="comboBoxOutputDirectory.Items2" xml:space="preserve">
     <value>{MyComputer}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="comboBoxOutputDirectory.Items3" xml:space="preserve">
     <value>{SameFolder}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="comboBoxOutputDirectory.Location" type="System.Drawing.Point, System.Drawing">
     <value>134, 37</value>
@@ -438,6 +449,7 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="comboBoxOutputDirectory.ToolTip" xml:space="preserve">
     <value>_Tooltip</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;comboBoxOutputDirectory.Name" xml:space="preserve">
     <value>comboBoxOutputDirectory</value>
@@ -462,6 +474,7 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="textBoxOutputFilePattern.ToolTip" xml:space="preserve">
     <value>_Tooltip</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;textBoxOutputFilePattern.Name" xml:space="preserve">
     <value>textBoxOutputFilePattern</value>

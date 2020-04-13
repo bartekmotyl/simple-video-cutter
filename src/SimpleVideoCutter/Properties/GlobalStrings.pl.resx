@@ -201,4 +201,33 @@
   <data name="VideoCutterTimeline_Time" xml:space="preserve">
     <value>Czas</value>
   </data>
+  <data name="FormSettings_OutputDirectoryTooltip" xml:space="preserve">
+    <value>Katalog wyjściowy, w którym mają być zapisywane utworzone pliki.
+Może być określony albo jako ścieżka bezwzględna
+lub przy użyciu jednego z predefiniowanych katalogów:
+{0}</value>
+  </data>
+  <data name="FormSettings_OutputFileNamePatternTooltip" xml:space="preserve">
+    <value>Szablon określający sposób nadawania nazw tworzonym plikom.
+Dozwolone są zarówno części statyczne, jak i predefiniowane zmienne:
+  {0} - nazwa pliku oryginalnego
+  {1} - nazwa oryginalnego pliku, bez rozszerzenia
+  {2} - rozszerzenie oryginalnego pliku wideo
+  {3} - data pliku oryginalnego pliku wideo
+  {4} - aktualny znacznik czasu</value>
+  </data>
+  <data name="FormSettings_DefaultDirecttoryTooltip" xml:space="preserve">
+    <value>Domyślny katalog podczas otwierania plików wideo.
+Może być określony albo jako ścieżka bezwzględna
+lub przy użyciu jednego z predefiniowanych katalogów:
+{0}</value>
+  </data>
+  <data name="FormAddTask_Explanation" xml:space="preserve">
+    <value>W tym oknie można wybrać jeden z istniejących profili FFmpeg (lub zdefiniować nowy), który będzie używany podczas konwersji wideo. Profil FFmpeg jest zestawem argumentów przekazywanych do FFmpeg w celu wycięcia fragmentu wideo. Nie martw się, jeżeli nie wiesz nic o FFmpeg - wystarczy nacisnąć przycisk {1}, a zadanie rozpocznie się automatycznie (przy użyciu domyślnego profilu) i to okno nie zostanie ponownie wyświetlone. Ale zawsze możesz je pokazać ponownie przytrzymując klawisz Shift podczas klikania na '{0}'.
+
+TL;DR: po prostu naciśnij '{1}'. Okno nie zostanie pokazane ponownie.</value>
+  </data>
+  <data name="MainForm_ButtonCut" xml:space="preserve">
+    <value>Wycinaj</value>
+  </data>
 </root>
