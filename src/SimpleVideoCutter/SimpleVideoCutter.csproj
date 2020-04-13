@@ -131,26 +131,17 @@
     <Compile Include="VideoCutterTimeline.Designer.cs">
       <DependentUpon>VideoCutterTimeline.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AboutBox.de-DE.resx">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.pl.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DialogProfileName.de-DE.resx">
-      <DependentUpon>DialogProfileName.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DialogProfileName.pl.resx">
       <DependentUpon>DialogProfileName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DialogProfileName.resx">
       <DependentUpon>DialogProfileName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAddTask.de-DE.resx">
-      <DependentUpon>FormAddTask.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddTask.pl.resx">
       <DependentUpon>FormAddTask.cs</DependentUpon>
@@ -159,17 +150,11 @@
       <DependentUpon>FormAddTask.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormFFmpegMissingDialog.de-DE.resx">
-      <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormFFmpegMissingDialog.pl.resx">
       <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFFmpegMissingDialog.resx">
       <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSettings.de-DE.resx">
-      <DependentUpon>FormSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettings.pl.resx">
       <DependentUpon>FormSettings.cs</DependentUpon>
@@ -177,16 +162,12 @@
     <EmbeddedResource Include="FormSettings.resx">
       <DependentUpon>FormSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.de-DE.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.pl.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\GlobalStrings.de-DE.resx" />
     <EmbeddedResource Include="Properties\GlobalStrings.pl.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -219,54 +200,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\iconfinder_check_293662.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_chevron-left_293664.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_chevron-right_293665.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_clock_293667.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_nav-left_293639.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_nav-right_293640.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_next_293690.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_pause_293692.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_play-2_293642.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_previous-2_293643.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_video_293710.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_folder_293677.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_trash_293706.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_triangle--left_293652.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_triangle--right_293653.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconfinder_list_293685.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="movie-icon-15157-Windows.ico" />
     <Content Include="Resources\streamline\streamline-icon-cog%4032x32.png" />
     <Content Include="Resources\streamline\streamline-icon-diagram-arrow-dash-down%4032x32.png" />
@@ -277,7 +210,6 @@
     <None Include="Resources\streamline\streamline-icon-translate%4032x32.png" />
     <Content Include="Resources\streamline\streamline-icon-video-edit-cut%4048x48.png" />
     <None Include="Resources\film-reels.jpg" />
-    <Content Include="Resources\iconfinder_cog_293670.png" />
     <Content Include="Resources\movie-icon-15157-Windows.ico" />
     <None Include="Resources\streamline\streamline-icon-arrow-button-circle-right%4032x32.png" />
     <None Include="Resources\streamline\streamline-icon-go-to-end%4032x32.png" />
