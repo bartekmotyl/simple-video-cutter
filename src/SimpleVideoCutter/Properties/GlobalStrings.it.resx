@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutBox_About" xml:space="preserve">
+    <value>Informazioni su</value>
+  </data>
+  <data name="AboutBox_NewVersionAvailable" xml:space="preserve">
+    <value>La nuova versione è disponibile! Visita la pagina del progetto.</value>
+  </data>
+  <data name="AboutBox_Version" xml:space="preserve">
+    <value>Versione</value>
+  </data>
+  <data name="AboutBox_VersionUpToDate" xml:space="preserve">
+    <value>State eseguendo l'ultima versione.</value>
+  </data>
+  <data name="FormAddTask_Explanation" xml:space="preserve">
+    <value>In questa finestra è possibile selezionare tra i profili FFmpeg esistenti (o definirne uno nuovo) che verranno utilizzati per la conversione del video. Il profilo FFmpeg è un insieme di argomenti passati a FFmpeg per tagliare il video. Non preoccupatevi se non sapete nulla di FFmpeg - basta premere {1} e l'operazione si avvierà automaticamente (usando il profilo predefinito) e questa finestra non verrà più mostrata. Ma potete sempre riportarla indietro tenendo premuto Shift quando cliccate su '{0}'.
+
+TL;DR: basta premere '{1}'. La finestra non verrà più mostrata.</value>
+  </data>
+  <data name="FormAddTask_OverwwriteProfileQuestion" xml:space="preserve">
+    <value>Sei sicuro di voler sovrascrivere il profilo {0}?</value>
+  </data>
+  <data name="FormAddTask_SameAsSource" xml:space="preserve">
+    <value>come fonte</value>
+  </data>
+  <data name="FormSettings_DefaultDirecttoryTooltip" xml:space="preserve">
+    <value>Directory predefinita all'apertura dei file video.
+Può essere specificata sia come percorso assoluto
+o utilizzando una delle directory predefinite:
+{0}</value>
+  </data>
+  <data name="FormSettings_ExecutableFiles" xml:space="preserve">
+    <value>file eseguibili</value>
+  </data>
+  <data name="FormSettings_OutputDirectoryTooltip" xml:space="preserve">
+    <value>Cartella di uscita dove i file creati devono essere salvati.
+Può essere specificato sia come percorso assoluto
+o utilizzando una delle directory predefinite:
+{0}</value>
+  </data>
+  <data name="FormSettings_OutputFileNamePatternTooltip" xml:space="preserve">
+    <value>Schema che definisce come verranno calcolati i nomi dei file creati.
+Le parti statiche sono consentite così come queste pseudo-variabili
+  {0} - nome del file originale
+  {1} - nome del file originale, senza estensione
+  {2} - estensione del file video originale
+  {3} - data del file del file video originale
+  {4} - data e ora attuale</value>
+  </data>
+  <data name="GlobalInformation" xml:space="preserve">
+    <value>Informazioni</value>
+  </data>
+  <data name="GlobalQuestion" xml:space="preserve">
+    <value>Domanda</value>
+  </data>
+  <data name="MainForm_AllVideoFiles" xml:space="preserve">
+    <value>Tutti i file video</value>
+  </data>
+  <data name="MainForm_ButtonCut" xml:space="preserve">
+    <value>Eseguire il taglio</value>
+  </data>
+  <data name="MainForm_DeaultLayoutrestoredAfterRestart" xml:space="preserve">
+    <value>Il layout predefinito verrà ripristinato al riavvio dell'applicazione.</value>
+  </data>
+  <data name="MainForm_NoSelection" xml:space="preserve">
+    <value>Nessuna selezione</value>
+  </data>
+  <data name="MainForm_QuestionRestartNewLanguage" xml:space="preserve">
+    <value>Per poter utilizzare le nuove impostazioni della lingua, l'applicazione deve essere riavviata. Volete riavviare ora?</value>
+  </data>
+  <data name="MainForm_Selection" xml:space="preserve">
+    <value>Selezione</value>
+  </data>
+  <data name="MainForm_Volume" xml:space="preserve">
+    <value>Volume</value>
+  </data>
+  <data name="TaskProcessor_Done" xml:space="preserve">
+    <value>Fatto</value>
+  </data>
+  <data name="TaskProcessor_Failure" xml:space="preserve">
+    <value>Fallimento</value>
+  </data>
+  <data name="TaskProcessor_Processed" xml:space="preserve">
+    <value>Elaborato {0} secondi</value>
+  </data>
+  <data name="TaskProcessor_State_FinishedError" xml:space="preserve">
+    <value>Errore</value>
+  </data>
+  <data name="TaskProcessor_State_FinishedOK" xml:space="preserve">
+    <value>Fatto</value>
+  </data>
+  <data name="TaskProcessor_State_InProgress" xml:space="preserve">
+    <value>In corso</value>
+  </data>
+  <data name="TaskProcessor_State_Scheduled" xml:space="preserve">
+    <value>Programmato</value>
+  </data>
+  <data name="VideoCutterTimeline_HoveredTime" xml:space="preserve">
+    <value>Tempo sospeso</value>
+  </data>
+  <data name="VideoCutterTimeline_MoveClipEnd" xml:space="preserve">
+    <value>Spostare l'estremità della clip</value>
+  </data>
+  <data name="VideoCutterTimeline_MoveClipStart" xml:space="preserve">
+    <value>Spostare il clip start</value>
+  </data>
+  <data name="VideoCutterTimeline_SetClipEndHere" xml:space="preserve">
+    <value>clic centrale per impostare la fine del clip qui</value>
+  </data>
+  <data name="VideoCutterTimeline_SetClipStartHere" xml:space="preserve">
+    <value>click centrale per impostare il clip inizia qui</value>
+  </data>
+  <data name="VideoCutterTimeline_Time" xml:space="preserve">
+    <value>Tempo</value>
+  </data>
+</root>
