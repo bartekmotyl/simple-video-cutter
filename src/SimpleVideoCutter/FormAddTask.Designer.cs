@@ -47,7 +47,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonEnqueue = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelExplanation = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -174,11 +174,11 @@
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // labelExplanation
             // 
-            this.label3.BackColor = System.Drawing.Color.LightYellow;
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
+            this.labelExplanation.BackColor = System.Drawing.Color.LightYellow;
+            resources.ApplyResources(this.labelExplanation, "labelExplanation");
+            this.labelExplanation.Name = "labelExplanation";
             // 
             // FormAddTask
             // 
@@ -189,7 +189,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelExplanation);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormAddTask";
@@ -221,6 +221,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxFileType;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelExplanation;
     }
 }

@@ -64,6 +64,8 @@ namespace SimpleVideoCutter
 
             InitializeComponent();
 
+            toolStripButtonSelectionEnqueue.Text = GlobalStrings.MainForm_ButtonCut;
+
             this.toolStripContainerMain.TopToolStripPanel.Controls.Clear();
             this.toolStripContainerMain.TopToolStripPanel.Join(toolStripInternet, 0);
             this.toolStripContainerMain.TopToolStripPanel.Join(toolStripTasks, 0);
@@ -72,6 +74,8 @@ namespace SimpleVideoCutter
             this.toolStripContainerMain.LeftToolStripPanel.Controls.Clear();
             this.toolStripContainerMain.LeftToolStripPanel.Join(toolStripTimeline);
             this.toolStripContainerMain.LeftToolStripPanel.Join(toolStripSelection);
+
+
 
             if (VideoCutterSettings.Instance.MainWindowLocation != Rectangle.Empty)
             {

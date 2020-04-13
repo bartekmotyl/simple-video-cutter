@@ -129,14 +129,40 @@
   <data name="AboutBox_VersionUpToDate" xml:space="preserve">
     <value>You are running the latest version.</value>
   </data>
+  <data name="FormAddTask_Explanation" xml:space="preserve">
+    <value>In this window you can select from existing FFmpeg profiles (or define a new one) that will be used when converting the video. FFmpeg profile is a set of arguments passed to FFmpeg to cut your video. Don't worry if you do not know anything about FFmpeg - just press {1} and task will start automatically (using default profile) and this window will not be shown again. But you can always bring it back by holding Shift when clicking on '{0}'.
+
+TL;DR: just press '{1}'. Window will not be shown again.</value>
+  </data>
   <data name="FormAddTask_OverwwriteProfileQuestion" xml:space="preserve">
     <value>Are you sure you want to overwrite profile {0}?</value>
   </data>
   <data name="FormAddTask_SameAsSource" xml:space="preserve">
     <value>same as source</value>
   </data>
+  <data name="FormSettings_DefaultDirecttoryTooltip" xml:space="preserve">
+    <value>Default directory when opening video files. 
+Can be specified either as absolute path 
+or by using one of predefined directories: 
+{0}</value>
+  </data>
   <data name="FormSettings_ExecutableFiles" xml:space="preserve">
     <value>executable files</value>
+  </data>
+  <data name="FormSettings_OutputDirectoryTooltip" xml:space="preserve">
+    <value>Output directory where created files are to be saved. 
+Can be specified either as absolute path 
+or by using one of predefined directories: 
+{0}</value>
+  </data>
+  <data name="FormSettings_OutputFileNamePatternTooltip" xml:space="preserve">
+    <value>Pattern that defines how filenames of created files will be computed. 
+Static parts are allowed as well as these pseudo-variable 
+  {0} - filename of the original file
+  {1} - name of the original file, without extension 
+  {2} - extension of the original video file
+  {3} - file date of the original video file
+  {4} - current timestamp</value>
   </data>
   <data name="GlobalInformation" xml:space="preserve">
     <value>Information</value>
@@ -146,6 +172,9 @@
   </data>
   <data name="MainForm_AllVideoFiles" xml:space="preserve">
     <value>All video files</value>
+  </data>
+  <data name="MainForm_ButtonCut" xml:space="preserve">
+    <value>Perform cut</value>
   </data>
   <data name="MainForm_DeaultLayoutrestoredAfterRestart" xml:space="preserve">
     <value>Default layout will be restored when after application restart.</value>

@@ -97,6 +97,17 @@ namespace SimpleVideoCutter.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to In this window you can select from existing FFmpeg profiles (or define a new one) that will be used when converting the video. FFmpeg profile is a set of arguments passed to FFmpeg to cut your video. Don&apos;t worry if you do not know anything about FFmpeg - just press {1} and task will start automatically (using default profile) and this window will not be shown again. But you can always bring it back by holding Shift when clicking on &apos;{0}&apos;.
+        ///
+        ///TL;DR: just press &apos;{1}&apos;. Window will not be shown again..
+        /// </summary>
+        internal static string FormAddTask_Explanation {
+            get {
+                return ResourceManager.GetString("FormAddTask_Explanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to overwrite profile {0}?.
         /// </summary>
         internal static string FormAddTask_OverwwriteProfileQuestion {
@@ -115,11 +126,50 @@ namespace SimpleVideoCutter.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default directory when opening video files. 
+        ///Can be specified either as absolute path 
+        ///or by using one of predefined directories: 
+        ///{0}.
+        /// </summary>
+        internal static string FormSettings_DefaultDirecttoryTooltip {
+            get {
+                return ResourceManager.GetString("FormSettings_DefaultDirecttoryTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to executable files.
         /// </summary>
         internal static string FormSettings_ExecutableFiles {
             get {
                 return ResourceManager.GetString("FormSettings_ExecutableFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Output directory where created files are to be saved. 
+        ///Can be specified either as absolute path 
+        ///or by using one of predefined directories: 
+        ///{0}.
+        /// </summary>
+        internal static string FormSettings_OutputDirectoryTooltip {
+            get {
+                return ResourceManager.GetString("FormSettings_OutputDirectoryTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pattern that defines how filenames of created files will be computed. 
+        ///Static parts are allowed as well as these pseudo-variable 
+        ///  {0} - filename of the original file
+        ///  {1} - name of the original file, without extension 
+        ///  {2} - extension of the original video file
+        ///  {3} - file date of the original video file
+        ///  {4} - current timestamp.
+        /// </summary>
+        internal static string FormSettings_OutputFileNamePatternTooltip {
+            get {
+                return ResourceManager.GetString("FormSettings_OutputFileNamePatternTooltip", resourceCulture);
             }
         }
         
@@ -147,6 +197,15 @@ namespace SimpleVideoCutter.Properties {
         internal static string MainForm_AllVideoFiles {
             get {
                 return ResourceManager.GetString("MainForm_AllVideoFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Perform cut.
+        /// </summary>
+        internal static string MainForm_ButtonCut {
+            get {
+                return ResourceManager.GetString("MainForm_ButtonCut", resourceCulture);
             }
         }
         
@@ -259,7 +318,7 @@ namespace SimpleVideoCutter.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wskazywana pozycja.
+        ///   Looks up a localized string similar to Hovered time.
         /// </summary>
         internal static string VideoCutterTimeline_HoveredTime {
             get {

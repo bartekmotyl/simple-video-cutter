@@ -16,6 +16,24 @@ namespace SimpleVideoCutter
         public FormSettings()
         {
             InitializeComponent();
+
+            this.toolTip1.SetToolTip(this.comboBoxDefaultDirectory, string.Format(
+                GlobalStrings.FormSettings_DefaultDirecttoryTooltip,
+                @"{UserVideos}\n{UserDocuments}\n{MyComputer}".Replace(
+                    @"\n", Environment.NewLine)));
+
+            this.toolTip1.SetToolTip(this.comboBoxOutputDirectory, string.Format(
+                GlobalStrings.FormSettings_OutputDirectoryTooltip,
+                @"{UserVideos}\n{UserDocuments}\n{MyComputer}".Replace(
+                    @"\n", Environment.NewLine)));
+
+            this.toolTip1.SetToolTip(this.textBoxOutputFilePattern, string.Format(
+                GlobalStrings.FormSettings_OutputFileNamePatternTooltip,
+                    "{FileName}",
+                    "{FileNameWithoutExtension}",
+                    "{FileExtension}",
+                    "{FileDate}",
+                    "{Timestamp}"));
         }
 
         public void ShowSettingsDialog()

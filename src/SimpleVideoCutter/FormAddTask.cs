@@ -23,6 +23,11 @@ namespace SimpleVideoCutter
         {
             InitializeComponent();
             
+            labelExplanation.Text = string.Format(
+                GlobalStrings.FormAddTask_Explanation,
+                GlobalStrings.MainForm_ButtonCut,
+                buttonEnqueue.Text);
+
             InitializeFileTypes();
             InitializeProfiles();
 
