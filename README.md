@@ -31,7 +31,7 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 
 ### Starting for the first time: 
 
-- Download the release by [clicking here](https://github.com/bartekmotyl/simple-video-cutter/releases)
+- Download the release by [clicking here](https://github.com/bartekmotyl/simple-video-cutter/releases). Click on 'Assets' to see release files. 
 - Unzip release package into a directory 
 - Start `SimpleVideoCutter.exe` in that directory
 - Once prompted, select location of ffmpeg.exe (FFmpeg can be downloaded for free from [FFmpeg release page](https://ffmpeg.zeranoe.com/builds/)   
