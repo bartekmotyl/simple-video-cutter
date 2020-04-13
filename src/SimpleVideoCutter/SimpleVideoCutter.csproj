@@ -339,6 +339,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="movie-icon-15157-Windows.ico" />
+    <Content Include="README.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\streamline\streamline-icon-cog%4032x32.png" />
     <Content Include="Resources\streamline\streamline-icon-diagram-arrow-dash-down%4032x32.png" />
     <Content Include="Resources\streamline\streamline-icon-expand-1%4032x32.png" />
