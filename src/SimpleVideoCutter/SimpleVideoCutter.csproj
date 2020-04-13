@@ -140,6 +140,9 @@
     <EmbeddedResource Include="AboutBox.it.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.ja.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.pl.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +158,9 @@
     <EmbeddedResource Include="DialogProfileName.it.resx">
       <DependentUpon>DialogProfileName.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DialogProfileName.ja.resx">
+      <DependentUpon>DialogProfileName.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DialogProfileName.pl.resx">
       <DependentUpon>DialogProfileName.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +174,9 @@
       <DependentUpon>FormAddTask.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddTask.it.resx">
+      <DependentUpon>FormAddTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddTask.ja.resx">
       <DependentUpon>FormAddTask.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddTask.pl.resx">
@@ -186,6 +195,9 @@
     <EmbeddedResource Include="FormFFmpegMissingDialog.it.resx">
       <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormFFmpegMissingDialog.ja.resx">
+      <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFFmpegMissingDialog.pl.resx">
       <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +211,9 @@
       <DependentUpon>FormSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettings.it.resx">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettings.ja.resx">
       <DependentUpon>FormSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettings.pl.resx">
@@ -216,6 +231,9 @@
     <EmbeddedResource Include="MainForm.it.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.ja.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.pl.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,10 +243,12 @@
     <EmbeddedResource Include="Properties\GlobalStrings.de.resx" />
     <EmbeddedResource Include="Properties\GlobalStrings.fr.resx" />
     <EmbeddedResource Include="Properties\GlobalStrings.it.resx" />
+    <EmbeddedResource Include="Properties\GlobalStrings.ja.resx" />
     <EmbeddedResource Include="Properties\GlobalStrings.pl.resx" />
     <EmbeddedResource Include="Properties\Resources.de.resx" />
     <EmbeddedResource Include="Properties\Resources.fr.resx" />
     <EmbeddedResource Include="Properties\Resources.it.resx" />
+    <EmbeddedResource Include="Properties\Resources.ja.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -250,6 +270,9 @@
       <DependentUpon>VideoCutterTimeline.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VideoCutterTimeline.it.resx">
+      <DependentUpon>VideoCutterTimeline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoCutterTimeline.ja.resx">
       <DependentUpon>VideoCutterTimeline.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VideoCutterTimeline.resx">
