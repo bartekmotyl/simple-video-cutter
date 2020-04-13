@@ -2,7 +2,18 @@
 
 Windows-based tool for efficient browsing and cutting video footage
 
-![Screenshot](screenshot.png)
+![Screenshot](doc/screenshots/screenshot_en.png)
+
+See also screenshots of localized versions: 
+[Polish](doc/screenshots/screenshot_pl.png)
+[German](doc/screenshots/screenshot_de.png)
+[French](doc/screenshots/screenshot_fr.png)
+[Italian](doc/screenshots/screenshot_it.png)
+[Spanish](doc/screenshots/screenshot_es.png)
+[Japanese](doc/screenshots/screenshot_ja.png)
+[Chinese (simplified)](doc/screenshots/screenshot_zhcn.png)
+
+Translations are mostly machine based by DeepL. Please contact me if you can help to improve translations in your language.
 
 ## Goal
 
