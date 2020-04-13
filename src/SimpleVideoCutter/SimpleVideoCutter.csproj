@@ -340,6 +340,7 @@
   <ItemGroup>
     <Content Include="..\..\README.txt">
       <Link>README.txt</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="movie-icon-15157-Windows.ico" />
     <Content Include="Resources\streamline\streamline-icon-cog%4032x32.png" />
