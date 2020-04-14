@@ -82,3 +82,7 @@ Feel free to open next file (and add next tasks) while task is still in progress
 
 - [streamline icons](https://streamlineicons.com)
 - [movie icon](https://www.freeiconspng.com/img/15157)
+
+## Contact
+
+Email: [simple.video.cutter@gmail.com](mailto:simple.video.cutter@gmail.com)
