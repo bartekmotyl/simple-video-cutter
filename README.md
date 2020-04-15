@@ -13,7 +13,7 @@ See also screenshots of localized versions:
 [Japanese](doc/screenshots/screenshot_ja.png)
 [Chinese (simplified)](doc/screenshots/screenshot_zhcn.png)
 
-Translations are mostly machine based by DeepL. Please contact me if you can help to improve translations in your language.
+Translations are mostly machine based (DeepL). Please contact me if you can help to improve translations in your language.
 
 ## Goal
 
