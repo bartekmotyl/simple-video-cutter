@@ -131,5 +131,10 @@ namespace SimpleVideoCutter
         {
             System.Diagnostics.Process.Start("mailto:simple.video.cutter@gmail.com"); 
         }
+
+        private void buttonLicense_Click(object sender, EventArgs e)
+        {
+            new LicenseBox().ShowDialog();
+        }
     }
 }

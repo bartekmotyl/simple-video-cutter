@@ -117,123 +117,84 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AboutBox_About" xml:space="preserve">
-    <value>About</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="textBoxLicense.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="AboutBox_NewVersionAvailable" xml:space="preserve">
-    <value>New version is available! Please visit project page.</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="textBoxLicense.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
-  <data name="AboutBox_Version" xml:space="preserve">
-    <value>Version</value>
+  <data name="textBoxLicense.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="AboutBox_VersionUpToDate" xml:space="preserve">
-    <value>You are running the latest version.</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="textBoxLicense.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="FormAddTask_Explanation" xml:space="preserve">
-    <value>In this window you can select from existing FFmpeg profiles (or define a new one) that will be used when converting the video. FFmpeg profile is a set of arguments passed to FFmpeg to cut your video. Don't worry if you do not know anything about FFmpeg - just press {1} and task will start automatically (using default profile) and this window will not be shown again. But you can always bring it back by holding Shift when clicking on '{0}'.
+  <data name="textBoxLicense.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Both</value>
+  </data>
+  <data name="textBoxLicense.Size" type="System.Drawing.Size, System.Drawing">
+    <value>651, 402</value>
+  </data>
+  <data name="textBoxLicense.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="textBoxLicense.Text" xml:space="preserve">
+    <value>MIT License
 
-TL;DR: just press '{1}'. Window will not be shown again.</value>
+Copyright (c) 2020  bartekmotyl
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</value>
   </data>
-  <data name="FormAddTask_OverwwriteProfileQuestion" xml:space="preserve">
-    <value>Are you sure you want to overwrite profile {0}?</value>
+  <data name="&gt;&gt;textBoxLicense.Name" xml:space="preserve">
+    <value>textBoxLicense</value>
   </data>
-  <data name="FormAddTask_SameAsSource" xml:space="preserve">
-    <value>same as source</value>
+  <data name="&gt;&gt;textBoxLicense.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="FormSettings_DefaultDirecttoryTooltip" xml:space="preserve">
-    <value>Default directory when opening video files. 
-Can be specified either as absolute path 
-or by using one of predefined directories: 
-{0}</value>
+  <data name="&gt;&gt;textBoxLicense.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="FormSettings_ExecutableFiles" xml:space="preserve">
-    <value>executable files</value>
+  <data name="&gt;&gt;textBoxLicense.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="FormSettings_OutputDirectoryTooltip" xml:space="preserve">
-    <value>Output directory where created files are to be saved. 
-Can be specified either as absolute path 
-or by using one of predefined directories: 
-{0}</value>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
-  <data name="FormSettings_OutputFileNamePatternTooltip" xml:space="preserve">
-    <value>Pattern that defines how filenames of created files will be computed. 
-Static parts are allowed as well as these pseudo-variable 
-  {0} - filename of the original file
-  {1} - name of the original file, without extension 
-  {2} - extension of the original video file
-  {3} - file date of the original video file
-  {4} - current timestamp</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>651, 402</value>
   </data>
-  <data name="GlobalCancel" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
   </data>
-  <data name="GlobalClose" xml:space="preserve">
-    <value>Close</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>License</value>
   </data>
-  <data name="GlobalInformation" xml:space="preserve">
-    <value>Information</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>LicenseBox</value>
   </data>
-  <data name="GlobalQuestion" xml:space="preserve">
-    <value>Question</value>
-  </data>
-  <data name="MainForm_AllVideoFiles" xml:space="preserve">
-    <value>All video files</value>
-  </data>
-  <data name="MainForm_ButtonCut" xml:space="preserve">
-    <value>Perform cut</value>
-  </data>
-  <data name="MainForm_DeaultLayoutrestoredAfterRestart" xml:space="preserve">
-    <value>Default layout will be restored when after application restart.</value>
-  </data>
-  <data name="MainForm_NoSelection" xml:space="preserve">
-    <value>No selection</value>
-  </data>
-  <data name="MainForm_QuestionRestartNewLanguage" xml:space="preserve">
-    <value>In order to use new language settings application needs to be restarted. Do you want to restart now?</value>
-  </data>
-  <data name="MainForm_Selection" xml:space="preserve">
-    <value>Selection</value>
-  </data>
-  <data name="MainForm_Volume" xml:space="preserve">
-    <value>Volume</value>
-  </data>
-  <data name="TaskProcessor_Done" xml:space="preserve">
-    <value>Done</value>
-  </data>
-  <data name="TaskProcessor_Failure" xml:space="preserve">
-    <value>Failure</value>
-  </data>
-  <data name="TaskProcessor_Processed" xml:space="preserve">
-    <value>Processed {0} seconds</value>
-  </data>
-  <data name="TaskProcessor_State_FinishedError" xml:space="preserve">
-    <value>Error</value>
-  </data>
-  <data name="TaskProcessor_State_FinishedOK" xml:space="preserve">
-    <value>Done</value>
-  </data>
-  <data name="TaskProcessor_State_InProgress" xml:space="preserve">
-    <value>In progress</value>
-  </data>
-  <data name="TaskProcessor_State_Scheduled" xml:space="preserve">
-    <value>Scheduled</value>
-  </data>
-  <data name="VideoCutterTimeline_HoveredTime" xml:space="preserve">
-    <value>Hovered time</value>
-  </data>
-  <data name="VideoCutterTimeline_MoveClipEnd" xml:space="preserve">
-    <value>move clip end</value>
-  </data>
-  <data name="VideoCutterTimeline_MoveClipStart" xml:space="preserve">
-    <value>move clip start</value>
-  </data>
-  <data name="VideoCutterTimeline_SetClipEndHere" xml:space="preserve">
-    <value>middle click to set clip end here</value>
-  </data>
-  <data name="VideoCutterTimeline_SetClipStartHere" xml:space="preserve">
-    <value>middle click to set clip start here</value>
-  </data>
-  <data name="VideoCutterTimeline_Time" xml:space="preserve">
-    <value>Time</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

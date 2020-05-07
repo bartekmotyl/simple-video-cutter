@@ -33,13 +33,16 @@
             this.labelProductName = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
             this.labelCopyright = new System.Windows.Forms.Label();
-            this.okButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.linkLabelGithub = new System.Windows.Forms.LinkLabel();
             this.linkLabelGithubReleases = new System.Windows.Forms.LinkLabel();
             this.linkLabelEmail = new System.Windows.Forms.LinkLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonLicense = new System.Windows.Forms.Button();
+            this.okButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel
@@ -49,11 +52,11 @@
             this.tableLayoutPanel.Controls.Add(this.labelProductName, 1, 0);
             this.tableLayoutPanel.Controls.Add(this.labelVersion, 1, 1);
             this.tableLayoutPanel.Controls.Add(this.labelCopyright, 1, 2);
-            this.tableLayoutPanel.Controls.Add(this.okButton, 1, 7);
             this.tableLayoutPanel.Controls.Add(this.textBox1, 1, 6);
             this.tableLayoutPanel.Controls.Add(this.linkLabelGithub, 1, 4);
             this.tableLayoutPanel.Controls.Add(this.linkLabelGithubReleases, 1, 3);
             this.tableLayoutPanel.Controls.Add(this.linkLabelEmail, 1, 5);
+            this.tableLayoutPanel.Controls.Add(this.panel1, 1, 7);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             // 
             // logoPictureBox
@@ -79,18 +82,13 @@
             resources.ApplyResources(this.labelCopyright, "labelCopyright");
             this.labelCopyright.Name = "labelCopyright";
             // 
-            // okButton
-            // 
-            resources.ApplyResources(this.okButton, "okButton");
-            this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.okButton.Name = "okButton";
-            // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.Control;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.Name = "textBox1";
+            this.textBox1.TabStop = false;
             // 
             // linkLabelGithub
             // 
@@ -113,11 +111,31 @@
             this.linkLabelEmail.TabStop = true;
             this.linkLabelEmail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelEmail_LinkClicked);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.buttonLicense);
+            this.panel1.Controls.Add(this.okButton);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
+            // buttonLicense
+            // 
+            resources.ApplyResources(this.buttonLicense, "buttonLicense");
+            this.buttonLicense.Name = "buttonLicense";
+            this.buttonLicense.Click += new System.EventHandler(this.buttonLicense_Click);
+            // 
+            // okButton
+            // 
+            resources.ApplyResources(this.okButton, "okButton");
+            this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.okButton.Name = "okButton";
+            // 
             // AboutBox
             // 
             this.AcceptButton = this.okButton;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.okButton;
             this.Controls.Add(this.tableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -129,6 +147,7 @@
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -145,5 +164,7 @@
         private System.Windows.Forms.LinkLabel linkLabelGithub;
         private System.Windows.Forms.LinkLabel linkLabelGithubReleases;
         private System.Windows.Forms.LinkLabel linkLabelEmail;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonLicense;
     }
 }

@@ -174,6 +174,24 @@ namespace SimpleVideoCutter.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string GlobalCancel {
+            get {
+                return ResourceManager.GetString("GlobalCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        internal static string GlobalClose {
+            get {
+                return ResourceManager.GetString("GlobalClose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Information.
         /// </summary>
         internal static string GlobalInformation {

@@ -64,6 +64,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -82,6 +83,9 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlExtensions.cs" />
+    <Compile Include="CustomWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DialogProfileName.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +112,12 @@
       <DependentUpon>FormSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="GitHubVersionCheck.cs" />
+    <Compile Include="LicenseBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenseBox.Designer.cs">
+      <DependentUpon>LicenseBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSettings.zh-CN.resx">
       <DependentUpon>FormSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenseBox.resx">
+      <DependentUpon>LicenseBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.de.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

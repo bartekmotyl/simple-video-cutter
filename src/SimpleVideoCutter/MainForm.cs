@@ -35,7 +35,10 @@ namespace SimpleVideoCutter
                 {
                     dialog.Owner = this;
                     dialog.ShowDialog();
-                    formSettings.ShowSettingsDialog();
+                    if (VideoCutterSettings.Instance.FFmpegPath == null || !File.Exists(VideoCutterSettings.Instance.FFmpegPath))
+                    {
+                        formSettings.ShowSettingsDialog();
+                    }
                 }
 
                 return false;
