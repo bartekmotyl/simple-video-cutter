@@ -134,4 +134,7 @@
 FFmpeg : www.ffmpeg.org
 Photo par Denise Jans sur Unsplash</value>
   </data>
+  <data name="buttonLicense.Text" xml:space="preserve">
+    <value>Licence</value>
+  </data>
 </root>

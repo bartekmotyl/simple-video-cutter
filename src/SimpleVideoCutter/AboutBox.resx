@@ -279,8 +279,7 @@
   <data name="textBox1.Text" xml:space="preserve">
     <value>Icons: streamlineicons.com
 FFmpeg: www.ffmpeg.org
-Photo by Denise Jans on Unsplash
-License: MIT </value>
+Photo by Denise Jans on Unsplash</value>
   </data>
   <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
     <value>textBox1</value>
@@ -311,6 +310,7 @@ License: MIT </value>
   </data>
   <data name="linkLabelGithub.Text" xml:space="preserve">
     <value>https://github.com/bartekmotyl/simple-video-cutter</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;linkLabelGithub.Name" xml:space="preserve">
     <value>linkLabelGithub</value>
@@ -338,6 +338,7 @@ License: MIT </value>
   </data>
   <data name="linkLabelGithubReleases.Text" xml:space="preserve">
     <value>https://github.com/bartekmotyl/simple-video-cutter/releases</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;linkLabelGithubReleases.Name" xml:space="preserve">
     <value>linkLabelGithubReleases</value>
@@ -365,6 +366,7 @@ License: MIT </value>
   </data>
   <data name="linkLabelEmail.Text" xml:space="preserve">
     <value>simple.video.cutter@gmail.com</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;linkLabelEmail.Name" xml:space="preserve">
     <value>linkLabelEmail</value>
@@ -503,6 +505,7 @@ License: MIT </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>AboutBox</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AboutBox</value>

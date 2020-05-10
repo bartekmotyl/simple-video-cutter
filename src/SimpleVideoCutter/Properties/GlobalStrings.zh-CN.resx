@@ -230,4 +230,10 @@ TL;DR：按'{1}'就可以了。窗口不会再显示。</value>
   <data name="VideoCutterTimeline_Time" xml:space="preserve">
     <value>时间</value>
   </data>
+  <data name="GlobalCancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="GlobalClose" xml:space="preserve">
+    <value>关闭</value>
+  </data>
 </root>

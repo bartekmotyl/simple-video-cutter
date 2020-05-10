@@ -117,15 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="buttonOK.Text" xml:space="preserve">
-    <value>OK</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>FFmpeg non configuré</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
+  <data name="buttonClose.Text" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="labelFFmpegExlanation.Text" xml:space="preserve">
     <value>Ce programme nécessite l'installation de FFmpeg dans votre système. FFmpeg est une solution gratuite et open source pour la conversion de fichiers vidéo.
 Veuillez visiter la page liée ci-dessous, télécharger la distribution portable et la dézipper sur le disque local. Une version statique 64 bits est recommandée.
 Une fois FFmpeg installé, veuillez indiquer le chemin de l'exécutable ffmpeg dans la fenêtre des paramètres.</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>FFmpeg non configuré</value>
+  <data name="buttonDownload.Text" xml:space="preserve">
+    <value>Télécharger FFmpeg</value>
+  </data>
+  <data name="labelFFmpegDownload.Text" xml:space="preserve">
+    <value>FFmpeg est obligatoire. Cliquez sur le bouton pour le télécharger automatiquement ou visitez le lien et téléchargez-le.
+Le fichier Zip a ~80 Mo.</value>
+  </data>
+  <data name="labelError.Text" xml:space="preserve">
+    <value>Une erreur s'est produite lors de la tentative de téléchargement de FFmpeg.
+Veuillez réessayer ou télécharger manuellement.</value>
+  </data>
+  <data name="labelDownloadSuccessful.Text" xml:space="preserve">
+    <value>FFmpeg a été téléchargé avec succès. Veuillez fermer ce dialogue.</value>
   </data>
 </root>

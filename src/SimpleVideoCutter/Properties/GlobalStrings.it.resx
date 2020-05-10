@@ -230,4 +230,10 @@ Le parti statiche sono consentite così come queste pseudo-variabili
   <data name="VideoCutterTimeline_Time" xml:space="preserve">
     <value>Tempo</value>
   </data>
+  <data name="GlobalCancel" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="GlobalClose" xml:space="preserve">
+    <value>Chiudere</value>
+  </data>
 </root>

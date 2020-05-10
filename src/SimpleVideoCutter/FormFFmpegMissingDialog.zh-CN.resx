@@ -117,15 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="buttonOK.Text" xml:space="preserve">
-    <value>好的</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>FFmpeg未配置</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
+  <data name="buttonClose.Text" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="labelFFmpegExlanation.Text" xml:space="preserve">
     <value>本程序需要在你的系统中安装FFmpeg。FFmpeg是一个免费的、开源的视频文件转换解决方案。
 请访问下面链接的页面，下载便携式发行版并解压到本地磁盘。建议使用64位静态版本。
 安装好FFmpeg后，请在设置窗口中提供FFmpeg可执行文件的路径。</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>FFmpeg未配置</value>
+  <data name="buttonDownload.Text" xml:space="preserve">
+    <value>下载FFmpeg</value>
+  </data>
+  <data name="labelFFmpegDownload.Text" xml:space="preserve">
+    <value>需要使用FFmpeg。点击按钮自动下载或访问链接下载。
+Zip文件有约80MB。</value>
+  </data>
+  <data name="labelError.Text" xml:space="preserve">
+    <value>当尝试下载FFmpeg时发生错误。
+请重试或手动下载。</value>
+  </data>
+  <data name="labelDownloadSuccessful.Text" xml:space="preserve">
+    <value>FFmpeg已经下载成功。请关闭此对话框。</value>
   </data>
 </root>

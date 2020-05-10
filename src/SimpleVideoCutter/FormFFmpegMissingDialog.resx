@@ -205,6 +205,7 @@ Once FFmpeg is installed, please provide path to ffmpeg executable in the settin
   </data>
   <data name="linkLabelFFmpeg.Text" xml:space="preserve">
     <value>https://ffmpeg.zeranoe.com/builds/</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="linkLabelFFmpeg.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>

@@ -126,6 +126,7 @@
   </data>
   <data name="comboBoxDefaultDirectory.Items1" xml:space="preserve">
     <value>{UserDocuments}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -159,6 +160,7 @@
   </data>
   <data name="buttonDefaultDirectory.Text" xml:space="preserve">
     <value>...</value>
+    <comment>@Invariant</comment>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="comboBoxDefaultDirectory.TabIndex" type="System.Int32, mscorlib">
@@ -196,6 +198,7 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="buttonOutputDirectory.Text" xml:space="preserve">
     <value>...</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;textBoxOutputFilePattern.ZOrder" xml:space="preserve">
     <value>12</value>
@@ -208,12 +211,7 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="comboBoxDefaultDirectory.Items" xml:space="preserve">
     <value>{UserVideos}</value>
-  </data>
-  <data name="buttonDefaultDirectory.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label2.ToolTip" xml:space="preserve">
-    <value />
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;textBoxFFmpegPath.Name" xml:space="preserve">
     <value>textBoxFFmpegPath</value>
@@ -229,6 +227,8 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="textBoxOutputFilePattern.ToolTip" xml:space="preserve">
     <value>_Tooltip</value>
+    
+    <comment>@Invariant</comment>
   </data>
   <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>451, 8</value>
@@ -284,9 +284,6 @@ navigating to previous/next video file in directory.</value>
   <data name="textBoxFFmpegPath.Location" type="System.Drawing.Point, System.Drawing">
     <value>134, 92</value>
   </data>
-  <data name="buttonFFmpegPath.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="buttonDefaultDirectory.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 23</value>
   </data>
@@ -298,6 +295,7 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="comboBoxDefaultDirectory.Items2" xml:space="preserve">
     <value>{MyComputer}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -352,6 +350,7 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="buttonFFmpegPath.Text" xml:space="preserve">
     <value>...</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;buttonOutputDirectory.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -367,12 +366,6 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
     <value>toolTip1</value>
-  </data>
-  <data name="buttonOutputDirectory.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tableLayoutPanel1.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="textBoxVideoFileExtensions.Location" type="System.Drawing.Point, System.Drawing">
     <value>134, 121</value>
@@ -422,12 +415,6 @@ navigating to previous/next video file in directory.</value>
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
   </data>
-  <data name="label5.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label4.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
   </data>
@@ -439,9 +426,6 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="flowLayoutPanel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="flowLayoutPanel1.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="&gt;&gt;buttonFFmpegPath.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -460,6 +444,7 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="comboBoxOutputDirectory.Items" xml:space="preserve">
     <value>{UserVideos}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="comboBoxOutputDirectory.Location" type="System.Drawing.Point, System.Drawing">
     <value>134, 37</value>
@@ -484,12 +469,14 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="comboBoxOutputDirectory.Items1" xml:space="preserve">
     <value>{UserDocuments}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;textBoxOutputFilePattern.Name" xml:space="preserve">
     <value>textBoxOutputFilePattern</value>
   </data>
   <data name="comboBoxDefaultDirectory.ToolTip" xml:space="preserve">
     <value>_Tooltip</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;textBoxFFmpegPath.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -533,9 +520,6 @@ navigating to previous/next video file in directory.</value>
   <data name="&gt;&gt;buttonOK.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
   </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="&gt;&gt;comboBoxDefaultDirectory.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
   </data>
@@ -556,18 +540,13 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="comboBoxOutputDirectory.Items3" xml:space="preserve">
     <value>{SameFolder}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="label3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 26</value>
-  </data>
-  <data name="buttonCancel.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="&gt;&gt;comboBoxOutputDirectory.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -586,6 +565,7 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="comboBoxOutputDirectory.Items2" xml:space="preserve">
     <value>{MyComputer}</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;buttonOutputDirectory.Name" xml:space="preserve">
     <value>buttonOutputDirectory</value>
@@ -611,9 +591,6 @@ navigating to previous/next video file in directory.</value>
   <data name="buttonFFmpegPath.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="label1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="tableLayoutPanel1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 5, 5, 5</value>
   </data>
@@ -637,6 +614,7 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="comboBoxOutputDirectory.ToolTip" xml:space="preserve">
     <value>_Tooltip</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="buttonOK.Text" xml:space="preserve">
     <value>OK</value>
@@ -649,9 +627,6 @@ navigating to previous/next video file in directory.</value>
   </data>
   <data name="comboBoxOutputDirectory.Size" type="System.Drawing.Size, System.Drawing">
     <value>344, 21</value>
-  </data>
-  <data name="buttonOK.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="buttonDefaultDirectory.Location" type="System.Drawing.Point, System.Drawing">
     <value>484, 8</value>

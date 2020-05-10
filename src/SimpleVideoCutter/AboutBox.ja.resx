@@ -134,4 +134,7 @@
 FFmpeg: www.ffmpeg.org
 写真提供：Denise Jans on Unsplash</value>
   </data>
+  <data name="buttonLicense.Text" xml:space="preserve">
+    <value>ライセンス</value>
+  </data>
 </root>

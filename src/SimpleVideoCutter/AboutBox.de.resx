@@ -134,4 +134,7 @@
 FFmpeg: www.ffmpeg.org
 Foto von Denise Jans zur Entblößung</value>
   </data>
+  <data name="buttonLicense.Text" xml:space="preserve">
+    <value>Lizenz</value>
+  </data>
 </root>

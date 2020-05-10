@@ -230,4 +230,10 @@ Las partes estáticas están permitidas así como estas pseudo-variables
   <data name="VideoCutterTimeline_Time" xml:space="preserve">
     <value>Tiempo</value>
   </data>
+  <data name="GlobalCancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="GlobalClose" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
 </root>

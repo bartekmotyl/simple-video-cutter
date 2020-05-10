@@ -230,4 +230,10 @@ TL;DR: '{1}'を押すだけです。ウィンドウは二度と表示されま�
   <data name="VideoCutterTimeline_Time" xml:space="preserve">
     <value>時間</value>
   </data>
+  <data name="GlobalCancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="GlobalClose" xml:space="preserve">
+    <value>クローズ</value>
+  </data>
 </root>

@@ -230,4 +230,10 @@ TL;DR: po prostu naciśnij '{1}'. Okno nie zostanie pokazane ponownie.</value>
   <data name="MainForm_ButtonCut" xml:space="preserve">
     <value>Wycinaj</value>
   </data>
+  <data name="GlobalCancel" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
+  <data name="GlobalClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
 </root>

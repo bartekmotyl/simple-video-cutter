@@ -118,28 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="$this.Text" xml:space="preserve">
-    <value>FFmpeg nicht konfiguriert</value>
-  </data>
-  <data name="buttonClose.Text" xml:space="preserve">
-    <value>schließen</value>
-  </data>
-  <data name="labelFFmpegExlanation.Text" xml:space="preserve">
-    <value>Dieses Programm setzt voraus, dass FFmpeg in Ihrem System installiert ist. FFmpeg ist eine kostenlose, quelloffene Lösung zur Konvertierung von Videodateien.
-Bitte besuchen Sie die unten verlinkte Seite, laden Sie die portable Distribution herunter und entpacken Sie sie auf die lokale Festplatte. Release, statische 64bit-Version wird empfohlen.
-Sobald FFmpeg installiert ist, geben Sie bitte den Pfad zur ausführbaren Datei ffmpeg im Einstellungsfenster an.</value>
-  </data>
-  <data name="buttonDownload.Text" xml:space="preserve">
-    <value>FFmpeg herunterladen</value>
-  </data>
-  <data name="labelFFmpegDownload.Text" xml:space="preserve">
-    <value>FFmpeg ist erforderlich. Klicken Sie auf die Schaltfläche zum automatischen Herunterladen oder besuchen Sie den Link und laden Sie es herunter.
-Zip-Datei hat ~80 MB.</value>
-  </data>
-  <data name="labelError.Text" xml:space="preserve">
-    <value>Beim Versuch, FFmpeg herunterzuladen, ist ein Fehler aufgetreten.
-Bitte versuchen Sie es erneut oder laden Sie es manuell herunter.</value>
-  </data>
-  <data name="labelDownloadSuccessful.Text" xml:space="preserve">
-    <value>FFmpeg wurde erfolgreich heruntergeladen. Bitte schließen Sie diesen Dialog.</value>
+    <value>Lizenz</value>
   </data>
 </root>

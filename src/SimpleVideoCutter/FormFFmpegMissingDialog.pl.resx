@@ -117,15 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="buttonOK.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Ten program wymaga zainstalowania FFmpeg w Twoim systemie. FFmpeg jest darmowym, otwartym rozwiązaniem do konwersji plików wideo.
-Proszę odwiedzić stronę, do której link znajduje się poniżej, pobrać przenośną dystrybucję i rozpakować ją na dysk lokalny. Zalecana jest 64-bitowa, statyczna wersja release.
-Po zainstalowaniu FFmpeg, proszę podać ścieżkę do programu ffmpeg w oknie ustawień.</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>FFmpeg nie skonfigurowany</value>
+  </data>
+  <data name="buttonClose.Text" xml:space="preserve">
+    <value>Zamknij</value>
+  </data>
+  <data name="labelFFmpegExlanation.Text" xml:space="preserve">
+    <value>Ten program wymaga zainstalowania FFmpeg w Twoim systemie. FFmpeg jest darmowym, otwartym rozwiązaniem do konwersji plików wideo.
+Proszę odwiedzić stronę, do której link znajduje się poniżej, pobrać przenośną dystrybucję i rozpakować ją na dysk lokalny. Zalecana jest 64-bitowa, statyczna wersja release.
+Po zainstalowaniu FFmpeg, proszę podać ścieżkę do ffmpeg wykonywalnego w oknie ustawień.</value>
+  </data>
+  <data name="buttonDownload.Text" xml:space="preserve">
+    <value>Pobierz FFmpeg</value>
+  </data>
+  <data name="labelFFmpegDownload.Text" xml:space="preserve">
+    <value>FFmpeg jest wymagany. Kliknij na przycisk, aby pobrać go automatycznie lub odwiedź link i pobierz archiwum.
+Plik zip ma pojemność ~80 MB.</value>
+  </data>
+  <data name="labelError.Text" xml:space="preserve">
+    <value>Wystąpił błąd podczas próby pobierania FFmpeg.
+Proszę spróbować ponownie lub pobrać ręcznie.</value>
+  </data>
+  <data name="labelDownloadSuccessful.Text" xml:space="preserve">
+    <value>FFmpeg został pomyślnie pobrany. Proszę zamknąć to okno dialogowe.</value>
   </data>
 </root>
