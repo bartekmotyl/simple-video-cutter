@@ -133,13 +133,13 @@
   </data>
   <data name="labelFFmpegDownload.Text" xml:space="preserve">
     <value>需要使用FFmpeg。点击按钮自动下载或访问链接下载。
-Zip文件有约80MB。</value>
+Zip文件大约80MB。</value>
   </data>
   <data name="labelError.Text" xml:space="preserve">
-    <value>当尝试下载FFmpeg时发生错误。
+    <value>下载FFmpeg时发生错误，
 请重试或手动下载。</value>
   </data>
   <data name="labelDownloadSuccessful.Text" xml:space="preserve">
-    <value>FFmpeg已经下载成功。请关闭此对话框。</value>
+    <value>FFmpeg下载成功，请关闭此对话框。</value>
   </data>
 </root>
