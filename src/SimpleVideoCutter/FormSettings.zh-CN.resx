@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label1.Text" xml:space="preserve">
-    <value>默认目录。</value>
+    <value>默认目录</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>输出目录：</value>
+    <value>输出目录</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>输出文件名模式。</value>
+    <value>输出文件命名格式</value>
   </data>
   <data name="textBoxFFmpegPath.ToolTip" xml:space="preserve">
     <value>ffmepg.exe可执行文件的路径</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>ffmpeg.exe路径。</value>
+    <value>ffmpeg.exe路径</value>
   </data>
   <data name="textBoxVideoFileExtensions.ToolTip" xml:space="preserve">
     <value>逗号分隔的扩展列表（带点）
@@ -138,13 +138,13 @@
 导航到目录中的上一个/下一个视频文件。</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
-    <value>视频文件的扩展性。</value>
+    <value>支持的文件格式</value>
   </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>取消</value>
   </data>
   <data name="buttonOK.Text" xml:space="preserve">
-    <value>好的</value>
+    <value>确定</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>设置</value>
