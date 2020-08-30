@@ -26,6 +26,7 @@ namespace SimpleVideoCutter
         private TaskProcessor taskProcessor = new TaskProcessor();
         private int volume = 100;
         private FormSettings formSettings;
+        private string fileToLoadOnStartup = null;
 
         private bool EnsureFFmpegConfigured()
         {
@@ -47,8 +48,9 @@ namespace SimpleVideoCutter
         }
 
 
-        public MainForm()
+        public MainForm(string fileToLoadOnStartup)
         {
+            this.fileToLoadOnStartup = fileToLoadOnStartup;
 
             VideoCutterSettings.Instance.LoadSettings();
 
@@ -147,6 +149,11 @@ namespace SimpleVideoCutter
 
             taskProcessor.Start();
             EnableButtons();
+
+            if (fileToLoadOnStartup != null)
+            {
+                OpenFile(fileToLoadOnStartup);
+            }
         }
 
 
@@ -280,6 +287,11 @@ namespace SimpleVideoCutter
 
         private void OpenFile(string path)
         {
+            if (!File.Exists(path)) 
+            {
+                return;
+            }
+
             fileBeingPlayed = path;
             statusStrip.InvokeIfRequired(() =>
             {

@@ -18,7 +18,7 @@ namespace SimpleVideoCutter
         public string OutputDirectory { get; set; } = "{UserVideos}";
         public string OutputFilePattern { get; set; } = "{FileDate}-{FileNameWithoutExtension}.{Timestamp}{FileExtension}";
         public string FFmpegPath { get; set; } = null;
-        public string[] VideoFilesExtensions { get; set; } = new string[] { ".mov", ".avi", ".mp4", ".wmv", ".rm", ".mpg", "*.mkv" };
+        public string[] VideoFilesExtensions { get; set; } = new string[] { ".mov", ".avi", ".mp4", ".wmv", ".rm", ".mpg", ".mkv" };
         public int HoverPreviewSize { get; set; } = 300;
 
         public bool Mute { get; set; } = false;
@@ -49,11 +49,19 @@ namespace SimpleVideoCutter
         {
         }
 
+        protected string ConfigPath 
+        { 
+            get
+            {
+                return Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, configFile));
+            } 
+        }
+
         public void LoadSettings()
         {
-            if (File.Exists(configFile))
+            if (File.Exists(ConfigPath))
             {
-                var json = File.ReadAllText(configFile);
+                var json = File.ReadAllText(ConfigPath);
                 try
                 {
                     JsonConvert.PopulateObject(json, this);
@@ -76,7 +84,7 @@ namespace SimpleVideoCutter
         public void StoreSettings()
         {
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(this, Formatting.Indented);
-            File.WriteAllText(configFile, json);
+            File.WriteAllText(ConfigPath, json);
         }
     }
 }
