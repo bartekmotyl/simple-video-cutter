@@ -524,7 +524,15 @@ namespace SimpleVideoCutter
                 var frame = PixelToPosition(e.X);
                 if (e.Button == MouseButtons.Middle && e.Clicks == 1)
                 {
-                    if (SelectionStart == null)
+                    if (ModifierKeys == Keys.Shift)
+                    {
+                        SetSelection(frame, Length);
+                    } 
+                    else if (ModifierKeys == Keys.Control)
+                    {
+                        SetSelection(0, frame);
+                    }
+                    else if (SelectionStart == null)
                     {
                         SetSelection(frame, null);
                     }
