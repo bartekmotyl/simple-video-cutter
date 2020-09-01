@@ -228,10 +228,18 @@ Static parts are allowed as well as these pseudo-variable
     <value>move clip start</value>
   </data>
   <data name="VideoCutterTimeline_SetClipEndHere" xml:space="preserve">
-    <value>middle click to set clip end here</value>
+    <value>middle click to set clip end here
+hint: try also with shift/control</value>
+  </data>
+  <data name="VideoCutterTimeline_SetClipFromHereTillEnd" xml:space="preserve">
+    <value>shift + middle click to set clip from this point till the end</value>
+  </data>
+  <data name="VideoCutterTimeline_SetClipFromStartTillHere" xml:space="preserve">
+    <value>shift + middle click to set clip from the beginning till this point</value>
   </data>
   <data name="VideoCutterTimeline_SetClipStartHere" xml:space="preserve">
-    <value>middle click to set clip start here</value>
+    <value>middle click to set clip start here
+hint: try also with shift/control</value>
   </data>
   <data name="VideoCutterTimeline_Time" xml:space="preserve">
     <value>Time</value>

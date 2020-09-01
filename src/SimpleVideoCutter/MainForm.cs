@@ -101,7 +101,19 @@ namespace SimpleVideoCutter
         private async void MainForm_Load(object sender, EventArgs e)
         {
             Core.Initialize();
-            libVLC = new LibVLC(new string[] { "--play-and-pause" });
+
+            // Full list of command line arguments: https://wiki.videolan.org/VLC_command-line_help
+
+            var args = new List<string>(new string[] { "--play-and-pause" });
+
+            if (!VideoCutterSettings.Instance.Autostart)
+            {
+                args.Add("--no-playlist-autostart");
+                args.Add("--start-paused");
+            }
+                
+            libVLC = new LibVLC(args.ToArray());
+            
             vlcControl1.MediaPlayer = new MediaPlayer(libVLC);
             videoViewHover.MediaPlayer = new MediaPlayer(libVLC);
 
@@ -310,7 +322,6 @@ namespace SimpleVideoCutter
             ThreadPool.QueueUserWorkItem(_ => vlcControl1.MediaPlayer.Mute = VideoCutterSettings.Instance.Mute);
             ThreadPool.QueueUserWorkItem(_ => vlcControl1.MediaPlayer.Play(new Media(libVLC, path, FromType.FromPath)));
             ThreadPool.QueueUserWorkItem(_ => videoViewHover.MediaPlayer.Play(new Media(libVLC, path, FromType.FromPath)));
-
         }
 
         private void vlcControl1_MouseClick(object sender, MouseEventArgs e)
@@ -349,8 +360,14 @@ namespace SimpleVideoCutter
             if (e.KeyCode == Keys.OemOpenBrackets && e.Modifiers == Keys.None)
                 SetStartAtCurrentPosition();
 
+            if (e.KeyCode == Keys.OemOpenBrackets && e.Modifiers == Keys.Shift)
+                SetSelectionAtCurrentPositionTillTheEnd();
+
             if (e.KeyCode == Keys.OemCloseBrackets && e.Modifiers == Keys.None)
                 SetEndAtCurrentPosition();
+
+            if (e.KeyCode == Keys.OemCloseBrackets && e.Modifiers == Keys.Shift)
+                SetSelectionFromTheBeginningTillCurrentPosition();
 
             if (e.KeyCode == Keys.Delete && e.Modifiers == Keys.None)
                 ClearSelection();
@@ -423,6 +440,19 @@ namespace SimpleVideoCutter
                 videoCutterTimeline1.SetSelection(videoCutterTimeline1.SelectionStart, videoCutterTimeline1.Position);
             }
         }
+
+        private void SetSelectionAtCurrentPositionTillTheEnd()
+        {
+            // SetSelection raises SelectionChanged event, see VideoCutterTimeline1_SelectionChanged
+            videoCutterTimeline1.SetSelection(videoCutterTimeline1.Position, videoCutterTimeline1.Length);
+        }
+
+        private void SetSelectionFromTheBeginningTillCurrentPosition()
+        {
+            // SetSelection raises SelectionChanged event, see VideoCutterTimeline1_SelectionChanged
+            videoCutterTimeline1.SetSelection(0, videoCutterTimeline1.Position);
+        }
+
         private void GoToSelectionStart()
         {
             if (videoCutterTimeline1.SelectionStart != null)
@@ -787,13 +817,6 @@ namespace SimpleVideoCutter
 
         private void VlcControl1_TimeChanged(object sender, MediaPlayerTimeChangedEventArgs e)
         {
-            if (!VideoCutterSettings.Instance.Autostart)
-            {
-                ThreadPool.QueueUserWorkItem(_ =>
-                {
-                    vlcControl1.MediaPlayer.Pause();
-                });
-            }
         }
 
         private void VideoCutterTimeline1_PositionChangeRequest(object sender, PositionChangeRequestEventArgs e)
@@ -844,11 +867,17 @@ namespace SimpleVideoCutter
         {
             if (e.ClickedItem == toolStripButtonSelectionSetStart)
             {
-                SetStartAtCurrentPosition();
+                if (ModifierKeys == Keys.Shift)
+                    SetSelectionAtCurrentPositionTillTheEnd();
+                else
+                    SetStartAtCurrentPosition();
             }
             else if (e.ClickedItem == toolStripButtonSelectionSetEnd)
             {
-                SetEndAtCurrentPosition();
+                if (ModifierKeys == Keys.Shift)
+                    SetSelectionFromTheBeginningTillCurrentPosition();
+                else
+                    SetEndAtCurrentPosition();
             }
             else if (e.ClickedItem == toolStripButtonSelectionPlay)
             {

@@ -300,18 +300,22 @@ namespace SimpleVideoCutter
                         timelineTooltip = new TimelineTooltip() { X = pixel, Text = GlobalStrings.VideoCutterTimeline_MoveClipEnd };
                     }
 
-
-
                     e.Graphics.FillRectangle(brushHoverPosition, pixel, 0, 2, timeLineHeight);
                     PaintTriangle(e.Graphics, brushHoverPosition, PositionToPixel(HoverPosition)+1, 8, 8);
+                    
+                    string tooltipSetClipOverrideText = null;
+                    if (ModifierKeys == Keys.Shift)
+                        tooltipSetClipOverrideText = GlobalStrings.VideoCutterTimeline_SetClipFromHereTillEnd;
+                    else if (ModifierKeys == Keys.Control)
+                        tooltipSetClipOverrideText = GlobalStrings.VideoCutterTimeline_SetClipFromStartTillHere;
 
                     if (SelectionStart == null)
                     {
-                        timelineTooltip = new TimelineTooltip() { X = pixel, Text = GlobalStrings.VideoCutterTimeline_SetClipStartHere };
+                        timelineTooltip = new TimelineTooltip() { X = pixel, Text = tooltipSetClipOverrideText ?? GlobalStrings.VideoCutterTimeline_SetClipStartHere };
                     }
                     else if (SelectionEnd == null && HoverPosition.Value > SelectionStart.Value)
                     {
-                        timelineTooltip = new TimelineTooltip() { X = pixel, Text = GlobalStrings.VideoCutterTimeline_SetClipEndHere };
+                        timelineTooltip = new TimelineTooltip() { X = pixel, Text = tooltipSetClipOverrideText ?? GlobalStrings.VideoCutterTimeline_SetClipEndHere };
                     }
                 }
 

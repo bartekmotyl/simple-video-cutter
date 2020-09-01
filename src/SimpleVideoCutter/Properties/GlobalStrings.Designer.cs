@@ -363,7 +363,8 @@ namespace SimpleVideoCutter.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to middle click to set clip end here.
+        ///   Looks up a localized string similar to middle click to set clip end here
+        ///hint: try also with shift/control.
         /// </summary>
         internal static string VideoCutterTimeline_SetClipEndHere {
             get {
@@ -372,7 +373,26 @@ namespace SimpleVideoCutter.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to middle click to set clip start here.
+        ///   Looks up a localized string similar to shift + middle click to set clip from this point till the end.
+        /// </summary>
+        internal static string VideoCutterTimeline_SetClipFromHereTillEnd {
+            get {
+                return ResourceManager.GetString("VideoCutterTimeline_SetClipFromHereTillEnd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to shift + middle click to set clip from the beginning till this point.
+        /// </summary>
+        internal static string VideoCutterTimeline_SetClipFromStartTillHere {
+            get {
+                return ResourceManager.GetString("VideoCutterTimeline_SetClipFromStartTillHere", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to middle click to set clip start here
+        ///hint: try also with shift/control.
         /// </summary>
         internal static string VideoCutterTimeline_SetClipStartHere {
             get {

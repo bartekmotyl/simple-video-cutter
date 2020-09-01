@@ -164,7 +164,6 @@
   </data>
   <data name="statusStrip.Text" xml:space="preserve">
     <value>statusStrip1</value>
-    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;statusStrip.Name" xml:space="preserve">
     <value>statusStrip</value>
@@ -210,13 +209,12 @@
   </data>
   <data name="videoViewHover.Text" xml:space="preserve">
     <value>videoViewHover</value>
-    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;videoViewHover.Name" xml:space="preserve">
     <value>videoViewHover</value>
   </data>
   <data name="&gt;&gt;videoViewHover.Type" xml:space="preserve">
-    <value>LibVLCSharp.WinForms.VideoView, LibVLCSharp.WinForms, Version=3.4.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LibVLCSharp.WinForms.VideoView, LibVLCSharp.WinForms, Version=3.4.7.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;videoViewHover.Parent" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
@@ -238,13 +236,12 @@
   </data>
   <data name="vlcControl1.Text" xml:space="preserve">
     <value>videoView1</value>
-    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;vlcControl1.Name" xml:space="preserve">
     <value>vlcControl1</value>
   </data>
   <data name="&gt;&gt;vlcControl1.Type" xml:space="preserve">
-    <value>LibVLCSharp.WinForms.VideoView, LibVLCSharp.WinForms, Version=3.4.3.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>LibVLCSharp.WinForms.VideoView, LibVLCSharp.WinForms, Version=3.4.7.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;vlcControl1.Parent" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
@@ -334,7 +331,7 @@
     <value>0, 0</value>
   </data>
   <data name="panelTasks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>293, 523</value>
+    <value>293, 685</value>
   </data>
   <data name="panelTasks.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -424,7 +421,7 @@
     <value>Magenta</value>
   </data>
   <data name="toolStripButtonSelectionSetStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 51</value>
+    <value>87, 51</value>
   </data>
   <data name="toolStripButtonSelectionSetStart.Text" xml:space="preserve">
     <value>Set start</value>
@@ -433,13 +430,14 @@
     <value>ImageAboveText</value>
   </data>
   <data name="toolStripButtonSelectionSetStart.ToolTipText" xml:space="preserve">
-    <value>Set selection start ( [ )</value>
+    <value>Set selection start ( [ )
+Press also Shift to set selection from this point until the end.</value>
   </data>
   <data name="toolStripButtonSelectionSetEnd.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="toolStripButtonSelectionSetEnd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 51</value>
+    <value>87, 51</value>
   </data>
   <data name="toolStripButtonSelectionSetEnd.Text" xml:space="preserve">
     <value>Set end</value>
@@ -448,13 +446,14 @@
     <value>ImageAboveText</value>
   </data>
   <data name="toolStripButtonSelectionSetEnd.ToolTipText" xml:space="preserve">
-    <value>Set selection end ( ] )</value>
+    <value>Set selection end ( ] )
+Press also Shift to set selection from the beginning till this point.</value>
   </data>
   <data name="toolStripButtonSelectionPlay.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
   <data name="toolStripButtonSelectionPlay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 51</value>
+    <value>87, 51</value>
   </data>
   <data name="toolStripButtonSelectionPlay.Text" xml:space="preserve">
     <value>Play range</value>
@@ -469,7 +468,7 @@
     <value>Magenta</value>
   </data>
   <data name="toolStripButtonSelectionClear.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 51</value>
+    <value>87, 51</value>
   </data>
   <data name="toolStripButtonSelectionClear.Text" xml:space="preserve">
     <value>Clear selection</value>
@@ -484,7 +483,7 @@
     <value>Magenta</value>
   </data>
   <data name="toolStripButtonSelectionGoToStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 51</value>
+    <value>87, 51</value>
   </data>
   <data name="toolStripButtonSelectionGoToStart.Text" xml:space="preserve">
     <value>Go to start</value>
@@ -499,7 +498,7 @@
     <value>Magenta</value>
   </data>
   <data name="toolStripButtonSelectionGoToEnd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 51</value>
+    <value>87, 51</value>
   </data>
   <data name="toolStripButtonSelectionGoToEnd.Text" xml:space="preserve">
     <value>Go to end</value>
@@ -518,7 +517,6 @@
   </data>
   <data name="toolStripButtonSelectionEnqueue.Text" xml:space="preserve">
     <value>_PerformCut</value>
-    <comment>@Invariant</comment>
   </data>
   <data name="toolStripButtonSelectionEnqueue.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageAboveText</value>
@@ -657,272 +655,12 @@
   </data>
   <data name="toolStripContainerMain.Text" xml:space="preserve">
     <value>toolStripContainer1</value>
-    <comment>@Invariant</comment>
-  </data>
-  <metadata name="toolStripInternet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>162, 56</value>
-  </metadata>
-  <data name="toolStripInternet.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="toolStripInternet.Location" type="System.Drawing.Point, System.Drawing">
-    <value>863, 0</value>
-  </data>
-  <data name="toolStripInternet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 54</value>
-  </data>
-  <data name="toolStripInternet.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;toolStripInternet.Name" xml:space="preserve">
-    <value>toolStripInternet</value>
-  </data>
-  <data name="&gt;&gt;toolStripInternet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripInternet.Parent" xml:space="preserve">
-    <value>toolStripContainerMain.TopToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;toolStripInternet.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="toolStripTasks.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="toolStripTasks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="toolStripTasks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>514, 0</value>
-  </data>
-  <data name="toolStripTasks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 54</value>
-  </data>
-  <data name="toolStripTasks.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="toolStripTasks.Text" xml:space="preserve">
-    <value>Tasks</value>
-  </data>
-  <data name="&gt;&gt;toolStripTasks.Name" xml:space="preserve">
-    <value>toolStripTasks</value>
-  </data>
-  <data name="&gt;&gt;toolStripTasks.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripTasks.Parent" xml:space="preserve">
-    <value>toolStripContainerMain.TopToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;toolStripTasks.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <metadata name="toolStripPlayback.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>952, 17</value>
-  </metadata>
-  <data name="toolStripPlayback.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="toolStripPlayback.Location" type="System.Drawing.Point, System.Drawing">
-    <value>667, 0</value>
-  </data>
-  <data name="toolStripPlayback.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 54</value>
-  </data>
-  <data name="toolStripPlayback.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="toolStripPlayback.Text" xml:space="preserve">
-    <value>toolStrip2</value>
-    <comment>@Invariant</comment>
-  </data>
-  <data name="&gt;&gt;toolStripPlayback.Name" xml:space="preserve">
-    <value>toolStripPlayback</value>
-  </data>
-  <data name="&gt;&gt;toolStripPlayback.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripPlayback.Parent" xml:space="preserve">
-    <value>toolStripContainerMain.TopToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;toolStripPlayback.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <metadata name="toolStripFile.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>835, 17</value>
   </metadata>
   <data name="toolStripFile.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>None</value>
-  </data>
-  <data name="toolStripFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>75, 0</value>
-  </data>
-  <data name="toolStripFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>370, 54</value>
-  </data>
-  <data name="toolStripFile.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="toolStripFile.Text" xml:space="preserve">
-    <value>File</value>
-  </data>
-  <data name="&gt;&gt;toolStripFile.Name" xml:space="preserve">
-    <value>toolStripFile</value>
-  </data>
-  <data name="&gt;&gt;toolStripFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripFile.Parent" xml:space="preserve">
-    <value>toolStripContainerMain.TopToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;toolStripFile.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;toolStripContainerMain.TopToolStripPanel.Name" xml:space="preserve">
-    <value>toolStripContainerMain.TopToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;toolStripContainerMain.TopToolStripPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripContainerMain.TopToolStripPanel.Parent" xml:space="preserve">
-    <value>toolStripContainerMain</value>
-  </data>
-  <data name="&gt;&gt;toolStripContainerMain.TopToolStripPanel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;toolStripContainerMain.Name" xml:space="preserve">
-    <value>toolStripContainerMain</value>
-  </data>
-  <data name="&gt;&gt;toolStripContainerMain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripContainerMain.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;toolStripContainerMain.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="listViewTasks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="listViewTasks.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.75pt</value>
-  </data>
-  <data name="listViewTasks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 13</value>
-  </data>
-  <data name="listViewTasks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>293, 497</value>
-  </data>
-  <data name="listViewTasks.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;listViewTasks.Name" xml:space="preserve">
-    <value>listViewTasks</value>
-  </data>
-  <data name="&gt;&gt;listViewTasks.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;listViewTasks.Parent" xml:space="preserve">
-    <value>panelTasks</value>
-  </data>
-  <data name="&gt;&gt;listViewTasks.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="columnStatus.Text" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="columnProfile.Text" xml:space="preserve">
-    <value>Profile</value>
-  </data>
-  <data name="columnFilename.Text" xml:space="preserve">
-    <value>Source file</value>
-  </data>
-  <data name="columnFilename.Width" type="System.Int32, mscorlib">
-    <value>200</value>
-  </data>
-  <data name="columnDuration.Text" xml:space="preserve">
-    <value>Duration</value>
-  </data>
-  <data name="columnDuration.Width" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
-  <data name="columnOutputFile.Text" xml:space="preserve">
-    <value>Target file</value>
-  </data>
-  <data name="columnError.Text" xml:space="preserve">
-    <value>Message</value>
-  </data>
-  <data name="columnError.Width" type="System.Int32, mscorlib">
-    <value>200</value>
-  </data>
-  <data name="labelTasks.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelTasks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="labelTasks.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelTasks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="labelTasks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 13</value>
-  </data>
-  <data name="labelTasks.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="labelTasks.Text" xml:space="preserve">
-    <value>Tasks</value>
-  </data>
-  <data name="&gt;&gt;labelTasks.Name" xml:space="preserve">
-    <value>labelTasks</value>
-  </data>
-  <data name="&gt;&gt;labelTasks.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelTasks.Parent" xml:space="preserve">
-    <value>panelTasks</value>
-  </data>
-  <data name="&gt;&gt;labelTasks.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="labelProgress.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelProgress.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="labelProgress.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelProgress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 510</value>
-  </data>
-  <data name="labelProgress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 13</value>
-  </data>
-  <data name="labelProgress.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;labelProgress.Name" xml:space="preserve">
-    <value>labelProgress</value>
-  </data>
-  <data name="&gt;&gt;labelProgress.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelProgress.Parent" xml:space="preserve">
-    <value>panelTasks</value>
-  </data>
-  <data name="&gt;&gt;labelProgress.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="resetToolbarsLayoutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="resetToolbarsLayoutToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reset toolbars layout</value>
   </data>
   <data name="toolStripButtonFileOpen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1033,54 +771,80 @@
   <data name="toolStripDropDownButtonFileLanguage.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageAboveText</value>
   </data>
-  <data name="toolStripMenuItemLangEnglish.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 22</value>
+  <data name="toolStripFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
   </data>
-  <data name="toolStripMenuItemLangEnglish.Text" xml:space="preserve">
-    <value>English</value>
-    <comment>@Invariant</comment>
+  <data name="toolStripFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 54</value>
   </data>
-  <data name="toolStripMenuItemLangGerman.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 22</value>
+  <data name="toolStripFile.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="toolStripMenuItemLangGerman.Text" xml:space="preserve">
-    <value>German (machine translation)</value>
+  <data name="toolStripFile.Text" xml:space="preserve">
+    <value>File</value>
   </data>
-  <data name="toolStripMenuItemLangFrench.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 22</value>
+  <data name="&gt;&gt;toolStripFile.Name" xml:space="preserve">
+    <value>toolStripFile</value>
   </data>
-  <data name="toolStripMenuItemLangFrench.Text" xml:space="preserve">
-    <value>French (machine translation)</value>
+  <data name="&gt;&gt;toolStripFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="toolStripMenuItemLangSpanish.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 22</value>
+  <data name="&gt;&gt;toolStripFile.Parent" xml:space="preserve">
+    <value>toolStripContainerMain.TopToolStripPanel</value>
   </data>
-  <data name="toolStripMenuItemLangSpanish.Text" xml:space="preserve">
-    <value>Spanish (machine translation)</value>
+  <data name="&gt;&gt;toolStripFile.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="toolStripMenuItemLangItalian.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 22</value>
+  <metadata name="toolStripTasks.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="toolStripTasks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
   </data>
-  <data name="toolStripMenuItemLangItalian.Text" xml:space="preserve">
-    <value>Italian (machine translation)</value>
+  <data name="toolStripButtonTasksShow.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
   </data>
-  <data name="toolStripMenuItemLangChinese.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 22</value>
+  <data name="toolStripButtonTasksShow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 51</value>
   </data>
-  <data name="toolStripMenuItemLangChinese.Text" xml:space="preserve">
-    <value>Chinese (machine translation)</value>
+  <data name="toolStripButtonTasksShow.Text" xml:space="preserve">
+    <value>Show tasks</value>
   </data>
-  <data name="toolStripMenuItemLangJapanese.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 22</value>
+  <data name="toolStripButtonTasksShow.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
   </data>
-  <data name="toolStripMenuItemLangJapanese.Text" xml:space="preserve">
-    <value>Japanese (machine translation)</value>
+  <data name="toolStripButtonTasksShow.ToolTipText" xml:space="preserve">
+    <value>Show tasks (T)</value>
   </data>
-  <data name="toolStripMenuItemLangPolish.Size" type="System.Drawing.Size, System.Drawing">
-    <value>237, 22</value>
+  <data name="toolStripTasks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>569, 0</value>
   </data>
-  <data name="toolStripMenuItemLangPolish.Text" xml:space="preserve">
-    <value>Polish</value>
+  <data name="toolStripTasks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 54</value>
+  </data>
+  <data name="toolStripTasks.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="toolStripTasks.Text" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="&gt;&gt;toolStripTasks.Name" xml:space="preserve">
+    <value>toolStripTasks</value>
+  </data>
+  <data name="&gt;&gt;toolStripTasks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripTasks.Parent" xml:space="preserve">
+    <value>toolStripContainerMain.TopToolStripPanel</value>
+  </data>
+  <data name="&gt;&gt;toolStripTasks.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="toolStripPlayback.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>952, 17</value>
+  </metadata>
+  <data name="toolStripPlayback.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="toolStripButtonPlabackPlayPause.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
@@ -1127,20 +891,35 @@
   <data name="toolStripButtonPlabackNextFrame.ToolTipText" xml:space="preserve">
     <value>Next frame (.)</value>
   </data>
-  <data name="toolStripButtonTasksShow.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
+  <data name="toolStripPlayback.Location" type="System.Drawing.Point, System.Drawing">
+    <value>373, 0</value>
   </data>
-  <data name="toolStripButtonTasksShow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 51</value>
+  <data name="toolStripPlayback.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 54</value>
   </data>
-  <data name="toolStripButtonTasksShow.Text" xml:space="preserve">
-    <value>Show tasks</value>
+  <data name="toolStripPlayback.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
-  <data name="toolStripButtonTasksShow.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageAboveText</value>
+  <data name="toolStripPlayback.Text" xml:space="preserve">
+    <value>toolStrip2</value>
   </data>
-  <data name="toolStripButtonTasksShow.ToolTipText" xml:space="preserve">
-    <value>Show tasks (T)</value>
+  <data name="&gt;&gt;toolStripPlayback.Name" xml:space="preserve">
+    <value>toolStripPlayback</value>
+  </data>
+  <data name="&gt;&gt;toolStripPlayback.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripPlayback.Parent" xml:space="preserve">
+    <value>toolStripContainerMain.TopToolStripPanel</value>
+  </data>
+  <data name="&gt;&gt;toolStripPlayback.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="toolStripInternet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>162, 56</value>
+  </metadata>
+  <data name="toolStripInternet.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="toolStripButtonInternetVersionCheck.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
@@ -1156,6 +935,222 @@
   </data>
   <data name="toolStripButtonInternetVersionCheck.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageAboveText</value>
+  </data>
+  <data name="toolStripInternet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>650, 0</value>
+  </data>
+  <data name="toolStripInternet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 54</value>
+  </data>
+  <data name="toolStripInternet.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;toolStripInternet.Name" xml:space="preserve">
+    <value>toolStripInternet</value>
+  </data>
+  <data name="&gt;&gt;toolStripInternet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripInternet.Parent" xml:space="preserve">
+    <value>toolStripContainerMain.TopToolStripPanel</value>
+  </data>
+  <data name="&gt;&gt;toolStripInternet.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;toolStripContainerMain.TopToolStripPanel.Name" xml:space="preserve">
+    <value>toolStripContainerMain.TopToolStripPanel</value>
+  </data>
+  <data name="&gt;&gt;toolStripContainerMain.TopToolStripPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripContainerMain.TopToolStripPanel.Parent" xml:space="preserve">
+    <value>toolStripContainerMain</value>
+  </data>
+  <data name="&gt;&gt;toolStripContainerMain.TopToolStripPanel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;toolStripContainerMain.Name" xml:space="preserve">
+    <value>toolStripContainerMain</value>
+  </data>
+  <data name="&gt;&gt;toolStripContainerMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripContainerMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolStripContainerMain.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="listViewTasks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="listViewTasks.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
+  </data>
+  <data name="listViewTasks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 13</value>
+  </data>
+  <data name="listViewTasks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 659</value>
+  </data>
+  <data name="listViewTasks.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;listViewTasks.Name" xml:space="preserve">
+    <value>listViewTasks</value>
+  </data>
+  <data name="&gt;&gt;listViewTasks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listViewTasks.Parent" xml:space="preserve">
+    <value>panelTasks</value>
+  </data>
+  <data name="&gt;&gt;listViewTasks.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="columnStatus.Text" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="columnProfile.Text" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="columnFilename.Text" xml:space="preserve">
+    <value>Source file</value>
+  </data>
+  <data name="columnFilename.Width" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="columnDuration.Text" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="columnDuration.Width" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="columnOutputFile.Text" xml:space="preserve">
+    <value>Target file</value>
+  </data>
+  <data name="columnError.Text" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="columnError.Width" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="labelTasks.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelTasks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="labelTasks.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelTasks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="labelTasks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 13</value>
+  </data>
+  <data name="labelTasks.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="labelTasks.Text" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="&gt;&gt;labelTasks.Name" xml:space="preserve">
+    <value>labelTasks</value>
+  </data>
+  <data name="&gt;&gt;labelTasks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelTasks.Parent" xml:space="preserve">
+    <value>panelTasks</value>
+  </data>
+  <data name="&gt;&gt;labelTasks.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelProgress.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelProgress.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="labelProgress.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelProgress.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 672</value>
+  </data>
+  <data name="labelProgress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 13</value>
+  </data>
+  <data name="labelProgress.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;labelProgress.Name" xml:space="preserve">
+    <value>labelProgress</value>
+  </data>
+  <data name="&gt;&gt;labelProgress.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelProgress.Parent" xml:space="preserve">
+    <value>panelTasks</value>
+  </data>
+  <data name="&gt;&gt;labelProgress.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="resetToolbarsLayoutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="resetToolbarsLayoutToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reset toolbars layout</value>
+  </data>
+  <data name="toolStripMenuItemLangEnglish.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 22</value>
+  </data>
+  <data name="toolStripMenuItemLangEnglish.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="toolStripMenuItemLangGerman.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 22</value>
+  </data>
+  <data name="toolStripMenuItemLangGerman.Text" xml:space="preserve">
+    <value>German (machine translation)</value>
+  </data>
+  <data name="toolStripMenuItemLangFrench.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 22</value>
+  </data>
+  <data name="toolStripMenuItemLangFrench.Text" xml:space="preserve">
+    <value>French (machine translation)</value>
+  </data>
+  <data name="toolStripMenuItemLangSpanish.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 22</value>
+  </data>
+  <data name="toolStripMenuItemLangSpanish.Text" xml:space="preserve">
+    <value>Spanish (machine translation)</value>
+  </data>
+  <data name="toolStripMenuItemLangItalian.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 22</value>
+  </data>
+  <data name="toolStripMenuItemLangItalian.Text" xml:space="preserve">
+    <value>Italian (machine translation)</value>
+  </data>
+  <data name="toolStripMenuItemLangChinese.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 22</value>
+  </data>
+  <data name="toolStripMenuItemLangChinese.Text" xml:space="preserve">
+    <value>Chinese (machine translation)</value>
+  </data>
+  <data name="toolStripMenuItemLangJapanese.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 22</value>
+  </data>
+  <data name="toolStripMenuItemLangJapanese.Text" xml:space="preserve">
+    <value>Japanese (machine translation)</value>
+  </data>
+  <data name="toolStripMenuItemLangPolish.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 22</value>
+  </data>
+  <data name="toolStripMenuItemLangPolish.Text" xml:space="preserve">
+    <value>Polish</value>
   </data>
   <metadata name="timerHoverPositionChanged.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>481, 17</value>
@@ -1461,7 +1456,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Simple video cutter</value>
-    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;toolStripStatusLabelVolume.Name" xml:space="preserve">
     <value>toolStripStatusLabelVolume</value>
@@ -1595,6 +1589,36 @@
   <data name="&gt;&gt;toolStripButtonTimelineGoToCurrentPosition.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripButtonInternetVersionCheck.Name" xml:space="preserve">
+    <value>toolStripButtonInternetVersionCheck</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonInternetVersionCheck.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonTasksShow.Name" xml:space="preserve">
+    <value>toolStripButtonTasksShow</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonTasksShow.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonPlabackPlayPause.Name" xml:space="preserve">
+    <value>toolStripButtonPlabackPlayPause</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonPlabackPlayPause.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonPlabackMute.Name" xml:space="preserve">
+    <value>toolStripButtonPlabackMute</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonPlabackMute.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonPlabackNextFrame.Name" xml:space="preserve">
+    <value>toolStripButtonPlabackNextFrame</value>
+  </data>
+  <data name="&gt;&gt;toolStripButtonPlabackNextFrame.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripButtonFileOpen.Name" xml:space="preserve">
     <value>toolStripButtonFileOpen</value>
   </data>
@@ -1678,36 +1702,6 @@
   </data>
   <data name="&gt;&gt;toolStripMenuItemLangPolish.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonPlabackPlayPause.Name" xml:space="preserve">
-    <value>toolStripButtonPlabackPlayPause</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonPlabackPlayPause.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonPlabackMute.Name" xml:space="preserve">
-    <value>toolStripButtonPlabackMute</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonPlabackMute.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonPlabackNextFrame.Name" xml:space="preserve">
-    <value>toolStripButtonPlabackNextFrame</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonPlabackNextFrame.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonTasksShow.Name" xml:space="preserve">
-    <value>toolStripButtonTasksShow</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonTasksShow.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonInternetVersionCheck.Name" xml:space="preserve">
-    <value>toolStripButtonInternetVersionCheck</value>
-  </data>
-  <data name="&gt;&gt;toolStripButtonInternetVersionCheck.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;timerHoverPositionChanged.Name" xml:space="preserve">
     <value>timerHoverPositionChanged</value>
