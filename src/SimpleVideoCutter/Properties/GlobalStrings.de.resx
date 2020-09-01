@@ -221,9 +221,6 @@ Erlaubt sind sowohl statische Teile als auch diese Pseudo-Variablen
   <data name="VideoCutterTimeline_MoveClipStart" xml:space="preserve">
     <value>Clip-Start verschieben</value>
   </data>
-  <data name="VideoCutterTimeline_SetClipEndHere" xml:space="preserve">
-    <value>Mittelklick, um das Clipende hier zu setzen</value>
-  </data>
   <data name="VideoCutterTimeline_SetClipStartHere" xml:space="preserve">
     <value>Mittelklick, um den Clip hier zu starten</value>
   </data>
@@ -235,5 +232,15 @@ Erlaubt sind sowohl statische Teile als auch diese Pseudo-Variablen
   </data>
   <data name="GlobalClose" xml:space="preserve">
     <value>schließen</value>
+  </data>
+  <data name="VideoCutterTimeline_SetClipFromHereTillEnd" xml:space="preserve">
+    <value>Shift + Mittelklick, um den Clip von diesem Punkt bis zum Ende zu setzen</value>
+  </data>
+  <data name="VideoCutterTimeline_SetClipFromStartTillHere" xml:space="preserve">
+    <value>Steuerung + Mittelklick, um den Clip vom Anfang bis zu diesem Punkt zu setzen</value>
+  </data>
+  <data name="VideoCutterTimeline_SetClipEndHere" xml:space="preserve">
+    <value>Mittelklick, um das Clipende hier zu setzen
+Tip: versuchen Sie es auch mit Shift/Steuerung</value>
   </data>
 </root>

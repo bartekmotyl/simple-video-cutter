@@ -235,7 +235,7 @@ hint: try also with shift/control</value>
     <value>shift + middle click to set clip from this point till the end</value>
   </data>
   <data name="VideoCutterTimeline_SetClipFromStartTillHere" xml:space="preserve">
-    <value>shift + middle click to set clip from the beginning till this point</value>
+    <value>control + middle click to set clip from the beginning till this point</value>
   </data>
   <data name="VideoCutterTimeline_SetClipStartHere" xml:space="preserve">
     <value>middle click to set clip start here

@@ -220,13 +220,15 @@
     <value>Ustaw początek</value>
   </data>
   <data name="toolStripButtonSelectionSetStart.ToolTipText" xml:space="preserve">
-    <value>Ustaw początek zaznaczenia ( [ )</value>
+    <value>Ustaw początek zaznaczenia ( [ )
+Przytrzymaj także Shift aby zaznaczyć od tego miejsca do końca</value>
   </data>
   <data name="toolStripButtonSelectionSetEnd.Text" xml:space="preserve">
     <value>Ustaw początek</value>
   </data>
   <data name="toolStripButtonSelectionSetEnd.ToolTipText" xml:space="preserve">
-    <value>Ustaw koniec zaznaczenia ( ] )</value>
+    <value>Ustaw koniec zaznaczenia ( ] )
+Przytrzymaj także Shift aby zaznaczyć od początku do tego miejsca</value>
   </data>
   <data name="toolStripButtonSelectionPlay.Text" xml:space="preserve">
     <value>Odtwarzaj zakres</value>

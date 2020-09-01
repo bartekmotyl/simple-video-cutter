@@ -156,14 +156,8 @@
   <data name="toolStripButtonSelectionSetStart.Text" xml:space="preserve">
     <value>設定開始</value>
   </data>
-  <data name="toolStripButtonSelectionSetStart.ToolTipText" xml:space="preserve">
-    <value>選択範囲の設定開始 ( [ )</value>
-  </data>
   <data name="toolStripButtonSelectionSetEnd.Text" xml:space="preserve">
     <value>セット終了</value>
-  </data>
-  <data name="toolStripButtonSelectionSetEnd.ToolTipText" xml:space="preserve">
-    <value>選択終了設定( ] )</value>
   </data>
   <data name="toolStripButtonSelectionPlay.Text" xml:space="preserve">
     <value>プレイレンジ</value>
@@ -293,5 +287,13 @@
   </data>
   <data name="toolStripButtonInternetVersionCheck.Text" xml:space="preserve">
     <value>更新情報の確認</value>
+  </data>
+  <data name="toolStripButtonSelectionSetEnd.ToolTipText" xml:space="preserve">
+    <value>選択終了設定( ] )
+また、Shift キーを押すと、最初からこの時点までの選択範囲を設定することができます。</value>
+  </data>
+  <data name="toolStripButtonSelectionSetStart.ToolTipText" xml:space="preserve">
+    <value>選択範囲の設定開始 ( [ )
+また、Shiftキーを押すと、この時点から最後まで選択範囲を設定することができます。</value>
   </data>
 </root>

@@ -156,14 +156,8 @@
   <data name="toolStripButtonSelectionSetStart.Text" xml:space="preserve">
     <value>Start festlegen</value>
   </data>
-  <data name="toolStripButtonSelectionSetStart.ToolTipText" xml:space="preserve">
-    <value>Auswahlbeginn festlegen ( [ )</value>
-  </data>
   <data name="toolStripButtonSelectionSetEnd.Text" xml:space="preserve">
     <value>Ende setzen</value>
-  </data>
-  <data name="toolStripButtonSelectionSetEnd.ToolTipText" xml:space="preserve">
-    <value>Auswahlende festlegen ( ] )</value>
   </data>
   <data name="toolStripButtonSelectionPlay.Text" xml:space="preserve">
     <value>Spielraum</value>
@@ -293,5 +287,13 @@
   </data>
   <data name="toolStripButtonInternetVersionCheck.Text" xml:space="preserve">
     <value>Nach Updates suchen</value>
+  </data>
+  <data name="toolStripButtonSelectionSetEnd.ToolTipText" xml:space="preserve">
+    <value>Auswahlende festlegen ( ] )
+Drücken Sie auch die Umschalttaste, um die Auswahl von Anfang an bis zu diesem Punkt festzulegen.</value>
+  </data>
+  <data name="toolStripButtonSelectionSetStart.ToolTipText" xml:space="preserve">
+    <value>Auswahlbeginn festlegen ( [ )
+Drücken Sie auch die Umschalttaste, um die Auswahl von diesem Punkt bis zum Ende festzulegen.</value>
   </data>
 </root>

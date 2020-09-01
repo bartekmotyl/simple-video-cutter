@@ -156,14 +156,8 @@
   <data name="toolStripButtonSelectionSetStart.Text" xml:space="preserve">
     <value>Démarrage</value>
   </data>
-  <data name="toolStripButtonSelectionSetStart.ToolTipText" xml:space="preserve">
-    <value>Définir le début de la sélection ( [ )</value>
-  </data>
   <data name="toolStripButtonSelectionSetEnd.Text" xml:space="preserve">
     <value>Fin de série</value>
-  </data>
-  <data name="toolStripButtonSelectionSetEnd.ToolTipText" xml:space="preserve">
-    <value>Définir la fin de la sélection ( ] )</value>
   </data>
   <data name="toolStripButtonSelectionPlay.Text" xml:space="preserve">
     <value>Gamme de jeu</value>
@@ -293,5 +287,13 @@
   </data>
   <data name="toolStripButtonInternetVersionCheck.Text" xml:space="preserve">
     <value>Consultez les mises à jour</value>
+  </data>
+  <data name="toolStripButtonSelectionSetEnd.ToolTipText" xml:space="preserve">
+    <value>Définir la fin de la sélection ( ] )
+Appuyez également sur la touche Shift pour définir la sélection du début jusqu'à ce point.</value>
+  </data>
+  <data name="toolStripButtonSelectionSetStart.ToolTipText" xml:space="preserve">
+    <value>Définir le début de la sélection ( [ )
+Appuyez également sur la touche Shift pour définir la sélection à partir de ce point jusqu'à la fin.</value>
   </data>
 </root>
