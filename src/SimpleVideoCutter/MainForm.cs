@@ -294,7 +294,13 @@ namespace SimpleVideoCutter
                 .Replace("{FileNameWithoutExtension}", Path.GetFileNameWithoutExtension(path))
                 .Replace("{FileExtension}", Path.GetExtension(path))
                 .Replace("{FileDate}", string.Format("{0:yyyyMMdd-HHmmss}", fileInfo.LastWriteTime))
-                .Replace("{Timestamp}", string.Format("{0:yyyyMMdd-HHmmss}", DateTime.Now));
+                .Replace("{Timestamp}", string.Format("{0:yyyyMMdd-HHmmss}", DateTime.Now))
+                .Replace("{SelectionStart}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(this.videoCutterTimeline1.SelectionStart.Value)))
+                .Replace("{SelectionEnd}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(this.videoCutterTimeline1.SelectionEnd.Value)))
+                .Replace("{SelectionStartMs}", string.Format("{0}", this.videoCutterTimeline1.SelectionStart.Value))
+                .Replace("{SelectionEndMs}", string.Format("{0}", this.videoCutterTimeline1.SelectionEnd.Value))
+                .Replace("{Duration}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(
+                    this.videoCutterTimeline1.SelectionEnd.Value - this.videoCutterTimeline1.SelectionStart.Value)));
         }
 
         private void OpenFile(string path)
