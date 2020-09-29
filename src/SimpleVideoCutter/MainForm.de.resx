@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -160,10 +160,10 @@
     <value>Ende setzen</value>
   </data>
   <data name="toolStripButtonSelectionPlay.Text" xml:space="preserve">
-    <value>Spielraum</value>
+    <value>Wiedergabebereich</value>
   </data>
   <data name="toolStripButtonSelectionPlay.ToolTipText" xml:space="preserve">
-    <value>Spielauswahl (R)</value>
+    <value>Wiedergabeauswahl (R)</value>
   </data>
   <data name="toolStripButtonSelectionClear.Text" xml:space="preserve">
     <value>Auswahl löschen</value>
