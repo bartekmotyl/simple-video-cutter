@@ -213,7 +213,7 @@ Erlaubt sind sowohl statische Teile als auch diese Pseudo-Variablen
     <value>Geplant</value>
   </data>
   <data name="VideoCutterTimeline_HoveredTime" xml:space="preserve">
-    <value>Schwebende Zeit</value>
+    <value>Zeit an Mausposition</value>
   </data>
   <data name="VideoCutterTimeline_MoveClipEnd" xml:space="preserve">
     <value>Clip-Ende verschieben</value>
