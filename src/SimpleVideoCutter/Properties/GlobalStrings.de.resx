@@ -192,7 +192,7 @@ Erlaubt sind sowohl statische Teile als auch diese Pseudo-Variablen
     <value>Jahrgang</value>
   </data>
   <data name="TaskProcessor_Done" xml:space="preserve">
-    <value>Geschehen</value>
+    <value>Erledigt</value>
   </data>
   <data name="TaskProcessor_Failure" xml:space="preserve">
     <value>Misserfolg</value>
@@ -204,7 +204,7 @@ Erlaubt sind sowohl statische Teile als auch diese Pseudo-Variablen
     <value>Fehler</value>
   </data>
   <data name="TaskProcessor_State_FinishedOK" xml:space="preserve">
-    <value>Geschehen</value>
+    <value>Erledigt</value>
   </data>
   <data name="TaskProcessor_State_InProgress" xml:space="preserve">
     <value>In Bearbeitung</value>
