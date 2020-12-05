@@ -395,7 +395,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="LibVLCSharp.WinForms">
-      <Version>3.4.7</Version>
+      <Version>3.4.9</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.Platforms">
       <Version>3.1.2</Version>
