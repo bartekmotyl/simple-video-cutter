@@ -18,7 +18,7 @@ namespace SimpleVideoCutter
         public string OutputDirectory { get; set; } = "{UserVideos}";
         public string OutputFilePattern { get; set; } = "{FileDate}-{FileNameWithoutExtension}.{Timestamp}{FileExtension}";
         public string FFmpegPath { get; set; } = null;
-        public string[] VideoFilesExtensions { get; set; } = new string[] { ".mov", ".avi", ".mp4", ".wmv", ".rm", ".mpg", ".mkv" };
+        public string[] VideoFilesExtensions { get; set; } = new string[] { ".mov", ".avi", ".mp4", ".wmv", ".rm", ".mpg", ".mkv", ".webm" };
         public int HoverPreviewSize { get; set; } = 300;
 
         public bool Mute { get; set; } = false;
