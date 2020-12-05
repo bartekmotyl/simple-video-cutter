@@ -29,11 +29,6 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 
 ## How to use 
 
-Warning! As ffmpeg.zeranoe.com repository of ffmeg builds is no longer available (since 18.09.2020), automatic download of ffmpeg doesn't work any more. 
-Please refer to https://ffmpeg.org/download.html#build-windows to find links to places where binary distributions of ffmpeg can be downloaded manually.
-At the end of September 2020 the following link pointed to most recent release distribution of ffmpeg for Windows: https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip
-
-
 ### Starting for the first time: 
 
 (Check also translations in [README.txt](README.txt))
