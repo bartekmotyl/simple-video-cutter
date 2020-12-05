@@ -204,7 +204,7 @@ Once FFmpeg is installed, please provide path to ffmpeg executable in the settin
     <value>3</value>
   </data>
   <data name="linkLabelFFmpeg.Text" xml:space="preserve">
-    <value>https://ffmpeg.zeranoe.com/builds/</value>
+    <value>https://www.gyan.dev/ffmpeg/builds/</value>
     <comment>@Invariant</comment>
   </data>
   <data name="linkLabelFFmpeg.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">

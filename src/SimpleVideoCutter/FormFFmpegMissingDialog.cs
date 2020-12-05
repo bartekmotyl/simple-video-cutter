@@ -25,19 +25,17 @@ namespace SimpleVideoCutter
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://ffmpeg.zeranoe.com/builds/");
+            System.Diagnostics.Process.Start("https://www.gyan.dev/ffmpeg/builds/");
         }
 
         private async void buttonDownload_Click(object sender, EventArgs e)
         {
-            await DownloadLastestFFmpegVersion(Environment.Is64BitOperatingSystem);
+            await DownloadLastestFFmpegVersion();
         }
 
-        public async Task DownloadLastestFFmpegVersion(bool x64)
+        public async Task DownloadLastestFFmpegVersion()
         {
-            var arch = x64 ? "win64" : "win32";
-            var remoteFile = x64 ? "ffmpeg-latest-win64-static" : "ffmpeg-latest-win32-static";
-            var url = $"https://ffmpeg.zeranoe.com/builds/{arch}/static/{remoteFile}.zip";
+            var url = $"https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip";
             var filename = "ffmpeg-latest-static.zip";
             var folderName = $"ffmpeg.{DateTime.Now:yyyyMMddHHmmss}";
 
@@ -65,10 +63,15 @@ namespace SimpleVideoCutter
                         if (!e.Cancelled && e.Error == null)
                         {
                             ZipFile.ExtractToDirectory(filename, folderName);
-                            VideoCutterSettings.Instance.FFmpegPath = 
-                                Path.Combine(Path.GetFullPath(folderName), remoteFile, "bin", "ffmpeg.exe");
-                            labelDownloadSuccessful.Visible = true;
-                            VideoCutterSettings.Instance.StoreSettings();
+                            var dir = Directory.GetDirectories(folderName).FirstOrDefault();
+                            if (dir != null)
+                            {
+                                VideoCutterSettings.Instance.FFmpegPath =
+                                    Path.Combine(Path.GetFullPath(dir), "bin", "ffmpeg.exe");
+                                labelDownloadSuccessful.Visible = true;
+                                VideoCutterSettings.Instance.StoreSettings();
+                            }
+
                         }
                     };
 
