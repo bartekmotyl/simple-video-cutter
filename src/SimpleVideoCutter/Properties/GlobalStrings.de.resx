@@ -124,7 +124,7 @@
     <value>Neue Version ist verfügbar! Bitte besuchen Sie die Projektseite.</value>
   </data>
   <data name="AboutBox_Version" xml:space="preserve">
-    <value>Fassung</value>
+    <value>Version</value>
   </data>
   <data name="AboutBox_VersionUpToDate" xml:space="preserve">
     <value>Sie verwenden die neueste Version.</value>
