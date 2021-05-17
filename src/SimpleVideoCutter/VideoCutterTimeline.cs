@@ -406,7 +406,19 @@ namespace SimpleVideoCutter
         {
             if (Length == 0)
                 return 0;
-            return (long)(offset + x * MillisecondsPerPixels(givenScale));
+
+            long pos = (long)(offset + x * MillisecondsPerPixels(givenScale));
+
+            // Do not allow negative starting position
+            if (pos < 0) {
+                pos = 0;
+            }
+            // Do not exceed total video length
+            if (pos > Length) {
+                pos = Length;
+            }
+            
+            return pos;
         }
 
         public void ZoomOut()
