@@ -189,7 +189,7 @@ Erlaubt sind sowohl statische Teile als auch diese Pseudo-Variablen
     <value>Auswahl</value>
   </data>
   <data name="MainForm_Volume" xml:space="preserve">
-    <value>Jahrgang</value>
+    <value>Lautstärke</value>
   </data>
   <data name="TaskProcessor_Done" xml:space="preserve">
     <value>Erledigt</value>
