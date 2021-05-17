@@ -121,10 +121,10 @@
     <value>Name des Produkts</value>
   </data>
   <data name="labelVersion.Text" xml:space="preserve">
-    <value>Fassung</value>
+    <value>Version</value>
   </data>
   <data name="labelCopyright.Text" xml:space="preserve">
-    <value>Urheberrecht</value>
+    <value>Copyright</value>
   </data>
   <data name="okButton.Text" xml:space="preserve">
     <value>OK</value>
@@ -132,7 +132,7 @@
   <data name="textBox1.Text" xml:space="preserve">
     <value>Symbole: streamlineicons.com
 FFmpeg: www.ffmpeg.org
-Foto von Denise Jans zur Entblößung</value>
+Foto von Denise Jans via Unsplash</value>
   </data>
   <data name="buttonLicense.Text" xml:space="preserve">
     <value>Lizenz</value>
