@@ -39,18 +39,18 @@ Email: simple.video.cutter@gmail.com
 Skontaktuj się z nami, jeśli chcesz usprawnić tłumaczenie na swój język. 
 
 ---------------------------------------------------------------------------------------
-[Deutsch] [Machine translated]
+[Deutsch]
 
-* Einbau
+* Installation
 
 Entpacken Sie das Archiv in einen Ordner, z.B. 'simple-video-cutter'. 
 Doppelklicken Sie auf "SimpleVideoCutter.exe", um das Programm zu starten.
 Hinweis: Sie benötigen ffmpeg, Sie können es von https://ffmpeg.zeranoe.com/builds/ herunterladen.
 
-* Aktualisierung 
+* Aktualisierung
 
-Entpacken Sie das Archiv in einen vorhandenen Ordner, wobei der vorhandene Inhalt überschrieben wird. 
-Die Datei 'config.json' enthält Ihre Konfiguration, sie sollte nicht überschrieben werden. 
+Entpacken Sie das Archiv in den vorhandenen Ordner und überschreiben Sie alle bestehenden Dateien.
+Die Datei 'config.json' enthält Ihre Konfiguration und wird hierbei nicht überschrieben. 
 
 Diese Software ist kostenlos erhältlich!
 Webseite: https://github.com/bartekmotyl/simple-video-cutter
