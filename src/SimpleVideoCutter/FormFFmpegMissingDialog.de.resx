@@ -125,7 +125,7 @@
   </data>
   <data name="labelFFmpegExlanation.Text" xml:space="preserve">
     <value>Dieses Programm setzt voraus, dass FFmpeg in Ihrem System installiert ist. FFmpeg ist eine kostenlose, quelloffene Lösung zur Konvertierung von Videodateien.
-Bitte besuchen Sie die unten verlinkte Seite, laden Sie die portable Distribution herunter und entpacken Sie sie auf die lokale Festplatte. Release, statische 64bit-Version wird empfohlen.
+Bitte besuchen Sie die oben verlinkte Seite, laden Sie die portable Distribution herunter und entpacken Sie sie auf die lokale Festplatte. Release, statische 64bit-Version wird empfohlen.
 Sobald FFmpeg installiert ist, geben Sie bitte den Pfad zur ausführbaren Datei ffmpeg im Einstellungsfenster an.</value>
   </data>
   <data name="buttonDownload.Text" xml:space="preserve">

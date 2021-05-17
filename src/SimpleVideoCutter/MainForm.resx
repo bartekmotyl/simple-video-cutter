@@ -1114,7 +1114,7 @@ Press also Shift to set selection from the beginning till this point.</value>
     <value>237, 22</value>
   </data>
   <data name="toolStripMenuItemLangGerman.Text" xml:space="preserve">
-    <value>German (machine translation)</value>
+    <value>German</value>
   </data>
   <data name="toolStripMenuItemLangFrench.Size" type="System.Drawing.Size, System.Drawing">
     <value>237, 22</value>

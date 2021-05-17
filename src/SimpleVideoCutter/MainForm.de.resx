@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="toolStripStatusLabelVolume.Text" xml:space="preserve">
-    <value>Umfang: 100 %</value>
+    <value>Laustärke: 100 %</value>
   </data>
   <data name="toolStripStatusLabelFilePath.Text" xml:space="preserve">
     <value>Keine Datei geladen</value>
@@ -130,7 +130,7 @@
     <value>Keine Auswahl</value>
   </data>
   <data name="columnStatus.Text" xml:space="preserve">
-    <value>Stand</value>
+    <value>Status</value>
   </data>
   <data name="columnProfile.Text" xml:space="preserve">
     <value>Profil</value>
@@ -232,7 +232,7 @@
     <value>Über</value>
   </data>
   <data name="toolStripMenuItemLangGerman.Text" xml:space="preserve">
-    <value>Deutsch (maschinelle Übersetzung)</value>
+    <value>Deutsch</value>
   </data>
   <data name="toolStripMenuItemLangFrench.Text" xml:space="preserve">
     <value>Französisch (maschinelle Übersetzung)</value>
