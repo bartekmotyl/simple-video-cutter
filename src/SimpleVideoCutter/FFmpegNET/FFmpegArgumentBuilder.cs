@@ -19,6 +19,7 @@ namespace SimpleVideoCutter.FFmpegNET
             commandBuilder.AppendFormat(CultureInfo.InvariantCulture, " -ss {0} ", seek);
             commandBuilder.AppendFormat(" -t {0} ", duration);
             commandBuilder.AppendFormat(" -i \"{0}\" ", inputFileFullPath);
+            commandBuilder.AppendFormat(" -map 0 ");
             commandBuilder.AppendFormat(" {0}", customArguments);
             
             return commandBuilder.AppendFormat(" \"{0}\" ", outputFileFullPath).ToString();
