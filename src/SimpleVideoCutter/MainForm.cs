@@ -104,7 +104,10 @@ namespace SimpleVideoCutter
 
             // Full list of command line arguments: https://wiki.videolan.org/VLC_command-line_help
 
-            var args = new List<string>(new string[] { "--play-and-pause" });
+            var args = new List<string>(new string[] { 
+                "--play-and-pause",
+                "--no-sub-autodetect-file",
+            });
 
             if (!VideoCutterSettings.Instance.Autostart)
             {
