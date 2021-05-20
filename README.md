@@ -36,7 +36,7 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 - Download the release by [clicking here](https://github.com/bartekmotyl/simple-video-cutter/releases). Click on 'Assets' to see release files. 
 - Unzip release package into a directory 
 - Start `SimpleVideoCutter.exe` in that directory
-- Once prompted, select location of ffmpeg.exe (FFmpeg can be downloaded for free from [FFmpeg release page](https://ffmpeg.zeranoe.com/builds/)   
+- Once prompted, select location of ffmpeg.exe (FFmpeg can be downloaded for free from [FFmpeg release page](https://www.gyan.dev/ffmpeg/builds/)   
 - You can also adjust other parameters in settings window, for example directory and filename pattern of the output files. Supported variables are: 
 	- `{FileName}` - name of the input video file (with extension)
 	- `{FileNameWithoutExtension}` - name of the input video file (without extension)
