@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="buttonSaveProfile.Text" xml:space="preserve">
-    <value>Creare o aggiornare il profilo</value>
+    <value>Crea o aggiorna il profilo</value>
   </data>
   <data name="labelFFmpegArguments.Text" xml:space="preserve">
-    <value>Argomenti FFmpeg</value>
+    <value>Parametri FFmpeg:</value>
   </data>
   <data name="labelFFmpegProfile.Text" xml:space="preserve">
     <value>Profilo FFmpeg:</value>
@@ -142,12 +142,12 @@
     <value>Suggerimento: può essere modificato nelle impostazioni</value>
   </data>
   <data name="buttonEnqueue.Text" xml:space="preserve">
-    <value>Iniziare</value>
+    <value>Inizia</value>
   </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Annulla</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Enqueue compito</value>
+    <value>Aggiungi attività alla coda</value>
   </data>
 </root>

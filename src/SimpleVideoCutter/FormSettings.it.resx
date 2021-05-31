@@ -118,27 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label1.Text" xml:space="preserve">
-    <value>Elenco predefinito:</value>
+    <value>Cartella predefinita:</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Elenco delle uscite:</value>
+    <value>Cartella di output:</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>Modello del nome del file di output:</value>
+    <value>Formato del nome del file di output:</value>
   </data>
   <data name="textBoxFFmpegPath.ToolTip" xml:space="preserve">
-    <value>Percorso per l'eseguibile ffmepg.exe</value>
+    <value>Percorso dell'eseguibile ffmepg.exe</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>ffmpeg.exe path:</value>
+    <value>>Percorso ffmpeg.exe:</value>
   </data>
   <data name="textBoxVideoFileExtensions.ToolTip" xml:space="preserve">
     <value>Elenco separato da virgole delle estensioni (con punto)
-di file video da considerare. Importante quando
-navigazione verso il file video precedente/successivo nella directory.</value>
+di file video da considerare. Utilizzata per la
+navigazione dei file nella cartella tramite i pulsanti
+file precedente/successivo.</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
-    <value>Esenzioni di file video:</value>
+    <value>Estensioni dei file video:</value>
   </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Annulla</value>

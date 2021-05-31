@@ -1132,7 +1132,7 @@ Press also Shift to set selection from the beginning till this point.</value>
     <value>237, 22</value>
   </data>
   <data name="toolStripMenuItemLangItalian.Text" xml:space="preserve">
-    <value>Italian (machine translation)</value>
+    <value>Italian</value>
   </data>
   <data name="toolStripMenuItemLangChinese.Size" type="System.Drawing.Size, System.Drawing">
     <value>237, 22</value>
