@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutBox_About" xml:space="preserve">
-    <value>Informazioni su</value>
+    <value>Informazioni</value>
   </data>
   <data name="AboutBox_NewVersionAvailable" xml:space="preserve">
-    <value>La nuova versione è disponibile! Visita la pagina del progetto.</value>
+    <value>Una nuova versione è disponibile! Visita la pagina del progetto.</value>
   </data>
   <data name="AboutBox_Version" xml:space="preserve">
     <value>Versione</value>
   </data>
   <data name="AboutBox_VersionUpToDate" xml:space="preserve">
-    <value>State eseguendo l'ultima versione.</value>
+    <value>Si sta eseguendo l'ultima versione.</value>
   </data>
   <data name="FormAddTask_Explanation" xml:space="preserve">
-    <value>In questa finestra è possibile selezionare tra i profili FFmpeg esistenti (o definirne uno nuovo) che verranno utilizzati per la conversione del video. Il profilo FFmpeg è un insieme di argomenti passati a FFmpeg per tagliare il video. Non preoccupatevi se non sapete nulla di FFmpeg - basta premere {1} e l'operazione si avvierà automaticamente (usando il profilo predefinito) e questa finestra non verrà più mostrata. Ma potete sempre riportarla indietro tenendo premuto Shift quando cliccate su '{0}'.
+    <value>In questa finestra è possibile selezionare tra i profili FFmpeg esistenti (o definirne uno nuovo) che verranno utilizzati per la conversione del video. Il profilo FFmpeg è un insieme di parametri passati a FFmpeg per tagliare il video. Non preoccupatevi se non sapete nulla di FFmpeg - basta premere {1} e l'operazione si avvierà automaticamente (usando il profilo predefinito) e questa finestra non verrà più mostrata. Ma potete sempre riaprirla tenendo premuto Shift quando cliccate su '{0}'.
 
 TL;DR: basta premere '{1}'. La finestra non verrà più mostrata.</value>
   </data>
@@ -138,26 +138,26 @@ TL;DR: basta premere '{1}'. La finestra non verrà più mostrata.</value>
     <value>Sei sicuro di voler sovrascrivere il profilo {0}?</value>
   </data>
   <data name="FormAddTask_SameAsSource" xml:space="preserve">
-    <value>come fonte</value>
+    <value>Come il file di origine</value>
   </data>
   <data name="FormSettings_DefaultDirecttoryTooltip" xml:space="preserve">
-    <value>Directory predefinita all'apertura dei file video.
-Può essere specificata sia come percorso assoluto
+    <value>Directory predefinita per l'apertura dei file video.
+Può essere specificata come percorso assoluto,
 o utilizzando una delle directory predefinite:
 {0}</value>
   </data>
   <data name="FormSettings_ExecutableFiles" xml:space="preserve">
-    <value>file eseguibili</value>
+    <value>File eseguibili</value>
   </data>
   <data name="FormSettings_OutputDirectoryTooltip" xml:space="preserve">
-    <value>Cartella di uscita dove i file creati devono essere salvati.
-Può essere specificato sia come percorso assoluto
+    <value>Cartella di uscita dove salvare i file creati.
+Può essere specificata come percorso assoluto,
 o utilizzando una delle directory predefinite:
 {0}</value>
   </data>
   <data name="FormSettings_OutputFileNamePatternTooltip" xml:space="preserve">
     <value>Schema che definisce come verranno calcolati i nomi dei file creati.
-Le parti statiche sono consentite così come queste pseudo-variabili
+Sono consentite sia parti statiche, sia le seguenti pseudo-variabili:
   {0} - nome del file originale
   {1} - nome del file originale, senza estensione
   {2} - estensione del file video originale
@@ -174,7 +174,7 @@ Le parti statiche sono consentite così come queste pseudo-variabili
     <value>Tutti i file video</value>
   </data>
   <data name="MainForm_ButtonCut" xml:space="preserve">
-    <value>Eseguire il taglio</value>
+    <value>Esegui il taglio</value>
   </data>
   <data name="MainForm_DeaultLayoutrestoredAfterRestart" xml:space="preserve">
     <value>Il layout predefinito verrà ripristinato al riavvio dell'applicazione.</value>
@@ -183,7 +183,8 @@ Le parti statiche sono consentite così come queste pseudo-variabili
     <value>Nessuna selezione</value>
   </data>
   <data name="MainForm_QuestionRestartNewLanguage" xml:space="preserve">
-    <value>Per poter utilizzare le nuove impostazioni della lingua, l'applicazione deve essere riavviata. Volete riavviare ora?</value>
+    <value>Per poter utilizzare le nuove impostazioni della lingua, l'applicazione deve essere riavviata.
+Riavviarla ora?</value>
   </data>
   <data name="MainForm_Selection" xml:space="preserve">
     <value>Selezione</value>
@@ -195,10 +196,10 @@ Le parti statiche sono consentite così come queste pseudo-variabili
     <value>Fatto</value>
   </data>
   <data name="TaskProcessor_Failure" xml:space="preserve">
-    <value>Fallimento</value>
+    <value>Fallito</value>
   </data>
   <data name="TaskProcessor_Processed" xml:space="preserve">
-    <value>Elaborato {0} secondi</value>
+    <value>Elaborato in {0} secondi</value>
   </data>
   <data name="TaskProcessor_State_FinishedError" xml:space="preserve">
     <value>Errore</value>
@@ -213,34 +214,34 @@ Le parti statiche sono consentite così come queste pseudo-variabili
     <value>Programmato</value>
   </data>
   <data name="VideoCutterTimeline_HoveredTime" xml:space="preserve">
-    <value>Tempo sospeso</value>
+    <value>Timestamp al cursore</value>
   </data>
   <data name="VideoCutterTimeline_MoveClipEnd" xml:space="preserve">
-    <value>Spostare l'estremità della clip</value>
+    <value>Sposta il termine della clip</value>
   </data>
   <data name="VideoCutterTimeline_MoveClipStart" xml:space="preserve">
-    <value>Spostare il clip start</value>
+    <value>Sposta l'inizio della clip</value>
   </data>
   <data name="VideoCutterTimeline_SetClipStartHere" xml:space="preserve">
-    <value>click centrale per impostare il clip inizia qui</value>
+    <value>Click centrale per impostare l'inizio della clip qui</value>
   </data>
   <data name="VideoCutterTimeline_Time" xml:space="preserve">
-    <value>Tempo</value>
+    <value>Timestamp</value>
   </data>
   <data name="GlobalCancel" xml:space="preserve">
     <value>Annulla</value>
   </data>
   <data name="GlobalClose" xml:space="preserve">
-    <value>Chiudere</value>
+    <value>Chiudi</value>
   </data>
   <data name="VideoCutterTimeline_SetClipFromHereTillEnd" xml:space="preserve">
-    <value>shift + click centrale per impostare il clip da questo punto fino alla fine</value>
+    <value>Shift + click centrale per impostare la clip da questo punto fino alla fine</value>
   </data>
   <data name="VideoCutterTimeline_SetClipFromStartTillHere" xml:space="preserve">
-    <value>controllo + clic centrale per impostare il clip dall'inizio fino a questo punto</value>
+    <value>Ctrl + clic centrale per impostare il clip dall'inizio fino a questo punto</value>
   </data>
   <data name="VideoCutterTimeline_SetClipEndHere" xml:space="preserve">
-    <value>clic centrale per impostare la fine del clip qui
-suggerimento: provare anche con cambio/controllo</value>
+    <value>Clic centrale per impostare la fine del clip qui
+Suggerimento: provare anche con Shift/Ctrl</value>
   </data>
 </root>
