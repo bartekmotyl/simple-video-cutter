@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandLine;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -9,6 +10,22 @@ using System.Windows.Forms;
 
 namespace SimpleVideoCutter
 {
+
+    public class CommandLineOptions
+    {
+        [Option(Default = false, SetName = "config")]
+        public bool ConfigApplicationData { get; set; }
+
+        [Option(Default = false, SetName = "config")]
+        public bool ConfigLocalApplicationData { get; set; }
+        
+        [Option(Default = false, SetName = "config")]
+        public bool ConfigCurrentFolder { get; set; }
+        
+        [Value(0, Default = null, MetaName = "videoFile")]
+        public string VideoFile { get; set; }
+    }
+
     static class Program
     {
         /// <summary>
@@ -18,15 +35,33 @@ namespace SimpleVideoCutter
         static void Main(string[] args)
         {
             string fileToLoadOnStartup = null;
+            string svcFolder = "SimpleVideoCutter";
+            string configFolder = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), svcFolder);
 
-            if (args?.Length > 0)
+            var result = Parser.Default.ParseArguments<CommandLineOptions>(args);
+            result.WithParsed(parsed =>
             {
-                fileToLoadOnStartup = args[0];
-            }
+                if (parsed.ConfigCurrentFolder)
+                {
+                    configFolder = ".";
+                }
+                else if (parsed.ConfigApplicationData)
+                {
+                    configFolder = Path.Combine(Environment.GetFolderPath(
+                        Environment.SpecialFolder.ApplicationData), svcFolder);
+                }
+                else if (parsed.ConfigLocalApplicationData)
+                {
+                    configFolder = Path.Combine(Environment.GetFolderPath(
+                        Environment.SpecialFolder.LocalApplicationData), svcFolder);
+                }
+                fileToLoadOnStartup = parsed.VideoFile;
+            });
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var form = new MainForm(fileToLoadOnStartup);
+            var form = new MainForm(fileToLoadOnStartup, configFolder);
             Application.Run(form);
         }
     }

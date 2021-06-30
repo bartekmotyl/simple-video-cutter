@@ -48,10 +48,10 @@ namespace SimpleVideoCutter
         }
 
 
-        public MainForm(string fileToLoadOnStartup)
+        public MainForm(string fileToLoadOnStartup, string configFolder)
         {
             this.fileToLoadOnStartup = fileToLoadOnStartup;
-
+            VideoCutterSettings.Instance.ConfigFolder = configFolder;
             VideoCutterSettings.Instance.LoadSettings();
 
             if (VideoCutterSettings.Instance.Language == null)

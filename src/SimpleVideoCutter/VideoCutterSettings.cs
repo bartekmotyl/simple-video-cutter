@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SimpleVideoCutter
 {
@@ -40,7 +41,11 @@ namespace SimpleVideoCutter
 
         public string Language { get; set; }
 
-        public static VideoCutterSettings Instance { get; }  = new VideoCutterSettings()
+        [JsonIgnore]
+        public string ConfigFolder { get; set; } = AppDomain.CurrentDomain.BaseDirectory;
+
+
+        public static VideoCutterSettings Instance { get; } = new VideoCutterSettings() 
         {
             ConfigVersion = Utils.GetCurrentRelease()
         };
@@ -53,7 +58,7 @@ namespace SimpleVideoCutter
         { 
             get
             {
-                return Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, configFile));
+                return Path.Combine(Path.Combine(ConfigFolder, configFile));
             } 
         }
 
@@ -83,8 +88,21 @@ namespace SimpleVideoCutter
         }
         public void StoreSettings()
         {
-            var json = Newtonsoft.Json.JsonConvert.SerializeObject(this, Formatting.Indented);
-            File.WriteAllText(ConfigPath, json);
+            try
+            {
+                var folder = Path.GetDirectoryName(ConfigPath);
+                if (!Directory.Exists(folder))
+                {
+                    Directory.CreateDirectory(folder);
+                }
+                var json = Newtonsoft.Json.JsonConvert.SerializeObject(this, Formatting.Indented);
+                File.WriteAllText(ConfigPath, json);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Not possible to save settings. Please check whether folder is writable", 
+                    "Config cannot be saved", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
