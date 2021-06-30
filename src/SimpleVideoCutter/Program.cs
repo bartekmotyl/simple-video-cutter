@@ -13,13 +13,13 @@ namespace SimpleVideoCutter
 
     public class CommandLineOptions
     {
-        [Option(Default = false, SetName = "config")]
+        [Option("configApplicationData", Default = false, SetName = "config")]
         public bool ConfigApplicationData { get; set; }
 
-        [Option(Default = false, SetName = "config")]
+        [Option("configLocalApplicationData", Default = false, SetName = "config")]
         public bool ConfigLocalApplicationData { get; set; }
         
-        [Option(Default = false, SetName = "config")]
+        [Option("configCurrentFolder", Default = false, SetName = "config")]
         public bool ConfigCurrentFolder { get; set; }
         
         [Value(0, Default = null, MetaName = "videoFile")]
@@ -57,6 +57,9 @@ namespace SimpleVideoCutter
                         Environment.SpecialFolder.LocalApplicationData), svcFolder);
                 }
                 fileToLoadOnStartup = parsed.VideoFile;
+            }).WithNotParsed(errs =>
+            {
+                // just ignore
             });
 
             Application.EnableVisualStyles();
