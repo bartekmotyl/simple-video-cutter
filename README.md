@@ -19,13 +19,13 @@ Translations are mostly machine based (DeepL). Please contact me if you can help
 
 Let's imagine you have hours of video footage, dozens of files (videos from your vacations, material copied from your action camera or a drone etc.). 
 Usually only a small portion of this material is worth keeping. So you would like to check the whole material and extract the most interesting/best 
-parts as separate videos. And this is where the simple-video-cutter tool comes in. It helps you to quickly browse the videos, preview them and 
+parts as separate videos. And this is where the simple-video-cutter tool comes in. It helps you quickly browse your videos, preview them and 
 extract interesting parts into separate video files. 
 
 The main goal is to make this process as efficient as possible. 
 You don't have to select the next file from disk manually, just press "next" and next file (ordered by date) is loaded automatically. 
 Location and filenames of created video cuts are assigned automatically basing on patterns specified in the configuration. 
-The extraction process is done in background (by ffmpeg), so you can work with next material whilst the previous tasks are being processed. 
+The extraction process is done in background (by [FFmpeg](http://ffmpeg.org/)), so you can work with next material whilst the previous tasks are being processed. 
 
 ## How to use 
 
@@ -34,20 +34,12 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 (Check also translations in [README.txt](README.txt))
 
 - Download the release by [clicking here](https://github.com/bartekmotyl/simple-video-cutter/releases). Click on 'Assets' to see release files. 
-- Unzip release package into a directory 
+- Unzip release package into a directory.   
 - Start `SimpleVideoCutter.exe` in that directory
-- Once prompted, select location of ffmpeg.exe (FFmpeg can be downloaded for free from [FFmpeg release page](https://www.gyan.dev/ffmpeg/builds/)   
-- You can also adjust other parameters in settings window, for example directory and filename pattern of the output files. Supported variables are: 
-	- `{FileName}` - name of the input video file (with extension)
-	- `{FileNameWithoutExtension}` - name of the input video file (without extension)
-	- `{FileExtension}` - extension of the input video file (with dot)
-	- `{FileDate}` - last modification date of the input file (in format `yyyy-MM-dd-HHmmss`)
-	- `{Timestamp}` - current timestamp (in format `yyyyMMddHHmmss`)
-	- `{UserVideos}` - shortcut for `Environment.SpecialFolder.MyVideos`
-	- `{UserDocuments}` - shortcut for `Environment.SpecialFolder.MyDocuments`
-	- `{MyComputer}` - shortcut for `Environment.SpecialFolder.MyComputer`
-	- `{SameFolder}` - allows to save files in same folder when original video file is located
-- Click OK to save settings. Setting are saved in `config.json` file and can be edited manually (but please be aware settings file is overwritten when program closes).  
+- As [FFmpeg](http://ffmpeg.org/) is required to work with SimpleVideoCutter, you can decide to let SimpleVideoCutter download FFmpeg automatically or you may also download FFmpeg yourself (FFmpeg can be downloaded for free from [FFmpeg release page](https://www.gyan.dev/ffmpeg/builds/)) and set it's path in the Settings dialog.  
+- Click OK to save settings 
+	
+Note: see [below](#portable-installation)  in case you are going to install SimpleVideoCutter in a directory where users do not have write access. 
 	
 ### Working with the tool:
 - Open a video file 
@@ -56,29 +48,31 @@ The extraction process is done in background (by ffmpeg), so you can work with n
 - Select a position and press `[` (or click the correspnding button) to mark start of your cut  
 - Press `]` to mark end of your cut 
 - Press `E` (or click 'Enqueue' button) to add task to the queue. 
-  FFmpeg will be used to extract selected portion of the video and save it in a new file. 
-- In tasks lists you can inspect pending and running tasks. Tasks are processed automatically and disappear once completed. 
+  Selected portion of the video will be extracted (with help of FFmpeg) and saved in a new file. 
+- You can inspect pending and running tasks in the tsks list area. Tasks are processed automatically and disappear once completed. 
 Feel free to open next file (and add next tasks) while task is still in progress - they do not interfere with each other and just queue up. 
 - Use Previos / Next buttons to quickly open next or previous file in the same directory. 
 
-## To do
-- ~~bundle ffmpeg with the program, do not require user to download it separatelly~~
-- allow to configure ffmpeg options (e.g. convert to a different format / size etc.) - partially done 
-- extend list of variables that can be used in file patterns 
-- jump to first/last video file in the current directory 
-- jump to next/prev directory (sibling to current directory)
-- ~~support lossless cut~~ 
-- ~~configure options in a dialog (currently one need to modify `config.json` file manually)~~
-- ~~open dialog to select ffmpeg location~~ 
-- ~~improve timeline control (show seconds ticks etc. )~~
+### Settings
+In the settings window you can adjust some options, especially directory and filename pattern of the output files. 
+Supported variables are: 
+- `{FileName}` - name of the input video file (with extension)
+- `{FileNameWithoutExtension}` - name of the input video file (without extension)
+- `{FileExtension}` - extension of the input video file (with dot)
+- `{FileDate}` - last modification date of the input file (in format `yyyy-MM-dd-HHmmss`)
+- `{Timestamp}` - current timestamp (in format `yyyyMMddHHmmss`)
+- `{UserVideos}` - shortcut for `Environment.SpecialFolder.MyVideos`
+- `{UserDocuments}` - shortcut for `Environment.SpecialFolder.MyDocuments`
+- `{MyComputer}` - shortcut for `Environment.SpecialFolder.MyComputer`
+- `{SameFolder}` - allows to save files in same folder when original video file is located
 
+### Portable installation
+It is possible to install SimpleVideoCutter into a non-writable directly. In this case one has to manually install FFmpeg and configure its path in the settings.
+Configuration file by default is saved in `C:\Users\<username>\AppData\Local\SimpleVideoCutter` (which should be writable for end users). Alternatively, the following command line options can be used to specify different location of config file: 
+* `--configCurrentFolder` - in the same folder where exe file is located
+* `--configLocalApplicationData` - in the `AppData\Local folder` (this is the default)
+* `--configApplicationData` - in the `AppData\Roaming` folder (this means the file is copied when user logs in on another machine in domain environment). Please note this option may be useful only if ffmpeg path points to a shared resource as well (e.g. network drive) or it is expected ffmpeg is always installed in the same place on all machines.
 
-## Known issues
-- ~~sometimes the program freezes (how to fix: [see more here](https://github.com/ZeBobo5/Vlc.DotNet/wiki/Vlc.DotNet-freezes-(don't-call-Vlc.DotNet-from-a-Vlc.DotNet-callback)))~~
-- lack of proper error handling in some border cases (IO errors etc.) 
-- location on timeline not updated correctly when video reaches the end 
-  (sometimes the marker stays a bit before the actual end). 
-- small preview slide (on top to the hovered position) sometimes stucks and doesn't update with actual hovered frame any more. Known workaround: re-open the file.   
 
 ## Icons 
 
