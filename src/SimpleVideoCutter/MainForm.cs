@@ -96,6 +96,7 @@ namespace SimpleVideoCutter
                 this.WindowState = FormWindowState.Maximized;
             }
 
+            this.videoViewHover.Visible = VideoCutterSettings.Instance.ShowPreview;
         }
 
         private async void MainForm_Load(object sender, EventArgs e)
@@ -794,7 +795,7 @@ namespace SimpleVideoCutter
             {
                 float posFloat = (float)pos.Value / videoViewHover.MediaPlayer.Length;
 
-                videoViewHover.Visible = true;
+                videoViewHover.Visible = VideoCutterSettings.Instance.ShowPreview && true;
 
                 int posX = videoCutterTimeline1.PositionToPixel(pos) - videoViewHover.Width / 2;
                 posX = Math.Max(posX, 0);
