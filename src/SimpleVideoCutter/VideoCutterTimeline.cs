@@ -240,11 +240,6 @@ namespace SimpleVideoCutter
 
                     if (posXPixel >= -ClientRectangle.Width && posXPixel <= ClientRectangle.Width)
                     {
-                        e.Graphics.DrawLine(penTickSeconds, (int)posXPixel, 3 * (timeLineHeight / 4), (int)posXPixel, timeLineHeight);
-                            
-                        if (time.Seconds == 0)
-                            e.Graphics.DrawLine(penTickMinute, (int)posXPixel, timeLineHeight / 2, (int)posXPixel, timeLineHeight);
-
                         string text;
 
                         if (time.TotalHours > 1)
@@ -254,11 +249,24 @@ namespace SimpleVideoCutter
 
                         var size = e.Graphics.MeasureString(text, this.Font);
 
-                        if (pixelsPerSecond > size.Width + 5)
+                        var secondsPerSize = Math.Ceiling((size.Width + 5) / pixelsPerSecond);
+                        var drawLabel = time.TotalSeconds % secondsPerSize == 0;
+
+                        if (drawLabel)
                         {
-                            var rect = new Rectangle((int)posXPixel, (int)(timeLineHeight - size.Height), 100, 15);
+                            var rect = new Rectangle((int)posXPixel, (int)(timeLineHeight - size.Height - 20), 100, 15);
                             e.Graphics.DrawString(text, this.Font, penTickSeconds.Brush, rect, StringFormat.GenericDefault);
                         }
+
+                        if (drawLabel) 
+                            e.Graphics.DrawLine(penTickSeconds, (int)posXPixel,(timeLineHeight / 2), (int)posXPixel, timeLineHeight);
+
+                        e.Graphics.DrawLine(penTickSeconds, (int)posXPixel, 3 * (timeLineHeight / 4), (int)posXPixel, timeLineHeight);
+
+                        if (time.Seconds == 0)
+                            e.Graphics.DrawLine(penTickMinute, (int)posXPixel, timeLineHeight / 2, (int)posXPixel, timeLineHeight);
+
+
                     }
 
                 }
