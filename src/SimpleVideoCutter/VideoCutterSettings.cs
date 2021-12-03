@@ -23,6 +23,7 @@ namespace SimpleVideoCutter
 
         public bool Mute { get; set; } = false;
         public bool ShowPreview { get; set; } = true;
+        public bool KeepSelectionAfterCut { get; set; } = false;
         public bool Autostart { get; set; } = true;
         public bool ShowTaskWindow { get; set; } = true;
 

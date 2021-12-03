@@ -614,7 +614,10 @@ namespace SimpleVideoCutter
             VideoCutterSettings.Instance.SelectedFFmpegCutProfile = task.Profile.Name;
 
             taskProcessor.EnqueueTask(task);
-            ClearSelection();
+            if (!VideoCutterSettings.Instance.KeepSelectionAfterCut)
+            {
+                ClearSelection();
+            }
             toolStripButtonTasksShow.Checked = true; 
         }
 
