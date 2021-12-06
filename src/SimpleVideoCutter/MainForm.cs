@@ -191,7 +191,7 @@ namespace SimpleVideoCutter
         private void AckPositionChange(long position)
         {
             var length = (long)vlcControl1.MediaPlayer.Length;
-
+            /*
             if (videoCutterTimeline1.SelectionEnd != null && position >= videoCutterTimeline1.SelectionEnd)
             {
                 if (vlcControl1.MediaPlayer.State == VLCState.Playing)
@@ -204,6 +204,32 @@ namespace SimpleVideoCutter
                             vlcControl1.MediaPlayer.SetPause(true);
                             vlcControl1.MediaPlayer.Position = (float)videoCutterTimeline1.SelectionEnd.Value / vlcControl1.MediaPlayer.Length;
                         });
+                    }
+                }
+            }
+            */
+            if (!videoCutterTimeline1.Selections.Empty)
+            {
+                long? adjustedPosition = videoCutterTimeline1.Selections.FindNextValidPosition(position);
+                if (adjustedPosition == null)
+                {
+                    if (vlcControl1.MediaPlayer.IsPlaying)
+                    {
+                        vlcControl1.MediaPlayer.SetPause(true);
+                        ThreadPool.QueueUserWorkItem(_ =>
+                        {
+                            vlcControl1.MediaPlayer.SetPause(true);
+                            vlcControl1.MediaPlayer.Position = (float)videoCutterTimeline1.Selections.OverallEnd.Value / vlcControl1.MediaPlayer.Length;
+                        });
+                    }
+                }
+                else if (adjustedPosition.Value != position)
+                {
+                    position = adjustedPosition.Value;
+                    var mediaPlayerPosition = (float)position / vlcControl1.MediaPlayer.Length;
+                    if (mediaPlayerPosition != vlcControl1.MediaPlayer.Position)
+                    {
+                        vlcControl1.MediaPlayer.Position = mediaPlayerPosition;
                     }
                 }
             }
