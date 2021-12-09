@@ -21,6 +21,107 @@ namespace SimpleVideoCutter
             return position >= Start && position <= End;
         }
     }
+    public class SelectionsMoveController
+    {
+        protected VideoCutterTimeline ctrl;
+        protected Selections selections;
+        protected int? draggedStart;
+        protected int? draggedEnd;
+
+        protected bool DragInProgress => draggedStart != null || draggedEnd != null;
+
+
+        public SelectionsMoveController(VideoCutterTimeline ctrl, Selections selections)
+        {
+            this.ctrl = ctrl;
+            this.selections = selections;
+        }
+
+        //protected abstract long? GetCurrentPosition();
+        //protected abstract void SetCurrentPosition(long frame);
+
+        protected long? GetCurrentPosition()
+        {
+            return 0;
+        }
+
+        public bool IsDragInProgress()
+        {
+            return DragInProgress;
+        }
+
+        public bool IsDragStartPossible(int posX)
+        {
+            return !DragInProgress && IsInDragSizeByFrame(posX, GetCurrentPosition());
+        }
+
+        public void ProcessMouseMove(MouseEventArgs e)
+        {
+            if (DragInProgress)
+            {
+                ctrl.Cursor = Cursors.SizeWE;
+                var newPos = ctrl.PixelToPosition(e.X);
+                if (draggedStart != null)
+                {
+                    selections.SetSelectionStart(draggedStart.Value, newPos); 
+                }
+                else if (draggedEnd != null)
+                {
+                    selections.SetSelectionEnd(draggedEnd.Value, newPos);
+                }
+            }
+            else
+            {
+                var start = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(e.X, sel.Start));
+                var end = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(e.X, sel.End));
+                if (start >= 0 || end >= 0)
+                {
+                    ctrl.Cursor = Cursors.SizeWE;
+                } 
+            }
+        }
+
+        public void ProcessMouseLeave(EventArgs e)
+        {
+            draggedStart = null;
+            draggedEnd = null;
+        }
+        public void ProcessMouseDown(MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && e.Clicks == 1)
+            {
+                var start = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(e.X, sel.Start));
+                var end = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(e.X, sel.End));
+                if (start >= 0)
+                {
+                    draggedStart = start;
+                }
+                else if (end >= 0)
+                {
+                    draggedEnd = end;
+                }
+            }
+        }
+
+        public void ProcessMouseUp(MouseEventArgs e)
+        {
+            if (DragInProgress)
+            {
+                draggedStart = null;
+                draggedEnd = null;
+                var frame = GetCurrentPosition().Value;
+                //ctrl.OnPositionChangeRequest(frame);
+            }
+        }
+
+        private bool IsInDragSizeByFrame(int testedX, long? refFrame)
+        {
+            if (refFrame == null)
+                return false;
+            var refX = ctrl.PositionToPixel(refFrame.Value);
+            return Math.Abs(testedX - refX) < SystemInformation.DragSize.Width;
+        }
+    }
 
     public class Selections
     {
@@ -52,6 +153,8 @@ namespace SimpleVideoCutter
         public long? OverallStart => selections.FirstOrDefault()?.Start;
         public long? OverallEnd => selections.LastOrDefault()?.End;
 
+        public List<Selection> AllSelections => selections;
+
         public void Clear()
         {
             selections.Clear();
@@ -72,6 +175,8 @@ namespace SimpleVideoCutter
                 return index;
         }
 
+
+
         public long? FindNextValidPosition(long position)
         {
             int? selectionIndex = IsInSelection(position);
@@ -83,6 +188,33 @@ namespace SimpleVideoCutter
             return selection?.Start;
         }
 
+        public bool SetSelectionStart(int index, long value)
+        {
+            var selection = this.selections[index];
+            var prev = index > 0 ? this.selections[index-1] : null;
+            if (prev != null && prev.End > value)
+            {
+                selections[index].Start = prev.End+1;
+                return false;
+            }
+               
+            selections[index].Start = value > selections[index].End ? selections[index].End : value;
+            return true; 
+        }
+
+        public bool SetSelectionEnd(int index, long value)
+        {
+            var selection = this.selections[index];
+            var next = index < selections.Count - 1 ? this.selections[index + 1] : null;
+            if (next != null && next.Start < value)
+            {
+                selections[index].End = next.Start - 1;
+                return false;
+            }
+
+            selections[index].End = value < selections[index].Start ? selections[index].Start : value;
+            return true;
+        }
     }
 
     public partial class VideoCutterTimeline : UserControl
@@ -103,9 +235,12 @@ namespace SimpleVideoCutter
         private Pen penSmallTicks = new Pen(Color.FromArgb(0xAD, 0xB5, 0xBD));
         private Brush brushHoverPosition = new SolidBrush(Color.FromArgb(0xC8, 0x17, 0x17));
         private Brush brushPosition = new SolidBrush(Color.FromArgb(0x00, 0x5C, 0x9E));
+        
         private Brush brushSelectionMarker = new SolidBrush(Color.FromArgb(0x21, 0x25, 0x29));
-        private PositionMoveController selectionStartMoveController;
-        private PositionMoveController selectionEndMoveController;
+        private Pen penSelectionMarker = new Pen(Color.FromArgb(0x21, 0x25, 0x29));
+        //private PositionMoveController selectionStartMoveController;
+        //private PositionMoveController selectionEndMoveController;
+        private SelectionsMoveController selectionsMoveController;
 
         private long position = 0;
         private long? hoverPosition = null;
@@ -188,8 +323,9 @@ namespace SimpleVideoCutter
         public VideoCutterTimeline()
         {
             InitializeComponent();
-            selectionStartMoveController = new SelectionStartMoveController(this);
-            selectionEndMoveController = new SelectionEndMoveController(this);
+            selectionsMoveController = new SelectionsMoveController(this, selections);
+            //selectionStartMoveController = new SelectionStartMoveController(this);
+            //selectionEndMoveController = new SelectionEndMoveController(this);
         }
 
         protected override void OnMouseWheel(MouseEventArgs e)
@@ -264,6 +400,8 @@ namespace SimpleVideoCutter
 
         private void VideoCutterTimeline_Paint(object sender, PaintEventArgs e)
         {
+
+
             e.Graphics.FillRectangle(brushBackground, ClientRectangle);
             if (Length == 0)
             {
@@ -354,10 +492,18 @@ namespace SimpleVideoCutter
 
 
                 var pixel = PositionToPixel(selection.Start);
-                e.Graphics.FillRectangle(brushSelectionMarker, pixel, 0, 3, selectionAreaHeight);
+                GraphicsUtils.DrawSolidRectangle(e.Graphics, brushSelectionMarker, penSelectionMarker, pixel-1, 0, 2, selectionAreaHeight);
+                //e.Graphics.FillRectangle(brushSelectionMarker, pixel, 0, 3, selectionAreaHeight);
+                //GraphicsUtils.DrawSolidRectangle(e.Graphics, brushSelectionMarker, penSelectionMarker, pixel-2, 0, 4, selectionAreaHeight);
+                //e.Graphics.FillRectangle(brushSelectionMarker, pixel-2, 0, 4, 2);
+                //e.Graphics.FillRectangle(brushSelectionMarker, pixel-2, selectionAreaHeight-2, 4, 2);
+
 
                 pixel = PositionToPixel(selection.End);
-                e.Graphics.FillRectangle(brushSelectionMarker, pixel, 0, 3, selectionAreaHeight);
+                GraphicsUtils.DrawSolidRectangle(e.Graphics, brushSelectionMarker, penSelectionMarker, pixel - 1, 0, 2, selectionAreaHeight);
+                //e.Graphics.FillRectangle(brushSelectionMarker, pixel, 0, 3, selectionAreaHeight);
+                //e.Graphics.FillRectangle(brushSelectionMarker, pixel-2, 0, 4, 2);
+                //e.Graphics.FillRectangle(brushSelectionMarker, pixel - 2, selectionAreaHeight - 2, 4, 2);
 
             }
 
@@ -371,7 +517,7 @@ namespace SimpleVideoCutter
             if (HoverPosition != null)
             {
                 var pixel = PositionToPixel(HoverPosition);
-
+                /*
                 if (selectionStartMoveController.IsDragStartPossible(pixel) || selectionStartMoveController.IsDragInProgress())
                 {
                     timelineTooltip = new TimelineTooltip() { X = pixel, Text = GlobalStrings.VideoCutterTimeline_MoveClipStart };
@@ -380,6 +526,7 @@ namespace SimpleVideoCutter
                 {
                     timelineTooltip = new TimelineTooltip() { X = pixel, Text = GlobalStrings.VideoCutterTimeline_MoveClipEnd };
                 }
+                */
 
                 e.Graphics.FillRectangle(brushHoverPosition, pixel, 0, 3, ticksAreaHeight + selectionAreaHeight);
                 PaintTriangle(e.Graphics, brushHoverPosition, PositionToPixel(HoverPosition) + 1, 8, 8);
@@ -601,18 +748,18 @@ namespace SimpleVideoCutter
             HoverPosition = PixelToPosition(e.Location.X);
 
             Cursor = Cursors.Default;
-            
-            selectionStartMoveController.ProcessMouseMove(e);
-            selectionEndMoveController.ProcessMouseMove(e);
+            selectionsMoveController.ProcessMouseMove(e);
+            //selectionStartMoveController.ProcessMouseMove(e);
+            //selectionEndMoveController.ProcessMouseMove(e);
 
         }
 
         private void VideoCutterTimeline_MouseLeave(object sender, EventArgs e)
         {
             HoverPosition = null;
-            
-            selectionStartMoveController.ProcessMouseLeave(e);
-            selectionEndMoveController.ProcessMouseLeave(e);
+            selectionsMoveController.ProcessMouseLeave(e);
+            //selectionStartMoveController.ProcessMouseLeave(e);
+            //selectionEndMoveController.ProcessMouseLeave(e);
 
             Cursor = Cursors.Default;
         }
@@ -651,15 +798,17 @@ namespace SimpleVideoCutter
 
         private void VideoCutterTimeline_MouseDown(object sender, MouseEventArgs e)
         {
-            selectionStartMoveController.ProcessMouseDown(e);
-            selectionEndMoveController.ProcessMouseDown(e);
+            selectionsMoveController.ProcessMouseDown(e);
+            //selectionStartMoveController.ProcessMouseDown(e);
+            //selectionEndMoveController.ProcessMouseDown(e);
         }
 
         private void VideoCutterTimeline_MouseUp(object sender, MouseEventArgs e)
         {
-            if (!selectionStartMoveController.IsDragInProgress() && !selectionEndMoveController.IsDragInProgress())
+            //if (!selectionStartMoveController.IsDragInProgress() && !selectionEndMoveController.IsDragInProgress())
+            if (!selectionsMoveController.IsDragInProgress())
             {
-                var frame = PixelToPosition(e.X);
+                    var frame = PixelToPosition(e.X);
                 if (e.Button == MouseButtons.Middle && e.Clicks == 1)
                 {
                     if (ModifierKeys == Keys.Shift)
@@ -687,8 +836,9 @@ namespace SimpleVideoCutter
             }
             else
             {
-                selectionStartMoveController.ProcessMouseUp(e);
-                selectionEndMoveController.ProcessMouseUp(e);
+                selectionsMoveController.ProcessMouseUp(e);
+                //selectionStartMoveController.ProcessMouseUp(e);
+                //selectionEndMoveController.ProcessMouseUp(e);
             }
         }
 
@@ -736,6 +886,7 @@ namespace SimpleVideoCutter
             {
                 dragInProgress = false;
             }
+
             public void ProcessMouseDown(MouseEventArgs e)
             {
                 if (e.Button == MouseButtons.Left && e.Clicks == 1)
@@ -765,6 +916,7 @@ namespace SimpleVideoCutter
                 return Math.Abs(testedX - refX) < SystemInformation.DragSize.Width;
             }
         }
+        /*
         private class SelectionStartMoveController : PositionMoveController
         {
             public SelectionStartMoveController(VideoCutterTimeline ctrl) : base(ctrl)
@@ -798,7 +950,7 @@ namespace SimpleVideoCutter
                     ctrl.SetSelection(ctrl.selectionStart, frame);
             }
         }
-
+        */
         private class TimelineTooltip
         {
             public int X { get; set; }
@@ -819,5 +971,21 @@ namespace SimpleVideoCutter
     public class PositionChangeRequestEventArgs : EventArgs
     {
         public long Position { get; set; }
+    }
+
+    internal static class GraphicsUtils
+    {
+
+        public static void DrawSolidRectangle(Graphics g, Brush b, Pen p, Rectangle r)
+        {
+            g.DrawRectangle(p, r);
+            g.FillRectangle(b, r);
+        }
+
+        public static void DrawSolidRectangle(Graphics g, Brush b, Pen p, int x, int y, int width, int height)
+        {
+            g.DrawRectangle(p, x, y, width, height);
+            g.FillRectangle(b, x, y, width, height);
+        }
     }
 }
