@@ -55,7 +55,7 @@ namespace SimpleVideoCutter
         {
         }
 
-        protected string ConfigPath 
+        public string ConfigPath 
         { 
             get
             {

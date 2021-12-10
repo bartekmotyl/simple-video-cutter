@@ -351,7 +351,7 @@ namespace SimpleVideoCutter
                 ThreadPool.QueueUserWorkItem(_ => vlcControl1.MediaPlayer.Stop());
             }
 
-            ClearSelection();
+            ClearAllSelections();
             UpdateIndexLabel();
             EnableButtons();
 
@@ -406,7 +406,10 @@ namespace SimpleVideoCutter
                 SetSelectionFromTheBeginningTillCurrentPosition();
 
             if (e.KeyCode == Keys.Delete && e.Modifiers == Keys.None)
-                ClearSelection();
+                ClearCurrentSelection();
+
+            if (e.KeyCode == Keys.D && e.Modifiers == Keys.Control)
+                ClearAllSelections();
 
             if (e.KeyCode == Keys.E && (e.Modifiers == Keys.None || e.Modifiers == Keys.Shift))
                 this.EnqeueNewTask();
@@ -447,6 +450,8 @@ namespace SimpleVideoCutter
             if (e.Modifiers == Keys.None && e.KeyCode == Keys.R && videoCutterTimeline1.SelectionStart != null)
                 PlaySelection();
 
+            if (e.KeyCode == Keys.E && e.Modifiers == Keys.Control)
+                System.Diagnostics.Process.Start("notepad.exe", VideoCutterSettings.Instance.ConfigPath);
         }
         private void NextFrame()
         {
@@ -642,15 +647,25 @@ namespace SimpleVideoCutter
             taskProcessor.EnqueueTask(task);
             if (!VideoCutterSettings.Instance.KeepSelectionAfterCut)
             {
-                ClearSelection();
+                ClearAllSelections();
             }
             toolStripButtonTasksShow.Checked = true; 
         }
 
-        private void ClearSelection()
+        private void ClearAllSelections()
         {
-            // SetSelection raises SelectionChanged event, see VideoCutterTimeline1_SelectionChanged
-            videoCutterTimeline1.SetSelection(null, null);
+            // Selections.Clear raises SelectionChanged event, see VideoCutterTimeline1_SelectionChanged
+            videoCutterTimeline1.Selections.Clear();
+        }
+        private void ClearCurrentSelection()
+        {
+            var pos = videoCutterTimeline1.Position;
+            var currSelectionIndex = videoCutterTimeline1.Selections.IsInSelection(pos);
+            if (currSelectionIndex != null)
+            {
+                videoCutterTimeline1.Selections.DeleteSelection(currSelectionIndex.Value);
+            }
+            
         }
 
         private IList<string> GetVideoFilesInDirectory(string currentFilePath)
@@ -924,7 +939,7 @@ namespace SimpleVideoCutter
             }
             else if (e.ClickedItem == toolStripButtonSelectionClear)
             {
-                ClearSelection();
+                ClearAllSelections();
             }
             else if (e.ClickedItem == toolStripButtonSelectionGoToStart)
             {
