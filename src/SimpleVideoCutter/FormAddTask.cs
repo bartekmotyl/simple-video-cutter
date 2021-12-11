@@ -45,7 +45,7 @@ namespace SimpleVideoCutter
             {
                 this.textBoxOriginalFilePath.Text = Task.InputFilePath;
                 this.textBoxOutputFilePath.Text = Task.OutputFilePath;
-                this.textBoxDuration.Text = TimeSpan.FromMilliseconds(Task.Duration).ToString(@"hh\:mm\:ss\.fff");
+                this.textBoxDuration.Text = TimeSpan.FromMilliseconds(Task.OverallDuration).ToString(@"hh\:mm\:ss\.fff");
 
                 ProfileToGUI();
 

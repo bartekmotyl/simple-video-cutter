@@ -325,12 +325,11 @@ namespace SimpleVideoCutter
                 .Replace("{FileExtension}", Path.GetExtension(path))
                 .Replace("{FileDate}", string.Format("{0:yyyyMMdd-HHmmss}", fileInfo.LastWriteTime))
                 .Replace("{Timestamp}", string.Format("{0:yyyyMMdd-HHmmss}", DateTime.Now))
-                .Replace("{SelectionStart}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(this.videoCutterTimeline1.SelectionStart.Value)))
-                .Replace("{SelectionEnd}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(this.videoCutterTimeline1.SelectionEnd.Value)))
-                .Replace("{SelectionStartMs}", string.Format("{0}", this.videoCutterTimeline1.SelectionStart.Value))
-                .Replace("{SelectionEndMs}", string.Format("{0}", this.videoCutterTimeline1.SelectionEnd.Value))
-                .Replace("{Duration}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(
-                    this.videoCutterTimeline1.SelectionEnd.Value - this.videoCutterTimeline1.SelectionStart.Value)));
+                .Replace("{SelectionStart}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(this.videoCutterTimeline1.Selections.OverallStart.Value)))
+                .Replace("{SelectionEnd}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(this.videoCutterTimeline1.Selections.OverallEnd.Value)))
+                .Replace("{SelectionStartMs}", string.Format("{0}", this.videoCutterTimeline1.Selections.OverallStart.Value))
+                .Replace("{SelectionEndMs}", string.Format("{0}", this.videoCutterTimeline1.Selections.OverallEnd.Value))
+                .Replace("{Duration}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(this.videoCutterTimeline1.Selections.OverallDuration)));
         }
 
         private void OpenFile(string path)
@@ -447,7 +446,7 @@ namespace SimpleVideoCutter
             if (e.KeyCode == Keys.OemPeriod && e.Modifiers == Keys.None)
                 NextFrame();
 
-            if (e.Modifiers == Keys.None && e.KeyCode == Keys.R && videoCutterTimeline1.SelectionStart != null)
+            if (e.Modifiers == Keys.None && e.KeyCode == Keys.R)
                 PlaySelection();
 
             if (e.KeyCode == Keys.E && e.Modifiers == Keys.Control)
@@ -470,37 +469,36 @@ namespace SimpleVideoCutter
 
         private void SetStartAtCurrentPosition()
         {
-            // SetSelection raises SelectionChanged event, see VideoCutterTimeline1_SelectionChanged
-            videoCutterTimeline1.SetSelection(videoCutterTimeline1.Position, videoCutterTimeline1.SelectionEnd);
+            // RegisterNewSelectionStart raises SelectionChanged event, see VideoCutterTimeline1_SelectionChanged
+            videoCutterTimeline1.RegisterNewSelectionStart(videoCutterTimeline1.Position);
         }
         private void SetEndAtCurrentPosition()
         {
-            if (videoCutterTimeline1.SelectionStart != null)
-            {
-                // SetSelection raises SelectionChanged event, see VideoCutterTimeline1_SelectionChanged
-                videoCutterTimeline1.SetSelection(videoCutterTimeline1.SelectionStart, videoCutterTimeline1.Position);
-            }
+            // RegisterNewSelectionEnd raises SelectionChanged event, see VideoCutterTimeline1_SelectionChanged
+            videoCutterTimeline1.RegisterNewSelectionEnd(videoCutterTimeline1.Position);
         }
 
         private void SetSelectionAtCurrentPositionTillTheEnd()
         {
+            MessageBox.Show("TODO");
             // SetSelection raises SelectionChanged event, see VideoCutterTimeline1_SelectionChanged
-            videoCutterTimeline1.SetSelection(videoCutterTimeline1.Position, videoCutterTimeline1.Length);
+            //videoCutterTimeline1.SetSelection(videoCutterTimeline1.Position, videoCutterTimeline1.Length);
         }
 
         private void SetSelectionFromTheBeginningTillCurrentPosition()
         {
+            MessageBox.Show("TODO");
             // SetSelection raises SelectionChanged event, see VideoCutterTimeline1_SelectionChanged
-            videoCutterTimeline1.SetSelection(0, videoCutterTimeline1.Position);
+            //videoCutterTimeline1.SetSelection(0, videoCutterTimeline1.Position);
         }
 
         private void GoToSelectionStart()
         {
-            if (videoCutterTimeline1.SelectionStart != null)
+            if (videoCutterTimeline1.Selections.OverallStart != null)
             {
                 ThreadPool.QueueUserWorkItem(_ =>
                 {
-                    var position = videoCutterTimeline1.SelectionStart.Value;
+                    var position = videoCutterTimeline1.Selections.OverallStart.Value;
                     vlcControl1.MediaPlayer.Position = (float)position / vlcControl1.MediaPlayer.Length;
                     videoCutterTimeline1.GoToPosition(position);
                     AckPositionChange(position);
@@ -510,11 +508,11 @@ namespace SimpleVideoCutter
 
         private void GoToSelectionEnd()
         {
-            if (videoCutterTimeline1.SelectionEnd != null)
+            if (videoCutterTimeline1.Selections.OverallEnd != null)
             {
                 ThreadPool.QueueUserWorkItem(_ =>
                 {
-                    var position = videoCutterTimeline1.SelectionEnd.Value;
+                    var position = videoCutterTimeline1.Selections.OverallEnd.Value;
                     vlcControl1.MediaPlayer.Position = (float)position / vlcControl1.MediaPlayer.Length;
                     videoCutterTimeline1.GoToPosition(position);
                     AckPositionChange(position);
@@ -542,7 +540,7 @@ namespace SimpleVideoCutter
                         var item = new ListViewItem(task.StateLabel);
                         item.SubItems.Add(string.Format("{0}", task.Profile.Name));
                         item.SubItems.Add(string.Format("{0}", task.InputFileName));
-                        item.SubItems.Add(string.Format("{0} sec", Math.Round(task.Duration / 1000.0f, 1)));
+                        item.SubItems.Add(string.Format("{0} sec", Math.Round(task.OverallDuration / 1000.0f, 1)));
                         item.SubItems.Add(string.Format("{0}", task.OutputFilePath));
                         item.SubItems.Add(string.Format("{0}", task.ErrorMessage));
                         if (task.State == FFmpegTaskState.FinishedError)
@@ -586,7 +584,7 @@ namespace SimpleVideoCutter
 
         private void EnqeueNewTask()
         {
-            if (videoCutterTimeline1.SelectionStart == null || videoCutterTimeline1.SelectionEnd == null)
+            if (videoCutterTimeline1.Selections.Count == 0)
             {
                 return;
             }
@@ -599,15 +597,9 @@ namespace SimpleVideoCutter
             var outputFileName = ReplaceFilePatterns(VideoCutterSettings.Instance.OutputFilePattern, fileBeingPlayed);
             var outputFilePath = Path.Combine(outputDir, outputFileName);
 
-            long selectionStart = videoCutterTimeline1.SelectionStart.Value;
-            long selectionEnd = videoCutterTimeline1.SelectionEnd.Value;
-
-
-
             var profile = VideoCutterSettings.Instance.FFmpegCutProfiles.FirstOrDefault(
                 p => p.Name == VideoCutterSettings.Instance.SelectedFFmpegCutProfile) ??
                 VideoCutterSettings.Instance.FFmpegCutProfiles.First();
-            
 
             // If 'FileType' in profile is not null or empty then 
             // we assume it specifies file extension (format) to be used 
@@ -617,13 +609,19 @@ namespace SimpleVideoCutter
                 outputFilePath = Path.ChangeExtension(outputFilePath, extension);
             }
 
+            var selections = videoCutterTimeline1.Selections.AllSelections.Select(s => new FFmpegTaskSelection()
+            {
+                Start = TimeSpan.FromMilliseconds(s.Start),
+                Duration = TimeSpan.FromMilliseconds(s.End - s.Start),
+            }).ToArray();
+
             var task = new FFmpegTask()
             {
                 InputFilePath = fileInfo.FullName,
                 OutputFilePath = outputFilePath,
                 InputFileName = fileInfo.Name,
-                SelectionStart = selectionStart,
-                Duration = selectionEnd - selectionStart,
+                Selections = selections,
+                OverallDuration = videoCutterTimeline1.Selections.OverallDuration,
                 TaskId = Guid.NewGuid().ToString(),
                 Profile = profile,
             };
@@ -751,7 +749,7 @@ namespace SimpleVideoCutter
             }
             else
             {
-                if (videoCutterTimeline1.SelectionStart == null || videoCutterTimeline1.SelectionEnd == null)
+                if (videoCutterTimeline1.Selections.Count == 0)
                 {
                     statusStrip.InvokeIfRequired(() =>
                     {
@@ -760,7 +758,7 @@ namespace SimpleVideoCutter
                 }
                 else
                 {
-                    long timeMs = videoCutterTimeline1.SelectionEnd.Value - videoCutterTimeline1.SelectionStart.Value;
+                    long timeMs = videoCutterTimeline1.Selections.OverallDuration;
                     statusStrip.InvokeIfRequired(() =>
                     {
                         toolStripStatusLabelSelection.Text = string.Format("{0}: {1:####.##} s", GlobalStrings.MainForm_Selection, (float)timeMs / 1000.0);
@@ -773,7 +771,7 @@ namespace SimpleVideoCutter
         private void EnableButtons()
         {
             var isFileLoaded = fileBeingPlayed != null;
-            var isSelection = !(videoCutterTimeline1.SelectionStart == null || videoCutterTimeline1.SelectionEnd == null);
+            var isSelection = videoCutterTimeline1.Selections.Count > 0;
             var isPlaying = isFileLoaded && vlcControl1.MediaPlayer.IsPlaying;
 
             toolStripPlayback.InvokeIfRequired(() =>
@@ -793,10 +791,10 @@ namespace SimpleVideoCutter
             toolStripSelection.InvokeIfRequired(() =>
             {
                 toolStripButtonSelectionSetStart.Enabled = isFileLoaded;
-                toolStripButtonSelectionSetEnd.Enabled = isFileLoaded && videoCutterTimeline1.SelectionStart != null;
-                toolStripButtonSelectionGoToStart.Enabled = videoCutterTimeline1.SelectionStart != null;
-                toolStripButtonSelectionGoToEnd.Enabled = videoCutterTimeline1.SelectionEnd != null;
-                toolStripButtonSelectionPlay.Enabled = videoCutterTimeline1.SelectionEnd != null;
+                toolStripButtonSelectionSetEnd.Enabled = isFileLoaded && videoCutterTimeline1.NewSelectionStartRegistered;
+                toolStripButtonSelectionGoToStart.Enabled = isSelection;
+                toolStripButtonSelectionGoToEnd.Enabled = isSelection;
+                toolStripButtonSelectionPlay.Enabled = isSelection;
 
                 toolStripButtonSelectionClear.Enabled = isFileLoaded && isSelection;
                 toolStripButtonSelectionEnqueue.Enabled = isFileLoaded && isSelection;
@@ -891,12 +889,13 @@ namespace SimpleVideoCutter
 
         private void PlaySelection()
         {
-            if (videoCutterTimeline1.SelectionStart == null)
+            if (videoCutterTimeline1.Selections.OverallStart == null)
                 return;
 
             ThreadPool.QueueUserWorkItem(_ =>
             {
-                vlcControl1.MediaPlayer.Position = (float)videoCutterTimeline1.SelectionStart.Value / vlcControl1.MediaPlayer.Length;
+                vlcControl1.MediaPlayer.Position = (float)videoCutterTimeline1.Selections.OverallStart.Value 
+                / vlcControl1.MediaPlayer.Length;
                 vlcControl1.MediaPlayer.SetPause(false);
             });
         }

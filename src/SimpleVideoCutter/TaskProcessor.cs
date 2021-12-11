@@ -105,8 +105,7 @@ namespace SimpleVideoCutter
                         var ffmpegCutArguments = FFmpegArgumentBuilder.BuildArgumentsCutOperation(
                             currentTask.InputFilePath, 
                             currentTask.OutputFilePath, 
-                            TimeSpan.FromMilliseconds(currentTask.SelectionStart), 
-                            TimeSpan.FromMilliseconds(currentTask.Duration),
+                            currentTask.Selections.Select(s=>(s.Start, s.Duration)).ToArray(),
                             currentTask.Profile.Arguments);
 
                         currentTask.State = FFmpegTaskState.InProgress;
@@ -133,14 +132,21 @@ namespace SimpleVideoCutter
     }
 
     [Serializable]
+    public class FFmpegTaskSelection
+    {
+        public TimeSpan Start { get; set; }
+        public TimeSpan Duration { get; set; }
+    }
+
+    [Serializable]
     public class FFmpegTask
     {
         public string TaskId { get; set; }
         public string InputFilePath { get; set; }
         public string OutputFilePath { get; set; }
         public string InputFileName { get; set; }
-        public long SelectionStart { get; set; }
-        public long Duration { get; set; }
+        public FFmpegTaskSelection[] Selections { get; set; }   
+        public long OverallDuration { get; set; }
         public FFmpegCutProfile Profile { get; set; }
         public FFmpegTaskState State { get; set; }
         public string ErrorMessage { get; set; }

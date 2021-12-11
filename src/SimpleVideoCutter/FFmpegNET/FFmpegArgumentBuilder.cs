@@ -12,16 +12,23 @@ namespace SimpleVideoCutter.FFmpegNET
     internal class FFmpegArgumentBuilder
     {
         public static string BuildArgumentsCutOperation(string inputFileFullPath, string outputFileFullPath,
-            TimeSpan seek, TimeSpan duration, string customArguments)
+            (TimeSpan Seek, TimeSpan Duration)[] selections, string customArguments)
         {
             var commandBuilder = new StringBuilder();
-            
-            commandBuilder.AppendFormat(CultureInfo.InvariantCulture, " -ss {0} ", seek);
-            commandBuilder.AppendFormat(" -t {0} ", duration);
-            commandBuilder.AppendFormat(" -i \"{0}\" ", inputFileFullPath);
-            commandBuilder.AppendFormat(" -map 0 ");
-            commandBuilder.AppendFormat(" {0}", customArguments);
-            
+            if (selections.Length == 1)
+            {
+                var selection = selections[0];
+                commandBuilder.AppendFormat(CultureInfo.InvariantCulture, " -ss {0} ", selection.Seek);
+                commandBuilder.AppendFormat(" -t {0} ", selection.Duration);
+                commandBuilder.AppendFormat(" -i \"{0}\" ", inputFileFullPath);
+                commandBuilder.AppendFormat(" -map 0 ");
+                commandBuilder.AppendFormat(" {0}", customArguments);
+            }
+            else
+            {
+
+            }
+
             return commandBuilder.AppendFormat(" \"{0}\" ", outputFileFullPath).ToString();
         }
 

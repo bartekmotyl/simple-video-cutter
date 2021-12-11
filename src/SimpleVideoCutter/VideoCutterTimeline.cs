@@ -158,6 +158,7 @@ namespace SimpleVideoCutter
         public bool Empty => selections.Count == 0;
         public long? OverallStart => selections.FirstOrDefault()?.Start;
         public long? OverallEnd => selections.LastOrDefault()?.End;
+        public long OverallDuration => OverallEnd ?? 0 - OverallStart ?? 0;
 
         public List<Selection> AllSelections => selections;
 
@@ -272,7 +273,7 @@ namespace SimpleVideoCutter
         private long? hoverPosition = null;
         private Selections selections = new Selections();
         private long? newSelectionStart = null;
-
+        public bool NewSelectionStartRegistered => this.newSelectionStart != null;
 
         private float scale = 1.0f;
         private long offset = 0;
@@ -332,15 +333,6 @@ namespace SimpleVideoCutter
                 Invalidate();
                 TimelineHover?.Invoke(this, new TimelineHoverEventArgs());
             }
-        }
-
-        public long? SelectionStart
-        {
-            get { return 0; }
-        }
-        public long? SelectionEnd
-        {
-            get { return 0; }
         }
 
         public Selections Selections { get => selections; }
@@ -723,26 +715,21 @@ namespace SimpleVideoCutter
         {
             PositionChangeRequest?.Invoke(this, new PositionChangeRequestEventArgs() { Position = frame });
         }
-
-        /// <summary>
-        /// Creates/updates/clears selection. 
-        /// Once selection is changed, the 'SelectionChanged' event is raised. 
-        /// </summary>
-        public void SetSelection(long? selectionStart, long? selectionEnd)
+        
+        public void RegisterNewSelectionStart(long frame)
         {
-            if ((selectionStart == null && selectionEnd != null) || (selectionStart != null && selectionEnd != null && selectionStart.Value >= selectionEnd.Value))
-                return;
-
-            if ((selectionStart == null && selectionEnd  != null) || (selectionEnd != null && selectionEnd.Value <= selectionStart))
-                return;
-
-            //this.selectionStart = selectionStart;
-            //this.selectionEnd = selectionEnd;
-
-            Invalidate();
-            OnSelectionChanged();
+            this.newSelectionStart = frame;
+            Refresh();
         }
+        public void RegisterNewSelectionEnd(long frame)
+        {
+            if (newSelectionStart == null)
+                return; 
 
+            var start = newSelectionStart.Value;
+            newSelectionStart = null;
+            selections.AddSelection(start, frame);
+        }
 
         private void VideoCutterTimeline_MouseDown(object sender, MouseEventArgs e)
         {
@@ -769,14 +756,11 @@ namespace SimpleVideoCutter
 
                     if (newSelectionStart == null && selections.CanStartSelectionAtFrame(frame))
                     {
-                        newSelectionStart = frame;
-                        Refresh();
+                        RegisterNewSelectionStart(frame);
                     }
                     else if (newSelectionStart != null && selections.CanAddSelection(newSelectionStart.Value, frame))
                     {
-                        var start = newSelectionStart.Value;
-                        newSelectionStart = null; 
-                        selections.AddSelection(start, frame);
+                        RegisterNewSelectionEnd(frame);
                     }
                 }
                 else if (e.Button == MouseButtons.Left && e.Clicks == 1)
