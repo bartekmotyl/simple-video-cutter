@@ -260,6 +260,7 @@ namespace SimpleVideoCutter
         private Brush brushInfoAreaText = new SolidBrush(Color.FromArgb(0xF8, 0xF9, 0xFA));
         private Pen penBigTicks = new Pen(Color.FromArgb(0xE9, 0xEC, 0xEF));
         private Pen penSmallTicks = new Pen(Color.FromArgb(0xAD, 0xB5, 0xBD));
+        private Pen penKeyFrameTicks = new Pen(Color.FromArgb(0x02, 0x02, 0x02));
         private Brush brushHoverPosition = new SolidBrush(Color.FromArgb(0xC8, 0x17, 0x17));
         private Brush brushPosition = new SolidBrush(Color.FromArgb(0x00, 0x5C, 0x9E));
         
@@ -274,6 +275,8 @@ namespace SimpleVideoCutter
         private Selections selections = new Selections();
         private long? newSelectionStart = null;
         public bool NewSelectionStartRegistered => this.newSelectionStart != null;
+
+        private List<KeyFrameInfo> keyFrames = new List<KeyFrameInfo>();
 
         private float scale = 1.0f;
         private long offset = 0;
@@ -495,7 +498,18 @@ namespace SimpleVideoCutter
                 }
 
             }
+
+
             e.Graphics.TranslateTransform(0, ticksAreaHeight);
+            for (var i = 0; i < keyFrames.Count; i++)
+            {
+                long position = keyFrames[i].Frame;
+                var posXPixel = (position - offset) * PixelsPerMilliseconds();
+                if (posXPixel >= -ClientRectangle.Width && posXPixel <= ClientRectangle.Width)
+                {
+                    e.Graphics.DrawLine(penKeyFrameTicks, (int)posXPixel, 0, (int)posXPixel, selectionAreaHeight);
+                }
+            }
 
             for (int i = 0; i < this.selections.Count; i++)
             {
@@ -729,6 +743,25 @@ namespace SimpleVideoCutter
             var start = newSelectionStart.Value;
             newSelectionStart = null;
             selections.AddSelection(start, frame);
+        }
+        public void RegisterKeyFrames(IList<KeyFrameInfo> newKeyframes)
+        {
+            lock(keyFrames)
+            {
+                keyFrames.Clear();
+                keyFrames.AddRange(newKeyframes);
+            }
+            Action safeRefresh = delegate { Refresh(); };
+            this.Invoke(safeRefresh);
+        }
+        public void ClearKeyFrames()
+        {
+            lock (keyFrames)
+            {
+                keyFrames.Clear();
+            }
+            Action safeRefresh = delegate { Refresh(); };
+            this.Invoke(safeRefresh);
         }
 
         private void VideoCutterTimeline_MouseDown(object sender, MouseEventArgs e)
