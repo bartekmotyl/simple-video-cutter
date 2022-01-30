@@ -12,14 +12,8 @@ using System.Threading.Tasks;
 
 namespace SimpleVideoCutter
 {
-    public class KeyFrameInfo
-    {
-        public long Frame { get; set; }
-    }
-
     public class KeyFramesExtractorProgressEventArgs : EventArgs
     {
-        public IList<KeyFrameInfo> Keyframes { get; set; }
         public bool Completed { get; set; }
     }
 
@@ -27,9 +21,12 @@ namespace SimpleVideoCutter
     {
         public event EventHandler<KeyFramesExtractorProgressEventArgs> KeyFramesExtractorProgress;
 
-        private IList<KeyFrameInfo> keyframes =  new List<KeyFrameInfo>();
+        public List<long> Keyframes { get; private set; } = new List<long>();
+        public bool InProgress { get; set; } = false;
+
         private CancellationTokenSource tokenSource;
         private Task task;
+
 
         public void Start(string videoFilePath)
         {
@@ -38,6 +35,7 @@ namespace SimpleVideoCutter
             {
                 tokenSource.Cancel();
             }
+            Keyframes.Clear();
             tokenSource = new CancellationTokenSource();
             task = Task.Run(() => Execute(videoFilePath, tokenSource.Token));
         }
@@ -77,6 +75,7 @@ namespace SimpleVideoCutter
                     ffprobeProcess.ErrorDataReceived += errorDataReceivedHandler;
 
                     bool started = ffprobeProcess.Start();
+                    InProgress = true;
                     if (!started)
                     {
                         //you may allow for the process to be re-used (started = false) 
@@ -99,11 +98,8 @@ namespace SimpleVideoCutter
                         {
                             var timestampStr = line.Replace("pkt_pts_time=", "");
                             var timestampFloat = float.Parse(timestampStr, CultureInfo.InvariantCulture);
-                            keyframes.Add(new KeyFrameInfo()
-                            {
-                                Frame = (long)(timestampFloat * 1000)
-                            });
-                            if (keyframes.Count % 10 == 0)
+                            Keyframes.Add((long)(timestampFloat * 1000));
+                            if (Keyframes.Count % 10 == 0)
                                 OnKeyFramesExtractorProgress(false);
                         } 
                         else
@@ -118,13 +114,13 @@ namespace SimpleVideoCutter
                     ffprobeProcess.ErrorDataReceived -= errorDataReceivedHandler;
                 }
                 OnKeyFramesExtractorProgress(true);
+                InProgress = false;
             }
         }
         private void OnKeyFramesExtractorProgress(bool completed)
         {
             KeyFramesExtractorProgress?.Invoke(this, new KeyFramesExtractorProgressEventArgs()
             {
-                Keyframes = keyframes,
                 Completed = completed,
             });
 

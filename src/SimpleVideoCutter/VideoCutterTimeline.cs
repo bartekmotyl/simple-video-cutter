@@ -48,12 +48,12 @@ namespace SimpleVideoCutter
             return DragInProgress;
         }
 
-        public void ProcessMouseMove(MouseEventArgs e)
+        public void ProcessMouseMove(int x)
         {
             if (DragInProgress)
             {
                 ctrl.Cursor = Cursors.SizeWE;
-                var newPos = ctrl.PixelToPosition(e.X);
+                var newPos = ctrl.PixelToPosition(x);
                 if (draggedStart != null)
                 {
                     selections.SetSelectionStart(draggedStart.Value, newPos); 
@@ -65,8 +65,8 @@ namespace SimpleVideoCutter
             }
             else
             {
-                var start = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(e.X, sel.Start));
-                var end = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(e.X, sel.End));
+                var start = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(x, sel.Start));
+                var end = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(x, sel.End));
                 if (start >= 0 || end >= 0)
                 {
                     ctrl.Cursor = Cursors.SizeWE;
@@ -74,17 +74,17 @@ namespace SimpleVideoCutter
             }
         }
 
-        public void ProcessMouseLeave(EventArgs e)
+        public void ProcessMouseLeave()
         {
             draggedStart = null;
             draggedEnd = null;
         }
-        public void ProcessMouseDown(MouseEventArgs e)
+        public void ProcessMouseDown(int x, MouseButtons button, int clicks)
         {
-            if (e.Button == MouseButtons.Left && e.Clicks == 1)
+            if (button == MouseButtons.Left && clicks == 1)
             {
-                var start = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(e.X, sel.Start));
-                var end = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(e.X, sel.End));
+                var start = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(x, sel.Start));
+                var end = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(x, sel.End));
                 if (start >= 0)
                 {
                     draggedStart = start;
@@ -96,13 +96,13 @@ namespace SimpleVideoCutter
             }
         }
 
-        public void ProcessMouseUp(MouseEventArgs e)
+        public void ProcessMouseUp(int x)
         {
             if (DragInProgress)
             {
                 draggedStart = null;
                 draggedEnd = null;
-                var frame = ctrl.PixelToPosition(e.X);
+                var frame = ctrl.PixelToPosition(x);
                 ctrl.OnPositionChangeRequest(frame);
             }
         }
@@ -250,6 +250,8 @@ namespace SimpleVideoCutter
         public event EventHandler<TimelineHoverEventArgs> TimelineHover;
         public event EventHandler<SelectionChangedEventArgs> SelectionChanged;
         public event EventHandler<PositionChangeRequestEventArgs> PositionChangeRequest;
+        public event EventHandler<KeyframesRequestEventArgs> KeyframesRequest;
+
         private Brush brushBackground = new SolidBrush(Color.FromArgb(0xAD, 0xB5, 0xBD));
         private Brush brushBackgroundInfoArea = new SolidBrush(Color.FromArgb(0xAD, 0xB5, 0xBD)); 
         private Brush brushBackgroundInfoAreaOffset = new SolidBrush(Color.FromArgb(0x6C, 0x75, 0x7D));
@@ -260,10 +262,13 @@ namespace SimpleVideoCutter
         private Brush brushInfoAreaText = new SolidBrush(Color.FromArgb(0xF8, 0xF9, 0xFA));
         private Pen penBigTicks = new Pen(Color.FromArgb(0xE9, 0xEC, 0xEF));
         private Pen penSmallTicks = new Pen(Color.FromArgb(0xAD, 0xB5, 0xBD));
-        private Pen penKeyFrameTicks = new Pen(Color.FromArgb(0x02, 0x02, 0x02));
+        //private Pen penKeyFrameTicks = new Pen(Color.FromArgb(0x02, 0x02, 0x02));
         private Brush brushHoverPosition = new SolidBrush(Color.FromArgb(0xC8, 0x17, 0x17));
         private Brush brushPosition = new SolidBrush(Color.FromArgb(0x00, 0x5C, 0x9E));
+        private Brush brushKeyFrames = new SolidBrush(Color.FromArgb(0x87, 0x92, 0x9B));
+
         
+
         private Brush brushSelectionMarker = new SolidBrush(Color.FromArgb(0x21, 0x25, 0x29));
         private Pen penSelectionMarker = new Pen(Color.FromArgb(0x21, 0x25, 0x29));
         //private PositionMoveController selectionStartMoveController;
@@ -275,8 +280,6 @@ namespace SimpleVideoCutter
         private Selections selections = new Selections();
         private long? newSelectionStart = null;
         public bool NewSelectionStartRegistered => this.newSelectionStart != null;
-
-        private List<KeyFrameInfo> keyFrames = new List<KeyFrameInfo>();
 
         private float scale = 1.0f;
         private long offset = 0;
@@ -421,6 +424,33 @@ namespace SimpleVideoCutter
             offset = Math.Max(offset, 0);
         }
 
+        private List<long> GetKeyframes()
+        {
+            if (KeyframesRequest != null)
+            {
+                var eventArgs = new KeyframesRequestEventArgs();
+                KeyframesRequest(this, eventArgs);
+                return eventArgs.Keyframes;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
+        private int? FindNearestKeyFrame(long position)
+        {
+            var keyframes = GetKeyframes();
+            if (keyframes == null)
+                return null;
+            var foundIndex = keyframes.BinarySearch(position);
+            if (foundIndex >= 0)
+                return foundIndex;
+            else
+                return ~foundIndex;
+        }
+
         private void VideoCutterTimeline_Paint(object sender, PaintEventArgs e)
         {
 
@@ -499,15 +529,15 @@ namespace SimpleVideoCutter
 
             }
 
-
             e.Graphics.TranslateTransform(0, ticksAreaHeight);
-            for (var i = 0; i < keyFrames.Count; i++)
+            var keyframes = GetKeyframes();
+            if (keyframes != null)
             {
-                long position = keyFrames[i].Frame;
-                var posXPixel = (position - offset) * PixelsPerMilliseconds();
-                if (posXPixel >= -ClientRectangle.Width && posXPixel <= ClientRectangle.Width)
+                for (var i = 1; i < keyframes.Count; i += 2)
                 {
-                    e.Graphics.DrawLine(penKeyFrameTicks, (int)posXPixel, 0, (int)posXPixel, selectionAreaHeight);
+                    var posXPixel1 = (keyframes[i - 1] - offset) * PixelsPerMilliseconds();
+                    var posXPixel2 = (keyframes[i] - offset) * PixelsPerMilliseconds();
+                    e.Graphics.FillRectangle(brushKeyFrames, posXPixel1, 0, posXPixel2 - posXPixel1, selectionAreaHeight);
                 }
             }
 
@@ -709,13 +739,13 @@ namespace SimpleVideoCutter
         {
             HoverPosition = PixelToPosition(e.Location.X);
             Cursor = Cursors.Default;
-            selectionsMoveController.ProcessMouseMove(e);
+            selectionsMoveController.ProcessMouseMove(e.X);
         }
 
         private void VideoCutterTimeline_MouseLeave(object sender, EventArgs e)
         {
             HoverPosition = null;
-            selectionsMoveController.ProcessMouseLeave(e);
+            selectionsMoveController.ProcessMouseLeave();
             Cursor = Cursors.Default;
         }
 
@@ -744,36 +774,32 @@ namespace SimpleVideoCutter
             newSelectionStart = null;
             selections.AddSelection(start, frame);
         }
-        public void RegisterKeyFrames(IList<KeyFrameInfo> newKeyframes)
+        /*
+        private long MouseEventXToNearestKeyframe(int x)
         {
-            lock(keyFrames)
-            {
-                keyFrames.Clear();
-                keyFrames.AddRange(newKeyframes);
-            }
-            Action safeRefresh = delegate { Refresh(); };
-            this.Invoke(safeRefresh);
+            var pixelPerMs = PixelsPerMilliseconds();
+            var keyframe = FindNearestKeyFrame(x);
+            if (keyframe == null)
+                return x;
+
         }
-        public void ClearKeyFrames()
+        */
+        private int NormalizeMouseEventX(int x)
         {
-            lock (keyFrames)
-            {
-                keyFrames.Clear();
-            }
-            Action safeRefresh = delegate { Refresh(); };
-            this.Invoke(safeRefresh);
+            return x;
         }
 
         private void VideoCutterTimeline_MouseDown(object sender, MouseEventArgs e)
         {
-            selectionsMoveController.ProcessMouseDown(e);
+            selectionsMoveController.ProcessMouseDown(NormalizeMouseEventX(e.X), e.Button, e.Clicks);
         }
 
         private void VideoCutterTimeline_MouseUp(object sender, MouseEventArgs e)
         {
+            var posX = NormalizeMouseEventX(e.X);
             if (!selectionsMoveController.IsDragInProgress())
             {
-                var frame = PixelToPosition(e.X);
+                var frame = PixelToPosition(posX);
                 if (e.Button == MouseButtons.Middle && e.Clicks == 1)
                 {
                     /*
@@ -804,7 +830,7 @@ namespace SimpleVideoCutter
             }
             else
             {
-                selectionsMoveController.ProcessMouseUp(e);
+                selectionsMoveController.ProcessMouseUp(posX);
             }
         }
 
@@ -828,6 +854,12 @@ namespace SimpleVideoCutter
     public class PositionChangeRequestEventArgs : EventArgs
     {
         public long Position { get; set; }
+    }
+
+    public class KeyframesRequestEventArgs : EventArgs
+    {
+        public List<long> Keyframes { get; set; }
+        public bool InProgress { get; set; }
     }
 
     internal static class GraphicsUtils

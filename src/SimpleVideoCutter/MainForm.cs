@@ -140,10 +140,10 @@ namespace SimpleVideoCutter
             videoViewHover.MediaPlayer.TimeChanged += VideoViewerHover_MediaPlayer_TimeChanged;
             videoViewHover.Visible = false;
 
-            videoCutterTimeline1.SelectionChanged += VideoCutterTimeline1_SelectionChanged; ;
+            videoCutterTimeline1.SelectionChanged += VideoCutterTimeline1_SelectionChanged; 
             videoCutterTimeline1.TimelineHover += VideoCutterTimeline1_TimelineHover;
-            videoCutterTimeline1.PositionChangeRequest += VideoCutterTimeline1_PositionChangeRequest; ;
-
+            videoCutterTimeline1.PositionChangeRequest += VideoCutterTimeline1_PositionChangeRequest;
+            videoCutterTimeline1.KeyframesRequest += VideoCutterTimeline1_KeyframesRequest;
 
             taskProcessor.PropertyChanged += TaskProcessor_PropertyChanged;
             taskProcessor.TaskProgress += TaskProcessor_TaskProgress;
@@ -345,7 +345,6 @@ namespace SimpleVideoCutter
             ThreadPool.QueueUserWorkItem(_ => vlcControl1.MediaPlayer.Play(new Media(libVLC, path, FromType.FromPath)));
             ThreadPool.QueueUserWorkItem(_ => videoViewHover.MediaPlayer.Play(new Media(libVLC, path, FromType.FromPath)));
 
-            videoCutterTimeline1.ClearKeyFrames();
             keyFramesExtractor.Start(path);
         }
 
@@ -441,6 +440,9 @@ namespace SimpleVideoCutter
 
             if (e.KeyCode == Keys.E && e.Modifiers == Keys.Control)
                 System.Diagnostics.Process.Start("notepad.exe", VideoCutterSettings.Instance.ConfigPath);
+
+            if (e.KeyCode == Keys.K && e.Modifiers == Keys.Control)
+                AdjustSelectionsToKeyframes();
         }
         private void NextFrame()
         {
@@ -561,7 +563,8 @@ namespace SimpleVideoCutter
 
         private void KeyFramesExtractor_KeyFramesExtractorProgress(object sender, KeyFramesExtractorProgressEventArgs e)
         {
-            videoCutterTimeline1.RegisterKeyFrames(e.Keyframes);
+            Action safeRefresh = delegate { videoCutterTimeline1.Refresh(); };
+            videoCutterTimeline1.Invoke(safeRefresh);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -876,6 +879,13 @@ namespace SimpleVideoCutter
             videoCutterTimeline1.Position = e.Position;
         }
 
+        private void VideoCutterTimeline1_KeyframesRequest(object sender, KeyframesRequestEventArgs e)
+        {
+            e.Keyframes = keyFramesExtractor.Keyframes;
+            e.InProgress = keyFramesExtractor.InProgress;
+        }
+
+
         private void Mute()
         {
             VideoCutterSettings.Instance.Mute = !VideoCutterSettings.Instance.Mute;
@@ -894,6 +904,15 @@ namespace SimpleVideoCutter
                 / vlcControl1.MediaPlayer.Length;
                 vlcControl1.MediaPlayer.SetPause(false);
             });
+        }
+
+        private void AdjustSelectionsToKeyframes()
+        {
+            if (keyFramesExtractor.InProgress)
+            {
+                MessageBox.Show(GlobalStrings.MainForm_KeyFramesNotLoaded, GlobalStrings.GlobalInformation, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
         }
 
         private void toolStripPlayback_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
