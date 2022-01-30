@@ -32,10 +32,10 @@ namespace SimpleVideoCutter
     {
         protected VideoCutterTimeline ctrl;
         protected Selections selections;
-        protected int? draggedStart;
-        protected int? draggedEnd;
+        protected int? indexDraggedStartOfSelection;
+        protected int? indexDraggedEndOfSelection;
 
-        protected bool DragInProgress => draggedStart != null || draggedEnd != null;
+        protected bool DragInProgress => indexDraggedStartOfSelection != null || indexDraggedEndOfSelection != null;
 
 
         public SelectionsMoveController(VideoCutterTimeline ctrl, Selections selections)
@@ -48,25 +48,24 @@ namespace SimpleVideoCutter
             return DragInProgress;
         }
 
-        public void ProcessMouseMove(int x)
+        public void ProcessMouseMoveFrame(long newPos)
         {
             if (DragInProgress)
             {
                 ctrl.Cursor = Cursors.SizeWE;
-                var newPos = ctrl.PixelToPosition(x);
-                if (draggedStart != null)
+                if (indexDraggedStartOfSelection != null)
                 {
-                    selections.SetSelectionStart(draggedStart.Value, newPos); 
+                    selections.SetSelectionStart(indexDraggedStartOfSelection.Value, newPos); 
                 }
-                else if (draggedEnd != null)
+                else if (indexDraggedEndOfSelection != null)
                 {
-                    selections.SetSelectionEnd(draggedEnd.Value, newPos);
+                    selections.SetSelectionEnd(indexDraggedEndOfSelection.Value, newPos);
                 }
             }
             else
             {
-                var start = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(x, sel.Start));
-                var end = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(x, sel.End));
+                var start = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(newPos, sel.Start));
+                var end = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(newPos, sel.End));
                 if (start >= 0 || end >= 0)
                 {
                     ctrl.Cursor = Cursors.SizeWE;
@@ -74,56 +73,57 @@ namespace SimpleVideoCutter
             }
         }
 
-        public void ProcessMouseLeave()
+        public void ProcessMouseLeaveFrame()
         {
-            draggedStart = null;
-            draggedEnd = null;
+            indexDraggedStartOfSelection = null;
+            indexDraggedEndOfSelection = null;
         }
-        public void ProcessMouseDown(int x, MouseButtons button, int clicks)
+        public void ProcessMouseDownFrame(long frame, MouseButtons button, int clicks)
         {
             if (button == MouseButtons.Left && clicks == 1)
             {
-                var start = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(x, sel.Start));
-                var end = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(x, sel.End));
+                var start = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(frame, sel.Start));
+                var end = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(frame, sel.End));
                 if (start >= 0)
                 {
-                    draggedStart = start;
+                    indexDraggedStartOfSelection = start;
                 }
                 else if (end >= 0)
                 {
-                    draggedEnd = end;
+                    indexDraggedEndOfSelection = end;
                 }
             }
         }
 
-        public void ProcessMouseUp(int x)
+        public void ProcessMouseUpFrame(long frame)
         {
             if (DragInProgress)
             {
-                draggedStart = null;
-                draggedEnd = null;
-                var frame = ctrl.PixelToPosition(x);
+                indexDraggedStartOfSelection = null;
+                indexDraggedEndOfSelection = null;
                 ctrl.OnPositionChangeRequest(frame);
             }
         }
 
-        private bool IsInDragSizeByFrame(int testedX, long? refFrame)
+        private bool IsInDragSizeByFrame(long testedFrame, long? refFrame)
         {
             if (refFrame == null)
                 return false;
             var refX = ctrl.PositionToPixel(refFrame.Value);
-            return Math.Abs(testedX - refX) < SystemInformation.DragSize.Width;
+            var testedFrameX = ctrl.PositionToPixel(testedFrame);
+
+            return Math.Abs(testedFrameX - refX) < SystemInformation.DragSize.Width;
         }
 
-        public bool IsDragStartPossible(int pixel)
+        public bool IsDragStartPossibleFrame(long frame)
         {
-            var start = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(pixel, sel.Start));
+            var start = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(frame, sel.Start));
             return start >= 0;
         }
 
-        public bool IsDragEndPossible(int pixel)
+        public bool IsDragEndPossibleFrame(long frame)
         {
-            var start = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(pixel, sel.End));
+            var start = selections.AllSelections.FindIndex(sel => IsInDragSizeByFrame(frame, sel.End));
             return start >= 0;
         }
 
@@ -439,16 +439,30 @@ namespace SimpleVideoCutter
         }
 
 
-        private int? FindNearestKeyFrame(long position)
+        private long FindNearestKeyFrame(long position)
         {
             var keyframes = GetKeyframes();
             if (keyframes == null)
-                return null;
+                return position;
             var foundIndex = keyframes.BinarySearch(position);
             if (foundIndex >= 0)
-                return foundIndex;
-            else
-                return ~foundIndex;
+                return position;
+
+            var indexFirstGreater = ~foundIndex;
+            long? keyFrameNext = indexFirstGreater < keyframes.Count ? keyframes[indexFirstGreater] : Length-1;
+            long? keyFramePrev = indexFirstGreater > 0 ? keyframes[indexFirstGreater - 1] : (long?)null;
+
+            var distanceNext = Math.Abs(position - keyFrameNext ?? (position + long.MaxValue));
+            var distancePrev = Math.Abs(position - keyFramePrev ?? (position + long.MaxValue));
+
+            var acceptablePixelRadius = 20;
+            var accpetableMsRadius = (long)(acceptablePixelRadius / PixelsPerMilliseconds());
+
+            var minDistanceFound = Math.Min(distanceNext, distancePrev);
+            if (minDistanceFound > accpetableMsRadius)
+                return position;
+            
+            return distanceNext < distancePrev ? keyFrameNext.Value : keyFramePrev.Value;
         }
 
         private void VideoCutterTimeline_Paint(object sender, PaintEventArgs e)
@@ -574,18 +588,19 @@ namespace SimpleVideoCutter
 
             if (HoverPosition != null)
             {
-                var pixel = PositionToPixel(HoverPosition);
-                if (selectionsMoveController.IsDragStartPossible(pixel))
+                var normalizedHover = HoverPosition.Value;
+                var pixel = PositionToPixel(normalizedHover);
+                if (selectionsMoveController.IsDragStartPossibleFrame(normalizedHover))
                 {
                     timelineTooltip = new TimelineTooltip() { X = pixel, Text = GlobalStrings.VideoCutterTimeline_MoveClipStart };
                 }
-                if (selectionsMoveController.IsDragEndPossible(pixel))
+                if (selectionsMoveController.IsDragEndPossibleFrame(normalizedHover))
                 {
                     timelineTooltip = new TimelineTooltip() { X = pixel, Text = GlobalStrings.VideoCutterTimeline_MoveClipEnd };
                 }
 
                 e.Graphics.FillRectangle(brushHoverPosition, pixel, 0, 3, ticksAreaHeight + selectionAreaHeight);
-                PaintTriangle(e.Graphics, brushHoverPosition, PositionToPixel(HoverPosition) + 1, 8, 8);
+                PaintTriangle(e.Graphics, brushHoverPosition, PositionToPixel(normalizedHover) + 1, 8, 8);
 
                 string tooltipSetClipOverrideText = null;
                 if (ModifierKeys == Keys.Shift)
@@ -597,7 +612,7 @@ namespace SimpleVideoCutter
                 {
                     timelineTooltip = new TimelineTooltip() { X = pixel, Text = tooltipSetClipOverrideText ?? GlobalStrings.VideoCutterTimeline_SetClipStartHere };
                 }
-                else if (newSelectionStart != null && HoverPosition.Value > newSelectionStart.Value 
+                else if (newSelectionStart != null && normalizedHover > newSelectionStart.Value 
                     && selections.CanAddSelection(newSelectionStart.Value, HoverPosition.Value))
                 {
                     timelineTooltip = new TimelineTooltip() { X = pixel, Text = tooltipSetClipOverrideText ?? GlobalStrings.VideoCutterTimeline_SetClipEndHere };
@@ -737,15 +752,18 @@ namespace SimpleVideoCutter
 
         private void VideoCutterTimeline_MouseMove(object sender, MouseEventArgs e)
         {
-            HoverPosition = PixelToPosition(e.Location.X);
             Cursor = Cursors.Default;
-            selectionsMoveController.ProcessMouseMove(e.X);
+            var normalizedPosX = NormalizeMouseEventX(e.Location.X);
+            HoverPosition = PixelToPosition(normalizedPosX);
+            var frame = PixelToPosition(normalizedPosX);
+            var normalizedFrame = FindNearestKeyFrame(frame);
+            selectionsMoveController.ProcessMouseMoveFrame(normalizedFrame);
         }
 
         private void VideoCutterTimeline_MouseLeave(object sender, EventArgs e)
         {
             HoverPosition = null;
-            selectionsMoveController.ProcessMouseLeave();
+            selectionsMoveController.ProcessMouseLeaveFrame();
             Cursor = Cursors.Default;
         }
 
@@ -774,32 +792,28 @@ namespace SimpleVideoCutter
             newSelectionStart = null;
             selections.AddSelection(start, frame);
         }
-        /*
-        private long MouseEventXToNearestKeyframe(int x)
-        {
-            var pixelPerMs = PixelsPerMilliseconds();
-            var keyframe = FindNearestKeyFrame(x);
-            if (keyframe == null)
-                return x;
 
-        }
-        */
         private int NormalizeMouseEventX(int x)
         {
-            return x;
+            var frame = PixelToPosition(x);
+            var isShift = ModifierKeys == Keys.Shift;
+            var nearestFrame = isShift ? frame : FindNearestKeyFrame(frame);
+            return frame != nearestFrame ? PositionToPixel(nearestFrame) : x;
         }
 
         private void VideoCutterTimeline_MouseDown(object sender, MouseEventArgs e)
         {
-            selectionsMoveController.ProcessMouseDown(NormalizeMouseEventX(e.X), e.Button, e.Clicks);
+            var frame = PixelToPosition(e.X);
+            var normalizedFrame = FindNearestKeyFrame(frame);
+            selectionsMoveController.ProcessMouseDownFrame(normalizedFrame, e.Button, e.Clicks);
         }
 
         private void VideoCutterTimeline_MouseUp(object sender, MouseEventArgs e)
         {
-            var posX = NormalizeMouseEventX(e.X);
+            var frame = PixelToPosition(e.X);
+            var normalizedFrame = FindNearestKeyFrame(frame);
             if (!selectionsMoveController.IsDragInProgress())
             {
-                var frame = PixelToPosition(posX);
                 if (e.Button == MouseButtons.Middle && e.Clicks == 1)
                 {
                     /*
@@ -813,24 +827,24 @@ namespace SimpleVideoCutter
                     }
                     */
 
-                    if (newSelectionStart == null && selections.CanStartSelectionAtFrame(frame))
+                    if (newSelectionStart == null && selections.CanStartSelectionAtFrame(normalizedFrame))
                     {
-                        RegisterNewSelectionStart(frame);
+                        RegisterNewSelectionStart(normalizedFrame);
                     }
-                    else if (newSelectionStart != null && selections.CanAddSelection(newSelectionStart.Value, frame))
+                    else if (newSelectionStart != null && selections.CanAddSelection(newSelectionStart.Value, normalizedFrame))
                     {
-                        RegisterNewSelectionEnd(frame);
+                        RegisterNewSelectionEnd(normalizedFrame);
                     }
                 }
                 else if (e.Button == MouseButtons.Left && e.Clicks == 1)
                 {
 
-                    OnPositionChangeRequest(frame);
+                    OnPositionChangeRequest(normalizedFrame);
                 }
             }
             else
             {
-                selectionsMoveController.ProcessMouseUp(posX);
+                selectionsMoveController.ProcessMouseUpFrame(normalizedFrame);
             }
         }
 
