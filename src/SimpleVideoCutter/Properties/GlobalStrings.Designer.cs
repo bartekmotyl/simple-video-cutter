@@ -19,7 +19,7 @@ namespace SimpleVideoCutter.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class GlobalStrings {
@@ -237,6 +237,15 @@ namespace SimpleVideoCutter.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Key frames have not been loaded yet, please wait a bit and try again. .
+        /// </summary>
+        internal static string MainForm_KeyFramesNotLoaded {
+            get {
+                return ResourceManager.GetString("MainForm_KeyFramesNotLoaded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No selection.
         /// </summary>
         internal static string MainForm_NoSelection {
@@ -382,7 +391,7 @@ namespace SimpleVideoCutter.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to shift + middle click to set clip from the beginning till this point.
+        ///   Looks up a localized string similar to control + middle click to set clip from the beginning till this point.
         /// </summary>
         internal static string VideoCutterTimeline_SetClipFromStartTillHere {
             get {

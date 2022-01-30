@@ -185,6 +185,9 @@ Static parts are allowed as well as these pseudo-variable
   <data name="MainForm_DeaultLayoutrestoredAfterRestart" xml:space="preserve">
     <value>Default layout will be restored when after application restart.</value>
   </data>
+  <data name="MainForm_KeyFramesNotLoaded" xml:space="preserve">
+    <value>Key frames have not been loaded yet, please wait a bit and try again. </value>
+  </data>
   <data name="MainForm_NoSelection" xml:space="preserve">
     <value>No selection</value>
   </data>

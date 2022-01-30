@@ -455,7 +455,7 @@ namespace SimpleVideoCutter
             var distanceNext = Math.Abs(position - keyFrameNext ?? (position + long.MaxValue));
             var distancePrev = Math.Abs(position - keyFramePrev ?? (position + long.MaxValue));
 
-            var acceptablePixelRadius = 20;
+            var acceptablePixelRadius = 5;
             var accpetableMsRadius = (long)(acceptablePixelRadius / PixelsPerMilliseconds());
 
             var minDistanceFound = Math.Min(distanceNext, distancePrev);
@@ -547,10 +547,12 @@ namespace SimpleVideoCutter
             var keyframes = GetKeyframes();
             if (keyframes != null)
             {
-                for (var i = 1; i < keyframes.Count; i += 2)
+                for (var i = 1; i <= keyframes.Count; i += 2)
                 {
-                    var posXPixel1 = (keyframes[i - 1] - offset) * PixelsPerMilliseconds();
-                    var posXPixel2 = (keyframes[i] - offset) * PixelsPerMilliseconds();
+                    var keyframeCurr = i == keyframes.Count ? Length : keyframes[i];
+                    var keyframePrev = keyframes[i - 1];
+                    var posXPixel1 = (keyframePrev - offset) * PixelsPerMilliseconds();
+                    var posXPixel2 = (keyframeCurr - offset) * PixelsPerMilliseconds();
                     e.Graphics.FillRectangle(brushKeyFrames, posXPixel1, 0, posXPixel2 - posXPixel1, selectionAreaHeight);
                 }
             }

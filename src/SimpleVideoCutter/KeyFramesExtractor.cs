@@ -86,7 +86,7 @@ namespace SimpleVideoCutter
                     ffprobeProcess.BeginOutputReadLine();
                     ffprobeProcess.BeginErrorReadLine();
 
-                    while (!ffprobeProcess.HasExited)
+                    while (!ffprobeProcess.HasExited || queue.Count > 0)
                     {
                         if (token.IsCancellationRequested && !ffprobeProcess.HasExited)
                         {
