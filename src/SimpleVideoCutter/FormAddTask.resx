@@ -117,78 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="buttonSaveProfile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>450, 66</value>
-  </data>
-  <data name="buttonSaveProfile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 23</value>
-  </data>
-  <data name="buttonSaveProfile.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="buttonSaveProfile.Text" xml:space="preserve">
-    <value>Create or update profile</value>
-  </data>
-  <data name="&gt;&gt;buttonSaveProfile.Name" xml:space="preserve">
-    <value>buttonSaveProfile</value>
-  </data>
-  <data name="&gt;&gt;buttonSaveProfile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonSaveProfile.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;buttonSaveProfile.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="labelFFmpegArguments.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="labelFFmpegArguments.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="labelFFmpegArguments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 63</value>
-  </data>
-  <data name="labelFFmpegArguments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 29</value>
-  </data>
-  <data name="labelFFmpegArguments.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="labelFFmpegArguments.Text" xml:space="preserve">
-    <value>FFmpeg arguments</value>
-  </data>
-  <data name="labelFFmpegArguments.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;labelFFmpegArguments.Name" xml:space="preserve">
-    <value>labelFFmpegArguments</value>
-  </data>
-  <data name="&gt;&gt;labelFFmpegArguments.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelFFmpegArguments.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;labelFFmpegArguments.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="textBoxDuration.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="textBoxDuration.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 148</value>
+    <value>173, 46</value>
+  </data>
+  <data name="textBoxDuration.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="textBoxDuration.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 20</value>
+    <value>674, 22</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="textBoxDuration.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -199,205 +142,10 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBoxDuration.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelVideoParameters</value>
   </data>
   <data name="&gt;&gt;textBoxDuration.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="labelFFmpegProfile.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelFFmpegProfile.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="labelFFmpegProfile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 36</value>
-  </data>
-  <data name="labelFFmpegProfile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 27</value>
-  </data>
-  <data name="labelFFmpegProfile.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="labelFFmpegProfile.Text" xml:space="preserve">
-    <value>FFmpeg profile:</value>
-  </data>
-  <data name="labelFFmpegProfile.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;labelFFmpegProfile.Name" xml:space="preserve">
-    <value>labelFFmpegProfile</value>
-  </data>
-  <data name="&gt;&gt;labelFFmpegProfile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelFFmpegProfile.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;labelFFmpegProfile.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="textBoxOutputFilePath.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="textBoxOutputFilePath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 122</value>
-  </data>
-  <data name="textBoxOutputFilePath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 20</value>
-  </data>
-  <data name="textBoxOutputFilePath.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;textBoxOutputFilePath.Name" xml:space="preserve">
-    <value>textBoxOutputFilePath</value>
-  </data>
-  <data name="&gt;&gt;textBoxOutputFilePath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxOutputFilePath.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;textBoxOutputFilePath.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="labelOriginalFilePath.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelOriginalFilePath.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="labelOriginalFilePath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 10</value>
-  </data>
-  <data name="labelOriginalFilePath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 26</value>
-  </data>
-  <data name="labelOriginalFilePath.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="labelOriginalFilePath.Text" xml:space="preserve">
-    <value>Original file path:</value>
-  </data>
-  <data name="labelOriginalFilePath.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;labelOriginalFilePath.Name" xml:space="preserve">
-    <value>labelOriginalFilePath</value>
-  </data>
-  <data name="&gt;&gt;labelOriginalFilePath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelOriginalFilePath.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;labelOriginalFilePath.ZOrder" xml:space="preserve">
     <value>5</value>
-  </data>
-  <data name="textBoxOriginalFilePath.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="textBoxOriginalFilePath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 13</value>
-  </data>
-  <data name="textBoxOriginalFilePath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 20</value>
-  </data>
-  <data name="textBoxOriginalFilePath.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;textBoxOriginalFilePath.Name" xml:space="preserve">
-    <value>textBoxOriginalFilePath</value>
-  </data>
-  <data name="&gt;&gt;textBoxOriginalFilePath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxOriginalFilePath.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;textBoxOriginalFilePath.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="labelOutputFilePath.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelOutputFilePath.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="labelOutputFilePath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 119</value>
-  </data>
-  <data name="labelOutputFilePath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 26</value>
-  </data>
-  <data name="labelOutputFilePath.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="labelOutputFilePath.Text" xml:space="preserve">
-    <value>Output file path:</value>
-  </data>
-  <data name="labelOutputFilePath.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;labelOutputFilePath.Name" xml:space="preserve">
-    <value>labelOutputFilePath</value>
-  </data>
-  <data name="&gt;&gt;labelOutputFilePath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelOutputFilePath.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;labelOutputFilePath.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="comboBoxFFmpegProfile.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="comboBoxFFmpegProfile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 39</value>
-  </data>
-  <data name="comboBoxFFmpegProfile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 21</value>
-  </data>
-  <data name="comboBoxFFmpegProfile.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;comboBoxFFmpegProfile.Name" xml:space="preserve">
-    <value>comboBoxFFmpegProfile</value>
-  </data>
-  <data name="&gt;&gt;comboBoxFFmpegProfile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comboBoxFFmpegProfile.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;comboBoxFFmpegProfile.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="textBoxFFmpegArguments.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="textBoxFFmpegArguments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 66</value>
-  </data>
-  <data name="textBoxFFmpegArguments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 20</value>
-  </data>
-  <data name="textBoxFFmpegArguments.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;textBoxFFmpegArguments.Name" xml:space="preserve">
-    <value>textBoxFFmpegArguments</value>
-  </data>
-  <data name="&gt;&gt;textBoxFFmpegArguments.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxFFmpegArguments.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;textBoxFFmpegArguments.ZOrder" xml:space="preserve">
-    <value>9</value>
   </data>
   <data name="labelDuration.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -406,16 +154,19 @@
     <value>Fill</value>
   </data>
   <data name="labelDuration.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 145</value>
+    <value>16, 42</value>
+  </data>
+  <data name="labelDuration.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="labelDuration.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 26</value>
+    <value>149, 30</value>
   </data>
   <data name="labelDuration.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="labelDuration.Text" xml:space="preserve">
-    <value>Duration:</value>
+    <value>Overall selection length:</value>
   </data>
   <data name="labelDuration.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -427,166 +178,19 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelDuration.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+    <value>tableLayoutPanelVideoParameters</value>
   </data>
   <data name="&gt;&gt;labelDuration.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 92</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 27</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Output file type:</value>
-  </data>
-  <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>450, 119</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 26</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Hint: can be changed in settings</value>
-  </data>
-  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="comboBoxFileType.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="comboBoxFileType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 95</value>
-  </data>
-  <data name="comboBoxFileType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 21</value>
-  </data>
-  <data name="comboBoxFileType.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;comboBoxFileType.Name" xml:space="preserve">
-    <value>comboBoxFileType</value>
-  </data>
-  <data name="&gt;&gt;comboBoxFileType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comboBoxFileType.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;comboBoxFileType.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 104</value>
-  </data>
-  <data name="tableLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>20, 20, 20, 20</value>
-  </data>
-  <data name="tableLayoutPanel1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>623, 181</value>
-  </data>
-  <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="buttonSaveProfile" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="labelFFmpegArguments" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxDuration" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelFFmpegProfile" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxOutputFilePath" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelOriginalFilePath" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxOriginalFilePath" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelOutputFilePath" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="comboBoxFFmpegProfile" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxFFmpegArguments" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelDuration" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label1" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="label2" Row="4" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="comboBoxFileType" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="buttonEnqueue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>525, 13</value>
-  </data>
-  <data name="buttonEnqueue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="buttonEnqueue.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="buttonEnqueue.Text" xml:space="preserve">
-    <value>Begin</value>
-  </data>
-  <data name="&gt;&gt;buttonEnqueue.Name" xml:space="preserve">
-    <value>buttonEnqueue</value>
-  </data>
-  <data name="&gt;&gt;buttonEnqueue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonEnqueue.Parent" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;buttonEnqueue.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>6</value>
   </data>
   <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>444, 13</value>
+    <value>17, 16</value>
+  </data>
+  <data name="buttonCancel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>100, 28</value>
   </data>
   <data name="buttonCancel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -601,80 +205,677 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;buttonCancel.Parent" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
+    <value>flowLayoutPanelButtons</value>
   </data>
   <data name="&gt;&gt;buttonCancel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="flowLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="flowLayoutPanel1.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
-    <value>RightToLeft</value>
-  </data>
-  <data name="flowLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 298</value>
-  </data>
-  <data name="flowLayoutPanel1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="flowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>623, 46</value>
-  </data>
-  <data name="flowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel1.Name" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="labelExplanation.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="flowLayoutPanelButtons.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
-  <data name="labelExplanation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="flowLayoutPanelButtons.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 537</value>
   </data>
-  <data name="labelExplanation.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+  <data name="flowLayoutPanelButtons.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
-  <data name="labelExplanation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>623, 104</value>
+  <data name="flowLayoutPanelButtons.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>13, 12, 13, 12</value>
   </data>
-  <data name="labelExplanation.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="flowLayoutPanelButtons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>869, 55</value>
   </data>
-  <data name="labelExplanation.Text" xml:space="preserve">
-    <value>_Explanation</value>
-    <comment>@Invariant</comment>
+  <data name="flowLayoutPanelButtons.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;labelExplanation.Name" xml:space="preserve">
-    <value>labelExplanation</value>
+  <data name="&gt;&gt;flowLayoutPanelButtons.Name" xml:space="preserve">
+    <value>flowLayoutPanelButtons</value>
   </data>
-  <data name="&gt;&gt;labelExplanation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;flowLayoutPanelButtons.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;labelExplanation.Parent" xml:space="preserve">
+  <data name="&gt;&gt;flowLayoutPanelButtons.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;labelExplanation.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;flowLayoutPanelButtons.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tableLayoutPanelLosslessCut.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
+  </data>
+  <data name="flowLayoutPanelReEncodeButtons.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="buttonEnqueueLoseless.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="buttonEnqueueLoseless.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="buttonEnqueueLoseless.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 7.8pt, style=Bold</value>
+  </data>
+  <data name="buttonEnqueueLoseless.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonEnqueueLoseless.Location" type="System.Drawing.Point, System.Drawing">
+    <value>247, 4</value>
+  </data>
+  <data name="buttonEnqueueLoseless.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="buttonEnqueueLoseless.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 28</value>
+  </data>
+  <data name="buttonEnqueueLoseless.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="buttonEnqueueLoseless.Text" xml:space="preserve">
+    <value>Perform loseless cut</value>
+  </data>
+  <data name="&gt;&gt;buttonEnqueueLoseless.Name" xml:space="preserve">
+    <value>buttonEnqueueLoseless</value>
+  </data>
+  <data name="&gt;&gt;buttonEnqueueLoseless.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonEnqueueLoseless.Parent" xml:space="preserve">
+    <value>flowLayoutPanelReEncodeButtons</value>
+  </data>
+  <data name="&gt;&gt;buttonEnqueueLoseless.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="buttonAdjustSelections.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="buttonAdjustSelections.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="buttonAdjustSelections.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 7.8pt</value>
+  </data>
+  <data name="buttonAdjustSelections.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonAdjustSelections.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 4</value>
+  </data>
+  <data name="buttonAdjustSelections.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="buttonAdjustSelections.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 28</value>
+  </data>
+  <data name="buttonAdjustSelections.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="buttonAdjustSelections.Text" xml:space="preserve">
+    <value>Adjust selection to keyframes</value>
+  </data>
+  <data name="&gt;&gt;buttonAdjustSelections.Name" xml:space="preserve">
+    <value>buttonAdjustSelections</value>
+  </data>
+  <data name="&gt;&gt;buttonAdjustSelections.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonAdjustSelections.Parent" xml:space="preserve">
+    <value>flowLayoutPanelReEncodeButtons</value>
+  </data>
+  <data name="&gt;&gt;buttonAdjustSelections.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="flowLayoutPanelReEncodeButtons.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="flowLayoutPanelReEncodeButtons.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
+    <value>RightToLeft</value>
+  </data>
+  <data name="flowLayoutPanelReEncodeButtons.Location" type="System.Drawing.Point, System.Drawing">
+    <value>434, 33</value>
+  </data>
+  <data name="flowLayoutPanelReEncodeButtons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 36</value>
+  </data>
+  <data name="flowLayoutPanelReEncodeButtons.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanelReEncodeButtons.Name" xml:space="preserve">
+    <value>flowLayoutPanelReEncodeButtons</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanelReEncodeButtons.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanelReEncodeButtons.Parent" xml:space="preserve">
+    <value>tableLayoutPanelLosslessCut</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanelReEncodeButtons.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelLossless.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelLossless.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt, style=Bold</value>
+  </data>
+  <data name="labelLossless.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="labelLossless.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="labelLossless.Size" type="System.Drawing.Size, System.Drawing">
+    <value>295, 30</value>
+  </data>
+  <data name="labelLossless.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="labelLossless.Text" xml:space="preserve">
+    <value>_labelLossless_do_not_translate</value>
+  </data>
+  <data name="&gt;&gt;labelLossless.Name" xml:space="preserve">
+    <value>labelLossless</value>
+  </data>
+  <data name="&gt;&gt;labelLossless.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelLossless.Parent" xml:space="preserve">
+    <value>tableLayoutPanelLosslessCut</value>
+  </data>
+  <data name="&gt;&gt;labelLossless.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanelLosslessCut.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanelLosslessCut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 18</value>
+  </data>
+  <data name="tableLayoutPanelLosslessCut.RowCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tableLayoutPanelLosslessCut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>863, 73</value>
+  </data>
+  <data name="tableLayoutPanelLosslessCut.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelLosslessCut.Name" xml:space="preserve">
+    <value>tableLayoutPanelLosslessCut</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelLosslessCut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelLosslessCut.Parent" xml:space="preserve">
+    <value>groupBoxLosslessCut</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelLosslessCut.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanelLosslessCut.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="flowLayoutPanelReEncodeButtons" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelLossless" Row="0" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="groupBoxLosslessCut.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="groupBoxLosslessCut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 342</value>
+  </data>
+  <data name="groupBoxLosslessCut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>869, 94</value>
+  </data>
+  <data name="groupBoxLosslessCut.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="groupBoxLosslessCut.Text" xml:space="preserve">
+    <value>Lossless cut</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLosslessCut.Name" xml:space="preserve">
+    <value>groupBoxLosslessCut</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLosslessCut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLosslessCut.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBoxLosslessCut.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanelReEncodeCut.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="buttonEnqueueReEncoding.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="buttonEnqueueReEncoding.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="buttonEnqueueReEncoding.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 7.8pt</value>
+  </data>
+  <data name="buttonEnqueueReEncoding.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonEnqueueReEncoding.Location" type="System.Drawing.Point, System.Drawing">
+    <value>675, 34</value>
+  </data>
+  <data name="buttonEnqueueReEncoding.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="buttonEnqueueReEncoding.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 28</value>
+  </data>
+  <data name="buttonEnqueueReEncoding.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="buttonEnqueueReEncoding.Text" xml:space="preserve">
+    <value>Perform cut with re-encoding</value>
+  </data>
+  <data name="&gt;&gt;buttonEnqueueReEncoding.Name" xml:space="preserve">
+    <value>buttonEnqueueReEncoding</value>
+  </data>
+  <data name="&gt;&gt;buttonEnqueueReEncoding.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonEnqueueReEncoding.Parent" xml:space="preserve">
+    <value>tableLayoutPanelReEncodeCut</value>
+  </data>
+  <data name="&gt;&gt;buttonEnqueueReEncoding.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelReEncode.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelReEncode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt, style=Bold</value>
+  </data>
+  <data name="labelReEncode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelReEncode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="labelReEncode.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="labelReEncode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>304, 30</value>
+  </data>
+  <data name="labelReEncode.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="labelReEncode.Text" xml:space="preserve">
+    <value>_labelReEncode_do_not_translate</value>
+  </data>
+  <data name="&gt;&gt;labelReEncode.Name" xml:space="preserve">
+    <value>labelReEncode</value>
+  </data>
+  <data name="&gt;&gt;labelReEncode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelReEncode.Parent" xml:space="preserve">
+    <value>tableLayoutPanelReEncodeCut</value>
+  </data>
+  <data name="&gt;&gt;labelReEncode.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tableLayoutPanelReEncodeCut.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanelReEncodeCut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 18</value>
+  </data>
+  <data name="tableLayoutPanelReEncodeCut.RowCount" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tableLayoutPanelReEncodeCut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>863, 75</value>
+  </data>
+  <data name="tableLayoutPanelReEncodeCut.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelReEncodeCut.Name" xml:space="preserve">
+    <value>tableLayoutPanelReEncodeCut</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelReEncodeCut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelReEncodeCut.Parent" xml:space="preserve">
+    <value>groupBoxReEncodeCut</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelReEncodeCut.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanelReEncodeCut.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="buttonEnqueueReEncoding" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelReEncode" Row="0" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="groupBoxReEncodeCut.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="groupBoxReEncodeCut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 436</value>
+  </data>
+  <data name="groupBoxReEncodeCut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>869, 96</value>
+  </data>
+  <data name="groupBoxReEncodeCut.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="groupBoxReEncodeCut.Text" xml:space="preserve">
+    <value>Cut with re-encoding</value>
+  </data>
+  <data name="&gt;&gt;groupBoxReEncodeCut.Name" xml:space="preserve">
+    <value>groupBoxReEncodeCut</value>
+  </data>
+  <data name="&gt;&gt;groupBoxReEncodeCut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxReEncodeCut.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBoxReEncodeCut.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanelVideoParameters.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>173, 102</value>
+  </data>
+  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>674, 20</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Hint: output path can be changed in settings</value>
+  </data>
+  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>tableLayoutPanelVideoParameters</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="textBoxOutputFilePath.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="textBoxOutputFilePath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>173, 76</value>
+  </data>
+  <data name="textBoxOutputFilePath.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="textBoxOutputFilePath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>674, 22</value>
+  </data>
+  <data name="textBoxOutputFilePath.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;textBoxOutputFilePath.Name" xml:space="preserve">
+    <value>textBoxOutputFilePath</value>
+  </data>
+  <data name="&gt;&gt;textBoxOutputFilePath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxOutputFilePath.Parent" xml:space="preserve">
+    <value>tableLayoutPanelVideoParameters</value>
+  </data>
+  <data name="&gt;&gt;textBoxOutputFilePath.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelOutputFilePath.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelOutputFilePath.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="labelOutputFilePath.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelOutputFilePath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 72</value>
+  </data>
+  <data name="labelOutputFilePath.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="labelOutputFilePath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 30</value>
+  </data>
+  <data name="labelOutputFilePath.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="labelOutputFilePath.Text" xml:space="preserve">
+    <value>Output file path:</value>
+  </data>
+  <data name="labelOutputFilePath.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;labelOutputFilePath.Name" xml:space="preserve">
+    <value>labelOutputFilePath</value>
+  </data>
+  <data name="&gt;&gt;labelOutputFilePath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelOutputFilePath.Parent" xml:space="preserve">
+    <value>tableLayoutPanelVideoParameters</value>
+  </data>
+  <data name="&gt;&gt;labelOutputFilePath.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="textBoxOriginalFilePath.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="textBoxOriginalFilePath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>173, 16</value>
+  </data>
+  <data name="textBoxOriginalFilePath.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="textBoxOriginalFilePath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>674, 22</value>
+  </data>
+  <data name="textBoxOriginalFilePath.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;textBoxOriginalFilePath.Name" xml:space="preserve">
+    <value>textBoxOriginalFilePath</value>
+  </data>
+  <data name="&gt;&gt;textBoxOriginalFilePath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxOriginalFilePath.Parent" xml:space="preserve">
+    <value>tableLayoutPanelVideoParameters</value>
+  </data>
+  <data name="&gt;&gt;textBoxOriginalFilePath.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="labelOriginalFilePath.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelOriginalFilePath.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="labelOriginalFilePath.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelOriginalFilePath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 12</value>
+  </data>
+  <data name="labelOriginalFilePath.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="labelOriginalFilePath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 30</value>
+  </data>
+  <data name="labelOriginalFilePath.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="labelOriginalFilePath.Text" xml:space="preserve">
+    <value>Original file path:</value>
+  </data>
+  <data name="labelOriginalFilePath.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;labelOriginalFilePath.Name" xml:space="preserve">
+    <value>labelOriginalFilePath</value>
+  </data>
+  <data name="&gt;&gt;labelOriginalFilePath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelOriginalFilePath.Parent" xml:space="preserve">
+    <value>tableLayoutPanelVideoParameters</value>
+  </data>
+  <data name="&gt;&gt;labelOriginalFilePath.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tableLayoutPanelVideoParameters.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanelVideoParameters.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 18</value>
+  </data>
+  <data name="tableLayoutPanelVideoParameters.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>12, 12, 12, 12</value>
+  </data>
+  <data name="tableLayoutPanelVideoParameters.RowCount" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="tableLayoutPanelVideoParameters.Size" type="System.Drawing.Size, System.Drawing">
+    <value>863, 138</value>
+  </data>
+  <data name="tableLayoutPanelVideoParameters.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelVideoParameters.Name" xml:space="preserve">
+    <value>tableLayoutPanelVideoParameters</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelVideoParameters.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelVideoParameters.Parent" xml:space="preserve">
+    <value>groupBoxVideoParameters</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanelVideoParameters.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanelVideoParameters.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label2" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxOutputFilePath" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelOutputFilePath" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxOriginalFilePath" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelOriginalFilePath" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="textBoxDuration" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelDuration" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100,Absolute,20" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="groupBoxVideoParameters.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="groupBoxVideoParameters.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 183</value>
+  </data>
+  <data name="groupBoxVideoParameters.Size" type="System.Drawing.Size, System.Drawing">
+    <value>869, 159</value>
+  </data>
+  <data name="groupBoxVideoParameters.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="groupBoxVideoParameters.Text" xml:space="preserve">
+    <value>Video parameters</value>
+  </data>
+  <data name="&gt;&gt;groupBoxVideoParameters.Name" xml:space="preserve">
+    <value>groupBoxVideoParameters</value>
+  </data>
+  <data name="&gt;&gt;groupBoxVideoParameters.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxVideoParameters.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBoxVideoParameters.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="richTextBoxExplanation.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="richTextBoxExplanation.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="richTextBoxExplanation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 10</value>
+  </data>
+  <data name="richTextBoxExplanation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>849, 158</value>
+  </data>
+  <data name="richTextBoxExplanation.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="richTextBoxExplanation.Text" xml:space="preserve">
+    <value>This program supports both lossless cutting and cutting by re-encoding parts of the original file. Lossless cutting is preferred because it can be done very quickly and without loss of quality. Unfortunately lossless cutting can be performed only on keyframes. If you need to cut between keyframes, the only option is to re-encode. However, re-encoding process can be very slow (depending on computer performance, input video and size of the selection, it can take even hours). 
+For more details, visit https://github.com/bartekmotyl/simple-video-cutter/tree/development/doc</value>
+  </data>
+  <data name="&gt;&gt;richTextBoxExplanation.Name" xml:space="preserve">
+    <value>richTextBoxExplanation</value>
+  </data>
+  <data name="&gt;&gt;richTextBoxExplanation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;richTextBoxExplanation.Parent" xml:space="preserve">
+    <value>panelDetails</value>
+  </data>
+  <data name="&gt;&gt;richTextBoxExplanation.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panelDetails.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panelDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 5</value>
+  </data>
+  <data name="panelDetails.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="panelDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>869, 178</value>
+  </data>
+  <data name="panelDetails.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;panelDetails.Name" xml:space="preserve">
+    <value>panelDetails</value>
+  </data>
+  <data name="&gt;&gt;panelDetails.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelDetails.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelDetails.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>623, 344</value>
+    <value>879, 597</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -962,6 +1163,12 @@
         AP//AAAAAAAA//+AAAAAAAH//8AAAAAAA///4AAAAAAH///4AAAAAB////wAAAAAP////gAAAAB/////
         gAAAAf/////gAAAH//////wAAD///////4AB//////////////8=
 </value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>

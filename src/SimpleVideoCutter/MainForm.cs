@@ -2,6 +2,7 @@
 using LibVLCSharp.Shared;
 using Newtonsoft.Json;
 using SimpleVideoCutter.Properties;
+using SimpleVideoCutter.Settings;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -596,23 +597,13 @@ namespace SimpleVideoCutter
             var outputFileName = ReplaceFilePatterns(VideoCutterSettings.Instance.OutputFilePattern, fileBeingPlayed);
             var outputFilePath = Path.Combine(outputDir, outputFileName);
 
-            var profile = VideoCutterSettings.Instance.FFmpegCutProfiles.FirstOrDefault(
-                p => p.Name == VideoCutterSettings.Instance.SelectedFFmpegCutProfile) ??
-                VideoCutterSettings.Instance.FFmpegCutProfiles.First();
-
-            // If 'FileType' in profile is not null or empty then 
-            // we assume it specifies file extension (format) to be used 
-            if (!string.IsNullOrEmpty(profile.FileType))
-            {
-                var extension = profile.FileType.StartsWith(".") ? profile.FileType.Substring(1) : profile.FileType;
-                outputFilePath = Path.ChangeExtension(outputFilePath, extension);
-            }
-
             var selections = videoCutterTimeline1.Selections.AllSelections.Select(s => new FFmpegTaskSelection()
             {
                 Start = TimeSpan.FromMilliseconds(s.Start),
                 End = TimeSpan.FromMilliseconds(s.End),
             }).ToArray();
+
+            var profile = FFmpegCutProfile.Lossless.Clone();
 
             var task = new FFmpegTask()
             {
@@ -622,24 +613,32 @@ namespace SimpleVideoCutter
                 Selections = selections,
                 OverallDuration = videoCutterTimeline1.Selections.OverallDuration,
                 TaskId = Guid.NewGuid().ToString(),
-                Profile = profile,
+                Profile = profile, 
             };
 
+            var selectionsOnKeyFrames = videoCutterTimeline1.AreSelectionsOnKeyFrames;
             bool shiftPressed = ModifierKeys == Keys.Shift;
-            if (VideoCutterSettings.Instance.ShowTaskWindow || shiftPressed)
+            if (VideoCutterSettings.Instance.ShowTaskWindow || shiftPressed || !selectionsOnKeyFrames)
             {
-                using (var addTaskDialog = new FormAddTask(task))
+
+                using (var addTaskDialog = new FormAddTask(task, selectionsOnKeyFrames))
                 {
                     var result = addTaskDialog.ShowDialog(this);
-                    if (result != DialogResult.OK)
+                    if (result == DialogResult.Retry)
+                    {
+                        videoCutterTimeline1.AdjustSelectionsToKeyFrames();
                         return;
+                    }
+                    else if (result != DialogResult.OK)
+                    {
+                        return;
+                    }
 
                     task = addTaskDialog.Task;
                 }
             }
 
             VideoCutterSettings.Instance.ShowTaskWindow = false;
-            VideoCutterSettings.Instance.SelectedFFmpegCutProfile = task.Profile.Name;
 
             taskProcessor.EnqueueTask(task);
             if (!VideoCutterSettings.Instance.KeepSelectionAfterCut)

@@ -27,13 +27,6 @@ namespace SimpleVideoCutter
         public bool Autostart { get; set; } = true;
         public bool ShowTaskWindow { get; set; } = true;
 
-        public FFmpegCutProfile[] FFmpegCutProfiles = new FFmpegCutProfile[]
-        {
-            new FFmpegCutProfile() { Name = "lossless", Arguments = "-codec copy", FileType = null},
-        };
-
-        public string SelectedFFmpegCutProfile { get; set; } = "lossless";
-
         public Rectangle MainWindowLocation { get; set; } = Rectangle.Empty;
         public bool MainWindowMaximized { get; set; } = false;
         public bool RestoreToolbarsLayout { get; set; } = true;

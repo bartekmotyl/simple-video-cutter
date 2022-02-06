@@ -168,6 +168,13 @@ namespace SimpleVideoCutter
             OnSelectionsChanged();
         }
 
+        public void ReplaceAll(IList<Selection> newSelections)
+        {
+            selections.Clear();
+            selections.AddRange(newSelections);
+            OnSelectionsChanged();
+        }
+
         private void OnSelectionsChanged()
         {
             SelectionsChanged?.Invoke(this, new EventArgs());
@@ -262,17 +269,12 @@ namespace SimpleVideoCutter
         private Brush brushInfoAreaText = new SolidBrush(Color.FromArgb(0xF8, 0xF9, 0xFA));
         private Pen penBigTicks = new Pen(Color.FromArgb(0xE9, 0xEC, 0xEF));
         private Pen penSmallTicks = new Pen(Color.FromArgb(0xAD, 0xB5, 0xBD));
-        //private Pen penKeyFrameTicks = new Pen(Color.FromArgb(0x02, 0x02, 0x02));
         private Brush brushHoverPosition = new SolidBrush(Color.FromArgb(0xC8, 0x17, 0x17));
         private Brush brushPosition = new SolidBrush(Color.FromArgb(0x00, 0x5C, 0x9E));
         private Brush brushKeyFrames = new SolidBrush(Color.FromArgb(0x87, 0x92, 0x9B));
 
-        
-
         private Brush brushSelectionMarker = new SolidBrush(Color.FromArgb(0x21, 0x25, 0x29));
         private Pen penSelectionMarker = new Pen(Color.FromArgb(0x21, 0x25, 0x29));
-        //private PositionMoveController selectionStartMoveController;
-        //private PositionMoveController selectionEndMoveController;
         private SelectionsMoveController selectionsMoveController;
 
         private long position = 0;
@@ -283,7 +285,6 @@ namespace SimpleVideoCutter
 
         private float scale = 1.0f;
         private long offset = 0;
-
         private long length = 0;
 
         public long Length
@@ -342,6 +343,43 @@ namespace SimpleVideoCutter
         }
 
         public Selections Selections { get => selections; }
+
+        public bool AreSelectionsOnKeyFrames 
+        {  
+            get
+            {
+                return Selections.AllSelections.All(sel =>
+                {
+                    var distanceStart = Math.Abs(sel.Start - LocateNearestKeyFrame(sel.Start));
+                    var distanceEnd = Math.Abs(sel.End - LocateNearestKeyFrame(sel.End));
+
+                    var acceptable = 500;
+                    return Math.Max(distanceStart, distanceEnd) < acceptable;
+                });
+            } 
+        }
+
+        public void AdjustSelectionsToKeyFrames()
+        {
+            bool anyChanged = false; 
+            var newSelections = Selections.AllSelections.Select(sel =>
+            {
+                var nearestStartKeyFrame = LocateNearestKeyFrame(sel.Start);
+                var nearestEndKeyFrame = LocateNearestKeyFrame(sel.End);
+                var distanceStart = Math.Abs(sel.Start - nearestStartKeyFrame);
+                var distanceEnd = Math.Abs(sel.End - nearestEndKeyFrame);
+                if (distanceStart > 0 || distanceEnd > 0)
+                {
+                    anyChanged = true;
+                    return new Selection() { Start = nearestStartKeyFrame, End = nearestEndKeyFrame };
+                }
+                return sel;
+            }).ToList();
+            if (anyChanged)
+            {
+                Selections.ReplaceAll(newSelections.Where(sel => sel.End - sel.Start > 0).ToList());
+            }
+        }
 
         public VideoCutterTimeline()
         {
@@ -424,13 +462,13 @@ namespace SimpleVideoCutter
             offset = Math.Max(offset, 0);
         }
 
-        private List<long> GetKeyframes()
+        private KeyframesRequestEventArgs GetKeyframesData()
         {
             if (KeyframesRequest != null)
             {
                 var eventArgs = new KeyframesRequestEventArgs();
                 KeyframesRequest(this, eventArgs);
-                return eventArgs.Keyframes;
+                return eventArgs;
             }
             else
             {
@@ -438,31 +476,35 @@ namespace SimpleVideoCutter
             }
         }
 
-
-        private long FindNearestKeyFrame(long position)
+        private long LocateNearestKeyFrame(long position)
         {
-            var keyframes = GetKeyframes();
-            if (keyframes == null)
+            var keyframesData = GetKeyframesData();
+            if (keyframesData == null || keyframesData.Keyframes == null)
                 return position;
+            var keyframes = keyframesData.Keyframes;
             var foundIndex = keyframes.BinarySearch(position);
             if (foundIndex >= 0)
                 return position;
 
             var indexFirstGreater = ~foundIndex;
-            long? keyFrameNext = indexFirstGreater < keyframes.Count ? keyframes[indexFirstGreater] : Length-1;
+            long? keyFrameNext = indexFirstGreater < keyframes.Count ? keyframes[indexFirstGreater] : Length - 1;
             long? keyFramePrev = indexFirstGreater > 0 ? keyframes[indexFirstGreater - 1] : (long?)null;
 
             var distanceNext = Math.Abs(position - keyFrameNext ?? (position + long.MaxValue));
             var distancePrev = Math.Abs(position - keyFramePrev ?? (position + long.MaxValue));
 
+            return distanceNext < distancePrev ? keyFrameNext.Value : keyFramePrev.Value;
+        }
+
+        private long FindNearestAcceptableKeyFrame(long position)
+        {
+            var nearestKeyFrame = LocateNearestKeyFrame(position);
             var acceptablePixelRadius = 5;
             var accpetableMsRadius = (long)(acceptablePixelRadius / PixelsPerMilliseconds());
-
-            var minDistanceFound = Math.Min(distanceNext, distancePrev);
+            var minDistanceFound = Math.Abs(position - nearestKeyFrame);
             if (minDistanceFound > accpetableMsRadius)
                 return position;
-            
-            return distanceNext < distancePrev ? keyFrameNext.Value : keyFramePrev.Value;
+            return nearestKeyFrame;
         }
 
         private void VideoCutterTimeline_Paint(object sender, PaintEventArgs e)
@@ -544,10 +586,12 @@ namespace SimpleVideoCutter
             }
 
             e.Graphics.TranslateTransform(0, ticksAreaHeight);
-            var keyframes = GetKeyframes();
+            var keyframesData = GetKeyframesData();
+            var keyframes = keyframesData?.Keyframes;
             if (keyframes != null)
             {
-                for (var i = 1; i <= keyframes.Count; i += 2)
+                var length = keyframesData.InProgress ? keyframes.Count - 1 : keyframes.Count;
+                for (var i = 1; i <= length; i += 2)
                 {
                     var keyframeCurr = i == keyframes.Count ? Length : keyframes[i];
                     var keyframePrev = keyframes[i - 1];
@@ -758,7 +802,7 @@ namespace SimpleVideoCutter
             var normalizedPosX = NormalizeMouseEventX(e.Location.X);
             HoverPosition = PixelToPosition(normalizedPosX);
             var frame = PixelToPosition(normalizedPosX);
-            var normalizedFrame = FindNearestKeyFrame(frame);
+            var normalizedFrame = FindNearestAcceptableKeyFrame(frame);
             selectionsMoveController.ProcessMouseMoveFrame(normalizedFrame);
         }
 
@@ -795,25 +839,27 @@ namespace SimpleVideoCutter
             selections.AddSelection(start, frame);
         }
 
+
+
         private int NormalizeMouseEventX(int x)
         {
             var frame = PixelToPosition(x);
             var isShift = ModifierKeys == Keys.Shift;
-            var nearestFrame = isShift ? frame : FindNearestKeyFrame(frame);
+            var nearestFrame = isShift ? frame : FindNearestAcceptableKeyFrame(frame);
             return frame != nearestFrame ? PositionToPixel(nearestFrame) : x;
         }
 
         private void VideoCutterTimeline_MouseDown(object sender, MouseEventArgs e)
         {
             var frame = PixelToPosition(e.X);
-            var normalizedFrame = FindNearestKeyFrame(frame);
+            var normalizedFrame = FindNearestAcceptableKeyFrame(frame);
             selectionsMoveController.ProcessMouseDownFrame(normalizedFrame, e.Button, e.Clicks);
         }
 
         private void VideoCutterTimeline_MouseUp(object sender, MouseEventArgs e)
         {
             var frame = PixelToPosition(e.X);
-            var normalizedFrame = FindNearestKeyFrame(frame);
+            var normalizedFrame = FindNearestAcceptableKeyFrame(frame);
             if (!selectionsMoveController.IsDragInProgress())
             {
                 if (e.Button == MouseButtons.Middle && e.Clicks == 1)

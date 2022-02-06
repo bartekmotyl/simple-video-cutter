@@ -101,12 +101,6 @@
     <Compile Include="CustomWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DialogProfileName.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DialogProfileName.Designer.cs">
-      <DependentUpon>DialogProfileName.cs</DependentUpon>
-    </Compile>
     <Compile Include="FFmpegNET\FFmpegArgumentBuilder.cs" />
     <Compile Include="FormAddTask.cs">
       <SubType>Form</SubType>
@@ -178,30 +172,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.zh-CN.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DialogProfileName.de.resx">
-      <DependentUpon>DialogProfileName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DialogProfileName.es.resx">
-      <DependentUpon>DialogProfileName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DialogProfileName.fr.resx">
-      <DependentUpon>DialogProfileName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DialogProfileName.it.resx">
-      <DependentUpon>DialogProfileName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DialogProfileName.ja.resx">
-      <DependentUpon>DialogProfileName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DialogProfileName.pl.resx">
-      <DependentUpon>DialogProfileName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DialogProfileName.resx">
-      <DependentUpon>DialogProfileName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DialogProfileName.zh-CN.resx">
-      <DependentUpon>DialogProfileName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddTask.de.resx">
       <DependentUpon>FormAddTask.cs</DependentUpon>
