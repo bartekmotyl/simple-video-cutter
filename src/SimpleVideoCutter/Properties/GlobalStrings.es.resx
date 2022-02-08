@@ -243,4 +243,13 @@ Las partes estáticas están permitidas así como estas pseudo-variables
     <value>haga clic en el medio para establecer el final del clip aquí
 pista: prueba también con shift/control</value>
   </data>
+  <data name="MainForm_KeyFramesNotLoaded" xml:space="preserve">
+    <value>Los fotogramas clave no se han cargado todavía, por favor, espere un poco y vuelva a intentarlo.</value>
+  </data>
+  <data name="MainForm_Lossless" xml:space="preserve">
+    <value>Sin pérdidas</value>
+  </data>
+  <data name="MainForm_ReEncoding" xml:space="preserve">
+    <value>Recodificación</value>
+  </data>
 </root>

@@ -243,4 +243,13 @@ Erlaubt sind sowohl statische Teile als auch diese Pseudo-Variablen
     <value>Mittelklick, um das Clipende hier zu setzen
 Tip: versuchen Sie es auch mit Shift/Steuerung</value>
   </data>
+  <data name="MainForm_KeyFramesNotLoaded" xml:space="preserve">
+    <value>Die Schlüsselbilder wurden noch nicht geladen, bitte warten Sie ein wenig und versuchen Sie es erneut.</value>
+  </data>
+  <data name="MainForm_Lossless" xml:space="preserve">
+    <value>Verlustfrei</value>
+  </data>
+  <data name="MainForm_ReEncoding" xml:space="preserve">
+    <value>Neucodierung</value>
+  </data>
 </root>

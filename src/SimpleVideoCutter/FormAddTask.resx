@@ -371,6 +371,7 @@
   </data>
   <data name="labelLossless.Text" xml:space="preserve">
     <value>_labelLossless_do_not_translate</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;labelLossless.Name" xml:space="preserve">
     <value>labelLossless</value>
@@ -506,6 +507,7 @@
   </data>
   <data name="labelReEncode.Text" xml:space="preserve">
     <value>_labelReEncode_do_not_translate</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;labelReEncode.Name" xml:space="preserve">
     <value>labelReEncode</value>
@@ -827,7 +829,7 @@
   </data>
   <data name="richTextBoxExplanation.Text" xml:space="preserve">
     <value>This program supports both lossless cutting and cutting by re-encoding parts of the original file. Lossless cutting is preferred because it can be done very quickly and without loss of quality. Unfortunately lossless cutting can be performed only on keyframes. If you need to cut between keyframes, the only option is to re-encode. However, re-encoding process can be very slow (depending on computer performance, input video and size of the selection, it can take even hours). 
-For more details, visit https://github.com/bartekmotyl/simple-video-cutter/tree/development/doc</value>
+For more details, visit https://github.com/bartekmotyl/simple-video-cutter/wiki/Video-cutting-challenges</value>
   </data>
   <data name="&gt;&gt;richTextBoxExplanation.Name" xml:space="preserve">
     <value>richTextBoxExplanation</value>

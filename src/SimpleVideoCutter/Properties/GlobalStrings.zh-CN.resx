@@ -243,4 +243,13 @@ TL;DR：按'{1}'就可以了。窗口不会再显示。</value>
     <value>中间点击设置剪辑结束这里
 提示：也可以用shift/control试试。</value>
   </data>
+  <data name="MainForm_KeyFramesNotLoaded" xml:space="preserve">
+    <value>关键帧尚未加载，请稍等片刻再试。</value>
+  </data>
+  <data name="MainForm_Lossless" xml:space="preserve">
+    <value>无损的</value>
+  </data>
+  <data name="MainForm_ReEncoding" xml:space="preserve">
+    <value>重新编码</value>
+  </data>
 </root>

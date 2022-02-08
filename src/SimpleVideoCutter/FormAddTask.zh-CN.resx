@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="buttonSaveProfile.Text" xml:space="preserve">
-    <value>创建或更新个人资料</value>
-  </data>
-  <data name="labelFFmpegArguments.Text" xml:space="preserve">
-    <value>FFmpeg参数</value>
-  </data>
-  <data name="labelFFmpegProfile.Text" xml:space="preserve">
-    <value>FFmpeg简介。</value>
-  </data>
   <data name="labelOriginalFilePath.Text" xml:space="preserve">
     <value>原始文件路径。</value>
   </data>
@@ -135,19 +126,41 @@
   <data name="labelDuration.Text" xml:space="preserve">
     <value>时间：</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>输出文件类型：</value>
-  </data>
   <data name="label2.Text" xml:space="preserve">
     <value>提示：可以在设置中更改</value>
-  </data>
-  <data name="buttonEnqueue.Text" xml:space="preserve">
-    <value>开始</value>
   </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>取消</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>排队任务</value>
+  </data>
+  <data name="buttonAdjustSelections.Text" xml:space="preserve">
+    <value>调整选择到关键帧</value>
+  </data>
+  <data name="groupBoxReEncodeCut.Text" xml:space="preserve">
+    <value>用重新编码进行切割</value>
+  </data>
+  <data name="groupBoxLosslessCut.Text" xml:space="preserve">
+    <value>无损切割</value>
+  </data>
+  <data name="buttonEnqueueReEncoding.Text" xml:space="preserve">
+    <value>进行重新编码的切割</value>
+  </data>
+  <data name="buttonEnqueueLoseless.Text" xml:space="preserve">
+    <value>进行无损切割</value>
+  </data>
+  <data name="richTextBoxExplanation.Text" xml:space="preserve">
+    <value>这个程序支持无损切割和通过重新编码原始文件的部分内容进行切割。无损切割是首选，因为它可以在不损失质量的情况下非常迅速地完成。不幸的是，无损切割只能在关键帧上进行。如果你需要在关键帧之间进行剪切，唯一的选择就是重新编码。然而，重新编码的过程可能非常慢（取决于计算机性能、输入视频和选择的大小，它甚至可能需要几个小时）。
+欲了解更多详情，请访问https://github.com/bartekmotyl/simple-video-cutter/wiki/Video-cutting-challenges</value>
+  </data>
+  <data name="groupBoxVideoParameters.Text" xml:space="preserve">
+    <value>视频参数</value>
+  </data>
+  <data name="labelLossless.Text" xml:space="preserve">
+    <value>labelLosslessdon'ttranslate</value>
+  </data>
+  <data name="labelReEncode.Text" xml:space="preserve">
+    <value>labelReEncodedonottranslate</value>
   </data>
 </root>

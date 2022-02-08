@@ -243,4 +243,13 @@ TL;DR: po prostu naciśnij '{1}'. Okno nie zostanie pokazane ponownie.</value>
   <data name="VideoCutterTimeline_SetClipFromStartTillHere" xml:space="preserve">
     <value>control + środkowy przycisk ustawia zaznaczenie od początku do tego miejsca</value>
   </data>
+  <data name="MainForm_KeyFramesNotLoaded" xml:space="preserve">
+    <value>Ramki kluczowe nie zostały jeszcze załadowane, proszę poczekać i spróbować ponownie.</value>
+  </data>
+  <data name="MainForm_Lossless" xml:space="preserve">
+    <value>Bezstratna</value>
+  </data>
+  <data name="MainForm_ReEncoding" xml:space="preserve">
+    <value>Ponowne kodowanie</value>
+  </data>
 </root>

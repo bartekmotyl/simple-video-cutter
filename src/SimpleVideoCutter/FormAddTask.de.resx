@@ -119,15 +119,6 @@
   </resheader>
   <data name="buttonSaveProfile.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 23</value>
-  </data> 
-  <data name="buttonSaveProfile.Text" xml:space="preserve">
-    <value>Profil erstellen oder aktualisieren</value>
-  </data>
-  <data name="labelFFmpegArguments.Text" xml:space="preserve">
-    <value>FFmpeg-Argumente</value>
-  </data>
-  <data name="labelFFmpegProfile.Text" xml:space="preserve">
-    <value>FFmpeg-Profil:</value>
   </data>
   <data name="labelOriginalFilePath.Text" xml:space="preserve">
     <value>Original-Dateipfad:</value>
@@ -138,19 +129,41 @@
   <data name="labelDuration.Text" xml:space="preserve">
     <value>Dauer:</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Ausgabe-Dateityp:</value>
-  </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Hinweis: kann in den Einstellungen geändert werden</value>
-  </data>
-  <data name="buttonEnqueue.Text" xml:space="preserve">
-    <value>Beginnen Sie</value>
   </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Enqueue-Aufgabe</value>
+  </data>
+  <data name="buttonAdjustSelections.Text" xml:space="preserve">
+    <value>Auswahl an Keyframes anpassen</value>
+  </data>
+  <data name="groupBoxReEncodeCut.Text" xml:space="preserve">
+    <value>Schnitt mit Neucodierung</value>
+  </data>
+  <data name="groupBoxLosslessCut.Text" xml:space="preserve">
+    <value>Verlustfreier Schnitt</value>
+  </data>
+  <data name="buttonEnqueueReEncoding.Text" xml:space="preserve">
+    <value>Schnitt mit Neucodierung durchführen</value>
+  </data>
+  <data name="buttonEnqueueLoseless.Text" xml:space="preserve">
+    <value>Loser Schnitt durchführen</value>
+  </data>
+  <data name="richTextBoxExplanation.Text" xml:space="preserve">
+    <value>Dieses Programm unterstützt sowohl das verlustfreie Schneiden als auch das Schneiden durch Neucodierung von Teilen der Originaldatei. Verlustfreies Schneiden wird bevorzugt, da es sehr schnell und ohne Qualitätsverlust durchgeführt werden kann. Leider kann das verlustfreie Schneiden nur an Keyframes durchgeführt werden. Wenn Sie zwischen Keyframes schneiden müssen, besteht die einzige Möglichkeit darin, die Datei neu zu kodieren. Die Neucodierung kann jedoch sehr langsam sein (je nach Computerleistung, Eingangsvideo und Größe der Auswahl kann sie sogar Stunden dauern).
+Weitere Einzelheiten finden Sie unter https://github.com/bartekmotyl/simple-video-cutter/wiki/Video-cutting-challenges</value>
+  </data>
+  <data name="groupBoxVideoParameters.Text" xml:space="preserve">
+    <value>Video-Parameter</value>
+  </data>
+  <data name="labelLossless.Text" xml:space="preserve">
+    <value>labelLosslessdonottranslate</value>
+  </data>
+  <data name="labelReEncode.Text" xml:space="preserve">
+    <value>labelReEncodedonottranslate</value>
   </data>
 </root>

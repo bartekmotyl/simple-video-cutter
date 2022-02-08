@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="buttonSaveProfile.Text" xml:space="preserve">
-    <value>Tworzenie lub aktualizacja profilu</value>
-  </data>
-  <data name="labelFFmpegArguments.Text" xml:space="preserve">
-    <value>Argumenty FFmpeg</value>
-  </data>
-  <data name="labelFFmpegProfile.Text" xml:space="preserve">
-    <value>Profil FFmpeg:</value>
-  </data>
   <data name="labelOriginalFilePath.Text" xml:space="preserve">
     <value>Oryginalna ścieżka pliku:</value>
   </data>
@@ -135,19 +126,41 @@
   <data name="labelDuration.Text" xml:space="preserve">
     <value>Czas trwania:</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Typ pliku wyjściowego:</value>
-  </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Wskazówka: może być zmienione w ustawieniach</value>
-  </data>
-  <data name="buttonEnqueue.Text" xml:space="preserve">
-    <value>Rozpocznij</value>
   </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Anuluj</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Kolejkuj zadanie</value>
+  </data>
+  <data name="buttonAdjustSelections.Text" xml:space="preserve">
+    <value>Dopasuj zaznaczenie do klatek kluczowych</value>
+  </data>
+  <data name="groupBoxReEncodeCut.Text" xml:space="preserve">
+    <value>Cięcie z ponownym kodowaniem</value>
+  </data>
+  <data name="groupBoxLosslessCut.Text" xml:space="preserve">
+    <value>Bezstratne cięcie</value>
+  </data>
+  <data name="buttonEnqueueReEncoding.Text" xml:space="preserve">
+    <value>Wykonaj cięcie z ponownym kodowaniem</value>
+  </data>
+  <data name="buttonEnqueueLoseless.Text" xml:space="preserve">
+    <value>Wykonaj bezstratne cięcie</value>
+  </data>
+  <data name="richTextBoxExplanation.Text" xml:space="preserve">
+    <value>Ten program obsługuje zarówno bezstratne cięcie, jak i cięcie przez ponowne zakodowanie części oryginalnego pliku. Preferowane jest cięcie bezstratne, ponieważ może być wykonane bardzo szybko i bez utraty jakości. Niestety bezstratne cięcie może być wykonywane tylko na klatkach kluczowych. Jeśli potrzebujesz ciąć pomiędzy klatkami kluczowymi, jedyną opcją jest ponowne kodowanie. Proces ponownego kodowania może być jednak bardzo powolny (w zależności od wydajności komputera, materiału wejściowego i wielkości zaznaczenia, może trwać nawet kilka godzin).
+Aby uzyskać więcej szczegółów, odwiedź https://github.com/bartekmotyl/simple-video-cutter/wiki/Video-cutting-challenges</value>
+  </data>
+  <data name="groupBoxVideoParameters.Text" xml:space="preserve">
+    <value>Parametry wideo</value>
+  </data>
+  <data name="labelLossless.Text" xml:space="preserve">
+    <value>labelLosslessdonottranslate</value>
+  </data>
+  <data name="labelReEncode.Text" xml:space="preserve">
+    <value>labelReEncodedonottranslate</value>
   </data>
 </root>
