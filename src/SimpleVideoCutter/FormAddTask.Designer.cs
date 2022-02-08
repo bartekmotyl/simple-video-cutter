@@ -104,6 +104,7 @@
             // flowLayoutPanelReEncodeButtons
             // 
             resources.ApplyResources(this.flowLayoutPanelReEncodeButtons, "flowLayoutPanelReEncodeButtons");
+            this.tableLayoutPanelLosslessCut.SetColumnSpan(this.flowLayoutPanelReEncodeButtons, 2);
             this.flowLayoutPanelReEncodeButtons.Controls.Add(this.buttonEnqueueLoseless);
             this.flowLayoutPanelReEncodeButtons.Controls.Add(this.buttonAdjustSelections);
             this.flowLayoutPanelReEncodeButtons.Name = "flowLayoutPanelReEncodeButtons";

@@ -129,17 +129,6 @@
   <data name="AboutBox_VersionUpToDate" xml:space="preserve">
     <value>Si sta eseguendo l'ultima versione.</value>
   </data>
-  <data name="FormAddTask_Explanation" xml:space="preserve">
-    <value>In questa finestra è possibile selezionare tra i profili FFmpeg esistenti (o definirne uno nuovo) che verranno utilizzati per la conversione del video. Il profilo FFmpeg è un insieme di parametri passati a FFmpeg per tagliare il video. Non preoccupatevi se non sapete nulla di FFmpeg - basta premere {1} e l'operazione si avvierà automaticamente (usando il profilo predefinito) e questa finestra non verrà più mostrata. Ma potete sempre riaprirla tenendo premuto Shift quando cliccate su '{0}'.
-
-TL;DR: basta premere '{1}'. La finestra non verrà più mostrata.</value>
-  </data>
-  <data name="FormAddTask_OverwwriteProfileQuestion" xml:space="preserve">
-    <value>Sei sicuro di voler sovrascrivere il profilo {0}?</value>
-  </data>
-  <data name="FormAddTask_SameAsSource" xml:space="preserve">
-    <value>Come il file di origine</value>
-  </data>
   <data name="FormSettings_DefaultDirecttoryTooltip" xml:space="preserve">
     <value>Directory predefinita per l'apertura dei file video.
 Può essere specificata come percorso assoluto,
@@ -252,5 +241,14 @@ Suggerimento: provare anche con Shift/Ctrl</value>
   </data>
   <data name="MainForm_ReEncoding" xml:space="preserve">
     <value>Ricodifica</value>
+  </data>
+  <data name="FormAddTask_LosslessCutNotPossible" xml:space="preserve">
+    <value>Il taglio lossless non è possibile!</value>
+  </data>
+  <data name="FormAddTask_LosslessCutPossible" xml:space="preserve">
+    <value>Taglio lossless possibile!</value>
+  </data>
+  <data name="FormAddTask_ReEncodePossibleButSlow" xml:space="preserve">
+    <value>Taglio con ricodifica possibile, ma può richiedere molto tempo!</value>
   </data>
 </root>

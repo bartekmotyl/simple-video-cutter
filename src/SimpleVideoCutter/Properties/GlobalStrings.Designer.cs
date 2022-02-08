@@ -97,31 +97,29 @@ namespace SimpleVideoCutter.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In this window you can select from existing FFmpeg profiles (or define a new one) that will be used when converting the video. FFmpeg profile is a set of arguments passed to FFmpeg to cut your video. Don&apos;t worry if you do not know anything about FFmpeg - just press {1} and task will start automatically (using default profile) and this window will not be shown again. But you can always bring it back by holding Shift when clicking on &apos;{0}&apos;.
-        ///
-        ///TL;DR: just press &apos;{1}&apos;. Window will not be shown again..
+        ///   Looks up a localized string similar to Lossless cut not possible!.
         /// </summary>
-        internal static string FormAddTask_Explanation {
+        internal static string FormAddTask_LosslessCutNotPossible {
             get {
-                return ResourceManager.GetString("FormAddTask_Explanation", resourceCulture);
+                return ResourceManager.GetString("FormAddTask_LosslessCutNotPossible", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to overwrite profile {0}?.
+        ///   Looks up a localized string similar to Lossless cut possible!.
         /// </summary>
-        internal static string FormAddTask_OverwwriteProfileQuestion {
+        internal static string FormAddTask_LosslessCutPossible {
             get {
-                return ResourceManager.GetString("FormAddTask_OverwwriteProfileQuestion", resourceCulture);
+                return ResourceManager.GetString("FormAddTask_LosslessCutPossible", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to same as source.
+        ///   Looks up a localized string similar to Cut with re-encoding possible, but may take long time!.
         /// </summary>
-        internal static string FormAddTask_SameAsSource {
+        internal static string FormAddTask_ReEncodePossibleButSlow {
             get {
-                return ResourceManager.GetString("FormAddTask_SameAsSource", resourceCulture);
+                return ResourceManager.GetString("FormAddTask_ReEncodePossibleButSlow", resourceCulture);
             }
         }
         

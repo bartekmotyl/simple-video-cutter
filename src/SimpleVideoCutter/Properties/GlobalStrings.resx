@@ -129,16 +129,14 @@
   <data name="AboutBox_VersionUpToDate" xml:space="preserve">
     <value>You are running the latest version.</value>
   </data>
-  <data name="FormAddTask_Explanation" xml:space="preserve">
-    <value>In this window you can select from existing FFmpeg profiles (or define a new one) that will be used when converting the video. FFmpeg profile is a set of arguments passed to FFmpeg to cut your video. Don't worry if you do not know anything about FFmpeg - just press {1} and task will start automatically (using default profile) and this window will not be shown again. But you can always bring it back by holding Shift when clicking on '{0}'.
-
-TL;DR: just press '{1}'. Window will not be shown again.</value>
+  <data name="FormAddTask_LosslessCutNotPossible" xml:space="preserve">
+    <value>Lossless cut not possible!</value>
   </data>
-  <data name="FormAddTask_OverwwriteProfileQuestion" xml:space="preserve">
-    <value>Are you sure you want to overwrite profile {0}?</value>
+  <data name="FormAddTask_LosslessCutPossible" xml:space="preserve">
+    <value>Lossless cut possible!</value>
   </data>
-  <data name="FormAddTask_SameAsSource" xml:space="preserve">
-    <value>same as source</value>
+  <data name="FormAddTask_ReEncodePossibleButSlow" xml:space="preserve">
+    <value>Cut with re-encoding possible, but may take long time!</value>
   </data>
   <data name="FormSettings_DefaultDirecttoryTooltip" xml:space="preserve">
     <value>Default directory when opening video files. 

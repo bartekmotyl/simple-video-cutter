@@ -129,17 +129,6 @@
   <data name="AboutBox_VersionUpToDate" xml:space="preserve">
     <value>最新バージョンを実行しています。</value>
   </data>
-  <data name="FormAddTask_Explanation" xml:space="preserve">
-    <value>このウィンドウでは、ビデオを変換するときに使用される既存のFFmpegプロファイルから選択することができます（または新しいプロファイルを定義することもできます）。FFmpegプロファイルはビデオをカットするためにFFmpegに渡される引数のセットです。FFmpegについて何も知らない場合、心配しないでください - {1}を押すだけで、タスクは自動的に開始されます（デフォルトのプロファイルを使用して）、このウィンドウは再び表示されません。しかし、'{0}'をクリックしているときにShiftキーを押したままにすることで、いつでも元に戻すことができます。
-
-TL;DR: '{1}'を押すだけです。ウィンドウは二度と表示されません。</value>
-  </data>
-  <data name="FormAddTask_OverwwriteProfileQuestion" xml:space="preserve">
-    <value>プロファイル{0}を上書きしても大丈夫ですか？</value>
-  </data>
-  <data name="FormAddTask_SameAsSource" xml:space="preserve">
-    <value>ソースと同じ</value>
-  </data>
   <data name="FormSettings_DefaultDirecttoryTooltip" xml:space="preserve">
     <value>動画ファイルを開くときのデフォルトのディレクトリです。
 絶対パス
@@ -251,5 +240,14 @@ TL;DR: '{1}'を押すだけです。ウィンドウは二度と表示されま�
   </data>
   <data name="MainForm_ReEncoding" xml:space="preserve">
     <value>再エンコード</value>
+  </data>
+  <data name="FormAddTask_LosslessCutNotPossible" xml:space="preserve">
+    <value>ロスレスカットができない</value>
+  </data>
+  <data name="FormAddTask_LosslessCutPossible" xml:space="preserve">
+    <value>ロスレスカットも可能です。</value>
+  </data>
+  <data name="FormAddTask_ReEncodePossibleButSlow" xml:space="preserve">
+    <value>再エンコードでのカットも可能ですが、時間がかかるかもしれません。</value>
   </data>
 </root>

@@ -129,17 +129,6 @@
   <data name="AboutBox_VersionUpToDate" xml:space="preserve">
     <value>Estás ejecutando la última versión.</value>
   </data>
-  <data name="FormAddTask_Explanation" xml:space="preserve">
-    <value>En esta ventana puedes seleccionar entre los perfiles de FFmpeg existentes (o definir uno nuevo) que se utilizarán al convertir el vídeo. El perfil FFmpeg es un conjunto de argumentos que se pasan a FFmpeg para cortar el vídeo. No te preocupes si no sabes nada sobre FFmpeg - sólo presiona {1} y la tarea comenzará automáticamente (usando el perfil por defecto) y esta ventana no se mostrará de nuevo. Pero siempre puedes volver a mostrarla manteniendo pulsada la tecla Shift cuando hagas clic en '{0}'.
-
-TL;DR: sólo presione '{1}'. La ventana no se mostrará de nuevo.</value>
-  </data>
-  <data name="FormAddTask_OverwwriteProfileQuestion" xml:space="preserve">
-    <value>¿Estás seguro de que quieres sobrescribir el perfil?</value>
-  </data>
-  <data name="FormAddTask_SameAsSource" xml:space="preserve">
-    <value>igual que la fuente</value>
-  </data>
   <data name="FormSettings_DefaultDirecttoryTooltip" xml:space="preserve">
     <value>Directorio predeterminado al abrir los archivos de vídeo.
 Puede especificarse como ruta absoluta
@@ -251,5 +240,14 @@ pista: prueba también con shift/control</value>
   </data>
   <data name="MainForm_ReEncoding" xml:space="preserve">
     <value>Recodificación</value>
+  </data>
+  <data name="FormAddTask_LosslessCutNotPossible" xml:space="preserve">
+    <value>No es posible el corte sin pérdidas.</value>
+  </data>
+  <data name="FormAddTask_LosslessCutPossible" xml:space="preserve">
+    <value>Es posible el corte sin pérdidas.</value>
+  </data>
+  <data name="FormAddTask_ReEncodePossibleButSlow" xml:space="preserve">
+    <value>Es posible cortar con recodificación, pero puede llevar mucho tiempo.</value>
   </data>
 </root>

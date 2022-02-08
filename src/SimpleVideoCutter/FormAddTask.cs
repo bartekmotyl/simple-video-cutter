@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleVideoCutter.Properties;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -47,14 +48,14 @@ namespace SimpleVideoCutter
 
             if (losslessCutPossible)
             {
-                labelLossless.Text = "Lossless cut possible";
-                labelReEncode.Text = "Cut with re-encoding possible, but may take long time!";
+                labelLossless.Text = GlobalStrings.FormAddTask_LosslessCutPossible;
+                labelReEncode.Text = GlobalStrings.FormAddTask_ReEncodePossibleButSlow;
                 groupBoxLosslessCut.BackColor = Color.Honeydew;
             }
             else
             {
-                labelLossless.Text = "Lossless cut not possible!";
-                labelReEncode.Text = "Cut with re-encoding possible, but may take long time!";
+                labelLossless.Text = GlobalStrings.FormAddTask_LosslessCutNotPossible;
+                labelReEncode.Text = GlobalStrings.FormAddTask_ReEncodePossibleButSlow;
             }
         }
 

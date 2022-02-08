@@ -129,17 +129,6 @@
   <data name="AboutBox_VersionUpToDate" xml:space="preserve">
     <value>你正在运行最新的版本。</value>
   </data>
-  <data name="FormAddTask_Explanation" xml:space="preserve">
-    <value>在这个窗口中，你可以从现有的FFmpeg配置文件中选择（或定义一个新的配置文件），在转换视频时使用。FFmpeg profile是一组参数，用于切割你的视频。如果你对FFmpeg不了解，不要担心--只需按{1}，任务就会自动启动（使用默认的配置文件），这个窗口不会再显示。但是你可以在点击'{0}'的时候按住Shift键将其带回来。
-
-TL;DR：按'{1}'就可以了。窗口不会再显示。</value>
-  </data>
-  <data name="FormAddTask_OverwwriteProfileQuestion" xml:space="preserve">
-    <value>你确定要覆盖配置文件{0}吗？</value>
-  </data>
-  <data name="FormAddTask_SameAsSource" xml:space="preserve">
-    <value>同源</value>
-  </data>
   <data name="FormSettings_DefaultDirecttoryTooltip" xml:space="preserve">
     <value>打开视频文件时的默认目录。
 可指定为绝对路径
@@ -251,5 +240,14 @@ TL;DR：按'{1}'就可以了。窗口不会再显示。</value>
   </data>
   <data name="MainForm_ReEncoding" xml:space="preserve">
     <value>重新编码</value>
+  </data>
+  <data name="FormAddTask_LosslessCutNotPossible" xml:space="preserve">
+    <value>不可能进行无损切割!</value>
+  </data>
+  <data name="FormAddTask_LosslessCutPossible" xml:space="preserve">
+    <value>可以进行无损切割!</value>
+  </data>
+  <data name="FormAddTask_ReEncodePossibleButSlow" xml:space="preserve">
+    <value>切断与重新编码是可能的，但可能需要很长的时间!</value>
   </data>
 </root>

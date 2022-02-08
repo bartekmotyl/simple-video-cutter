@@ -129,17 +129,6 @@
   <data name="AboutBox_VersionUpToDate" xml:space="preserve">
     <value>Sie verwenden die neueste Version.</value>
   </data>
-  <data name="FormAddTask_Explanation" xml:space="preserve">
-    <value>In diesem Fenster können Sie aus vorhandenen FFmpeg-Profilen auswählen (oder ein neues definieren), die bei der Konvertierung des Videos verwendet werden sollen. FFmpeg-Profil ist ein Satz von Argumenten, die an FFmpeg übergeben werden, um Ihr Video zu schneiden. Machen Sie sich keine Sorgen, wenn Sie nichts über FFmpeg wissen - drücken Sie einfach {1} und die Aufgabe startet automatisch (unter Verwendung des Standardprofils) und dieses Fenster wird nicht mehr angezeigt. Sie können es aber jederzeit zurückholen, indem Sie die Umschalttaste gedrückt halten, wenn Sie auf '{0}' klicken.
-
-TL;DR: drücken Sie einfach '{1}'. Das Fenster wird nicht mehr angezeigt.</value>
-  </data>
-  <data name="FormAddTask_OverwwriteProfileQuestion" xml:space="preserve">
-    <value>Sind Sie sicher, dass Sie das Profil {0} überschreiben möchten?</value>
-  </data>
-  <data name="FormAddTask_SameAsSource" xml:space="preserve">
-    <value>gleich wie Quelle</value>
-  </data>
   <data name="FormSettings_DefaultDirecttoryTooltip" xml:space="preserve">
     <value>Standardverzeichnis beim Öffnen von Videodateien.
 Kann entweder als absoluter Pfad angegeben werden
@@ -251,5 +240,14 @@ Tip: versuchen Sie es auch mit Shift/Steuerung</value>
   </data>
   <data name="MainForm_ReEncoding" xml:space="preserve">
     <value>Neucodierung</value>
+  </data>
+  <data name="FormAddTask_LosslessCutNotPossible" xml:space="preserve">
+    <value>Verlustfreier Schnitt nicht möglich!</value>
+  </data>
+  <data name="FormAddTask_LosslessCutPossible" xml:space="preserve">
+    <value>Verlustfreier Schnitt möglich!</value>
+  </data>
+  <data name="FormAddTask_ReEncodePossibleButSlow" xml:space="preserve">
+    <value>Schnitt mit Neucodierung möglich, kann aber viel Zeit in Anspruch nehmen!</value>
   </data>
 </root>

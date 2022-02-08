@@ -214,7 +214,7 @@
     <value>Bottom</value>
   </data>
   <data name="flowLayoutPanelButtons.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 537</value>
+    <value>5, 567</value>
   </data>
   <data name="flowLayoutPanelButtons.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -259,7 +259,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonEnqueueLoseless.Location" type="System.Drawing.Point, System.Drawing">
-    <value>247, 4</value>
+    <value>678, 4</value>
   </data>
   <data name="buttonEnqueueLoseless.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -298,7 +298,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonAdjustSelections.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 4</value>
+    <value>450, 4</value>
   </data>
   <data name="buttonAdjustSelections.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -331,10 +331,10 @@
     <value>RightToLeft</value>
   </data>
   <data name="flowLayoutPanelReEncodeButtons.Location" type="System.Drawing.Point, System.Drawing">
-    <value>434, 33</value>
+    <value>3, 33</value>
   </data>
   <data name="flowLayoutPanelReEncodeButtons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>426, 36</value>
+    <value>857, 37</value>
   </data>
   <data name="flowLayoutPanelReEncodeButtons.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -371,7 +371,6 @@
   </data>
   <data name="labelLossless.Text" xml:space="preserve">
     <value>_labelLossless_do_not_translate</value>
-    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;labelLossless.Name" xml:space="preserve">
     <value>labelLossless</value>
@@ -413,13 +412,13 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanelLosslessCut.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="flowLayoutPanelReEncodeButtons" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelLossless" Row="0" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="flowLayoutPanelReEncodeButtons" Row="1" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;Control Name="labelLossless" Row="0" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="groupBoxLosslessCut.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
   <data name="groupBoxLosslessCut.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 342</value>
+    <value>5, 369</value>
   </data>
   <data name="groupBoxLosslessCut.Size" type="System.Drawing.Size, System.Drawing">
     <value>869, 94</value>
@@ -507,7 +506,6 @@
   </data>
   <data name="labelReEncode.Text" xml:space="preserve">
     <value>_labelReEncode_do_not_translate</value>
-    <comment>@Invariant</comment>
   </data>
   <data name="&gt;&gt;labelReEncode.Name" xml:space="preserve">
     <value>labelReEncode</value>
@@ -555,7 +553,7 @@
     <value>Top</value>
   </data>
   <data name="groupBoxReEncodeCut.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 436</value>
+    <value>5, 463</value>
   </data>
   <data name="groupBoxReEncodeCut.Size" type="System.Drawing.Size, System.Drawing">
     <value>869, 96</value>
@@ -789,7 +787,7 @@
     <value>Top</value>
   </data>
   <data name="groupBoxVideoParameters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 183</value>
+    <value>5, 210</value>
   </data>
   <data name="groupBoxVideoParameters.Size" type="System.Drawing.Size, System.Drawing">
     <value>869, 159</value>
@@ -822,7 +820,7 @@
     <value>10, 10</value>
   </data>
   <data name="richTextBoxExplanation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>849, 158</value>
+    <value>849, 185</value>
   </data>
   <data name="richTextBoxExplanation.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -853,7 +851,7 @@ For more details, visit https://github.com/bartekmotyl/simple-video-cutter/wiki/
     <value>10, 10, 10, 10</value>
   </data>
   <data name="panelDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>869, 178</value>
+    <value>869, 205</value>
   </data>
   <data name="panelDetails.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -877,7 +875,7 @@ For more details, visit https://github.com/bartekmotyl/simple-video-cutter/wiki/
     <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>879, 597</value>
+    <value>879, 627</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

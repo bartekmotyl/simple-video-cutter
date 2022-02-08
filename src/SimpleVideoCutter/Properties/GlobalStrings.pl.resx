@@ -129,12 +129,6 @@
   <data name="AboutBox_VersionUpToDate" xml:space="preserve">
     <value>Używasz najnowszej wersji.</value>
   </data>
-  <data name="FormAddTask_OverwwriteProfileQuestion" xml:space="preserve">
-    <value>Jesteś pewien, że chcesz nadpisać profil {0}?</value>
-  </data>
-  <data name="FormAddTask_SameAsSource" xml:space="preserve">
-    <value>taki sam jak źródło</value>
-  </data>
   <data name="FormSettings_ExecutableFiles" xml:space="preserve">
     <value>pliki wykonywalne</value>
   </data>
@@ -223,11 +217,6 @@ Może być określony albo jako ścieżka bezwzględna
 lub przy użyciu jednego z predefiniowanych katalogów:
 {0}</value>
   </data>
-  <data name="FormAddTask_Explanation" xml:space="preserve">
-    <value>W tym oknie można wybrać jeden z istniejących profili FFmpeg (lub zdefiniować nowy), który będzie używany podczas konwersji wideo. Profil FFmpeg jest zestawem argumentów przekazywanych do FFmpeg w celu wycięcia fragmentu wideo. Nie martw się, jeżeli nie wiesz nic o FFmpeg - wystarczy nacisnąć przycisk {1}, a zadanie rozpocznie się automatycznie (przy użyciu domyślnego profilu) i to okno nie zostanie ponownie wyświetlone. Ale zawsze możesz je pokazać ponownie przytrzymując klawisz Shift podczas klikania na '{0}'.
-
-TL;DR: po prostu naciśnij '{1}'. Okno nie zostanie pokazane ponownie.</value>
-  </data>
   <data name="MainForm_ButtonCut" xml:space="preserve">
     <value>Wycinaj</value>
   </data>
@@ -251,5 +240,14 @@ TL;DR: po prostu naciśnij '{1}'. Okno nie zostanie pokazane ponownie.</value>
   </data>
   <data name="MainForm_ReEncoding" xml:space="preserve">
     <value>Ponowne kodowanie</value>
+  </data>
+  <data name="FormAddTask_LosslessCutNotPossible" xml:space="preserve">
+    <value>Bezstratne cięcie nie jest możliwe!</value>
+  </data>
+  <data name="FormAddTask_LosslessCutPossible" xml:space="preserve">
+    <value>Możliwość cięcia bezstratnego!</value>
+  </data>
+  <data name="FormAddTask_ReEncodePossibleButSlow" xml:space="preserve">
+    <value>Cięcie z ponownym kodowaniem możliwe, ale może zająć dużo czasu!</value>
   </data>
 </root>
