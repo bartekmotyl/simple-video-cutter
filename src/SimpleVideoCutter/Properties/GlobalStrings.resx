@@ -188,11 +188,17 @@ Static parts are allowed as well as these pseudo-variable
   <data name="MainForm_KeyFramesNotLoaded" xml:space="preserve">
     <value>Key frames have not been loaded yet, please wait a bit and try again. </value>
   </data>
+  <data name="MainForm_Lossless" xml:space="preserve">
+    <value>Lossless</value>
+  </data>
   <data name="MainForm_NoSelection" xml:space="preserve">
     <value>No selection</value>
   </data>
   <data name="MainForm_QuestionRestartNewLanguage" xml:space="preserve">
     <value>In order to use new language settings application needs to be restarted. Do you want to restart now?</value>
+  </data>
+  <data name="MainForm_ReEncoding" xml:space="preserve">
+    <value>Re-encoding</value>
   </data>
   <data name="MainForm_Selection" xml:space="preserve">
     <value>Selection</value>

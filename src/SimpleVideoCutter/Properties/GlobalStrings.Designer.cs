@@ -246,6 +246,15 @@ namespace SimpleVideoCutter.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lossless.
+        /// </summary>
+        internal static string MainForm_Lossless {
+            get {
+                return ResourceManager.GetString("MainForm_Lossless", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No selection.
         /// </summary>
         internal static string MainForm_NoSelection {
@@ -260,6 +269,15 @@ namespace SimpleVideoCutter.Properties {
         internal static string MainForm_QuestionRestartNewLanguage {
             get {
                 return ResourceManager.GetString("MainForm_QuestionRestartNewLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Re-encoding.
+        /// </summary>
+        internal static string MainForm_ReEncoding {
+            get {
+                return ResourceManager.GetString("MainForm_ReEncoding", resourceCulture);
             }
         }
         

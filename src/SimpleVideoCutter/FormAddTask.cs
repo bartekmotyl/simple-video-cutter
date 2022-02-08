@@ -1,14 +1,5 @@
-﻿using SimpleVideoCutter.Properties;
-using SimpleVideoCutter.Settings;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SimpleVideoCutter
@@ -16,7 +7,6 @@ namespace SimpleVideoCutter
     public partial class FormAddTask : Form
     {
         private FFmpegTask task;
-        private bool guiUpdateInProgres = false;
         private bool selectionsOnKeyFrames = false;
 
 
@@ -34,7 +24,6 @@ namespace SimpleVideoCutter
 
         private void TaskToGUI()
         {
-            guiUpdateInProgres = true;
             try
             {
                 this.textBoxOriginalFilePath.Text = Task.InputFilePath;
@@ -44,14 +33,13 @@ namespace SimpleVideoCutter
             }
             finally
             {
-                guiUpdateInProgres = false; 
             }
 
         }
 
         private void UpdatePossibilities()
         {
-            var losslessCutPossible = selectionsOnKeyFrames && string.IsNullOrEmpty(Task.Profile.FileType); 
+            var losslessCutPossible = selectionsOnKeyFrames; 
 
             buttonAdjustSelections.Visible = !losslessCutPossible;
             buttonEnqueueLoseless.Enabled = losslessCutPossible;
@@ -99,11 +87,12 @@ namespace SimpleVideoCutter
 
         private void buttonEnqueueLoseless_Click(object sender, EventArgs e)
         {
+            Task.Lossless = true;
         }
 
         private void buttonEnqueueReEncoding_Click(object sender, EventArgs e)
         {
-            Task.Profile = FFmpegCutProfile.ReEncode.Clone();
+            Task.Lossless = false;
         }
     }
 }

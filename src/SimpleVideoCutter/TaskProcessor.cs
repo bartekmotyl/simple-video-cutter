@@ -1,7 +1,6 @@
 ﻿using FFmpeg.NET;
 using SimpleVideoCutter.FFmpegNET;
 using SimpleVideoCutter.Properties;
-using SimpleVideoCutter.Settings;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -71,7 +70,7 @@ namespace SimpleVideoCutter
                 task.InputFilePath,
                 task.OutputFilePath,
                 selection.Start, selection.End,
-                task.Profile.Arguments);
+                task.Lossless);
 
             task.State = FFmpegTaskState.InProgress;
             OnPropertyChanged("Tasks");
@@ -89,7 +88,7 @@ namespace SimpleVideoCutter
                     task.InputFilePath,
                     GetPartialOutputPath(task, index+1),
                     selection.Start, selection.End,
-                    task.Profile.Arguments);
+                    task.Lossless);
 
                 await ffmpeg.ExecuteAsync(ffmpegCutArguments);
             };
@@ -181,7 +180,7 @@ namespace SimpleVideoCutter
         public string InputFileName { get; set; }
         public FFmpegTaskSelection[] Selections { get; set; }   
         public long OverallDuration { get; set; }
-        public FFmpegCutProfile Profile { get; set; }
+        public bool Lossless { get; set; }
         public FFmpegTaskState State { get; set; }
         public string ErrorMessage { get; set; }
 
