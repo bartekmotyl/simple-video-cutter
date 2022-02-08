@@ -479,7 +479,7 @@ namespace SimpleVideoCutter
         private long LocateNearestKeyFrame(long position)
         {
             var keyframesData = GetKeyframesData();
-            if (keyframesData == null || keyframesData.Keyframes == null)
+            if (keyframesData == null || keyframesData.Keyframes == null || keyframesData.Keyframes.Count == 0)
                 return position;
             var keyframes = keyframesData.Keyframes;
             var foundIndex = keyframes.BinarySearch(position);
