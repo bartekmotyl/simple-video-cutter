@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="buttonSaveProfile.Text" xml:space="preserve">
-    <value>プロフィールの作成と更新</value>
-  </data>
-  <data name="labelFFmpegArguments.Text" xml:space="preserve">
-    <value>FFmpeg の引数</value>
-  </data>
-  <data name="labelFFmpegProfile.Text" xml:space="preserve">
-    <value>FFmpegのプロファイル。</value>
-  </data>
   <data name="labelOriginalFilePath.Text" xml:space="preserve">
     <value>元のファイルパス。</value>
   </data>
@@ -135,19 +126,41 @@
   <data name="labelDuration.Text" xml:space="preserve">
     <value>期間です。</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>出力ファイルの種類。</value>
-  </data>
   <data name="label2.Text" xml:space="preserve">
     <value>ヒント: 設定で変更可能</value>
-  </data>
-  <data name="buttonEnqueue.Text" xml:space="preserve">
-    <value>開始</value>
   </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>キャンセル</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>タスクを待ち受けにする</value>
+  </data>
+  <data name="buttonAdjustSelections.Text" xml:space="preserve">
+    <value>選択範囲をキーフレームに合わせる</value>
+  </data>
+  <data name="groupBoxReEncodeCut.Text" xml:space="preserve">
+    <value>再エンコードによるカット</value>
+  </data>
+  <data name="groupBoxLosslessCut.Text" xml:space="preserve">
+    <value>ロスレスカット</value>
+  </data>
+  <data name="buttonEnqueueReEncoding.Text" xml:space="preserve">
+    <value>再エンコードでカットを行う</value>
+  </data>
+  <data name="buttonEnqueueLoseless.Text" xml:space="preserve">
+    <value>ロスレスカットの実行</value>
+  </data>
+  <data name="richTextBoxExplanation.Text" xml:space="preserve">
+    <value>このプログラムは、ロスレスカッティングと、元のファイルの一部を再エンコードしてカッティングすることの両方に対応しています。ロスレスカッティングは、品質を落とさずに短時間でカッティングできるため、好まれています。しかし、残念ながらロスレスカットはキーフレームでしか実行できません。キーフレーム間をカットする必要がある場合は、再エンコードするしかありません。ただし、再エンコードの処理には非常に時間がかかります（コンピュータの性能、入力ビデオ、選択範囲のサイズによっては、数時間かかることもあります）。
+詳細については、https://github.com/bartekmotyl/simple-video-cutter/wiki/Video-cutting-challenges をご覧ください。</value>
+  </data>
+  <data name="groupBoxVideoParameters.Text" xml:space="preserve">
+    <value>ビデオパラメータ</value>
+  </data>
+  <data name="labelLossless.Text" xml:space="preserve">
+    <value>labelLosslessdonottranslate</value>
+  </data>
+  <data name="labelReEncode.Text" xml:space="preserve">
+    <value>labelReEncodedonottranslate</value>
   </data>
 </root>

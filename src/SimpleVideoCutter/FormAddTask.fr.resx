@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="buttonSaveProfile.Text" xml:space="preserve">
-    <value>Créer ou mettre à jour un profil</value>
-  </data>
-  <data name="labelFFmpegArguments.Text" xml:space="preserve">
-    <value>Arguments de la FFmpeg</value>
-  </data>
-  <data name="labelFFmpegProfile.Text" xml:space="preserve">
-    <value>Profil FFmpeg :</value>
-  </data>
   <data name="labelOriginalFilePath.Text" xml:space="preserve">
     <value>Chemin d'accès au fichier original :</value>
   </data>
@@ -135,19 +126,41 @@
   <data name="labelDuration.Text" xml:space="preserve">
     <value>Durée :</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Type de fichier de sortie :</value>
-  </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Conseil : peut être modifié dans les paramètres</value>
-  </data>
-  <data name="buttonEnqueue.Text" xml:space="preserve">
-    <value>Commencer</value>
   </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Annuler</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Tâche de mise en file d'attente</value>
+  </data>
+  <data name="buttonAdjustSelections.Text" xml:space="preserve">
+    <value>Ajuster la sélection aux images clés</value>
+  </data>
+  <data name="groupBoxReEncodeCut.Text" xml:space="preserve">
+    <value>Coupe avec ré-encodage</value>
+  </data>
+  <data name="groupBoxLosslessCut.Text" xml:space="preserve">
+    <value>Coupe sans perte</value>
+  </data>
+  <data name="buttonEnqueueReEncoding.Text" xml:space="preserve">
+    <value>Effectuer une coupe avec ré-encodage</value>
+  </data>
+  <data name="buttonEnqueueLoseless.Text" xml:space="preserve">
+    <value>Effectuer une coupe sans perte</value>
+  </data>
+  <data name="richTextBoxExplanation.Text" xml:space="preserve">
+    <value>Ce programme prend en charge le découpage sans perte et le découpage par réencodage de parties du fichier original. Le découpage sans perte est préféré car il peut être effectué très rapidement et sans perte de qualité. Malheureusement, le découpage sans perte ne peut être effectué que sur les images clés. Si vous avez besoin de couper entre les images clés, la seule option est de ré-encoder. Cependant, le processus de réencodage peut être très lent (selon les performances de l'ordinateur, la vidéo d'entrée et la taille de la sélection, cela peut prendre des heures).
+Pour plus de détails, visitez https://github.com/bartekmotyl/simple-video-cutter/wiki/Video-cutting-challenges</value>
+  </data>
+  <data name="groupBoxVideoParameters.Text" xml:space="preserve">
+    <value>Paramètres vidéo</value>
+  </data>
+  <data name="labelLossless.Text" xml:space="preserve">
+    <value>LabelLosslessdonottranslate</value>
+  </data>
+  <data name="labelReEncode.Text" xml:space="preserve">
+    <value>labelReEncodedonottranslate</value>
   </data>
 </root>

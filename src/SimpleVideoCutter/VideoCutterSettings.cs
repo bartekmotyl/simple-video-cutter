@@ -1,12 +1,7 @@
 ﻿using Newtonsoft.Json;
-using SimpleVideoCutter.Settings;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SimpleVideoCutter
@@ -26,13 +21,6 @@ namespace SimpleVideoCutter
         public bool KeepSelectionAfterCut { get; set; } = false;
         public bool Autostart { get; set; } = true;
         public bool ShowTaskWindow { get; set; } = true;
-
-        public FFmpegCutProfile[] FFmpegCutProfiles = new FFmpegCutProfile[]
-        {
-            new FFmpegCutProfile() { Name = "lossless", Arguments = "-codec copy", FileType = null},
-        };
-
-        public string SelectedFFmpegCutProfile { get; set; } = "lossless";
 
         public Rectangle MainWindowLocation { get; set; } = Rectangle.Empty;
         public bool MainWindowMaximized { get; set; } = false;
@@ -55,7 +43,7 @@ namespace SimpleVideoCutter
         {
         }
 
-        protected string ConfigPath 
+        public string ConfigPath 
         { 
             get
             {

@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="buttonSaveProfile.Text" xml:space="preserve">
-    <value>Crear o actualizar el perfil</value>
-  </data>
-  <data name="labelFFmpegArguments.Text" xml:space="preserve">
-    <value>Argumentos de la FFmpeg</value>
-  </data>
-  <data name="labelFFmpegProfile.Text" xml:space="preserve">
-    <value>Perfil de FFmpeg:</value>
-  </data>
   <data name="labelOriginalFilePath.Text" xml:space="preserve">
     <value>Ruta de archivo original:</value>
   </data>
@@ -135,19 +126,41 @@
   <data name="labelDuration.Text" xml:space="preserve">
     <value>Duración:</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Tipo de archivo de salida:</value>
-  </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Pista: se puede cambiar en la configuración</value>
-  </data>
-  <data name="buttonEnqueue.Text" xml:space="preserve">
-    <value>Comienza</value>
   </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Cancelar</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Tarea de cola</value>
+  </data>
+  <data name="buttonAdjustSelections.Text" xml:space="preserve">
+    <value>Ajustar la selección a los fotogramas clave</value>
+  </data>
+  <data name="groupBoxReEncodeCut.Text" xml:space="preserve">
+    <value>Corte con recodificación</value>
+  </data>
+  <data name="groupBoxLosslessCut.Text" xml:space="preserve">
+    <value>Corte sin pérdidas</value>
+  </data>
+  <data name="buttonEnqueueReEncoding.Text" xml:space="preserve">
+    <value>Realizar el corte con recodificación</value>
+  </data>
+  <data name="buttonEnqueueLoseless.Text" xml:space="preserve">
+    <value>Realiza un corte sin pérdidas</value>
+  </data>
+  <data name="richTextBoxExplanation.Text" xml:space="preserve">
+    <value>Este programa admite tanto el corte sin pérdidas como el corte recodificando partes del archivo original. Se prefiere el corte sin pérdidas porque se puede hacer muy rápidamente y sin pérdida de calidad. Lamentablemente, el corte sin pérdidas sólo puede realizarse en los fotogramas clave. Si necesita cortar entre fotogramas clave, la única opción es recodificar. Sin embargo, el proceso de recodificación puede ser muy lento (dependiendo del rendimiento del ordenador, del vídeo de entrada y del tamaño de la selección, puede tardar incluso horas).
+Para más detalles, visite https://github.com/bartekmotyl/simple-video-cutter/wiki/Video-cutting-challenges</value>
+  </data>
+  <data name="groupBoxVideoParameters.Text" xml:space="preserve">
+    <value>Parámetros de vídeo</value>
+  </data>
+  <data name="labelLossless.Text" xml:space="preserve">
+    <value>labelLosslessdonottranslate</value>
+  </data>
+  <data name="labelReEncode.Text" xml:space="preserve">
+    <value>labelReEncodedonotranslate</value>
   </data>
 </root>

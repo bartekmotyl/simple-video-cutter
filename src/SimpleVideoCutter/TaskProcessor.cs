@@ -1,11 +1,11 @@
 ﻿using FFmpeg.NET;
 using SimpleVideoCutter.FFmpegNET;
 using SimpleVideoCutter.Properties;
-using SimpleVideoCutter.Settings;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -16,7 +16,6 @@ namespace SimpleVideoCutter
     public class TaskProcessor : INotifyPropertyChanged
     {
         private IList<FFmpegTask> tasks = new List<FFmpegTask>();
-        private FFmpegTask currentTask = null;
         private Thread workerThread = null;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -58,78 +57,118 @@ namespace SimpleVideoCutter
             TaskProgress?.Invoke(this, new TaskProgressEventArgs() { ProgressText = progressText });
         }
 
-        private void WorkerThread()
+        private string GetPartialOutputPath(FFmpegTask task, int index)
+        {
+            return string.Format($"{Path.GetDirectoryName(task.OutputFilePath)}{Path.DirectorySeparatorChar}"
+                + $"{Path.GetFileNameWithoutExtension(task.OutputFilePath)}"
+                + $".svcpart{index:00}{Path.GetExtension(task.OutputFilePath)}");
+        }
+        private async Task ProcessSingleCutTask(FFmpegTask task, Engine ffmpeg)
+        {
+            var selection = task.Selections.First();
+            var ffmpegCutArguments = FFmpegArgumentBuilder.BuildArgumentsSingleCutOperation(
+                task.InputFilePath,
+                task.OutputFilePath,
+                selection.Start, selection.End,
+                task.Lossless);
+
+            task.State = FFmpegTaskState.InProgress;
+            OnPropertyChanged("Tasks");
+            await ffmpeg.ExecuteAsync(ffmpegCutArguments);
+        }
+        private async Task ProcessMultipleCutTask(FFmpegTask task, Engine ffmpeg)
+        {
+            task.State = FFmpegTaskState.InProgress;
+            OnPropertyChanged("Tasks");
+
+            for (int index=0; index < task.Selections.Length; index++)
+            {
+                var selection = task.Selections[index];
+                var ffmpegCutArguments = FFmpegArgumentBuilder.BuildArgumentsSingleCutOperation(
+                    task.InputFilePath,
+                    GetPartialOutputPath(task, index+1),
+                    selection.Start, selection.End,
+                    task.Lossless);
+
+                await ffmpeg.ExecuteAsync(ffmpegCutArguments);
+            };
+        }
+
+        private async void WorkerThread()
         {
             while (!StopRequest)
             {
-                if (currentTask == null)
+                FFmpegTask task = null;
+                lock (tasks)
                 {
-                    FFmpegTask taskToSchedule = null;
-                    lock (tasks)
+                    task = tasks.FirstOrDefault(t => t.State == FFmpegTaskState.Scheduled);
+                    if (task == null)
                     {
-                        taskToSchedule = tasks.FirstOrDefault(t => t.State == FFmpegTaskState.Scheduled);
-                        if (taskToSchedule == null)
-                        {
-                            Thread.Sleep(100);
-                            continue;
-                        }
-                    }
-
-                    currentTask = taskToSchedule;
-
-                    var ffmpeg = new Engine(VideoCutterSettings.Instance.FFmpegPath);
-                    ffmpeg.Complete += (object sender, FFmpeg.NET.Events.ConversionCompleteEventArgs e) =>
-                    {
-                        currentTask.State = FFmpegTaskState.FinishedOK;
-                        currentTask = null;
-                        OnPropertyChanged("Tasks");
-                        OnTaskProgress(GlobalStrings.TaskProcessor_Done);
-                    };
-                    ffmpeg.Error += (object sender, FFmpeg.NET.Events.ConversionErrorEventArgs e) =>
-                    {
-                        currentTask.State = FFmpegTaskState.FinishedError;
-                        currentTask.ErrorMessage = e.Exception.Message;
-                        currentTask = null;
-                        OnPropertyChanged("Tasks");
-                        OnTaskProgress($"{GlobalStrings.TaskProcessor_Failure}: " + e.Exception.Message);
-                    };
-
-                    ffmpeg.Progress += (object sender, FFmpeg.NET.Events.ConversionProgressEventArgs e) =>
-                    {
-                        var msg = string.Format(GlobalStrings.TaskProcessor_Processed, e.ProcessedDuration.TotalSeconds);
-                        OnTaskProgress(msg);
-                    };
-
-                    try
-                    {
-                        var ffmpegCutArguments = FFmpegArgumentBuilder.BuildArgumentsCutOperation(
-                            currentTask.InputFilePath, 
-                            currentTask.OutputFilePath, 
-                            TimeSpan.FromMilliseconds(currentTask.SelectionStart), 
-                            TimeSpan.FromMilliseconds(currentTask.Duration),
-                            currentTask.Profile.Arguments);
-
-                        currentTask.State = FFmpegTaskState.InProgress;
-                        OnPropertyChanged("Tasks");
-
-                        Task taskConversion = ffmpeg.ExecuteAsync(ffmpegCutArguments);
-                        taskConversion.Wait();
-                    }
-                    catch (Exception e)
-                    {
-                        currentTask.State = FFmpegTaskState.FinishedError;
-                        currentTask.ErrorMessage = e.Message;
-                        currentTask = null;
-                        OnPropertyChanged("Tasks");
-                        OnTaskProgress($"{GlobalStrings.TaskProcessor_Failure}: " + e.Message);
+                        Thread.Sleep(100);
+                        continue;
                     }
                 }
-                else
+                bool taskInProgress = false;
+
+                var ffmpeg = new Engine(VideoCutterSettings.Instance.FFmpegPath);
+
+                ffmpeg.Complete += (object sender, FFmpeg.NET.Events.ConversionCompleteEventArgs e) =>
                 {
-                    Thread.Sleep(100);
+                    task.State = FFmpegTaskState.FinishedOK;
+                    taskInProgress = false;
+                    OnPropertyChanged("Tasks");
+                    OnTaskProgress(GlobalStrings.TaskProcessor_Done);
+                };
+                ffmpeg.Error += (object sender, FFmpeg.NET.Events.ConversionErrorEventArgs e) =>
+                {
+                    task.State = FFmpegTaskState.FinishedError;
+                    task.ErrorMessage = e.Exception.Message;
+                    taskInProgress = false;
+                    OnPropertyChanged("Tasks");
+                    OnTaskProgress($"{GlobalStrings.TaskProcessor_Failure}: " + e.Exception.Message);
+                };
+
+                ffmpeg.Progress += (object sender, FFmpeg.NET.Events.ConversionProgressEventArgs e) =>
+                {
+                    var msg = string.Format(GlobalStrings.TaskProcessor_Processed, e.ProcessedDuration.TotalSeconds);
+                    OnTaskProgress(msg);
+                };
+
+
+                var inputFile = new MediaFile(task.InputFilePath);
+                var metadata = await ffmpeg.GetMetaDataAsync(inputFile);
+
+                try
+                {
+                    if (task.Selections.Length == 1)
+                    {
+                        await ProcessSingleCutTask(task, ffmpeg);
+                    }
+                    else
+                    {
+                        await ProcessMultipleCutTask(task, ffmpeg);
+                    }
+
+                    while (taskInProgress)
+                        Task.Delay(100).Wait();
+
+                }
+                catch (Exception e)
+                {
+                    task.State = FFmpegTaskState.FinishedError;
+                    task.ErrorMessage = e.Message;
+                    OnPropertyChanged("Tasks");
+                    OnTaskProgress($"{GlobalStrings.TaskProcessor_Failure}: " + e.Message);
                 }
             }
         }
+    }
+
+    [Serializable]
+    public class FFmpegTaskSelection
+    {
+        public TimeSpan Start { get; set; }
+        public TimeSpan End { get; set; }
     }
 
     [Serializable]
@@ -139,9 +178,9 @@ namespace SimpleVideoCutter
         public string InputFilePath { get; set; }
         public string OutputFilePath { get; set; }
         public string InputFileName { get; set; }
-        public long SelectionStart { get; set; }
-        public long Duration { get; set; }
-        public FFmpegCutProfile Profile { get; set; }
+        public FFmpegTaskSelection[] Selections { get; set; }   
+        public long OverallDuration { get; set; }
+        public bool Lossless { get; set; }
         public FFmpegTaskState State { get; set; }
         public string ErrorMessage { get; set; }
 
