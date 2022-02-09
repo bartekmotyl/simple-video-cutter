@@ -1,17 +1,16 @@
-#tool nuget:?package=NUnit.ConsoleRunner&version=3.4.0
-#addin "Cake.FileHelpers"
+#tool nuget:?package=NUnit.ConsoleRunner&version=3.14.0
+#addin nuget:?package=Cake.FileHelpers&version=4.0.1
 
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
 
-var appversion = Argument("appversion", "0.1.0.0");
+var appversion = Argument("appversion", "0.20.0.0");
 
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
 
-var distfile64 = $"simple-video-cutter-x64-{appversion}.zip";
-var distfile86 = $"simple-video-cutter-x86-{appversion}.zip";
+var distfile64 = $"simple-video-cutter.zip";
 
 
 //////////////////////////////////////////////////////////////////////
@@ -30,16 +29,10 @@ Task("Clean")
 {
     MSBuild("./src/SimpleVideoCutter.sln", settings =>
       settings.SetConfiguration(configuration).SetPlatformTarget(PlatformTarget.x64).WithTarget("Clean"));
-    MSBuild("./src/SimpleVideoCutter.sln", settings =>
-      settings.SetConfiguration(configuration).SetPlatformTarget(PlatformTarget.x86).WithTarget("Clean"));
       
     if (FileExists(distfile64))
     {
         DeleteFile(distfile64);
-    }
-    if (FileExists(distfile86))
-    {
-        DeleteFile(distfile86);
     }
 });
 
@@ -69,8 +62,6 @@ Task("Build")
 {
     MSBuild("./src/SimpleVideoCutter.sln", settings =>
       settings.SetPlatformTarget(PlatformTarget.x64).SetConfiguration(configuration));
-    MSBuild("./src/SimpleVideoCutter.sln", settings =>
-      settings.SetPlatformTarget(PlatformTarget.x86).SetConfiguration(configuration));
 });
 
 Task("CreateDist")
@@ -78,7 +69,6 @@ Task("CreateDist")
     .Does(() =>
 {
     Zip($"./src/SimpleVideoCutter/bin/x64/{configuration}", distfile64);
-    Zip($"./src/SimpleVideoCutter/bin/x86/{configuration}", distfile86);
 });
 
 
