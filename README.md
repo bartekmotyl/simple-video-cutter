@@ -25,7 +25,7 @@ The extraction process is done in background (by [FFmpeg](http://ffmpeg.org/)), 
 
 (Check also translations in [README.txt](README.txt))
 
-- Download the [simple-video-cutter.zip](https://github.com/bartekmotyl/simple-video-cutter/releases/latest/download/simple-video-cutter.zip) release package (or visit [releases page](https://github.com/bartekmotyl/simple-video-cutter/releases) 
+- Download the [simple-video-cutter.zip](https://github.com/bartekmotyl/simple-video-cutter/releases/latest/download/simple-video-cutter.zip) release package (or visit [releases page](https://github.com/bartekmotyl/simple-video-cutter/releases) and grab latest release package)
 - Unzip release package into a directory.   
 - Start `SimpleVideoCutter.exe` in that directory
 - As [FFmpeg](http://ffmpeg.org/) is required to work with SimpleVideoCutter, you can decide to let SimpleVideoCutter download FFmpeg automatically or you may also download FFmpeg yourself (FFmpeg can be downloaded for free from [FFmpeg release page](https://www.gyan.dev/ffmpeg/builds/)) and set it's path in the Settings dialog.  
