@@ -47,13 +47,15 @@ namespace SimpleVideoCutter
 
         private void Execute(string videoFilePath, CancellationToken token)
         {
-            var arguments = $"-select_streams v -skip_frame nokey -show_frames -show_entries frame=pkt_pts_time,pict_type {videoFilePath}";
+            var arguments = $"-select_streams v -skip_frame nokey -show_frames -show_entries frame=pkt_pts_time,pict_type,pts_time {videoFilePath}";
 
             var queue = new ConcurrentQueue<string>();
 
             DataReceivedEventHandler outputDataReceivedHandler = (object sender, DataReceivedEventArgs ea) =>
             {
                 if (ea.Data?.StartsWith("pkt_pts_time") ?? false)
+                    queue.Enqueue(ea.Data);
+                if (ea.Data?.StartsWith("pts_time") ?? false)
                     queue.Enqueue(ea.Data);
             };
             DataReceivedEventHandler errorDataReceivedHandler = (object sender, DataReceivedEventArgs ea) =>
@@ -97,6 +99,7 @@ namespace SimpleVideoCutter
                         if (queue.TryDequeue(out var line))
                         {
                             var timestampStr = line.Replace("pkt_pts_time=", "");
+                            timestampStr = timestampStr.Replace("pts_time=", "");
                             var timestampFloat = float.Parse(timestampStr, CultureInfo.InvariantCulture);
                             Keyframes.Add((long)(timestampFloat * 1000));
                             if (Keyframes.Count % 10 == 0)
