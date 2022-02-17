@@ -29,7 +29,8 @@ namespace SimpleVideoCutter
         public string ConfigVersion { get; set; } = "0.0.0";
 
         public string Language { get; set; }
-
+        public PreviewSize PreviewSize { get; set; } = PreviewSize.L;
+ 
         [JsonIgnore]
         public string ConfigFolder { get; set; } = AppDomain.CurrentDomain.BaseDirectory;
 
@@ -93,5 +94,15 @@ namespace SimpleVideoCutter
                     "Config cannot be saved", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+    }
+
+    public enum PreviewSize
+    {
+        None,
+        XS, 
+        S,
+        L,
+        XL,
+
     }
 }

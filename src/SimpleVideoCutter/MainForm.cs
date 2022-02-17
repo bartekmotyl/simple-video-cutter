@@ -128,7 +128,6 @@ namespace SimpleVideoCutter
             vlcControl1.MediaPlayer.EndReached += VlcControl1_EndReached;
             vlcControl1.MouseWheel += VlcControl1_MouseWheel;
             vlcControl1.MediaPlayer.TimeChanged += VlcControl1_TimeChanged;
-
             vlcControl1.MediaPlayer.EnableMouseInput = false;
             vlcControl1.MediaPlayer.EnableKeyInput = false;
 
@@ -156,6 +155,8 @@ namespace SimpleVideoCutter
             {
                 this.toolStripButtonInternetVersionCheck.ForeColor = Color.Red;
             }
+
+            ResizePreview();
         }
 
 
@@ -258,6 +259,7 @@ namespace SimpleVideoCutter
                toolStripStatusLabelFileDate.Text = fileInfo;
             });
             EnableButtons();
+
         }
 
         private void VlcControl1_Playing(object sender, EventArgs e)
@@ -800,6 +802,21 @@ namespace SimpleVideoCutter
             timerHoverPositionChanged.Start();
         }
 
+        private void ResizePreview()
+        {
+            int width = 800;
+            switch (VideoCutterSettings.Instance.PreviewSize)
+            {
+                case PreviewSize.XS: width = 200; break;
+                case PreviewSize.S: width = 400; break;
+                case PreviewSize.L: width = 800; break;
+                case PreviewSize.XL: width = 1200; break;
+            }
+            float scale = 1920.0f / 1080.0f;
+            videoViewHover.Width = width;
+            videoViewHover.Height = (int)(width / scale);
+        }
+
         private void timerHoverPositionChanged_Tick(object sender, EventArgs e)
         {
             timerHoverPositionChanged.Stop();
@@ -808,7 +825,7 @@ namespace SimpleVideoCutter
             {
                 float posFloat = (float)pos.Value / videoViewHover.MediaPlayer.Length;
 
-                videoViewHover.Visible = VideoCutterSettings.Instance.ShowPreview && true;
+                videoViewHover.Visible = VideoCutterSettings.Instance.PreviewSize != PreviewSize.None && true;
 
                 int posX = videoCutterTimeline1.PositionToPixel(pos) - videoViewHover.Width / 2;
                 posX = Math.Max(posX, 0);
@@ -980,6 +997,7 @@ namespace SimpleVideoCutter
             else if (e.ClickedItem == toolStripButtonFileSettings)
             {
                 formSettings.ShowSettingsDialog();
+                ResizePreview();
             }
             else if (e.ClickedItem == toolStripButtonFileAbout)
             {

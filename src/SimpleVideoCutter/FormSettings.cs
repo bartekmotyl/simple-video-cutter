@@ -42,6 +42,11 @@ namespace SimpleVideoCutter
                     "{FileExtension}",
                     "{FileDate}",
                     "{Timestamp}"));
+            
+            this.comboBoxPreviewSize.DataSource = 
+                ((PreviewSize[])Enum.GetValues(typeof(PreviewSize))).Select(ps => new ComboBoxItem<PreviewSize>() { 
+                    Value = ps, Title = ps.ToString() }).ToList();
+
         }
 
         public void ShowSettingsDialog()
@@ -61,6 +66,7 @@ namespace SimpleVideoCutter
             textBoxOutputFilePattern.Text = settings.OutputFilePattern;
             textBoxFFmpegPath.Text = settings.FFmpegPath;
             textBoxVideoFileExtensions.Text = String.Join(" ,", settings.VideoFilesExtensions);
+            comboBoxPreviewSize.SelectedValue = settings.PreviewSize;
 
             SetBackgroundOfFFmpegPath();
         }
@@ -73,7 +79,7 @@ namespace SimpleVideoCutter
             settings.OutputDirectory = comboBoxOutputDirectory.Text;
             settings.OutputFilePattern = textBoxOutputFilePattern.Text;
             settings.FFmpegPath = textBoxFFmpegPath.Text;
-
+            settings.PreviewSize = (PreviewSize)(Enum.Parse(typeof(PreviewSize), comboBoxPreviewSize.SelectedValue.ToString()));
             // TODO: parse VideoFilesExtensions
 
             settings.StoreSettings();
@@ -152,6 +158,29 @@ namespace SimpleVideoCutter
         {
             GUIToSettings();
             Close();
+        }
+
+
+        internal class ComboBoxItem<T>
+        {
+            public string Title { get; set; }
+            public T Value { get; set; }
+
+            public override bool Equals(object obj)
+            {
+                if (obj is ComboBoxItem<T>)
+                {
+                    var other = obj as ComboBoxItem<T>;
+                    return String.Equals(Value, other.Value);
+                }
+                else
+                    return false;
+            }
+
+            public override int GetHashCode()
+            {
+                return Value == null ? 0 : Value.GetHashCode();
+            }
         }
     }
 }
