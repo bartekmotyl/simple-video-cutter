@@ -827,6 +827,7 @@ namespace SimpleVideoCutter
         public void RegisterNewSelectionStart(long frame)
         {
             this.newSelectionStart = frame;
+            OnSelectionChanged();
             Refresh();
         }
         public void RegisterNewSelectionEnd(long frame)
@@ -837,6 +838,7 @@ namespace SimpleVideoCutter
             var start = newSelectionStart.Value;
             newSelectionStart = null;
             selections.AddSelection(start, frame);
+            OnSelectionChanged();
         }
 
 
