@@ -532,15 +532,7 @@ namespace SimpleVideoCutter
                 var pixelEnd = ((float)PixelToPosition(ClientRectangle.Width) / Length) * ClientRectangle.Width;
                 e.Graphics.FillRectangle(brushBackgroundInfoAreaOffset, pixelStart, 0, pixelEnd - pixelStart, infoAreaHeight);
 
-                // info area text
-                var time = TimeSpan.FromMilliseconds(Position);
-                var text = string.Format($"{GlobalStrings.VideoCutterTimeline_Time}: {time:hh\\:mm\\:ss\\:fff} ");
-                if (HoverPosition != null)
-                {
-                    var hoverTime = TimeSpan.FromMilliseconds(HoverPosition.Value);
-                    text = text + string.Format($" {GlobalStrings.VideoCutterTimeline_HoveredTime}: {hoverTime:hh\\:mm\\:ss\\:fff} ");
-                }
-                PaintStringInBox(e.Graphics, null, brushInfoAreaText, text, infoAreaRect, 12);
+
             }
             e.Graphics.TranslateTransform(0, infoAreaHeight);
 
@@ -667,10 +659,30 @@ namespace SimpleVideoCutter
 
             e.Graphics.ResetTransform();
 
-
+            /*
             if (timelineTooltip != null)
             {
                 PaintStringInBox(e.Graphics, Brushes.LightYellow, Brushes.Gray, timelineTooltip.Text, infoAreaRect, timelineTooltip.X);
+            }
+            */
+
+            // info area text
+            {
+                var time = TimeSpan.FromMilliseconds(Position);
+                var text = string.Format($"{GlobalStrings.VideoCutterTimeline_Time}: {time:hh\\:mm\\:ss\\:fff} ");
+                if (HoverPosition != null)
+                {
+                    var normalizedHover = HoverPosition.Value;
+                    var hoverTime = TimeSpan.FromMilliseconds(HoverPosition.Value);
+                    text = text + string.Format($" {GlobalStrings.VideoCutterTimeline_HoveredTime}: {hoverTime:hh\\:mm\\:ss\\:fff} ");
+
+                    if (timelineTooltip != null)
+                        text += " " + timelineTooltip.Text.Replace("\n", "; ");
+
+                }
+
+
+                PaintStringInBox(e.Graphics, null, brushInfoAreaText, text, infoAreaRect, 12);
             }
         }
 
