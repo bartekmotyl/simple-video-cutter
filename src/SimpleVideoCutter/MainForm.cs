@@ -85,9 +85,14 @@ namespace SimpleVideoCutter
 
             if (VideoCutterSettings.Instance.MainWindowLocation != Rectangle.Empty)
             {
-                this.StartPosition = FormStartPosition.Manual;
-                this.Location = VideoCutterSettings.Instance.MainWindowLocation.Location;
-                this.Size = VideoCutterSettings.Instance.MainWindowLocation.Size;
+                var location = VideoCutterSettings.Instance.MainWindowLocation.Location;
+                var size = VideoCutterSettings.Instance.MainWindowLocation.Size;
+                if (Utils.IsOnScreen(location, size))
+                {
+                    this.StartPosition = FormStartPosition.Manual;
+                    this.Location = VideoCutterSettings.Instance.MainWindowLocation.Location;
+                    this.Size = VideoCutterSettings.Instance.MainWindowLocation.Size;
+                }
             }
             if (VideoCutterSettings.Instance.MainWindowMaximized)
             {
