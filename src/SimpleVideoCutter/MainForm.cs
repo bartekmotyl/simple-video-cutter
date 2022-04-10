@@ -581,6 +581,13 @@ namespace SimpleVideoCutter
             var outputDir = ReplaceStandardDirectoryPatterns(VideoCutterSettings.Instance.OutputDirectory);
             var outputFileName = ReplaceFilePatterns(VideoCutterSettings.Instance.OutputFilePattern, fileBeingPlayed);
             var outputFilePath = Path.Combine(outputDir, outputFileName);
+            var fileExtension = Path.GetExtension(outputFilePath);
+
+            var knownExtension = VideoCutterSettings.Instance.VideoFilesExtensions.Any(ext => ext.ToLower() == fileExtension.ToLower());
+            if (!knownExtension || string.IsNullOrEmpty(Path.GetExtension(outputFilePath)))
+            {
+                outputFilePath += Path.GetExtension(fileBeingPlayed);
+            }
 
             var selections = videoCutterTimeline1.Selections.AllSelections.Select(s => new FFmpegTaskSelection()
             {
