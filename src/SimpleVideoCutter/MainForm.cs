@@ -846,9 +846,8 @@ namespace SimpleVideoCutter
                 videoViewHover.Location = new Point(
                     posX,
                     videoCutterTimeline1.Location.Y - videoViewHover.Height - 5);
-
-                videoViewHover.MediaPlayer.Position = posFloat;
-
+                // see  popup preview area is freeze unexpectedly #47 
+                ThreadPool.QueueUserWorkItem((state) => videoViewHover.MediaPlayer.Position = posFloat);
             }
             else
             {
