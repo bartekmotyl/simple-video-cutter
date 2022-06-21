@@ -26,7 +26,7 @@ namespace SimpleVideoCutter.FFmpegNET
                 commandBuilder.AppendFormat(" -i \"{0}\" ", inputFileFullPath);
                 commandBuilder.AppendFormat(" -codec copy -copyts ");
                 commandBuilder.AppendFormat(CultureInfo.InvariantCulture, " -to {0:0.000} ", end.TotalSeconds);
-                commandBuilder.AppendFormat(" -map 0 ");
+                commandBuilder.AppendFormat(" -map 0:v -map 0:a ");
             }
             else
             {
@@ -34,7 +34,7 @@ namespace SimpleVideoCutter.FFmpegNET
                 commandBuilder.AppendFormat(" -i \"{0}\" ", inputFileFullPath);
                 commandBuilder.AppendFormat(" -copyts ");
                 commandBuilder.AppendFormat(CultureInfo.InvariantCulture, " -to {0:0.000} ", end.TotalSeconds);
-                commandBuilder.AppendFormat(" -map 0 ");
+                commandBuilder.AppendFormat(" -map 0:v -map 0:a ");
             }
 
             return commandBuilder.AppendFormat(" \"{0}\" ", outputFileFullPath).ToString();
