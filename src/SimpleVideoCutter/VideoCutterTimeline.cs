@@ -16,6 +16,7 @@ namespace SimpleVideoCutter
     {
         public long Start;
         public long End;
+        public long Duration => End - Start;
 
         public bool Includes(long position)
         {
@@ -158,7 +159,7 @@ namespace SimpleVideoCutter
         public bool Empty => selections.Count == 0;
         public long? OverallStart => selections.FirstOrDefault()?.Start;
         public long? OverallEnd => selections.LastOrDefault()?.End;
-        public long OverallDuration => OverallEnd ?? 0 - OverallStart ?? 0;
+        public long OverallDuration => selections.Sum(sel => sel.Duration);
 
         public List<Selection> AllSelections => selections;
 
@@ -209,29 +210,51 @@ namespace SimpleVideoCutter
         public bool SetSelectionStart(int index, long value)
         {
             var selection = this.selections[index];
-            var prev = index > 0 ? this.selections[index-1] : null;
-            if (prev != null && prev.End > value)
+            var prevStart = selection.Start;
+            try
             {
-                selections[index].Start = prev.End+1;
-                return false;
+                var prev = index > 0 ? this.selections[index - 1] : null;
+                if (prev != null && prev.End > value)
+                {
+                    selections[index].Start = prev.End + 1;
+                    return false;
+                }
+
+                selections[index].Start = value > selections[index].End ? selections[index].End : value;
+                return true;
             }
-               
-            selections[index].Start = value > selections[index].End ? selections[index].End : value;
-            return true; 
+            finally
+            {
+                if (selections[index].Start != prevStart)
+                {
+                    OnSelectionsChanged();
+                }
+            }
         }
 
         public bool SetSelectionEnd(int index, long value)
         {
             var selection = this.selections[index];
-            var next = index < selections.Count - 1 ? this.selections[index + 1] : null;
-            if (next != null && next.Start < value)
+            var prevEnd = selection.End;
+            try
             {
-                selections[index].End = next.Start - 1;
-                return false;
-            }
+                var next = index < selections.Count - 1 ? this.selections[index + 1] : null;
+                if (next != null && next.Start < value)
+                {
+                    selections[index].End = next.Start - 1;
+                    return false;
+                }
 
-            selections[index].End = value < selections[index].Start ? selections[index].Start : value;
-            return true;
+                selections[index].End = value < selections[index].Start ? selections[index].Start : value;
+                return true;
+            }
+            finally
+            {
+                if (selections[index].End != prevEnd)
+                {
+                    OnSelectionsChanged();
+                }
+            }
         }
 
         public bool CanStartSelectionAtFrame(long frame)
