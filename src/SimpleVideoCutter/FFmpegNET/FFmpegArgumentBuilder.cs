@@ -22,22 +22,41 @@ namespace SimpleVideoCutter.FFmpegNET
             if (lossless)
             {
                 // Maybe also use -noaccurate_seek ?
-                commandBuilder.AppendFormat(CultureInfo.InvariantCulture, " -ss {0:0.000} ", start.TotalSeconds);
+                if (VideoCutterSettings.Instance.LosslessInputSeeking)
+                {
+                    commandBuilder.AppendFormat(CultureInfo.InvariantCulture, " -ss {0:0.000} ", start.TotalSeconds);
+                }
                 commandBuilder.AppendFormat(" -i \"{0}\" ", inputFileFullPath);
-                commandBuilder.AppendFormat(" -codec copy -copyts ");
+                if (VideoCutterSettings.Instance.LosslessOutputSeeking && !VideoCutterSettings.Instance.LosslessInputSeeking)
+                {
+                    commandBuilder.AppendFormat(CultureInfo.InvariantCulture, " -ss {0:0.000} ", start.TotalSeconds);
+                }
+                commandBuilder.AppendFormat(" -codec copy ");
+                commandBuilder.AppendFormat(" -copyts ");
+                commandBuilder.AppendFormat(" -avoid_negative_ts make_zero ");
+                
                 commandBuilder.AppendFormat(CultureInfo.InvariantCulture, " -to {0:0.000} ", end.TotalSeconds);
                 commandBuilder.AppendFormat(" -map 0:v -map 0:a ");
             }
             else
             {
-                commandBuilder.AppendFormat(CultureInfo.InvariantCulture, " -ss {0:0.000} ", start.TotalSeconds);
+                if (VideoCutterSettings.Instance.LossyInputSeeking)
+                {
+                    commandBuilder.AppendFormat(CultureInfo.InvariantCulture, " -ss {0:0.000} ", start.TotalSeconds);
+                }
                 commandBuilder.AppendFormat(" -i \"{0}\" ", inputFileFullPath);
+                if (VideoCutterSettings.Instance.LossyOutputSeeking && !VideoCutterSettings.Instance.LossyInputSeeking)
+                {
+                    commandBuilder.AppendFormat(CultureInfo.InvariantCulture, " -ss {0:0.000} ", start.TotalSeconds);
+                }
                 commandBuilder.AppendFormat(" -copyts ");
+                commandBuilder.AppendFormat(" -avoid_negative_ts make_zero ");
                 commandBuilder.AppendFormat(CultureInfo.InvariantCulture, " -to {0:0.000} ", end.TotalSeconds);
                 commandBuilder.AppendFormat(" -map 0:v -map 0:a ");
             }
 
-            return commandBuilder.AppendFormat(" \"{0}\" ", outputFileFullPath).ToString();
+            var cmd = commandBuilder.AppendFormat(" \"{0}\" ", outputFileFullPath).ToString();
+            return cmd;
         }
     }
 }

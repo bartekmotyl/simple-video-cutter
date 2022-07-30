@@ -25,6 +25,11 @@ namespace SimpleVideoCutter
         public Rectangle MainWindowLocation { get; set; } = Rectangle.Empty;
         public bool MainWindowMaximized { get; set; } = false;
         public bool RestoreToolbarsLayout { get; set; } = true;
+        
+        public bool LosslessInputSeeking { get; set; } = true;
+        public bool LosslessOutputSeeking { get; set; } = false;
+        public bool LossyInputSeeking { get; set; } = true;
+        public bool LossyOutputSeeking { get; set; } = false;
 
         public string ConfigVersion { get; set; } = "0.0.0";
 
