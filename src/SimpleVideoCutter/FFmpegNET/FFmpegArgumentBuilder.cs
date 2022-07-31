@@ -36,7 +36,7 @@ namespace SimpleVideoCutter.FFmpegNET
                 commandBuilder.AppendFormat(" -avoid_negative_ts make_zero ");
                 
                 commandBuilder.AppendFormat(CultureInfo.InvariantCulture, " -to {0:0.000} ", end.TotalSeconds);
-                commandBuilder.AppendFormat(" -map 0:v -map 0:a ");
+                commandBuilder.AppendFormat(" -map 0:v -map 0:a? ");
             }
             else
             {
@@ -52,7 +52,7 @@ namespace SimpleVideoCutter.FFmpegNET
                 commandBuilder.AppendFormat(" -copyts ");
                 commandBuilder.AppendFormat(" -avoid_negative_ts make_zero ");
                 commandBuilder.AppendFormat(CultureInfo.InvariantCulture, " -to {0:0.000} ", end.TotalSeconds);
-                commandBuilder.AppendFormat(" -map 0:v -map 0:a ");
+                commandBuilder.AppendFormat(" -map 0:v -map 0:a? ");
             }
 
             var cmd = commandBuilder.AppendFormat(" \"{0}\" ", outputFileFullPath).ToString();
