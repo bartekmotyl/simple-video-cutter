@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -54,6 +55,28 @@ namespace SimpleVideoCutter
                 }
             }
             return PixelsVisible >= (Rec.Width * Rec.Height) * MinPercentOnScreen;
+        }
+
+
+    }
+
+    public class Debouncer
+    {
+        private CancellationTokenSource cancelTokenSource = null;
+
+        public void Debounce(Action action, int milliseconds = 300)
+        {
+            cancelTokenSource?.Cancel();
+            cancelTokenSource = new CancellationTokenSource();
+
+            Task.Delay(milliseconds, cancelTokenSource.Token)
+                .ContinueWith(t =>
+                {
+                    if (!t.IsCanceled)
+                    {
+                        action();
+                    }
+                }, TaskScheduler.Default);
         }
     }
 }

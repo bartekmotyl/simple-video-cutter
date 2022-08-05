@@ -25,6 +25,7 @@ namespace SimpleVideoCutter
         private int volume = 100;
         private FormSettings formSettings;
         private string fileToLoadOnStartup = null;
+        private Debouncer debouncerHover = new Debouncer();
 
         private bool EnsureFFmpegConfigured()
         {
@@ -846,8 +847,12 @@ namespace SimpleVideoCutter
                 videoViewHover.Location = new Point(
                     posX,
                     videoCutterTimeline1.Location.Y - videoViewHover.Height - 5);
-                // see  popup preview area is freeze unexpectedly #47 
-                ThreadPool.QueueUserWorkItem((state) => videoViewHover.MediaPlayer.Position = posFloat);
+
+                debouncerHover.Debounce(() =>
+                {
+                    // see  popup preview area is freeze unexpectedly #47 
+                    ThreadPool.QueueUserWorkItem((state) => videoViewHover.MediaPlayer.Position = posFloat);
+                }, 100);
             }
             else
             {
