@@ -57,7 +57,27 @@ namespace SimpleVideoCutter
             return PixelsVisible >= (Rec.Width * Rec.Height) * MinPercentOnScreen;
         }
 
-
+        public static string ToNormalizedString(this TimeSpan time, bool includeFractionalSeconds = false)
+        {
+            if (time.TotalDays >= 1.0)
+            {
+                return includeFractionalSeconds ? 
+                    string.Format($"{time:dd\\:hh\\:mm\\:ss\\:fff}") :
+                    string.Format($"{time:dd\\:hh\\:mm\\:ss}");
+            }
+            else if (time.TotalHours >= 1.0)
+            {
+                return includeFractionalSeconds ?
+                string.Format($"{time:hh\\:mm\\:ss\\:fff}") :
+                string.Format($"{time:hh\\:mm\\:ss}");
+            }
+            else
+            {
+                return includeFractionalSeconds ?
+                string.Format($"{time:mm\\:ss\\:fff}") :
+                string.Format($"{time:mm\\:ss}");
+            }
+        }
     }
 
     public class Debouncer

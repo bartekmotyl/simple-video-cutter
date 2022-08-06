@@ -575,11 +575,7 @@ namespace SimpleVideoCutter
                 var posXPixel = (position - offset) * PixelsPerMilliseconds();
                 if (posXPixel >= -ClientRectangle.Width && posXPixel <= ClientRectangle.Width)
                 {
-                    string text;
-                    if (time.TotalHours > 1)
-                        text = string.Format($"{time:hh\\:mm\\:ss}");
-                    else
-                        text = string.Format($"{time:mm\\:ss}");
+                    string text = time.ToNormalizedString();
 
                     var size = e.Graphics.MeasureString(text, this.Font);
 
@@ -692,12 +688,12 @@ namespace SimpleVideoCutter
             // info area text
             {
                 var time = TimeSpan.FromMilliseconds(Position);
-                var text = string.Format($"{GlobalStrings.VideoCutterTimeline_Time}: {time:hh\\:mm\\:ss\\:fff} ");
+                var text = string.Format($"{GlobalStrings.VideoCutterTimeline_Time}: {time.ToNormalizedString(true)} ");
                 if (HoverPosition != null)
                 {
                     var normalizedHover = HoverPosition.Value;
                     var hoverTime = TimeSpan.FromMilliseconds(HoverPosition.Value);
-                    text = text + string.Format($" {GlobalStrings.VideoCutterTimeline_HoveredTime}: {hoverTime:hh\\:mm\\:ss\\:fff} ");
+                    text = text + string.Format($" {GlobalStrings.VideoCutterTimeline_HoveredTime}: {hoverTime.ToNormalizedString(true)} ");
 
                     if (timelineTooltip != null)
                         text += " " + timelineTooltip.Text.Replace("\n", "; ");
