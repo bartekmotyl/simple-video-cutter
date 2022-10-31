@@ -510,13 +510,13 @@ namespace SimpleVideoCutter
                 return position;
 
             var indexFirstGreater = ~foundIndex;
-            long? keyFrameNext = indexFirstGreater < keyframes.Count ? keyframes[indexFirstGreater] : Length - 1;
-            long? keyFramePrev = indexFirstGreater > 0 ? keyframes[indexFirstGreater - 1] : (long?)null;
+            long keyFrameNext = indexFirstGreater < keyframes.Count ? keyframes[indexFirstGreater] : Length - 1;
+            long keyFramePrev = indexFirstGreater > 0 ? keyframes[indexFirstGreater - 1] : 0;
 
-            var distanceNext = Math.Abs(position - keyFrameNext ?? (position + long.MaxValue));
-            var distancePrev = Math.Abs(position - keyFramePrev ?? (position + long.MaxValue));
+            var distanceNext = Math.Abs(position - keyFrameNext);
+            var distancePrev = Math.Abs(position - keyFramePrev);
 
-            return distanceNext < distancePrev ? keyFrameNext.Value : keyFramePrev.Value;
+            return distanceNext < distancePrev ? keyFrameNext : keyFramePrev;
         }
 
         private long FindNearestAcceptableKeyFrame(long position)
