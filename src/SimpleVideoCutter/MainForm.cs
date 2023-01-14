@@ -26,6 +26,7 @@ namespace SimpleVideoCutter
         private FormSettings formSettings;
         private string fileToLoadOnStartup = null;
         private Debouncer debouncerHover = new Debouncer();
+        private bool playingSelection = false; 
 
         private bool EnsureFFmpegConfigured()
         {
@@ -199,7 +200,7 @@ namespace SimpleVideoCutter
         {
             var length = (long)vlcControl1.MediaPlayer.Length;
 
-            if (!videoCutterTimeline1.Selections.Empty)
+            if (!videoCutterTimeline1.Selections.Empty && playingSelection)
             {
                 long? adjustedPosition = videoCutterTimeline1.Selections.FindNextValidPosition(position);
                 if (adjustedPosition == null)
@@ -242,11 +243,13 @@ namespace SimpleVideoCutter
 
         private void VlcControl1_Stopped(object sender, EventArgs e)
         {
+            playingSelection = false;
             EnableButtons();
         }
 
         private void VlcControl1_Paused(object sender, EventArgs e)
         {
+            playingSelection = false;
             var length = vlcControl1.MediaPlayer.Length;
             var position = vlcControl1.MediaPlayer.Position;
             this.InvokeIfRequired(() =>
@@ -894,7 +897,7 @@ namespace SimpleVideoCutter
         {
             if (videoCutterTimeline1.Selections.OverallStart == null)
                 return;
-
+            playingSelection = true;
             vlcControl1.MediaPlayer.Position = (float)videoCutterTimeline1.Selections.OverallStart.Value / vlcControl1.MediaPlayer.Length;
             vlcControl1.MediaPlayer.SetPause(false);
         }
