@@ -669,7 +669,7 @@ namespace SimpleVideoCutter
                 .Where(f => extensions.Contains(Path.GetExtension(f).ToLowerInvariant()))
                 .Select(s => new FileInfo(Path.Combine(currentDir, s)))
                 .OrderBy(fi => fi.LastWriteTime)
-                .Select(fi => fi.Name.ToLowerInvariant())
+                .Select(fi => fi.Name)
                 .ToList();
 
             return videoFilesArr;
@@ -681,8 +681,10 @@ namespace SimpleVideoCutter
 
             var videoFilesArr = GetVideoFilesInDirectory(currentFilePath);
 
-            int index = videoFilesArr.IndexOf(Path.GetFileName(currentFilePath).ToLowerInvariant());
-            if (index < 0)
+            int index = videoFilesArr
+                .TakeWhile(f => f.ToLowerInvariant() != Path.GetFileName(currentFilePath).ToLowerInvariant())
+                .Count();
+            if (index == videoFilesArr.Count)
                 return null; // wtf?
 
             var newIndex = (index + direction + videoFilesArr.Count) % videoFilesArr.Count;
