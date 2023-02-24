@@ -62,6 +62,19 @@ namespace SimpleVideoCutter
                 // just ignore
             });
 
+            Application.ThreadException += (object sender, ThreadExceptionEventArgs e) =>
+            {
+                MessageBox.Show(e.Exception.Message, "Unhandled Exception");
+                try
+                {
+                    var path = Path.Combine(configFolder, $"svc-error-{DateTime.Now:yyyy-MM-dd--HH-mm-ss}.log");
+                    File.WriteAllText(path, e.Exception.ToString());
+                }
+                catch (Exception)
+                {
+                }
+            };
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var form = new MainForm(fileToLoadOnStartup, configFolder);
