@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -118,7 +119,7 @@ namespace SimpleVideoCutter
 
         private void SetBackgroundOfFFmpegPath()
         {
-            if (string.IsNullOrWhiteSpace(textBoxFFmpegPath.Text))
+            if (string.IsNullOrWhiteSpace(textBoxFFmpegPath.Text) || !File.Exists(textBoxFFmpegPath.Text))
             {
                 textBoxFFmpegPath.BackColor = Color.Orange;
             }
