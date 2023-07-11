@@ -47,6 +47,11 @@
     <Compile Update="CustomWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\README.txt">
@@ -137,5 +142,11 @@
     <EmbeddedResource Remove="LicenseBox.ja.resx" />
     <EmbeddedResource Remove="LicenseBox.pl.resx" />
     <EmbeddedResource Remove="LicenseBox.zh-CN.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 </Project>
