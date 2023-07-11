@@ -43,10 +43,13 @@ namespace SimpleVideoCutter
                     "{FileExtension}",
                     "{FileDate}",
                     "{Timestamp}"));
-            
-            this.comboBoxPreviewSize.DataSource = 
-                ((PreviewSize[])Enum.GetValues(typeof(PreviewSize))).Select(ps => new ComboBoxItem<PreviewSize>() { 
-                    Value = ps, Title = ps.ToString() }).ToList();
+
+            this.comboBoxPreviewSize.DataSource =
+                ((PreviewSize[])Enum.GetValues(typeof(PreviewSize))).Select(ps => new ComboBoxItem<PreviewSize>()
+                {
+                    Value = ps,
+                    Title = ps.ToString()
+                }).ToList();
 
         }
 
@@ -101,7 +104,7 @@ namespace SimpleVideoCutter
                     return dialog.FileName;
                 }
             }
-            return null; 
+            return null;
         }
 
         private string SelectFolder()
@@ -125,7 +128,7 @@ namespace SimpleVideoCutter
             }
             else
             {
-                textBoxFFmpegPath.BackColor = SystemColors.Window ;
+                textBoxFFmpegPath.BackColor = SystemColors.Window;
             }
         }
 

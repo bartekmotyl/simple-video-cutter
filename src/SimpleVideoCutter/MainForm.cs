@@ -28,7 +28,7 @@ namespace SimpleVideoCutter
         private FormSettings formSettings;
         private string fileToLoadOnStartup = null;
         private Debouncer debouncerHover = new Debouncer();
-        private bool playingSelection = false; 
+        private bool playingSelection = false;
 
         private bool EnsureFFmpegConfigured()
         {
@@ -70,7 +70,7 @@ namespace SimpleVideoCutter
                 }
             }
 
-            formSettings = new FormSettings(); 
+            formSettings = new FormSettings();
 
             InitializeComponent();
 
@@ -112,7 +112,7 @@ namespace SimpleVideoCutter
 
             // Full list of command line arguments: https://wiki.videolan.org/VLC_command-line_help
 
-            var args = new List<string>(new string[] { 
+            var args = new List<string>(new string[] {
                 "--play-and-pause",
                 "--no-sub-autodetect-file",
             });
@@ -122,9 +122,9 @@ namespace SimpleVideoCutter
                 args.Add("--no-playlist-autostart");
                 args.Add("--start-paused");
             }
-                
+
             libVLC = new LibVLC(args.ToArray());
-            
+
             vlcControl1.MediaPlayer = new MediaPlayer(libVLC);
             videoViewHover.MediaPlayer = new MediaPlayer(libVLC);
 
@@ -145,7 +145,7 @@ namespace SimpleVideoCutter
             videoViewHover.MediaPlayer.TimeChanged += VideoViewerHover_MediaPlayer_TimeChanged;
             videoViewHover.Visible = false;
 
-            videoCutterTimeline1.SelectionChanged += VideoCutterTimeline1_SelectionChanged; 
+            videoCutterTimeline1.SelectionChanged += VideoCutterTimeline1_SelectionChanged;
             videoCutterTimeline1.TimelineHover += VideoCutterTimeline1_TimelineHover;
             videoCutterTimeline1.PositionChangeRequest += VideoCutterTimeline1_PositionChangeRequest;
             videoCutterTimeline1.KeyframesRequest += VideoCutterTimeline1_KeyframesRequest;
@@ -153,7 +153,7 @@ namespace SimpleVideoCutter
             taskProcessor.PropertyChanged += TaskProcessor_PropertyChanged;
             taskProcessor.TaskProgress += TaskProcessor_TaskProgress;
             keyFramesExtractor.KeyFramesExtractorProgress += KeyFramesExtractor_KeyFramesExtractorProgress;
-          
+
             if (VideoCutterSettings.Instance.RestoreToolbarsLayout)
                 ToolStripManager.LoadSettings(this, "SimpleVideoCutterMainForm");
 
@@ -267,7 +267,7 @@ namespace SimpleVideoCutter
             string fileInfo = string.Format("{0:yyyy/MM/dd HH:mm:ss}", fi.LastWriteTime);
             statusStrip.InvokeIfRequired(() =>
             {
-               toolStripStatusLabelFileDate.Text = fileInfo;
+                toolStripStatusLabelFileDate.Text = fileInfo;
             });
             EnableButtons();
 
@@ -303,7 +303,7 @@ namespace SimpleVideoCutter
         private string ReplaceStandardDirectoryPatterns(string str)
         {
             return str
-                .Replace("{SameFolder}",  Path.GetDirectoryName(fileBeingPlayed))
+                .Replace("{SameFolder}", Path.GetDirectoryName(fileBeingPlayed))
                 .Replace("{UserVideos}", Environment.GetFolderPath(Environment.SpecialFolder.MyVideos))
                 .Replace("{UserDocuments}", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments))
                 .Replace("{MyComputer}", Environment.GetFolderPath(Environment.SpecialFolder.MyComputer));
@@ -327,7 +327,7 @@ namespace SimpleVideoCutter
 
         private void OpenFile(string path)
         {
-            if (!File.Exists(path)) 
+            if (!File.Exists(path))
             {
                 return;
             }
@@ -420,7 +420,7 @@ namespace SimpleVideoCutter
             if (e.KeyCode == Keys.D9 && e.Modifiers == Keys.None)
                 this.videoCutterTimeline1.ZoomAuto();
 
-            if (e.KeyCode == Keys.P &&  e.Modifiers == Keys.Control)
+            if (e.KeyCode == Keys.P && e.Modifiers == Keys.Control)
                 this.videoCutterTimeline1.GoToCurrentPosition();
 
             if (e.KeyCode == Keys.OemOpenBrackets && e.Modifiers == Keys.Control)
@@ -521,8 +521,8 @@ namespace SimpleVideoCutter
                     task =>
                     {
                         var item = new ListViewItem(task.StateLabel);
-                        item.SubItems.Add(string.Format("{0}", task.Lossless ? 
-                            GlobalStrings.MainForm_Lossless : GlobalStrings.MainForm_ReEncoding ));
+                        item.SubItems.Add(string.Format("{0}", task.Lossless ?
+                            GlobalStrings.MainForm_Lossless : GlobalStrings.MainForm_ReEncoding));
                         item.SubItems.Add(string.Format("{0}", task.InputFileName));
                         item.SubItems.Add(string.Format("{0} sec", Math.Round(task.OverallDuration / 1000.0f, 1)));
                         item.SubItems.Add(string.Format("{0}", task.OutputFilePath));
@@ -598,7 +598,7 @@ namespace SimpleVideoCutter
             var selections = videoCutterTimeline1.Selections.AllSelections.Select(s => new FFmpegTaskSelection()
             {
                 Start = TimeSpan.FromMilliseconds(s.Start),
-                End = TimeSpan.FromMilliseconds(s.End-100),
+                End = TimeSpan.FromMilliseconds(s.End - 100),
             }).ToArray();
 
             var selectionsOnKeyFrames = videoCutterTimeline1.AreSelectionsOnKeyFrames;
@@ -641,7 +641,7 @@ namespace SimpleVideoCutter
             {
                 ClearAllSelections();
             }
-            toolStripButtonTasksShow.Checked = true; 
+            toolStripButtonTasksShow.Checked = true;
         }
 
         private void ClearAllSelections()
@@ -657,7 +657,7 @@ namespace SimpleVideoCutter
             {
                 videoCutterTimeline1.Selections.DeleteSelection(currSelectionIndex.Value);
             }
-            
+
         }
 
         private IList<string> GetVideoFilesInDirectory(string currentFilePath)
@@ -1055,8 +1055,8 @@ namespace SimpleVideoCutter
             if (Thread.CurrentThread.CurrentUICulture.Name != culture)
             {
                 VideoCutterSettings.Instance.Language = culture;
-                var answer = MessageBox.Show(this, GlobalStrings.MainForm_QuestionRestartNewLanguage, 
-                    GlobalStrings.GlobalQuestion, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, 
+                var answer = MessageBox.Show(this, GlobalStrings.MainForm_QuestionRestartNewLanguage,
+                    GlobalStrings.GlobalQuestion, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question,
                     MessageBoxDefaultButton.Button3);
 
                 if (answer == DialogResult.Yes)
@@ -1086,11 +1086,11 @@ namespace SimpleVideoCutter
 
         private string GetPathOfSingleDraggedFile(IDataObject data)
         {
-            if (!data.GetDataPresent(DataFormats.FileDrop)) 
+            if (!data.GetDataPresent(DataFormats.FileDrop))
                 return null;
 
             string[] files = (string[])data.GetData(DataFormats.FileDrop);
-            
+
             if (files.Length != 1)
                 return null;
 
@@ -1104,7 +1104,7 @@ namespace SimpleVideoCutter
 
         private void MainForm_DragOver(object sender, DragEventArgs e)
         {
-            if (GetPathOfSingleDraggedFile(e.Data)!=null)
+            if (GetPathOfSingleDraggedFile(e.Data) != null)
                 e.Effect = DragDropEffects.Copy;
         }
 
@@ -1121,7 +1121,7 @@ namespace SimpleVideoCutter
         private void resetToolbarsLayoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VideoCutterSettings.Instance.RestoreToolbarsLayout = false;
-            MessageBox.Show(GlobalStrings.MainForm_DeaultLayoutrestoredAfterRestart, GlobalStrings.GlobalInformation, 
+            MessageBox.Show(GlobalStrings.MainForm_DeaultLayoutrestoredAfterRestart, GlobalStrings.GlobalInformation,
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
