@@ -10,11 +10,13 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Threading;
 using System.Windows.Forms;
 
 namespace SimpleVideoCutter
 {
+    [SupportedOSPlatform("windows")]
     public partial class MainForm : Form
     {
         private LibVLC libVLC;

@@ -1,20 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CB713743-39F4-4E84-B0B1-31E5277C8DC5}</ProjectGuid>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SimpleVideoCutter</RootNamespace>
-    <AssemblyName>SimpleVideoCutter</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -30,308 +17,36 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>movie-icon-15157-Windows.ico</ApplicationIcon>
+    <AssemblyTitle>Simple Video Cutter</AssemblyTitle>
+    <Description>Windows-based tool for efficient browsing and cutting video footage</Description>
+    <Company>Bartek Motyl</Company>
+    <Product>Simple Video Cutter</Product>
+    <Copyright>Copyright Bartek Motyl © 2020</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
-    <Prefer32Bit>false</Prefer32Bit>
-    <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <Prefer32Bit>false</Prefer32Bit>
-    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <PlatformTarget>x86</PlatformTarget>
     <OutputPath>bin\x86\Debug\</OutputPath>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <PlatformTarget>x86</PlatformTarget>
     <DocumentationFile>
     </DocumentationFile>
     <OutputPath>bin\x86\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="netstandard" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing.Design" />
-    <Reference Include="System.IO.Compression.FileSystem" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AboutBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AboutBox.Designer.cs">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ControlExtensions.cs" />
-    <Compile Include="CustomWebClient.cs">
+    <Compile Update="CustomWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="FFmpegNET\FFmpegArgumentBuilder.cs" />
-    <Compile Include="FormAddTask.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAddTask.Designer.cs">
-      <DependentUpon>FormAddTask.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormFFmpegMissingDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormFFmpegMissingDialog.Designer.cs">
-      <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSettings.Designer.cs">
-      <DependentUpon>FormSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GitHubVersionCheck.cs" />
-    <Compile Include="KeyFramesExtractor.cs" />
-    <Compile Include="LicenseBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LicenseBox.Designer.cs">
-      <DependentUpon>LicenseBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\GlobalStrings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GlobalStrings.resx</DependentUpon>
-    </Compile>
-    <Compile Include="TaskProcessor.cs" />
-    <Compile Include="Utils.cs" />
-    <Compile Include="VideoCutterSettings.cs" />
-    <Compile Include="VideoCutterTimeline.cs" />
-    <Compile Include="VideoCutterTimeline.Designer.cs">
-      <DependentUpon>VideoCutterTimeline.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="AboutBox.de.resx">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AboutBox.es.resx">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AboutBox.fr.resx">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AboutBox.it.resx">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AboutBox.ja.resx">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AboutBox.pl.resx">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AboutBox.resx">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AboutBox.zh-CN.resx">
-      <DependentUpon>AboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAddTask.de.resx">
-      <DependentUpon>FormAddTask.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAddTask.es.resx">
-      <DependentUpon>FormAddTask.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAddTask.fr.resx">
-      <DependentUpon>FormAddTask.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAddTask.it.resx">
-      <DependentUpon>FormAddTask.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAddTask.ja.resx">
-      <DependentUpon>FormAddTask.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAddTask.pl.resx">
-      <DependentUpon>FormAddTask.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAddTask.resx">
-      <DependentUpon>FormAddTask.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAddTask.zh-CN.resx">
-      <DependentUpon>FormAddTask.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormFFmpegMissingDialog.de.resx">
-      <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormFFmpegMissingDialog.es.resx">
-      <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormFFmpegMissingDialog.fr.resx">
-      <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormFFmpegMissingDialog.it.resx">
-      <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormFFmpegMissingDialog.ja.resx">
-      <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormFFmpegMissingDialog.pl.resx">
-      <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormFFmpegMissingDialog.resx">
-      <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormFFmpegMissingDialog.zh-CN.resx">
-      <DependentUpon>FormFFmpegMissingDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSettings.de.resx">
-      <DependentUpon>FormSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSettings.es.resx">
-      <DependentUpon>FormSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSettings.fr.resx">
-      <DependentUpon>FormSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSettings.it.resx">
-      <DependentUpon>FormSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSettings.ja.resx">
-      <DependentUpon>FormSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSettings.pl.resx">
-      <DependentUpon>FormSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSettings.resx">
-      <DependentUpon>FormSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSettings.zh-CN.resx">
-      <DependentUpon>FormSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LicenseBox.resx">
-      <DependentUpon>LicenseBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.de.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.es.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.fr.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.it.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.ja.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.pl.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.zh-CN.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\GlobalStrings.de.resx" />
-    <EmbeddedResource Include="Properties\GlobalStrings.es.resx" />
-    <EmbeddedResource Include="Properties\GlobalStrings.fr.resx" />
-    <EmbeddedResource Include="Properties\GlobalStrings.it.resx" />
-    <EmbeddedResource Include="Properties\GlobalStrings.ja.resx" />
-    <EmbeddedResource Include="Properties\GlobalStrings.pl.resx" />
-    <EmbeddedResource Include="Properties\GlobalStrings.zh-CN.resx" />
-    <EmbeddedResource Include="Properties\Resources.de.resx" />
-    <EmbeddedResource Include="Properties\Resources.es.resx" />
-    <EmbeddedResource Include="Properties\Resources.fr.resx" />
-    <EmbeddedResource Include="Properties\Resources.it.resx" />
-    <EmbeddedResource Include="Properties\Resources.ja.resx" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <EmbeddedResource Include="Properties\GlobalStrings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>GlobalStrings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.zh-CN.resx" />
-    <EmbeddedResource Include="VideoCutterTimeline.de.resx">
-      <DependentUpon>VideoCutterTimeline.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VideoCutterTimeline.es.resx">
-      <DependentUpon>VideoCutterTimeline.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VideoCutterTimeline.fr.resx">
-      <DependentUpon>VideoCutterTimeline.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VideoCutterTimeline.it.resx">
-      <DependentUpon>VideoCutterTimeline.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VideoCutterTimeline.ja.resx">
-      <DependentUpon>VideoCutterTimeline.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VideoCutterTimeline.resx">
-      <DependentUpon>VideoCutterTimeline.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VideoCutterTimeline.zh-CN.resx">
-      <DependentUpon>VideoCutterTimeline.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\README.txt">
@@ -350,7 +65,6 @@
     <None Include="Resources\streamline\streamline-icon-translate%4032x32.png" />
     <None Include="Resources\streamline\streamline-icon-seo-zoom%4032x32.png" />
     <Content Include="Resources\streamline\streamline-icon-video-edit-cut%4048x48.png" />
-    <None Include="Resources\film-reels.jpg" />
     <Content Include="Resources\movie-icon-15157-Windows.ico" />
     <None Include="Resources\streamline\streamline-icon-arrow-button-circle-right%4032x32.png" />
     <None Include="Resources\streamline\streamline-icon-go-to-end%4032x32.png" />
@@ -386,24 +100,19 @@
     <PackageReference Include="LibVLCSharp.WinForms">
       <Version>3.6.7</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.NETCore.Platforms">
-      <Version>7.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="NETStandard.Library">
-      <Version>2.0.3</Version>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.2</Version>
-    </PackageReference>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Octokit">
       <Version>5.0.0</Version>
     </PackageReference>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="VideoLAN.LibVLC.Windows">
       <Version>3.0.18</Version>
     </PackageReference>
     <PackageReference Include="xFFmpeg.NET">
       <Version>3.4.0</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="7.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
@@ -420,12 +129,13 @@
   <ItemGroup>
     <Folder Include="Settings\" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <EmbeddedResource Remove="LicenseBox.de.resx" />
+    <EmbeddedResource Remove="LicenseBox.es.resx" />
+    <EmbeddedResource Remove="LicenseBox.fr.resx" />
+    <EmbeddedResource Remove="LicenseBox.it.resx" />
+    <EmbeddedResource Remove="LicenseBox.ja.resx" />
+    <EmbeddedResource Remove="LicenseBox.pl.resx" />
+    <EmbeddedResource Remove="LicenseBox.zh-CN.resx" />
+  </ItemGroup>
 </Project>

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SimpleVideoCutter.Properties;
 using System.Drawing.Drawing2D;
+using System.Runtime.Versioning;
 
 namespace SimpleVideoCutter
 {
@@ -29,6 +30,7 @@ namespace SimpleVideoCutter
             return true; 
         }
     }
+    [SupportedOSPlatform("windows")]
     public class SelectionsMoveController
     {
         protected VideoCutterTimeline ctrl;
@@ -275,6 +277,7 @@ namespace SimpleVideoCutter
         }
     }
 
+    [SupportedOSPlatform("windows")]
     public partial class VideoCutterTimeline : UserControl
     {
         public event EventHandler<TimelineHoverEventArgs> TimelineHover;
@@ -956,7 +959,7 @@ namespace SimpleVideoCutter
         public List<long> Keyframes { get; set; }
         public bool InProgress { get; set; }
     }
-
+    [SupportedOSPlatform("windows")]
     internal static class GraphicsUtils
     {
 
