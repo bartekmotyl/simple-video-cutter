@@ -8,25 +8,22 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace SimpleVideoCutter
 {
     public static class Utils
     {
         // Return a deep clone of an object of type T.
-        // Copied from http://csharphelper.com/blog/2016/09/clone-serializable-objects-in-c/
-        public static T DeepClone<T>(this T obj)
+        // Copied from https://code-maze.com/csharp-deep-copy-of-object/
+        public static T DeepCloneXML<T>(T input)
         {
-            using (MemoryStream memory_stream = new MemoryStream())
-            {
-                // Serialize the object into the memory stream.
-                BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(memory_stream, obj);
+            using var stream = new MemoryStream();
 
-                // Rewind the stream and use it to create a new object.
-                memory_stream.Position = 0;
-                return (T)formatter.Deserialize(memory_stream);
-            }
+            var serializer = new XmlSerializer(typeof(T));
+            serializer.Serialize(stream, input);
+            stream.Position = 0;
+            return (T)serializer.Deserialize(stream);
         }
 
         public static string GetCurrentRelease()

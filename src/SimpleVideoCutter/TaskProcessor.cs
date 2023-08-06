@@ -74,7 +74,8 @@ namespace SimpleVideoCutter
 
             task.State = FFmpegTaskState.InProgress;
             OnPropertyChanged("Tasks");
-            await ffmpeg.ExecuteAsync(ffmpegCutArguments);
+            CancellationTokenSource taskCts = new CancellationTokenSource();
+            await ffmpeg.ExecuteAsync(ffmpegCutArguments, taskCts.Token);
         }
         private async Task ProcessMultipleCutTask(FFmpegTask task, Engine ffmpeg)
         {
@@ -89,8 +90,8 @@ namespace SimpleVideoCutter
                     GetPartialOutputPath(task, index+1),
                     selection.Start, selection.End,
                     task.Lossless);
-
-                await ffmpeg.ExecuteAsync(ffmpegCutArguments);
+                CancellationTokenSource taskCts = new CancellationTokenSource();
+                await ffmpeg.ExecuteAsync(ffmpegCutArguments, taskCts.Token);
             };
         }
 
@@ -134,9 +135,10 @@ namespace SimpleVideoCutter
                     OnTaskProgress(msg);
                 };
 
-
-                var inputFile = new MediaFile(task.InputFilePath);
-                var metadata = await ffmpeg.GetMetaDataAsync(inputFile);
+                CancellationTokenSource taskCts = new CancellationTokenSource();
+                
+                var inputFile = new InputFile(task.InputFilePath);
+                var metadata = await ffmpeg.GetMetaDataAsync(inputFile, taskCts.Token);
 
                 try
                 {

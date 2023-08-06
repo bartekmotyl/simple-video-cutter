@@ -16,7 +16,7 @@ namespace SimpleVideoCutter
             InitializeComponent();
             this.selectionsOnKeyFrames = selectionsOnKeyFrames;
 
-            this.Task = task.DeepClone();
+            this.Task = Utils.DeepCloneXML(task);
             TaskToGUI();
             buttonEnqueueReEncoding.Focus();
         }

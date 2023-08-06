@@ -28,197 +28,189 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSettings));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxFFmpegPath = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxVideoFileExtensions = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.buttonOutputDirectory = new System.Windows.Forms.Button();
-            this.buttonFFmpegPath = new System.Windows.Forms.Button();
-            this.buttonDefaultDirectory = new System.Windows.Forms.Button();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.comboBoxDefaultDirectory = new System.Windows.Forms.ComboBox();
-            this.comboBoxOutputDirectory = new System.Windows.Forms.ComboBox();
-            this.textBoxOutputFilePattern = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonOK = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBoxPreviewSize = new System.Windows.Forms.ComboBox();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.SuspendLayout();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            textBoxFFmpegPath = new System.Windows.Forms.TextBox();
+            label4 = new System.Windows.Forms.Label();
+            textBoxVideoFileExtensions = new System.Windows.Forms.TextBox();
+            label5 = new System.Windows.Forms.Label();
+            buttonOutputDirectory = new System.Windows.Forms.Button();
+            buttonFFmpegPath = new System.Windows.Forms.Button();
+            buttonDefaultDirectory = new System.Windows.Forms.Button();
+            folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
+            comboBoxDefaultDirectory = new System.Windows.Forms.ComboBox();
+            comboBoxOutputDirectory = new System.Windows.Forms.ComboBox();
+            textBoxOutputFilePattern = new System.Windows.Forms.TextBox();
+            tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            label6 = new System.Windows.Forms.Label();
+            comboBoxPreviewSize = new System.Windows.Forms.ComboBox();
+            flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            buttonCancel = new System.Windows.Forms.Button();
+            buttonOK = new System.Windows.Forms.Button();
+            tableLayoutPanel1.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            SuspendLayout();
             // 
             // label1
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(label1, "label1");
+            label1.Name = "label1";
             // 
             // label2
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(label2, "label2");
+            label2.Name = "label2";
             // 
             // label3
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
+            resources.ApplyResources(label3, "label3");
+            label3.Name = "label3";
             // 
             // textBoxFFmpegPath
             // 
-            resources.ApplyResources(this.textBoxFFmpegPath, "textBoxFFmpegPath");
-            this.textBoxFFmpegPath.Name = "textBoxFFmpegPath";
-            this.toolTip1.SetToolTip(this.textBoxFFmpegPath, resources.GetString("textBoxFFmpegPath.ToolTip"));
-            this.textBoxFFmpegPath.TextChanged += new System.EventHandler(this.textBoxFFmpegPath_TextChanged);
+            resources.ApplyResources(textBoxFFmpegPath, "textBoxFFmpegPath");
+            textBoxFFmpegPath.Name = "textBoxFFmpegPath";
+            toolTip1.SetToolTip(textBoxFFmpegPath, resources.GetString("textBoxFFmpegPath.ToolTip"));
+            textBoxFFmpegPath.TextChanged += textBoxFFmpegPath_TextChanged;
             // 
             // label4
             // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
+            resources.ApplyResources(label4, "label4");
+            label4.Name = "label4";
             // 
             // textBoxVideoFileExtensions
             // 
-            resources.ApplyResources(this.textBoxVideoFileExtensions, "textBoxVideoFileExtensions");
-            this.textBoxVideoFileExtensions.Name = "textBoxVideoFileExtensions";
-            this.textBoxVideoFileExtensions.ReadOnly = true;
-            this.toolTip1.SetToolTip(this.textBoxVideoFileExtensions, resources.GetString("textBoxVideoFileExtensions.ToolTip"));
+            resources.ApplyResources(textBoxVideoFileExtensions, "textBoxVideoFileExtensions");
+            textBoxVideoFileExtensions.Name = "textBoxVideoFileExtensions";
+            textBoxVideoFileExtensions.ReadOnly = true;
+            toolTip1.SetToolTip(textBoxVideoFileExtensions, resources.GetString("textBoxVideoFileExtensions.ToolTip"));
             // 
             // label5
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
+            resources.ApplyResources(label5, "label5");
+            label5.Name = "label5";
             // 
             // buttonOutputDirectory
             // 
-            resources.ApplyResources(this.buttonOutputDirectory, "buttonOutputDirectory");
-            this.buttonOutputDirectory.Name = "buttonOutputDirectory";
-            this.buttonOutputDirectory.UseVisualStyleBackColor = true;
-            this.buttonOutputDirectory.Click += new System.EventHandler(this.buttonOutputDirectory_Click);
+            resources.ApplyResources(buttonOutputDirectory, "buttonOutputDirectory");
+            buttonOutputDirectory.Name = "buttonOutputDirectory";
+            buttonOutputDirectory.UseVisualStyleBackColor = true;
+            buttonOutputDirectory.Click += buttonOutputDirectory_Click;
             // 
             // buttonFFmpegPath
             // 
-            resources.ApplyResources(this.buttonFFmpegPath, "buttonFFmpegPath");
-            this.buttonFFmpegPath.Name = "buttonFFmpegPath";
-            this.buttonFFmpegPath.UseVisualStyleBackColor = true;
-            this.buttonFFmpegPath.Click += new System.EventHandler(this.buttonFFmpegPath_Click);
+            resources.ApplyResources(buttonFFmpegPath, "buttonFFmpegPath");
+            buttonFFmpegPath.Name = "buttonFFmpegPath";
+            buttonFFmpegPath.UseVisualStyleBackColor = true;
+            buttonFFmpegPath.Click += buttonFFmpegPath_Click;
             // 
             // buttonDefaultDirectory
             // 
-            resources.ApplyResources(this.buttonDefaultDirectory, "buttonDefaultDirectory");
-            this.buttonDefaultDirectory.Name = "buttonDefaultDirectory";
-            this.buttonDefaultDirectory.UseVisualStyleBackColor = true;
-            this.buttonDefaultDirectory.Click += new System.EventHandler(this.buttonDefaultDirectory_Click);
+            resources.ApplyResources(buttonDefaultDirectory, "buttonDefaultDirectory");
+            buttonDefaultDirectory.Name = "buttonDefaultDirectory";
+            buttonDefaultDirectory.UseVisualStyleBackColor = true;
+            buttonDefaultDirectory.Click += buttonDefaultDirectory_Click;
             // 
             // comboBoxDefaultDirectory
             // 
-            this.comboBoxDefaultDirectory.FormattingEnabled = true;
-            this.comboBoxDefaultDirectory.Items.AddRange(new object[] {
-            resources.GetString("comboBoxDefaultDirectory.Items"),
-            resources.GetString("comboBoxDefaultDirectory.Items1"),
-            resources.GetString("comboBoxDefaultDirectory.Items2")});
-            resources.ApplyResources(this.comboBoxDefaultDirectory, "comboBoxDefaultDirectory");
-            this.comboBoxDefaultDirectory.Name = "comboBoxDefaultDirectory";
-            this.toolTip1.SetToolTip(this.comboBoxDefaultDirectory, resources.GetString("comboBoxDefaultDirectory.ToolTip"));
+            comboBoxDefaultDirectory.FormattingEnabled = true;
+            comboBoxDefaultDirectory.Items.AddRange(new object[] { resources.GetString("comboBoxDefaultDirectory.Items"), resources.GetString("comboBoxDefaultDirectory.Items1"), resources.GetString("comboBoxDefaultDirectory.Items2") });
+            resources.ApplyResources(comboBoxDefaultDirectory, "comboBoxDefaultDirectory");
+            comboBoxDefaultDirectory.Name = "comboBoxDefaultDirectory";
+            toolTip1.SetToolTip(comboBoxDefaultDirectory, resources.GetString("comboBoxDefaultDirectory.ToolTip"));
             // 
             // comboBoxOutputDirectory
             // 
-            this.comboBoxOutputDirectory.FormattingEnabled = true;
-            this.comboBoxOutputDirectory.Items.AddRange(new object[] {
-            resources.GetString("comboBoxOutputDirectory.Items"),
-            resources.GetString("comboBoxOutputDirectory.Items1"),
-            resources.GetString("comboBoxOutputDirectory.Items2"),
-            resources.GetString("comboBoxOutputDirectory.Items3")});
-            resources.ApplyResources(this.comboBoxOutputDirectory, "comboBoxOutputDirectory");
-            this.comboBoxOutputDirectory.Name = "comboBoxOutputDirectory";
-            this.toolTip1.SetToolTip(this.comboBoxOutputDirectory, resources.GetString("comboBoxOutputDirectory.ToolTip"));
+            comboBoxOutputDirectory.FormattingEnabled = true;
+            comboBoxOutputDirectory.Items.AddRange(new object[] { resources.GetString("comboBoxOutputDirectory.Items"), resources.GetString("comboBoxOutputDirectory.Items1"), resources.GetString("comboBoxOutputDirectory.Items2"), resources.GetString("comboBoxOutputDirectory.Items3") });
+            resources.ApplyResources(comboBoxOutputDirectory, "comboBoxOutputDirectory");
+            comboBoxOutputDirectory.Name = "comboBoxOutputDirectory";
+            toolTip1.SetToolTip(comboBoxOutputDirectory, resources.GetString("comboBoxOutputDirectory.ToolTip"));
             // 
             // textBoxOutputFilePattern
             // 
-            resources.ApplyResources(this.textBoxOutputFilePattern, "textBoxOutputFilePattern");
-            this.textBoxOutputFilePattern.Name = "textBoxOutputFilePattern";
-            this.toolTip1.SetToolTip(this.textBoxOutputFilePattern, resources.GetString("textBoxOutputFilePattern.ToolTip"));
+            resources.ApplyResources(textBoxOutputFilePattern, "textBoxOutputFilePattern");
+            textBoxOutputFilePattern.Name = "textBoxOutputFilePattern";
+            toolTip1.SetToolTip(textBoxOutputFilePattern, resources.GetString("textBoxOutputFilePattern.ToolTip"));
             // 
             // tableLayoutPanel1
             // 
-            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxOutputDirectory, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxVideoFileExtensions, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.buttonFFmpegPath, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.buttonDefaultDirectory, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonOutputDirectory, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxFFmpegPath, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxDefaultDirectory, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxOutputFilePattern, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxPreviewSize, 1, 5);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            // 
-            // flowLayoutPanel1
-            // 
-            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
-            this.flowLayoutPanel1.Controls.Add(this.buttonCancel);
-            this.flowLayoutPanel1.Controls.Add(this.buttonOK);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            resources.ApplyResources(this.buttonCancel, "buttonCancel");
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            // 
-            // buttonOK
-            // 
-            resources.ApplyResources(this.buttonOK, "buttonOK");
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.UseVisualStyleBackColor = true;
-            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            resources.ApplyResources(tableLayoutPanel1, "tableLayoutPanel1");
+            tableLayoutPanel1.Controls.Add(comboBoxOutputDirectory, 1, 1);
+            tableLayoutPanel1.Controls.Add(textBoxVideoFileExtensions, 1, 6);
+            tableLayoutPanel1.Controls.Add(buttonFFmpegPath, 2, 4);
+            tableLayoutPanel1.Controls.Add(label5, 0, 6);
+            tableLayoutPanel1.Controls.Add(buttonDefaultDirectory, 2, 0);
+            tableLayoutPanel1.Controls.Add(buttonOutputDirectory, 2, 1);
+            tableLayoutPanel1.Controls.Add(textBoxFFmpegPath, 1, 4);
+            tableLayoutPanel1.Controls.Add(label2, 0, 1);
+            tableLayoutPanel1.Controls.Add(label4, 0, 4);
+            tableLayoutPanel1.Controls.Add(label3, 0, 3);
+            tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            tableLayoutPanel1.Controls.Add(comboBoxDefaultDirectory, 1, 0);
+            tableLayoutPanel1.Controls.Add(textBoxOutputFilePattern, 1, 3);
+            tableLayoutPanel1.Controls.Add(label6, 0, 5);
+            tableLayoutPanel1.Controls.Add(comboBoxPreviewSize, 1, 5);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
             // label6
             // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
+            resources.ApplyResources(label6, "label6");
+            label6.Name = "label6";
             // 
             // comboBoxPreviewSize
             // 
-            this.comboBoxPreviewSize.DisplayMember = "Title";
-            this.comboBoxPreviewSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPreviewSize.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBoxPreviewSize, "comboBoxPreviewSize");
-            this.comboBoxPreviewSize.Name = "comboBoxPreviewSize";
-            this.comboBoxPreviewSize.ValueMember = "Value";
+            comboBoxPreviewSize.DisplayMember = "Title";
+            comboBoxPreviewSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            comboBoxPreviewSize.FormattingEnabled = true;
+            resources.ApplyResources(comboBoxPreviewSize, "comboBoxPreviewSize");
+            comboBoxPreviewSize.Name = "comboBoxPreviewSize";
+            comboBoxPreviewSize.ValueMember = "Value";
+            // 
+            // flowLayoutPanel1
+            // 
+            resources.ApplyResources(flowLayoutPanel1, "flowLayoutPanel1");
+            flowLayoutPanel1.Controls.Add(buttonCancel);
+            flowLayoutPanel1.Controls.Add(buttonOK);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            // 
+            // buttonCancel
+            // 
+            buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(buttonCancel, "buttonCancel");
+            buttonCancel.Name = "buttonCancel";
+            buttonCancel.UseVisualStyleBackColor = true;
+            // 
+            // buttonOK
+            // 
+            resources.ApplyResources(buttonOK, "buttonOK");
+            buttonOK.Name = "buttonOK";
+            buttonOK.UseVisualStyleBackColor = true;
+            buttonOK.Click += buttonOK_Click;
             // 
             // FormSettings
             // 
-            this.AcceptButton = this.buttonOK;
+            AcceptButton = buttonOK;
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.buttonCancel;
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "FormSettings";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            CancelButton = buttonCancel;
+            Controls.Add(flowLayoutPanel1);
+            Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "FormSettings";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

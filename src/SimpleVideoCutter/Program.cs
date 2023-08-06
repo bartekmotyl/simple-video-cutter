@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,7 +26,7 @@ namespace SimpleVideoCutter
         [Value(0, Default = null, MetaName = "videoFile")]
         public string VideoFile { get; set; }
     }
-
+    [SupportedOSPlatform("windows")]
     static class Program
     {
         /// <summary>

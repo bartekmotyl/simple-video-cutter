@@ -14,7 +14,8 @@ namespace SimpleVideoCutter
 
 		public int TimeoutMs { get; set; }
 
-		public CustomWebClient()
+#pragma warning disable SYSLIB0014 // Type or member is obsolete
+        public CustomWebClient()
 		{
 			timeoutTimer = new Timer();
 			timeoutTimer.Tick += (object sender, EventArgs e) =>
@@ -22,9 +23,10 @@ namespace SimpleVideoCutter
 				CancelAsync();
 			};
 		}
+#pragma warning restore SYSLIB0014 // Type or member is obsolete
 
 
-		protected override WebRequest GetWebRequest(Uri address)
+        protected override WebRequest GetWebRequest(Uri address)
         {
             WebRequest wr = base.GetWebRequest(address);
             wr.Timeout = TimeoutMs; // timeout in milliseconds (ms)
