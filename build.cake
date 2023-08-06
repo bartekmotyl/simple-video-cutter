@@ -1,3 +1,4 @@
+#tool nuget:?package=NuGet.CommandLine&version=6.6.1
 #tool nuget:?package=NUnit.ConsoleRunner&version=3.14.0
 #addin nuget:?package=Cake.FileHelpers&version=4.0.1
 
@@ -5,7 +6,7 @@
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
 
-var appversion = Argument("appversion", "0.25.0.0");
+var appversion = Argument("appversion", "0.26.0.0");
 
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
@@ -68,7 +69,7 @@ Task("CreateDist")
     .IsDependentOn("Build")
     .Does(() =>
 {
-    Zip($"./src/SimpleVideoCutter/bin/x64/{configuration}", distfile64);
+    Zip($"./src/SimpleVideoCutter/bin/x64/{configuration}/net7.0-windows", distfile64);
 });
 
 
