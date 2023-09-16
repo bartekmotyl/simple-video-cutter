@@ -3,8 +3,8 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: AssemblyVersion("0.26.0.0")]  
-[assembly: AssemblyFileVersion("0.26.0.0")]
+[assembly: AssemblyVersion("0.27.0.0")]  
+[assembly: AssemblyFileVersion("0.27.0.0")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 

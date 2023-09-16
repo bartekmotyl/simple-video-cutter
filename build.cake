@@ -6,7 +6,7 @@
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
 
-var appversion = Argument("appversion", "0.26.0.0");
+var appversion = Argument("appversion", "0.27.0.0");
 
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
