@@ -117,17 +117,17 @@
             // 
             // comboBoxDefaultDirectory
             // 
+            resources.ApplyResources(comboBoxDefaultDirectory, "comboBoxDefaultDirectory");
             comboBoxDefaultDirectory.FormattingEnabled = true;
             comboBoxDefaultDirectory.Items.AddRange(new object[] { resources.GetString("comboBoxDefaultDirectory.Items"), resources.GetString("comboBoxDefaultDirectory.Items1"), resources.GetString("comboBoxDefaultDirectory.Items2") });
-            resources.ApplyResources(comboBoxDefaultDirectory, "comboBoxDefaultDirectory");
             comboBoxDefaultDirectory.Name = "comboBoxDefaultDirectory";
             toolTip1.SetToolTip(comboBoxDefaultDirectory, resources.GetString("comboBoxDefaultDirectory.ToolTip"));
             // 
             // comboBoxOutputDirectory
             // 
+            resources.ApplyResources(comboBoxOutputDirectory, "comboBoxOutputDirectory");
             comboBoxOutputDirectory.FormattingEnabled = true;
             comboBoxOutputDirectory.Items.AddRange(new object[] { resources.GetString("comboBoxOutputDirectory.Items"), resources.GetString("comboBoxOutputDirectory.Items1"), resources.GetString("comboBoxOutputDirectory.Items2"), resources.GetString("comboBoxOutputDirectory.Items3") });
-            resources.ApplyResources(comboBoxOutputDirectory, "comboBoxOutputDirectory");
             comboBoxOutputDirectory.Name = "comboBoxOutputDirectory";
             toolTip1.SetToolTip(comboBoxOutputDirectory, resources.GetString("comboBoxOutputDirectory.ToolTip"));
             // 
@@ -164,10 +164,10 @@
             // 
             // comboBoxPreviewSize
             // 
+            resources.ApplyResources(comboBoxPreviewSize, "comboBoxPreviewSize");
             comboBoxPreviewSize.DisplayMember = "Title";
             comboBoxPreviewSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             comboBoxPreviewSize.FormattingEnabled = true;
-            resources.ApplyResources(comboBoxPreviewSize, "comboBoxPreviewSize");
             comboBoxPreviewSize.Name = "comboBoxPreviewSize";
             comboBoxPreviewSize.ValueMember = "Value";
             // 

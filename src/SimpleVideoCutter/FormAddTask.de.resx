@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="buttonSaveProfile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 23</value>
-  </data>
   <data name="labelOriginalFilePath.Text" xml:space="preserve">
     <value>Original-Dateipfad:</value>
   </data>
