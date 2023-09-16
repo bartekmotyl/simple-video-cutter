@@ -7,11 +7,6 @@ Windows-based tool for efficient browsing and cutting video footage
 Available localisations: Polish, German, French, Italian, Spanish, Japanese and Chinese (Simplified). 
 Translations are mostly machine based (DeepL). Please contact me if you can help to improve translations in your language.
 
-## Latest news ⚠️
-
-It seems there is a small problem in version 0.26.0 running in German localization - _Settings_ window has incorrect size and some fields cannot be edited. 
-A temporary workaround is to switch to English version. The problem is reported as issue #80 and will be fixed soon.  
-
 ## Goal
 
 Let's imagine you have hours of video footage, dozens of files (videos from your vacations, material copied from your action camera or a drone etc.). 
