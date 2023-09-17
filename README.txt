@@ -157,3 +157,23 @@ SimpleVideoCutter.exeをダブルクリックしてプログラムを起動し�
 電子メール: simple.video.cutter@gmail.com
 
 あなたの言語への翻訳を改善するためのお手伝いをしたい場合は、ご連絡ください。
+
+---------------------------------------------------------------------------------------
+[Turkish] 
+
+* Kurulum
+
+Arşivi bir klasöre çıkartın, örneğin 'simple-video-cutter'.
+SimpleVideoCutter.exe'yi çift tıklayarak programı başlatın.
+Not: ffmpeg'e ihtiyacınız olacak, https://ffmpeg.zeranoe.com/builds/ adresinden indirebilirsiniz.
+
+* Güncelleme
+
+Arşivi mevcut bir klasöre çıkartın, mevcut içeriği üzerine yazın.
+'config.json' dosyası yapılandırmanızı içerir, üzerine yazılmamalıdır.
+
+Bu yazılım ücretsiz olarak sunulmaktadır!
+Web sayfası: https://github.com/bartekmotyl/simple-video-cutter
+E-posta: simple.video.cutter@gmail.com
+
+Dil tercümesini iyileştirmemize yardımcı olmak isterseniz lütfen bize ulaşın.
