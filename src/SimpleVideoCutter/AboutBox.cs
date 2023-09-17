@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -105,11 +106,11 @@ namespace SimpleVideoCutter
 
         private void linkLabelGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(linkLabelGithub.Text);
+            Process.Start(new ProcessStartInfo(linkLabelGithub.Text) { UseShellExecute = true });
         }
         private void linkLabelGithubreleases_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(linkLabelGithub.Text);
+            Process.Start(new ProcessStartInfo(linkLabelGithubReleases.Text) { UseShellExecute = true });
         }
 
         private async void AboutBox_Load(object sender, EventArgs e)
@@ -129,7 +130,7 @@ namespace SimpleVideoCutter
 
         private void linkLabelEmail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("mailto:simple.video.cutter@gmail.com"); 
+            Process.Start(new ProcessStartInfo("mailto:simple.video.cutter@gmail.com") { UseShellExecute = true });
         }
 
         private void buttonLicense_Click(object sender, EventArgs e)
