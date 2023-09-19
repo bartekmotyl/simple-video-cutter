@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="labelProductName.Text" xml:space="preserve">
-    <value>Nome del prodotto</value>
+    <value>Nome programma</value>
   </data>
   <data name="labelVersion.Text" xml:space="preserve">
     <value>Versione</value>
