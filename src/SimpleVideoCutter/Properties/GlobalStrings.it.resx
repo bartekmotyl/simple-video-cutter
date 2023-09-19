@@ -118,39 +118,40 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutBox_About" xml:space="preserve">
-    <value>Informazioni</value>
+    <value>Info programma</value>
   </data>
   <data name="AboutBox_NewVersionAvailable" xml:space="preserve">
-    <value>Una nuova versione è disponibile! Visita la pagina del progetto.</value>
+    <value>È disponibile una nuova versione! 
+Visita la pagina del progetto.</value>
   </data>
   <data name="AboutBox_Version" xml:space="preserve">
     <value>Versione</value>
   </data>
   <data name="AboutBox_VersionUpToDate" xml:space="preserve">
-    <value>Si sta eseguendo l'ultima versione.</value>
+    <value>Questa versione è aggiornata.</value>
   </data>
   <data name="FormSettings_DefaultDirecttoryTooltip" xml:space="preserve">
-    <value>Directory predefinita per l'apertura dei file video.
+    <value>Cartella predefinita per l'apertura dei file video.
 Può essere specificata come percorso assoluto,
-o utilizzando una delle directory predefinite:
+o selezionando una delle cartelle predefinite:
 {0}</value>
   </data>
   <data name="FormSettings_ExecutableFiles" xml:space="preserve">
     <value>File eseguibili</value>
   </data>
   <data name="FormSettings_OutputDirectoryTooltip" xml:space="preserve">
-    <value>Cartella di uscita dove salvare i file creati.
+    <value>Cartella destinazione dove salvare i file creati.
 Può essere specificata come percorso assoluto,
-o utilizzando una delle directory predefinite:
+o selezionando una delle cartelle predefinite:
 {0}</value>
   </data>
   <data name="FormSettings_OutputFileNamePatternTooltip" xml:space="preserve">
     <value>Schema che definisce come verranno calcolati i nomi dei file creati.
 Sono consentite sia parti statiche, sia le seguenti pseudo-variabili:
-  {0} - nome del file originale
-  {1} - nome del file originale, senza estensione
-  {2} - estensione del file video originale
-  {3} - data del file del file video originale
+  {0} - nome file originale
+  {1} - nome file originale, senza estensione
+  {2} - estensione file video originale
+  {3} - data del file file video originale
   {4} - data e ora attuale</value>
   </data>
   <data name="GlobalInformation" xml:space="preserve">
@@ -163,7 +164,7 @@ Sono consentite sia parti statiche, sia le seguenti pseudo-variabili:
     <value>Tutti i file video</value>
   </data>
   <data name="MainForm_ButtonCut" xml:space="preserve">
-    <value>Esegui il taglio</value>
+    <value>Esegui taglio</value>
   </data>
   <data name="MainForm_DeaultLayoutrestoredAfterRestart" xml:space="preserve">
     <value>Il layout predefinito verrà ripristinato al riavvio dell'applicazione.</value>
@@ -172,8 +173,8 @@ Sono consentite sia parti statiche, sia le seguenti pseudo-variabili:
     <value>Nessuna selezione</value>
   </data>
   <data name="MainForm_QuestionRestartNewLanguage" xml:space="preserve">
-    <value>Per poter utilizzare le nuove impostazioni della lingua, l'applicazione deve essere riavviata.
-Riavviarla ora?</value>
+    <value>Per poter usare le nuove impostazioni della lingua dell'interfaccia, l'applicazione deve essere riavviata.
+Vuoi riavviare l'applicazione?</value>
   </data>
   <data name="MainForm_Selection" xml:space="preserve">
     <value>Selezione</value>
@@ -182,7 +183,7 @@ Riavviarla ora?</value>
     <value>Volume</value>
   </data>
   <data name="TaskProcessor_Done" xml:space="preserve">
-    <value>Fatto</value>
+    <value>Completato</value>
   </data>
   <data name="TaskProcessor_Failure" xml:space="preserve">
     <value>Fallito</value>
@@ -194,28 +195,28 @@ Riavviarla ora?</value>
     <value>Errore</value>
   </data>
   <data name="TaskProcessor_State_FinishedOK" xml:space="preserve">
-    <value>Fatto</value>
+    <value>Completato</value>
   </data>
   <data name="TaskProcessor_State_InProgress" xml:space="preserve">
     <value>In corso</value>
   </data>
   <data name="TaskProcessor_State_Scheduled" xml:space="preserve">
-    <value>Programmato</value>
+    <value>Pianificato</value>
   </data>
   <data name="VideoCutterTimeline_HoveredTime" xml:space="preserve">
-    <value>Timestamp al cursore</value>
+    <value>Data/ora al cursore</value>
   </data>
   <data name="VideoCutterTimeline_MoveClipEnd" xml:space="preserve">
-    <value>Sposta il termine della clip</value>
+    <value>Sposta fine clip</value>
   </data>
   <data name="VideoCutterTimeline_MoveClipStart" xml:space="preserve">
-    <value>Sposta l'inizio della clip</value>
+    <value>Sposta inizio clip</value>
   </data>
   <data name="VideoCutterTimeline_SetClipStartHere" xml:space="preserve">
-    <value>Click centrale per impostare l'inizio della clip qui</value>
+    <value>'Clic centrale' per impostare qui l'inizio della clip</value>
   </data>
   <data name="VideoCutterTimeline_Time" xml:space="preserve">
-    <value>Timestamp</value>
+    <value>Tempo</value>
   </data>
   <data name="GlobalCancel" xml:space="preserve">
     <value>Annulla</value>
@@ -224,20 +225,20 @@ Riavviarla ora?</value>
     <value>Chiudi</value>
   </data>
   <data name="VideoCutterTimeline_SetClipFromHereTillEnd" xml:space="preserve">
-    <value>Shift + click centrale per impostare la clip da questo punto fino alla fine</value>
+    <value>'Maiusc+clic' centrale per impostare la clip da questo punto fino alla fine</value>
   </data>
   <data name="VideoCutterTimeline_SetClipFromStartTillHere" xml:space="preserve">
-    <value>Ctrl + clic centrale per impostare il clip dall'inizio fino a questo punto</value>
+    <value>'Ctrl  lic centrale' per impostare la clip dall'inizio fino a questo punto</value>
   </data>
   <data name="VideoCutterTimeline_SetClipEndHere" xml:space="preserve">
-    <value>Clic centrale per impostare la fine del clip qui
-Suggerimento: provare anche con Shift/Ctrl</value>
+    <value>Clic centrale per impostare qui la fine della clip.
+Suggerimento: prova anche con Maiusc/Ctrl</value>
   </data>
   <data name="MainForm_KeyFramesNotLoaded" xml:space="preserve">
     <value>I fotogrammi chiave non sono ancora stati caricati, aspetta un po' e riprova.</value>
   </data>
   <data name="MainForm_Lossless" xml:space="preserve">
-    <value>Lossless</value>
+    <value>Senza perdita</value>
   </data>
   <data name="MainForm_ReEncoding" xml:space="preserve">
     <value>Ricodifica</value>
