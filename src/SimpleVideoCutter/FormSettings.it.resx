@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label1.Text" xml:space="preserve">
-    <value>Cartella predefinita:</value>
+    <value>Cartella file sorgenti:</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Cartella destinazione:</value>
+    <value>Cartella file destinazione:</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Maschera nome file destinazione:</value>
@@ -130,7 +130,7 @@
     <value>Percorso eseguibile ffmepg.exe</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>&gt;Percorso ffmpeg.exe:</value>
+    <value>Percorso ffmpeg.exe:</value>
   </data>
   <data name="textBoxVideoFileExtensions.ToolTip" xml:space="preserve">
     <value>Elenco separato da virgole estensioni (con punto)
@@ -157,6 +157,6 @@ file precedente/successivo.</value>
     <value>_Suggerimento</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
-    <value>Dim. anteprima:</value>
+    <value>Dimensioni anteprima:</value>
   </data>
 </root>

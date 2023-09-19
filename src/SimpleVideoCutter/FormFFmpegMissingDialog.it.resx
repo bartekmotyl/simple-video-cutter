@@ -125,9 +125,9 @@
   </data>
   <data name="labelFFmpegExlanation.Text" xml:space="preserve">
     <value>Questo programma richiede l'installazione nel sistema di FFmpeg. 
-FFmpeg è una soluzione gratuita e open source per la conversione di file video.
+FFmpeg è una soluzione gratuita e open source per la conversione di file video. 
 Vista la pagina indicata sopra, scarica la distribuzione portatile e decomprimila nel disco locale. 
-Ti consigliamo la versione statica a 64 bit.
+Ti consigliamo la versione statica a 64 bit. 
 Una volta installato FFmpeg, indica nella finestra delle impostazioni il percorso dell'eseguibile ffmpeg.</value>
   </data>
   <data name="buttonDownload.Text" xml:space="preserve">
@@ -135,15 +135,16 @@ Una volta installato FFmpeg, indica nella finestra delle impostazioni il percors
   </data>
   <data name="labelFFmpegDownload.Text" xml:space="preserve">
     <value>È richiesto FFmpeg. 
-Fai clic sul pulsante per scaricarlo automaticamente o usa il collegamento per scaricarlo manualmente.
-Il file zip ha una dimensione di circa 80 MB.</value>
+Seleziona 'Scarica FFmpeg' per scaricarlo automaticamente. 
+O usa il collegamento per scaricarlo manualmente. 
+Il file zip di FFmpeg ha una dimensione di circa 80 MB.</value>
   </data>
   <data name="labelError.Text" xml:space="preserve">
-    <value>Si è verificato un errore durante il tentativo di download di FFmpeg.
+    <value>Si è verificato un errore durante il tentativo di download di FFmpeg. 
 Riprova o scaricalo manualmente.</value>
   </data>
   <data name="labelDownloadSuccessful.Text" xml:space="preserve">
-    <value>Il download di FFmpeg è stato completato corretatmente. 
+    <value>Il download di FFmpeg è stato completato correttamente. 
 Chiudi questa finestra di dialogo.</value>
   </data>
 </root>
