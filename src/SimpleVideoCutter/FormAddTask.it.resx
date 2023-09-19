@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="labelOriginalFilePath.Text" xml:space="preserve">
-    <value>Percorso originale del file:</value>
+    <value>Percorso file sorgente:</value>
   </data>
   <data name="labelOutputFilePath.Text" xml:space="preserve">
-    <value>Percorso del file di output:</value>
+    <value>Percorso file destinazione:</value>
   </data>
   <data name="labelDuration.Text" xml:space="preserve">
     <value>Durata:</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Suggerimento: può essere modificato nelle impostazioni</value>
+    <value>Suggerimento: il percorso destiunazione essere modificato nelle impostazioni</value>
   </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Annulla</value>
@@ -136,7 +136,7 @@
     <value>Aggiungi attività alla coda</value>
   </data>
   <data name="buttonAdjustSelections.Text" xml:space="preserve">
-    <value>Adattare la selezione ai fotogrammi chiave</value>
+    <value>Adatta selezione ai fotogrammi chiave</value>
   </data>
   <data name="groupBoxReEncodeCut.Text" xml:space="preserve">
     <value>Taglio con ricodifica</value>
@@ -145,13 +145,16 @@
     <value>Taglio lossless</value>
   </data>
   <data name="buttonEnqueueReEncoding.Text" xml:space="preserve">
-    <value>Eseguire il taglio con ricodifica</value>
+    <value>Esegui taglio con ricodifica</value>
   </data>
   <data name="buttonEnqueueLoseless.Text" xml:space="preserve">
-    <value>Eseguire il taglio senza perdite</value>
+    <value>Esegui taglio senza perdite</value>
   </data>
   <data name="richTextBoxExplanation.Text" xml:space="preserve">
-    <value>Questo programma supporta sia il taglio senza perdita che il taglio tramite ricodifica di parti del file originale. Il taglio senza perdita è preferito perché può essere fatto molto velocemente e senza perdita di qualità. Sfortunatamente il taglio senza perdita può essere eseguito solo sui fotogrammi chiave. Se hai bisogno di tagliare tra i fotogrammi chiave, l'unica opzione è quella di ricodificare. Tuttavia, il processo di ricodifica può essere molto lento (a seconda delle prestazioni del computer, del video in ingresso e della dimensione della selezione, può richiedere anche ore).
+    <value>Questo programma supporta sia il taglio senza perdita che il taglio tramite ricodifica di parti del file originale. 
+Il taglio senza perdita è preferibile perché può essere fatto molto velocemente e senza perdita di qualità. Sfortunatamente il taglio senza perdita può essere eseguito solo sui fotogrammi chiave. 
+Se hai bisogno di tagliare tra i fotogrammi chiave, l'unica opzione è quella di ricodificare. 
+Tuttavia, il processo di ricodifica può essere molto lento (a seconda delle prestazioni del computer, del video in ingresso e della dimensione della selezione, può richiedere anche ore).
 Per maggiori dettagli, visita https://github.com/bartekmotyl/simple-video-cutter/wiki/Video-cutting-challenges</value>
   </data>
   <data name="groupBoxVideoParameters.Text" xml:space="preserve">

@@ -121,25 +121,25 @@
     <value>Cartella predefinita:</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Cartella di output:</value>
+    <value>Cartella destinazione:</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>Formato del nome del file di output:</value>
+    <value>Maschera nome file destinazione:</value>
   </data>
   <data name="textBoxFFmpegPath.ToolTip" xml:space="preserve">
-    <value>Percorso dell'eseguibile ffmepg.exe</value>
+    <value>Percorso eseguibile ffmepg.exe</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>>Percorso ffmpeg.exe:</value>
+    <value>&gt;Percorso ffmpeg.exe:</value>
   </data>
   <data name="textBoxVideoFileExtensions.ToolTip" xml:space="preserve">
-    <value>Elenco separato da virgole delle estensioni (con punto)
-di file video da considerare. Utilizzata per la
-navigazione dei file nella cartella tramite i pulsanti
+    <value>Elenco separato da virgole estensioni (con punto)
+dei file video da considerare. 
+Usato per la navigazione dei file nella cartella tramite i pulsanti
 file precedente/successivo.</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
-    <value>Estensioni dei file video:</value>
+    <value>Estensioni file video:</value>
   </data>
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>Annulla</value>
@@ -149,5 +149,14 @@ file precedente/successivo.</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Impostazioni</value>
+  </data>
+  <data name="comboBoxOutputDirectory.ToolTip" xml:space="preserve">
+    <value>_Suggerimento</value>
+  </data>
+  <data name="textBoxOutputFilePattern.ToolTip" xml:space="preserve">
+    <value>_Suggerimento</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Dim. anteprima:</value>
   </data>
 </root>

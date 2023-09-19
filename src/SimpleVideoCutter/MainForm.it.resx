@@ -142,7 +142,7 @@
     <value>Durata</value>
   </data>
   <data name="columnOutputFile.Text" xml:space="preserve">
-    <value>File di destinazione</value>
+    <value>File destinazione</value>
   </data>
   <data name="columnError.Text" xml:space="preserve">
     <value>Messaggio</value>
@@ -151,7 +151,7 @@
     <value>Attività</value>
   </data>
   <data name="resetToolbarsLayoutToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ripristina il layout delle barre degli strumenti</value>
+    <value>Ripristina layout barre strumenti</value>
   </data>
   <data name="toolStripButtonSelectionSetStart.Text" xml:space="preserve">
     <value>Imposta inizio</value>
@@ -169,7 +169,7 @@
     <value>Deseleziona</value>
   </data>
   <data name="toolStripButtonSelectionClear.ToolTipText" xml:space="preserve">
-    <value>Cancella selezione (Del)</value>
+    <value>Elimina selezione (Del)</value>
   </data>
   <data name="toolStripButtonSelectionGoToStart.Text" xml:space="preserve">
     <value>Vai all'inizio</value>
@@ -184,28 +184,29 @@
     <value>Vai alla fine della selezione ( Ctrl + ] )</value>
   </data>
   <data name="toolStripButtonSelectionEnqueue.ToolTipText" xml:space="preserve">
-    <value>Elabora l'area selezionata con FFmpeg (E). Tenere premuto Shift per aprire la finestra di dialogo dell'attività in cui è possibile modificare i dettagli di questa attività.</value>
+    <value>Elabora l'area selezionata con FFmpeg (E). 
+Tieni premuto 'Miausc' per aprire la finestra di dialogo in cui è possibile modificare i dettagli di questa attività.</value>
   </data>
   <data name="toolStripSelection.Text" xml:space="preserve">
     <value>Selezione</value>
   </data>
   <data name="toolStripButtonTimelineZoomOut.Text" xml:space="preserve">
-    <value>Zoom out</value>
+    <value>Zoom -</value>
   </data>
   <data name="toolStripButtonTimelineZoomOut.ToolTipText" xml:space="preserve">
-    <value>Mostra l'intera timeline (0)</value>
+    <value>Visualizza intera timeline (0)</value>
   </data>
   <data name="toolStripButtonTimelineZoomAuto.Text" xml:space="preserve">
     <value>Zoom automatico</value>
   </data>
   <data name="toolStripButtonTimelineZoomAuto.ToolTipText" xml:space="preserve">
-    <value>Imposta automaticamente lo zoom della linea temporale (9)</value>
+    <value>Imposta automaticamente zoom timeline (9)</value>
   </data>
   <data name="toolStripButtonTimelineGoToCurrentPosition.Text" xml:space="preserve">
     <value>Posizione attuale</value>
   </data>
   <data name="toolStripButtonTimelineGoToCurrentPosition.ToolTipText" xml:space="preserve">
-    <value>Scorri la timeline fino alla posizione corrente (Ctrl+P)</value>
+    <value>Scorri la timeline fino alla posizione attuale (Ctrl+P)</value>
   </data>
   <data name="toolStripButtonFileOpen.Text" xml:space="preserve">
     <value>Apri file</value>
@@ -259,16 +260,16 @@
     <value>File</value>
   </data>
   <data name="toolStripButtonPlabackPlayPause.Text" xml:space="preserve">
-    <value>Riproduci / Pausa</value>
+    <value>Riproduci/pausa</value>
   </data>
   <data name="toolStripButtonPlabackPlayPause.ToolTipText" xml:space="preserve">
-    <value>Riproduci / Pausa (Spazio)</value>
+    <value>Riproduci/pausa (spazio)</value>
   </data>
   <data name="toolStripButtonPlabackMute.Text" xml:space="preserve">
-    <value>Muto</value>
+    <value>Audio OFF</value>
   </data>
   <data name="toolStripButtonPlabackMute.ToolTipText" xml:space="preserve">
-    <value>Muto (Ctrl+M)</value>
+    <value>Audio OFF (Ctrl+M)</value>
   </data>
   <data name="toolStripButtonPlabackNextFrame.Text" xml:space="preserve">
     <value>Prossimo fotogramma</value>
@@ -277,10 +278,10 @@
     <value>Prossimo fotogramma (.)</value>
   </data>
   <data name="toolStripButtonTasksShow.Text" xml:space="preserve">
-    <value>Mostra le attività</value>
+    <value>Visualizza  attività</value>
   </data>
   <data name="toolStripButtonTasksShow.ToolTipText" xml:space="preserve">
-    <value>Mostra le attività (T)</value>
+    <value>Visualizza attività (T)</value>
   </data>
   <data name="toolStripTasks.Text" xml:space="preserve">
     <value>Attività</value>
@@ -290,10 +291,13 @@
   </data>
   <data name="toolStripButtonSelectionSetEnd.ToolTipText" xml:space="preserve">
     <value>Imposta la fine della selezione ( ] )
-Tenere premuto Shift per impostare la selezione dall'inizio della clip fino al punto corrente.</value>
+Tieni premuto 'Miausc' per impostare la selezione dall'inizio della clip fino al punto attuale.</value>
   </data>
   <data name="toolStripButtonSelectionSetStart.ToolTipText" xml:space="preserve">
     <value>Imposta l'inizio della selezione ( [ )
-Tenere premuto Shift per impostare la selezione dal punto corrente fino a fine clip.</value>
+Tieni premuto 'Maiusc' per impostare la selezione dal punto attuale fino a fine clip.</value>
+  </data>
+  <data name="toolStripMenuItemLangEnglish.Text" xml:space="preserve">
+    <value>Inglese</value>
   </data>
 </root>
