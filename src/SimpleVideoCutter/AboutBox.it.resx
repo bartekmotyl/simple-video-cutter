@@ -130,9 +130,7 @@
     <value>OK</value>
   </data>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>Icone: streamlineicons.com
-FFmpeg: www.ffmpeg.org
-Foto di Denise Jans su Unsplash</value>
+    <value>Icone: streamlineicons.com. FFmpeg: www.ffmpeg.org. Foto di Denise Jans su Unsplash</value>
   </data>
   <data name="buttonLicense.Text" xml:space="preserve">
     <value>Licenza</value>

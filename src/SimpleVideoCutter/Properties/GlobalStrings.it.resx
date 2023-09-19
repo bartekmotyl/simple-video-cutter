@@ -121,8 +121,7 @@
     <value>Info programma</value>
   </data>
   <data name="AboutBox_NewVersionAvailable" xml:space="preserve">
-    <value>È disponibile una nuova versione! 
-Visita la pagina del progetto.</value>
+    <value>È disponibile una nuova versione! Visita la pagina del progetto.</value>
   </data>
   <data name="AboutBox_Version" xml:space="preserve">
     <value>Versione</value>

@@ -166,10 +166,10 @@
     <value>Riproduci area selezionata (R)</value>
   </data>
   <data name="toolStripButtonSelectionClear.Text" xml:space="preserve">
-    <value>Deseleziona</value>
+    <value>Elimina selezione</value>
   </data>
   <data name="toolStripButtonSelectionClear.ToolTipText" xml:space="preserve">
-    <value>Elimina selezione (Del)</value>
+    <value>Elimina selezione (Canc)</value>
   </data>
   <data name="toolStripButtonSelectionGoToStart.Text" xml:space="preserve">
     <value>Vai all'inizio</value>
@@ -185,7 +185,7 @@
   </data>
   <data name="toolStripButtonSelectionEnqueue.ToolTipText" xml:space="preserve">
     <value>Elabora l'area selezionata con FFmpeg (E). 
-Tieni premuto 'Miausc' per aprire la finestra di dialogo in cui è possibile modificare i dettagli di questa attività.</value>
+Tieni premuto 'Maiusc' per aprire la finestra di dialogo in cui è possibile modificare i dettagli di questa attività.</value>
   </data>
   <data name="toolStripSelection.Text" xml:space="preserve">
     <value>Selezione</value>
@@ -272,13 +272,13 @@ Tieni premuto 'Miausc' per aprire la finestra di dialogo in cui è possibile mod
     <value>Audio OFF (Ctrl+M)</value>
   </data>
   <data name="toolStripButtonPlabackNextFrame.Text" xml:space="preserve">
-    <value>Prossimo fotogramma</value>
+    <value>Fotogramma successivo</value>
   </data>
   <data name="toolStripButtonPlabackNextFrame.ToolTipText" xml:space="preserve">
-    <value>Prossimo fotogramma (.)</value>
+    <value>Fotogramma successivo (.)</value>
   </data>
   <data name="toolStripButtonTasksShow.Text" xml:space="preserve">
-    <value>Visualizza  attività</value>
+    <value>Visualizza attività</value>
   </data>
   <data name="toolStripButtonTasksShow.ToolTipText" xml:space="preserve">
     <value>Visualizza attività (T)</value>
@@ -287,11 +287,11 @@ Tieni premuto 'Miausc' per aprire la finestra di dialogo in cui è possibile mod
     <value>Attività</value>
   </data>
   <data name="toolStripButtonInternetVersionCheck.Text" xml:space="preserve">
-    <value>Controlla gli aggiornamenti</value>
+    <value>Controlla aggiornamenti</value>
   </data>
   <data name="toolStripButtonSelectionSetEnd.ToolTipText" xml:space="preserve">
     <value>Imposta la fine della selezione ( ] )
-Tieni premuto 'Miausc' per impostare la selezione dall'inizio della clip fino al punto attuale.</value>
+Tieni premuto 'Maiusc' per impostare la selezione dall'inizio della clip fino al punto attuale.</value>
   </data>
   <data name="toolStripButtonSelectionSetStart.ToolTipText" xml:space="preserve">
     <value>Imposta l'inizio della selezione ( [ )
