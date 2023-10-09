@@ -434,6 +434,8 @@ namespace SimpleVideoCutter
 
             if (e.KeyCode == Keys.OemPeriod && e.Modifiers == Keys.None)
                 NextFrame();
+            if (e.KeyCode == Keys.Oemcomma && e.Modifiers == Keys.None)
+                PrevFrame();
 
             if (e.Modifiers == Keys.None && e.KeyCode == Keys.R)
                 PlaySelection();
@@ -452,6 +454,27 @@ namespace SimpleVideoCutter
                 videoCutterTimeline1.InvokeIfRequired(() =>
                 {
                     videoCutterTimeline1.Position = (int)(vlcControl1.MediaPlayer.Position * vlcControl1.MediaPlayer.Length);
+                });
+            }
+        }
+
+        private void PrevFrame()
+        {
+            if (fileBeingPlayed != null)
+            {
+                float fps = vlcControl1.MediaPlayer.Fps;
+                if (fps == 0)
+                {
+                    fps = 25;
+                }
+                float currentTimeMs = vlcControl1.MediaPlayer.Position * vlcControl1.MediaPlayer.Length;
+                // It doesn;t work weel if we jump by 1 frame thus we jump by free frames
+                // Better than nothing.. See more in issue #15
+                float newTimeMs = currentTimeMs - 1000 * 3 / fps;
+                vlcControl1.MediaPlayer.SeekTo(TimeSpan.FromMilliseconds(newTimeMs));
+                videoCutterTimeline1.InvokeIfRequired(() =>
+                {
+                    videoCutterTimeline1.Position = (long)newTimeMs;
                 });
             }
         }
@@ -770,6 +793,7 @@ namespace SimpleVideoCutter
             toolStripPlayback.InvokeIfRequired(() =>
             {
                 toolStripButtonPlabackPlayPause.Enabled = isFileLoaded;
+                toolStripButtonPlabackPrevFrame.Enabled = isFileLoaded;
                 toolStripButtonPlabackNextFrame.Enabled = isFileLoaded;
                 toolStripButtonPlabackPlayPause.Image = isPlaying ? Resources.streamline_icon_controls_pause_32x32 : Resources.streamline_icon_controls_play_32x32;
                 toolStripButtonPlabackMute.Checked = VideoCutterSettings.Instance.Mute;
@@ -928,6 +952,10 @@ namespace SimpleVideoCutter
             else if (e.ClickedItem == toolStripButtonPlabackNextFrame)
             {
                 NextFrame();
+            }
+            else if (e.ClickedItem == toolStripButtonPlabackPrevFrame)
+            {
+                PrevFrame();
             }
         }
 

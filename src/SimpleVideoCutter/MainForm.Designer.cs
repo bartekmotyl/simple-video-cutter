@@ -80,15 +80,16 @@
             toolStripMenuItemLangChinese = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItemLangJapanese = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItemLangPolish = new System.Windows.Forms.ToolStripMenuItem();
+            toolStripInternet = new System.Windows.Forms.ToolStrip();
+            toolStripButtonInternetVersionCheck = new System.Windows.Forms.ToolStripButton();
             toolStripTasks = new System.Windows.Forms.ToolStrip();
             toolStripButtonTasksShow = new System.Windows.Forms.ToolStripButton();
             toolStripPlayback = new System.Windows.Forms.ToolStrip();
             toolStripButtonPlabackPlayPause = new System.Windows.Forms.ToolStripButton();
             toolStripButtonPlabackMute = new System.Windows.Forms.ToolStripButton();
             toolStripButtonPlabackNextFrame = new System.Windows.Forms.ToolStripButton();
-            toolStripInternet = new System.Windows.Forms.ToolStrip();
-            toolStripButtonInternetVersionCheck = new System.Windows.Forms.ToolStripButton();
             timerHoverPositionChanged = new System.Windows.Forms.Timer(components);
+            toolStripButtonPlabackPrevFrame = new System.Windows.Forms.ToolStripButton();
             toolStripContainerMain.BottomToolStripPanel.SuspendLayout();
             toolStripContainerMain.ContentPanel.SuspendLayout();
             toolStripContainerMain.LeftToolStripPanel.SuspendLayout();
@@ -106,9 +107,9 @@
             toolStripSelection.SuspendLayout();
             toolStripTimeline.SuspendLayout();
             toolStripFile.SuspendLayout();
+            toolStripInternet.SuspendLayout();
             toolStripTasks.SuspendLayout();
             toolStripPlayback.SuspendLayout();
-            toolStripInternet.SuspendLayout();
             SuspendLayout();
             // 
             // toolStripContainerMain
@@ -127,8 +128,8 @@
             // toolStripContainerMain.LeftToolStripPanel
             // 
             toolStripContainerMain.LeftToolStripPanel.ContextMenuStrip = contextMenuStripToolstripContainer;
-            toolStripContainerMain.LeftToolStripPanel.Controls.Add(toolStripSelection);
             toolStripContainerMain.LeftToolStripPanel.Controls.Add(toolStripTimeline);
+            toolStripContainerMain.LeftToolStripPanel.Controls.Add(toolStripSelection);
             toolStripContainerMain.Name = "toolStripContainerMain";
             toolStripContainerMain.RightToolStripPanelVisible = false;
             // 
@@ -136,9 +137,9 @@
             // 
             toolStripContainerMain.TopToolStripPanel.ContextMenuStrip = contextMenuStripToolstripContainer;
             toolStripContainerMain.TopToolStripPanel.Controls.Add(toolStripFile);
+            toolStripContainerMain.TopToolStripPanel.Controls.Add(toolStripPlayback);
             toolStripContainerMain.TopToolStripPanel.Controls.Add(toolStripInternet);
             toolStripContainerMain.TopToolStripPanel.Controls.Add(toolStripTasks);
-            toolStripContainerMain.TopToolStripPanel.Controls.Add(toolStripPlayback);
             // 
             // statusStrip
             // 
@@ -440,6 +441,21 @@
             toolStripMenuItemLangPolish.Name = "toolStripMenuItemLangPolish";
             resources.ApplyResources(toolStripMenuItemLangPolish, "toolStripMenuItemLangPolish");
             // 
+            // toolStripInternet
+            // 
+            resources.ApplyResources(toolStripInternet, "toolStripInternet");
+            toolStripInternet.ImageScalingSize = new System.Drawing.Size(32, 32);
+            toolStripInternet.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripButtonInternetVersionCheck });
+            toolStripInternet.Name = "toolStripInternet";
+            toolStripInternet.ItemClicked += toolStripInternet_ItemClicked;
+            // 
+            // toolStripButtonInternetVersionCheck
+            // 
+            toolStripButtonInternetVersionCheck.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(toolStripButtonInternetVersionCheck, "toolStripButtonInternetVersionCheck");
+            toolStripButtonInternetVersionCheck.Image = Properties.Resources.streamline_icon_laptop_download_32x32;
+            toolStripButtonInternetVersionCheck.Name = "toolStripButtonInternetVersionCheck";
+            // 
             // toolStripTasks
             // 
             resources.ApplyResources(toolStripTasks, "toolStripTasks");
@@ -459,7 +475,7 @@
             // 
             resources.ApplyResources(toolStripPlayback, "toolStripPlayback");
             toolStripPlayback.ImageScalingSize = new System.Drawing.Size(32, 32);
-            toolStripPlayback.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripButtonPlabackPlayPause, toolStripButtonPlabackMute, toolStripButtonPlabackNextFrame });
+            toolStripPlayback.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripButtonPlabackPlayPause, toolStripButtonPlabackMute, toolStripButtonPlabackPrevFrame, toolStripButtonPlabackNextFrame });
             toolStripPlayback.Name = "toolStripPlayback";
             toolStripPlayback.ItemClicked += toolStripPlayback_ItemClicked;
             // 
@@ -481,25 +497,16 @@
             resources.ApplyResources(toolStripButtonPlabackNextFrame, "toolStripButtonPlabackNextFrame");
             toolStripButtonPlabackNextFrame.Name = "toolStripButtonPlabackNextFrame";
             // 
-            // toolStripInternet
-            // 
-            resources.ApplyResources(toolStripInternet, "toolStripInternet");
-            toolStripInternet.ImageScalingSize = new System.Drawing.Size(32, 32);
-            toolStripInternet.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripButtonInternetVersionCheck });
-            toolStripInternet.Name = "toolStripInternet";
-            toolStripInternet.ItemClicked += toolStripInternet_ItemClicked;
-            // 
-            // toolStripButtonInternetVersionCheck
-            // 
-            toolStripButtonInternetVersionCheck.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(toolStripButtonInternetVersionCheck, "toolStripButtonInternetVersionCheck");
-            toolStripButtonInternetVersionCheck.Image = Properties.Resources.streamline_icon_laptop_download_32x32;
-            toolStripButtonInternetVersionCheck.Name = "toolStripButtonInternetVersionCheck";
-            // 
             // timerHoverPositionChanged
             // 
             timerHoverPositionChanged.Interval = 50;
             timerHoverPositionChanged.Tick += timerHoverPositionChanged_Tick;
+            // 
+            // toolStripButtonPlabackPrevFrame
+            // 
+            toolStripButtonPlabackPrevFrame.Image = Properties.Resources.streamline_icon_arrow_button_circle_left_32x32;
+            resources.ApplyResources(toolStripButtonPlabackPrevFrame, "toolStripButtonPlabackPrevFrame");
+            toolStripButtonPlabackPrevFrame.Name = "toolStripButtonPlabackPrevFrame";
             // 
             // MainForm
             // 
@@ -541,12 +548,12 @@
             toolStripTimeline.PerformLayout();
             toolStripFile.ResumeLayout(false);
             toolStripFile.PerformLayout();
+            toolStripInternet.ResumeLayout(false);
+            toolStripInternet.PerformLayout();
             toolStripTasks.ResumeLayout(false);
             toolStripTasks.PerformLayout();
             toolStripPlayback.ResumeLayout(false);
             toolStripPlayback.PerformLayout();
-            toolStripInternet.ResumeLayout(false);
-            toolStripInternet.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -610,6 +617,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLangChinese;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLangJapanese;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLangPolish;
+        private System.Windows.Forms.ToolStripButton toolStripButtonPlabackPrevFrame;
     }
 }
 
