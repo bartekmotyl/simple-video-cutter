@@ -32,6 +32,7 @@ namespace SimpleVideoCutter
         public bool LossyOutputSeeking { get; set; } = false;
 
         public string ConfigVersion { get; set; } = "0.0.0";
+        public string LastVersion { get; set; } = "0.0.0";
 
         public string Language { get; set; }
         public PreviewSize PreviewSize { get; set; } = PreviewSize.L;
@@ -83,6 +84,7 @@ namespace SimpleVideoCutter
         }
         public void StoreSettings()
         {
+            LastVersion = Utils.GetCurrentRelease();
             try
             {
                 var folder = Path.GetDirectoryName(ConfigPath);

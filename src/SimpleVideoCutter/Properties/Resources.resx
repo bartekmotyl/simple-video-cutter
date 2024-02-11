@@ -127,8 +127,14 @@
   <data name="streamline-icon-controls-play@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\streamline\streamline-icon-controls-play@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="streamline_icon_interface_edit_view_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\streamline\streamline-icon-interface-edit-view@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="streamline-icon-volume-control-mute@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\streamline\streamline-icon-volume-control-mute@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="streamline_icon_seo_zoom_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\streamline\streamline-icon-seo-zoom@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="streamline-icon-go-to-start@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\streamline\streamline-icon-go-to-start@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,17 +151,17 @@
   <data name="streamline-icon-video-player-slider@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\streamline\streamline-icon-video-player-slider@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="streamline-icon-navigation-right-to@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\streamline\streamline-icon-navigation-right-to@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="streamline-icon-translate@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\streamline\streamline-icon-translate@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="streamline-icon-set-start@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\streamline\streamline-icon-set-start@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="streamline-icon-arrow-button-left-3@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\streamline\streamline-icon-arrow-button-left-3@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="streamline-icon-arrow-rectangle-right@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\streamline\streamline-icon-arrow-rectangle-right@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="streamline-icon-arrow-rectangle-left-2@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\streamline\streamline-icon-arrow-rectangle-left-2@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="streamline-icon-diagram-arrow-dash-right@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\streamline\streamline-icon-diagram-arrow-dash-right@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="streamline-icon-set-end@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\streamline\streamline-icon-set-end@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,11 +178,8 @@
   <data name="streamline-icon-diagram-arrow-dash-left@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\streamline\streamline-icon-diagram-arrow-dash-left@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="streamline-icon-arrow-button-circle-right@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\streamline\streamline-icon-arrow-button-circle-right@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="streamline-icon-diagram-arrow-dash-right@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\streamline\streamline-icon-diagram-arrow-dash-right@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="streamline-icon-navigation-right-to@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\streamline\streamline-icon-navigation-right-to@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="streamline-icon-task-list-clock@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\streamline\streamline-icon-task-list-clock@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,8 +193,17 @@
   <data name="streamline-icon-information-circle@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\streamline\streamline-icon-information-circle@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="streamline-icon-set-start@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\streamline\streamline-icon-set-start@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="streamline-icon-arrow-rectangle-left-2@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\streamline\streamline-icon-arrow-rectangle-left-2@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="streamline-icon-arrow-rectangle-right@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\streamline\streamline-icon-arrow-rectangle-right@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="streamline-icon-arrow-button-circle-right@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\streamline\streamline-icon-arrow-button-circle-right@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="streamline_icon_arrow_button_circle_left_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\streamline\streamline-icon-arrow-button-circle-left@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="streamline-icon-go-to-end@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\streamline\streamline-icon-go-to-end@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,19 +217,10 @@
   <data name="film-reels" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\film-reels.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="streamline-icon-translate@32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\streamline\streamline-icon-translate@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="streamline_icon_interface_edit_view_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\streamline\streamline-icon-interface-edit-view@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="streamline_icon_interface_edit_view_off_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\streamline\streamline-icon-interface-edit-view-off@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="streamline_icon_seo_zoom_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\streamline\streamline-icon-seo-zoom@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="streamline_icon_arrow_button_circle_left_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\streamline\streamline-icon-arrow-button-circle-left@32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="web" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\web.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

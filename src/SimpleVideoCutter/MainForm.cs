@@ -171,6 +171,12 @@ namespace SimpleVideoCutter
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
+            if (VideoCutterSettings.Instance.LastVersion != Utils.GetCurrentRelease())
+            {
+                var welcomeDialog = new WelcomeDialog();
+                welcomeDialog.ShowDialog();
+            }
+
             EnsureFFmpegConfigured();
 
             taskProcessor.Start();
