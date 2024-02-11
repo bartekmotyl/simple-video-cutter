@@ -522,6 +522,8 @@
             DragDrop += MainForm_DragDrop;
             DragOver += MainForm_DragOver;
             KeyDown += Form1_KeyDown;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            WindowState = System.Windows.Forms.FormWindowState.Maximized;
             toolStripContainerMain.BottomToolStripPanel.ResumeLayout(false);
             toolStripContainerMain.BottomToolStripPanel.PerformLayout();
             toolStripContainerMain.ContentPanel.ResumeLayout(false);
