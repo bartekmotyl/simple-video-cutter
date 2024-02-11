@@ -47,65 +47,36 @@
             // 
             // tableLayoutPanelMain
             // 
-            tableLayoutPanelMain.ColumnCount = 2;
-            tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.8568211F));
-            tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.14318F));
+            resources.ApplyResources(tableLayoutPanelMain, "tableLayoutPanelMain");
             tableLayoutPanelMain.Controls.Add(flowLayoutPanelTexts, 1, 0);
             tableLayoutPanelMain.Controls.Add(pictureBoxLogo, 0, 0);
             tableLayoutPanelMain.Controls.Add(flowLayoutPanelBottom, 0, 1);
-            tableLayoutPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            tableLayoutPanelMain.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanelMain.Name = "tableLayoutPanelMain";
-            tableLayoutPanelMain.RowCount = 2;
-            tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.12618F));
-            tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.8738174F));
-            tableLayoutPanelMain.Size = new System.Drawing.Size(887, 317);
-            tableLayoutPanelMain.TabIndex = 0;
             // 
             // flowLayoutPanelTexts
             // 
             flowLayoutPanelTexts.Controls.Add(labelOpenSource);
             flowLayoutPanelTexts.Controls.Add(labelOpenSourceExplanation);
-            flowLayoutPanelTexts.Dock = System.Windows.Forms.DockStyle.Fill;
-            flowLayoutPanelTexts.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            flowLayoutPanelTexts.Location = new System.Drawing.Point(188, 3);
+            resources.ApplyResources(flowLayoutPanelTexts, "flowLayoutPanelTexts");
             flowLayoutPanelTexts.Name = "flowLayoutPanelTexts";
-            flowLayoutPanelTexts.Padding = new System.Windows.Forms.Padding(10);
-            flowLayoutPanelTexts.Size = new System.Drawing.Size(696, 248);
-            flowLayoutPanelTexts.TabIndex = 0;
             // 
             // labelOpenSource
             // 
-            labelOpenSource.AutoSize = true;
-            labelOpenSource.Dock = System.Windows.Forms.DockStyle.Fill;
-            labelOpenSource.Font = new System.Drawing.Font("Tahoma", 19.8000011F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            resources.ApplyResources(labelOpenSource, "labelOpenSource");
             labelOpenSource.ForeColor = System.Drawing.Color.White;
-            labelOpenSource.Location = new System.Drawing.Point(13, 10);
             labelOpenSource.Name = "labelOpenSource";
-            labelOpenSource.Size = new System.Drawing.Size(616, 41);
-            labelOpenSource.TabIndex = 0;
-            labelOpenSource.Text = "Free && Open Source";
             // 
             // labelOpenSourceExplanation
             // 
-            labelOpenSourceExplanation.AutoSize = true;
-            labelOpenSourceExplanation.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            resources.ApplyResources(labelOpenSourceExplanation, "labelOpenSourceExplanation");
             labelOpenSourceExplanation.ForeColor = System.Drawing.Color.White;
-            labelOpenSourceExplanation.Location = new System.Drawing.Point(13, 61);
-            labelOpenSourceExplanation.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             labelOpenSourceExplanation.Name = "labelOpenSourceExplanation";
-            labelOpenSourceExplanation.Size = new System.Drawing.Size(616, 72);
-            labelOpenSourceExplanation.TabIndex = 1;
-            labelOpenSourceExplanation.Text = "Simple Video Cutter is open source project and available completely for free!. If you like it please consider tweeting, posting on FB, or telling your friends about it! ";
             // 
             // pictureBoxLogo
             // 
             pictureBoxLogo.Image = Properties.Resources.film_reels;
-            pictureBoxLogo.Location = new System.Drawing.Point(3, 3);
+            resources.ApplyResources(pictureBoxLogo, "pictureBoxLogo");
             pictureBoxLogo.Name = "pictureBoxLogo";
-            pictureBoxLogo.Size = new System.Drawing.Size(179, 248);
-            pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBoxLogo.TabIndex = 1;
             pictureBoxLogo.TabStop = false;
             // 
             // flowLayoutPanelBottom
@@ -114,69 +85,47 @@
             flowLayoutPanelBottom.Controls.Add(pictureBoxWebIcon);
             flowLayoutPanelBottom.Controls.Add(labelProjectPage);
             flowLayoutPanelBottom.Controls.Add(linkLabel);
-            flowLayoutPanelBottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            flowLayoutPanelBottom.Location = new System.Drawing.Point(3, 257);
+            resources.ApplyResources(flowLayoutPanelBottom, "flowLayoutPanelBottom");
             flowLayoutPanelBottom.Name = "flowLayoutPanelBottom";
-            flowLayoutPanelBottom.Size = new System.Drawing.Size(881, 57);
-            flowLayoutPanelBottom.TabIndex = 2;
             // 
             // pictureBoxWebIcon
             // 
             pictureBoxWebIcon.Image = Properties.Resources.web;
-            pictureBoxWebIcon.Location = new System.Drawing.Point(3, 3);
+            resources.ApplyResources(pictureBoxWebIcon, "pictureBoxWebIcon");
             pictureBoxWebIcon.Name = "pictureBoxWebIcon";
-            pictureBoxWebIcon.Size = new System.Drawing.Size(48, 48);
-            pictureBoxWebIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBoxWebIcon.TabIndex = 0;
             pictureBoxWebIcon.TabStop = false;
             // 
             // labelProjectPage
             // 
-            labelProjectPage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            labelProjectPage.AutoSize = true;
-            labelProjectPage.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            resources.ApplyResources(labelProjectPage, "labelProjectPage");
             labelProjectPage.ForeColor = System.Drawing.Color.White;
-            labelProjectPage.Location = new System.Drawing.Point(57, 15);
             labelProjectPage.Name = "labelProjectPage";
-            labelProjectPage.Size = new System.Drawing.Size(151, 24);
-            labelProjectPage.TabIndex = 1;
-            labelProjectPage.Text = "Project page: ";
             // 
             // linkLabel
             // 
             linkLabel.ActiveLinkColor = System.Drawing.Color.White;
-            linkLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            linkLabel.AutoSize = true;
-            linkLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            resources.ApplyResources(linkLabel, "linkLabel");
             linkLabel.ForeColor = System.Drawing.Color.White;
             linkLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             linkLabel.LinkColor = System.Drawing.Color.White;
-            linkLabel.Location = new System.Drawing.Point(214, 15);
             linkLabel.Name = "linkLabel";
-            linkLabel.Size = new System.Drawing.Size(554, 24);
-            linkLabel.TabIndex = 2;
             linkLabel.TabStop = true;
-            linkLabel.Text = "https://github.com/bartekmotyl/simple-video-cutter";
             linkLabel.VisitedLinkColor = System.Drawing.Color.White;
             linkLabel.LinkClicked += linkLabel_LinkClicked;
             // 
             // WelcomeDialog
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            ClientSize = new System.Drawing.Size(887, 317);
             Controls.Add(tableLayoutPanelMain);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             KeyPreview = true;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "WelcomeDialog";
             ShowIcon = false;
             ShowInTaskbar = false;
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            Text = "Simple Video Cutter is free and open source!";
             KeyDown += WelcomeDialog_KeyDown;
             tableLayoutPanelMain.ResumeLayout(false);
             flowLayoutPanelTexts.ResumeLayout(false);
