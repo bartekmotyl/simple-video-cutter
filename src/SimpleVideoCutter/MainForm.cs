@@ -648,6 +648,7 @@ namespace SimpleVideoCutter
                 OverallDuration = videoCutterTimeline1.Selections.OverallDuration,
                 TaskId = Guid.NewGuid().ToString(),
                 Lossless = selectionsOnKeyFrames,
+                State = FFmpegTaskState.Scheduled,
             };
 
             bool shiftPressed = ModifierKeys == Keys.Shift;
