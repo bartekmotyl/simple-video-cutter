@@ -307,9 +307,6 @@
   <data name="&gt;&gt;listViewTasks.Type" xml:space="preserve">
     <value>System.Windows.Forms.ListView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;listViewTasks.Parent" xml:space="preserve">
-    <value>panelTasks</value>
-  </data>
   <data name="&gt;&gt;listViewTasks.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -318,12 +315,6 @@
   </data>
   <data name="&gt;&gt;labelTasks.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelTasks.Parent" xml:space="preserve">
-    <value>panelTasks</value>
-  </data>
-  <data name="&gt;&gt;labelTasks.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;labelProgress.Name" xml:space="preserve">
     <value>labelProgress</value>
@@ -748,17 +739,8 @@
   <data name="listViewTasks.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;listViewTasks.Name" xml:space="preserve">
-    <value>listViewTasks</value>
-  </data>
-  <data name="&gt;&gt;listViewTasks.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;listViewTasks.Parent" xml:space="preserve">
     <value>panelTasks</value>
-  </data>
-  <data name="&gt;&gt;listViewTasks.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="columnStatus.Text" xml:space="preserve">
     <value>Status</value>
@@ -811,12 +793,6 @@
   <data name="labelTasks.Text" xml:space="preserve">
     <value>Tasks</value>
   </data>
-  <data name="&gt;&gt;labelTasks.Name" xml:space="preserve">
-    <value>labelTasks</value>
-  </data>
-  <data name="&gt;&gt;labelTasks.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;labelTasks.Parent" xml:space="preserve">
     <value>panelTasks</value>
   </data>
@@ -842,18 +818,6 @@
     <value>0, 20</value>
   </data>
   <data name="labelProgress.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;labelProgress.Name" xml:space="preserve">
-    <value>labelProgress</value>
-  </data>
-  <data name="&gt;&gt;labelProgress.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelProgress.Parent" xml:space="preserve">
-    <value>panelTasks</value>
-  </data>
-  <data name="&gt;&gt;labelProgress.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="resetToolbarsLayoutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
