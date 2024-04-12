@@ -20,7 +20,7 @@ namespace SimpleVideoCutter
         {
             InitializeComponent();
 
-            var culture = CultureInfo.GetCultureInfo(VideoCutterSettings.Instance.Language);
+            var culture = CultureInfo.GetCultureInfo(VideoCutterSettings.Instance.Language ?? Thread.CurrentThread.CurrentUICulture.Name);
             if (culture != null)
             {
                 Thread.CurrentThread.CurrentUICulture = culture;
@@ -83,14 +83,14 @@ namespace SimpleVideoCutter
             settings.OutputDirectory = comboBoxOutputDirectory.Text;
             settings.OutputFilePattern = textBoxOutputFilePattern.Text;
             settings.FFmpegPath = textBoxFFmpegPath.Text;
-            settings.PreviewSize = (PreviewSize)(Enum.Parse(typeof(PreviewSize), comboBoxPreviewSize.SelectedValue.ToString()));
+            settings.PreviewSize = (PreviewSize)(Enum.Parse(typeof(PreviewSize), comboBoxPreviewSize.SelectedValue?.ToString() ?? "L"));
             // TODO: parse VideoFilesExtensions
 
             settings.StoreSettings();
         }
 
 
-        private string SelectFile(string fileName)
+        private string? SelectFile(string fileName)
         {
             using (var dialog = new System.Windows.Forms.OpenFileDialog())
             {
@@ -107,7 +107,7 @@ namespace SimpleVideoCutter
             return null;
         }
 
-        private string SelectFolder()
+        private string? SelectFolder()
         {
             using (var dialog = new FolderBrowserDialog())
             {
@@ -167,15 +167,15 @@ namespace SimpleVideoCutter
 
         internal class ComboBoxItem<T>
         {
-            public string Title { get; set; }
-            public T Value { get; set; }
+            public string? Title { get; set; }
+            public T? Value { get; set; }
 
-            public override bool Equals(object obj)
+            public override bool Equals(object? obj)
             {
                 if (obj is ComboBoxItem<T>)
                 {
                     var other = obj as ComboBoxItem<T>;
-                    return String.Equals(Value, other.Value);
+                    return String.Equals(Value, other);
                 }
                 else
                     return false;

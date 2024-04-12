@@ -19,13 +19,13 @@ namespace SimpleVideoCutter
 
     public class KeyFramesExtractor
     {
-        public event EventHandler<KeyFramesExtractorProgressEventArgs> KeyFramesExtractorProgress;
+        public event EventHandler<KeyFramesExtractorProgressEventArgs>? KeyFramesExtractorProgress;
 
         public List<long> Keyframes { get; private set; } = new List<long>();
         public bool InProgress { get; set; } = false;
 
-        private CancellationTokenSource tokenSource;
-        private Task task;
+        private CancellationTokenSource? tokenSource;
+        private Task? task;
 
 
         public void Start(string videoFilePath)
@@ -33,7 +33,7 @@ namespace SimpleVideoCutter
            
             if (task != null)
             {
-                tokenSource.Cancel();
+                tokenSource?.Cancel();
             }
             Keyframes.Clear();
             tokenSource = new CancellationTokenSource();

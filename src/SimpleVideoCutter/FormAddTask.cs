@@ -16,7 +16,7 @@ namespace SimpleVideoCutter
             InitializeComponent();
             this.selectionsOnKeyFrames = selectionsOnKeyFrames;
 
-            this.Task = Utils.DeepCloneXML(task);
+            this.task = Utils.DeepCloneXML(task);
             TaskToGUI();
             buttonEnqueueReEncoding.Focus();
         }
@@ -61,15 +61,15 @@ namespace SimpleVideoCutter
 
         internal class ComboBoxItem
         {
-            public string Title { get; set; }
-            public string Value { get; set; }
+            public string? Title { get; set; }
+            public string? Value { get; set; }
 
-            public override bool Equals(object obj)
+            public override bool Equals(object? obj)
             {
                 if (obj is ComboBoxItem)
                 {
                     var other = obj as ComboBoxItem;
-                    return String.Equals(Value, other.Value);
+                    return String.Equals(Value, other?.Value);
                 }
                 else
                     return false;
@@ -83,17 +83,22 @@ namespace SimpleVideoCutter
 
         private void richTextBoxExplanation_LinkClicked(object sender, LinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(e.LinkText);
+            if (e.LinkText != null)
+            {
+                System.Diagnostics.Process.Start(e.LinkText);
+            }
         }
 
         private void buttonEnqueueLoseless_Click(object sender, EventArgs e)
         {
-            Task.Lossless = true;
+            if (Task != null)
+                Task.Lossless = true;
         }
 
         private void buttonEnqueueReEncoding_Click(object sender, EventArgs e)
         {
-            Task.Lossless = false;
+            if (Task != null)
+                Task.Lossless = false;
         }
     }
 }

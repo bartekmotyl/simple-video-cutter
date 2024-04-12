@@ -18,7 +18,7 @@ namespace SimpleVideoCutter
         public CustomWebClient()
 		{
 			timeoutTimer = new Timer();
-			timeoutTimer.Tick += (object sender, EventArgs e) =>
+			timeoutTimer.Tick += (object? sender, EventArgs e) =>
 			{
 				CancelAsync();
 			};

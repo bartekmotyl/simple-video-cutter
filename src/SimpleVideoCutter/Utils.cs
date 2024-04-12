@@ -23,12 +23,12 @@ namespace SimpleVideoCutter
             var serializer = new XmlSerializer(typeof(T));
             serializer.Serialize(stream, input);
             stream.Position = 0;
-            return (T)serializer.Deserialize(stream);
+            return (T)serializer.Deserialize(stream)!;
         }
 
         public static string GetCurrentRelease()
         {
-            var currVer = Assembly.GetExecutingAssembly().GetName().Version;
+            var currVer = Assembly.GetExecutingAssembly().GetName().Version ?? new Version(1, 0, 0, 0);
             var currentRelease = $"{currVer.Major}.{currVer.Minor}.{currVer.Build}";
             return currentRelease;
         }
@@ -79,7 +79,7 @@ namespace SimpleVideoCutter
 
     public class Debouncer
     {
-        private CancellationTokenSource cancelTokenSource = null;
+        private CancellationTokenSource? cancelTokenSource = null;
 
         public void Debounce(Action action, int milliseconds = 300)
         {

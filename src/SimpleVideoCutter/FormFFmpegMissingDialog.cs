@@ -59,7 +59,7 @@ namespace SimpleVideoCutter
                             client.CancelAsync();
                         }
                     };
-                    client.DownloadFileCompleted += (object sender, AsyncCompletedEventArgs e) =>
+                    client.DownloadFileCompleted += (object? sender, AsyncCompletedEventArgs e) =>
                     {
                         if (!e.Cancelled && e.Error == null)
                         {

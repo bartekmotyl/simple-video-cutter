@@ -135,7 +135,7 @@ namespace SimpleVideoCutter
 
     public class Selections
     {
-        public event EventHandler<EventArgs> SelectionsChanged;
+        public event EventHandler<EventArgs>? SelectionsChanged;
 
         private List<Selection> selections = new List<Selection>();
         public int Count => selections.Count;
@@ -280,10 +280,10 @@ namespace SimpleVideoCutter
     [SupportedOSPlatform("windows")]
     public partial class VideoCutterTimeline : UserControl
     {
-        public event EventHandler<TimelineHoverEventArgs> TimelineHover;
-        public event EventHandler<SelectionChangedEventArgs> SelectionChanged;
-        public event EventHandler<PositionChangeRequestEventArgs> PositionChangeRequest;
-        public event EventHandler<KeyframesRequestEventArgs> KeyframesRequest;
+        public event EventHandler<TimelineHoverEventArgs>? TimelineHover;
+        public event EventHandler<SelectionChangedEventArgs>? SelectionChanged;
+        public event EventHandler<PositionChangeRequestEventArgs>? PositionChangeRequest;
+        public event EventHandler<KeyframesRequestEventArgs>? KeyframesRequest;
 
         private Brush brushBackground = new SolidBrush(Color.FromArgb(0xAD, 0xB5, 0xBD));
         private Brush brushBackgroundInfoArea = new SolidBrush(Color.FromArgb(0xAD, 0xB5, 0xBD)); 
@@ -488,7 +488,7 @@ namespace SimpleVideoCutter
             offset = Math.Max(offset, 0);
         }
 
-        private KeyframesRequestEventArgs GetKeyframesData()
+        private KeyframesRequestEventArgs? GetKeyframesData()
         {
             if (KeyframesRequest != null)
             {
@@ -543,7 +543,7 @@ namespace SimpleVideoCutter
                 return;
             }
 
-            TimelineTooltip timelineTooltip = null;
+            TimelineTooltip? timelineTooltip = null;
 
             var infoAreaHeight = 22;
             var infoAreaRect = new Rectangle(ClientRectangle.X, ClientRectangle.Y, ClientRectangle.Width, infoAreaHeight);
@@ -604,7 +604,7 @@ namespace SimpleVideoCutter
             var keyframes = keyframesData?.Keyframes;
             if (keyframes != null)
             {
-                var length = keyframesData.InProgress ? keyframes.Count - 1 : keyframes.Count;
+                var length = keyframesData!.InProgress ? keyframes.Count - 1 : keyframes.Count;
                 for (var i = 1; i <= length; i += 2)
                 {
                     var keyframeCurr = i == keyframes.Count ? Length : keyframes[i];
@@ -662,7 +662,7 @@ namespace SimpleVideoCutter
                 e.Graphics.FillRectangle(brushHoverPosition, pixel, 0, 3, ticksAreaHeight + selectionAreaHeight);
                 PaintTriangle(e.Graphics, brushHoverPosition, PositionToPixel(normalizedHover) + 1, 8, 8);
 
-                string tooltipSetClipOverrideText = null;
+                string? tooltipSetClipOverrideText = null;
                 if (ModifierKeys == Keys.Shift)
                     tooltipSetClipOverrideText = GlobalStrings.VideoCutterTimeline_SetClipFromHereTillEnd;
                 else if (ModifierKeys == Keys.Control)
@@ -708,7 +708,7 @@ namespace SimpleVideoCutter
             }
         }
 
-        private void PaintStringInBox(Graphics gr, Brush background, Brush textBrush, string str, Rectangle parentRectangle, int location)
+        private void PaintStringInBox(Graphics gr, Brush? background, Brush textBrush, string str, Rectangle parentRectangle, int location)
         {
             var font = this.Font;
             var strSize = gr.MeasureString(str, font);
@@ -935,7 +935,7 @@ namespace SimpleVideoCutter
         private class TimelineTooltip
         {
             public int X { get; set; }
-            public string Text { get; set; }
+            public string Text { get; set; } = "";
         }
     }
 
@@ -956,7 +956,7 @@ namespace SimpleVideoCutter
 
     public class KeyframesRequestEventArgs : EventArgs
     {
-        public List<long> Keyframes { get; set; }
+        public List<long>? Keyframes { get; set; }
         public bool InProgress { get; set; }
     }
     [SupportedOSPlatform("windows")]

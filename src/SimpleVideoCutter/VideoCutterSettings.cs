@@ -34,7 +34,7 @@ namespace SimpleVideoCutter
         public string ConfigVersion { get; set; } = "0.0.0";
         public string LastVersion { get; set; } = "0.0.0";
 
-        public string Language { get; set; }
+        public string? Language { get; set; }
         public PreviewSize PreviewSize { get; set; } = PreviewSize.L;
  
         [JsonIgnore]
@@ -88,7 +88,7 @@ namespace SimpleVideoCutter
             try
             {
                 var folder = Path.GetDirectoryName(ConfigPath);
-                if (!Directory.Exists(folder))
+                if (folder != null && !Directory.Exists(folder))
                 {
                     Directory.CreateDirectory(folder);
                 }

@@ -25,7 +25,7 @@ namespace SimpleVideoCutter
         public bool ConfigCurrentFolder { get; set; }
         
         [Value(0, Default = null, MetaName = "videoFile")]
-        public string VideoFile { get; set; }
+        public string? VideoFile { get; set; }
     }
     [SupportedOSPlatform("windows")]
     static class Program
@@ -38,7 +38,7 @@ namespace SimpleVideoCutter
         {
             VelopackApp.Build().Run();
 
-            string fileToLoadOnStartup = null;
+            string? fileToLoadOnStartup = null;
             string svcFolder = "SimpleVideoCutter";
             string configFolder = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), svcFolder);
