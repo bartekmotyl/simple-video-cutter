@@ -1,4 +1,4 @@
-# simple-video-cutter
+# Simple Video Cutter
 
 Windows-based tool for efficient browsing and cutting video footage
 
