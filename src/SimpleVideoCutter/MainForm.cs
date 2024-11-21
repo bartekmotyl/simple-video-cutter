@@ -1,6 +1,5 @@
-﻿using FFmpeg.NET;
-using LibVLCSharp.Shared;
-using Newtonsoft.Json;
+﻿using LibVLCSharp.Shared;
+using SimpleVideoCutter.Actions;
 using SimpleVideoCutter.Properties;
 using System;
 using System.Collections.Generic;
@@ -23,6 +22,8 @@ namespace SimpleVideoCutter
         private LibVLC? libVLC;
         private string? lastDirectory = null;
         private string? fileBeingPlayed = null;
+        private string? nextFileInDirectory = null;
+        private string? prevFileInDirectory = null;
         private TaskProcessor taskProcessor = new TaskProcessor();
         private KeyFramesExtractor keyFramesExtractor = new KeyFramesExtractor();
         private int volume = 100;
@@ -30,6 +31,8 @@ namespace SimpleVideoCutter
         private string? fileToLoadOnStartup = null;
         private Debouncer debouncerHover = new Debouncer();
         private bool playingSelection = false;
+        private bool shouldNotifyIfCurrentFileIsBeingDeletedOrMoved = true;
+        public PlaceholderFiller placeholderFiller;
 
         private bool EnsureFFmpegConfigured()
         {
@@ -86,12 +89,11 @@ namespace SimpleVideoCutter
             this.toolStripContainerMain.LeftToolStripPanel.Join(toolStripTimeline);
             this.toolStripContainerMain.LeftToolStripPanel.Join(toolStripSelection);
 
-
-
             if (VideoCutterSettings.Instance.MainWindowLocation != Rectangle.Empty)
             {
                 var location = VideoCutterSettings.Instance.MainWindowLocation.Location;
                 var size = VideoCutterSettings.Instance.MainWindowLocation.Size;
+
                 if (Utils.IsOnScreen(location, size))
                 {
                     this.StartPosition = FormStartPosition.Manual;
@@ -99,12 +101,15 @@ namespace SimpleVideoCutter
                     this.Size = VideoCutterSettings.Instance.MainWindowLocation.Size;
                 }
             }
+
             if (VideoCutterSettings.Instance.MainWindowMaximized)
             {
                 this.WindowState = FormWindowState.Maximized;
             }
 
             this.videoViewHover.Visible = VideoCutterSettings.Instance.ShowPreview;
+
+            this.placeholderFiller = new PlaceholderFiller(this.videoCutterTimeline1);
         }
 
         private void MainForm_Load(object? sender, EventArgs e)
@@ -181,8 +186,6 @@ namespace SimpleVideoCutter
             ResizePreview();
         }
 
-
-
         private void MainForm_Shown(object? sender, EventArgs e)
         {
             if (VideoCutterSettings.Instance.LastVersion != Utils.GetCurrentRelease())
@@ -194,7 +197,7 @@ namespace SimpleVideoCutter
             EnsureFFmpegConfigured();
 
             taskProcessor.Start();
-            EnableButtons();
+            UpdateButtonStates();
 
             if (fileToLoadOnStartup != null)
             {
@@ -210,7 +213,7 @@ namespace SimpleVideoCutter
             {
                 videoCutterTimeline1.Position = length;
             });
-            EnableButtons();
+            UpdateButtonStates();
         }
 
         private void VlcControl1_PositionChanged(object? sender, MediaPlayerPositionChangedEventArgs e)
@@ -248,7 +251,7 @@ namespace SimpleVideoCutter
             {
                 videoCutterTimeline1.Position = position;
             });
-            EnableButtons();
+            UpdateButtonStates();
         }
 
         private void VlcControl1_LengthChanged(object? sender, MediaPlayerLengthChangedEventArgs e)
@@ -260,13 +263,13 @@ namespace SimpleVideoCutter
             {
                 videoCutterTimeline1.Length = length;
             });
-            EnableButtons();
+            UpdateButtonStates();
         }
 
         private void VlcControl1_Stopped(object? sender, EventArgs e)
         {
             playingSelection = false;
-            EnableButtons();
+            UpdateButtonStates();
         }
 
         private void VlcControl1_Paused(object? sender, EventArgs e)
@@ -278,32 +281,32 @@ namespace SimpleVideoCutter
             {
                 videoCutterTimeline1.Position = (int)(position * length);
             });
-            EnableButtons();
+            UpdateButtonStates();
         }
 
         private void VlcControl1_MediaChanged(object? sender, MediaPlayerMediaChangedEventArgs e)
         {
             string fileInfo = fileBeingPlayed != null ?
                 string.Format("{0:yyyy/MM/dd HH:mm:ss}", new FileInfo(fileBeingPlayed).LastWriteTime)
-                : "N/A"; 
+                : "N/A";
             statusStrip.InvokeIfRequired(() =>
             {
                 toolStripStatusLabelFileDate.Text = fileInfo;
             });
-            EnableButtons();
+            UpdateButtonStates();
 
         }
 
         private void VlcControl1_Playing(object? sender, EventArgs e)
         {
-            EnableButtons();
+            UpdateButtonStates();
         }
 
         private void OpenFile()
         {
             if (lastDirectory == null)
             {
-                lastDirectory = ReplaceStandardDirectoryPatterns(VideoCutterSettings.Instance.DefaultInitialDirectory);
+                lastDirectory = placeholderFiller.ReplaceStandardDirectoryPatterns(VideoCutterSettings.Instance.DefaultInitialDirectory, fileBeingPlayed);
             }
             using (OpenFileDialog fd = new OpenFileDialog())
             {
@@ -321,36 +324,14 @@ namespace SimpleVideoCutter
             }
         }
 
-        private string ReplaceStandardDirectoryPatterns(string str)
-        {
-            return str
-                .Replace("{SameFolder}", Path.GetDirectoryName(fileBeingPlayed))
-                .Replace("{UserVideos}", Environment.GetFolderPath(Environment.SpecialFolder.MyVideos))
-                .Replace("{UserDocuments}", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments))
-                .Replace("{MyComputer}", Environment.GetFolderPath(Environment.SpecialFolder.MyComputer));
-        }
-        private string ReplaceFilePatterns(string str, string path)
-        {
-            var fileInfo = new FileInfo(path);
-
-            return str
-                .Replace("{FileName}", Path.GetFileName(path))
-                .Replace("{FileNameWithoutExtension}", Path.GetFileNameWithoutExtension(path))
-                .Replace("{FileExtension}", Path.GetExtension(path))
-                .Replace("{FileDate}", string.Format("{0:yyyyMMdd-HHmmss}", fileInfo.LastWriteTime))
-                .Replace("{Timestamp}", string.Format("{0:yyyyMMdd-HHmmss}", DateTime.Now))
-                .Replace("{SelectionStart}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(this.videoCutterTimeline1.Selections.OverallStart!.Value)))
-                .Replace("{SelectionEnd}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(this.videoCutterTimeline1.Selections.OverallEnd!.Value)))
-                .Replace("{SelectionStartMs}", string.Format("{0}", this.videoCutterTimeline1.Selections.OverallStart.Value))
-                .Replace("{SelectionEndMs}", string.Format("{0}", this.videoCutterTimeline1.Selections.OverallEnd.Value))
-                .Replace("{Duration}", string.Format("{0:hhmmss}", TimeSpan.FromMilliseconds(this.videoCutterTimeline1.Selections.OverallDuration)));
-        }
-
         private void OpenFile(string path)
         {
             if (!File.Exists(path))
                 return;
             fileBeingPlayed = path;
+            nextFileInDirectory = GetNextPrevFileInDirectory(fileBeingPlayed, +1);
+            prevFileInDirectory = GetNextPrevFileInDirectory(fileBeingPlayed, -1);
+
             statusStrip.InvokeIfRequired(() =>
             {
                 toolStripStatusLabelFilePath.Text = path;
@@ -363,7 +344,7 @@ namespace SimpleVideoCutter
 
             ClearAllSelections();
             UpdateIndexLabel();
-            EnableButtons();
+            UpdateButtonStates();
 
             vlcControl1.MediaPlayer.Mute = VideoCutterSettings.Instance.Mute;
             vlcControl1.MediaPlayer.Play(new Media(libVLC!, path, FromType.FromPath));
@@ -383,12 +364,12 @@ namespace SimpleVideoCutter
             {
                 if (fileBeingPlayed != null)
                     vlcControl1.MediaPlayer.Play(new Media(libVLC!, fileBeingPlayed, FromType.FromPath));
-                EnableButtons();
+                UpdateButtonStates();
             }
             else
             {
                 vlcControl1.MediaPlayer.Pause();
-                EnableButtons();
+                UpdateButtonStates();
             }
         }
 
@@ -419,7 +400,7 @@ namespace SimpleVideoCutter
                 ClearAllSelections();
 
             if (e.KeyCode == Keys.E && (e.Modifiers == Keys.None || e.Modifiers == Keys.Shift))
-                this.EnqeueNewTask();
+                this.EnqeueNewTask(e.Modifiers == Keys.Shift);
 
             if (e.KeyCode == Keys.O && e.Modifiers == Keys.Control)
                 this.OpenFile();
@@ -548,7 +529,7 @@ namespace SimpleVideoCutter
         private void VideoCutterTimeline1_SelectionChanged(object? sender, SelectionChangedEventArgs e)
         {
             UpdateSelectionLabel();
-            EnableButtons();
+            UpdateButtonStates();
         }
 
 
@@ -615,21 +596,103 @@ namespace SimpleVideoCutter
             VideoCutterSettings.Instance.StoreSettings();
         }
 
-        private void EnqeueNewTask()
+
+        private void UnloadVideo()
+        {
+            if (vlcControl1.MediaPlayer != null)
+            {
+                vlcControl1.MediaPlayer.Stop();
+                vlcControl1.MediaPlayer.Media?.Dispose();
+                vlcControl1.MediaPlayer.Media = null;
+            }
+
+            if (videoViewHover.MediaPlayer != null)
+            {
+                videoViewHover.MediaPlayer.Stop();
+                videoViewHover.MediaPlayer.Media?.Dispose();
+                videoViewHover.MediaPlayer.Media = null;
+            }
+
+            fileBeingPlayed = null;
+
+            statusStrip.InvokeIfRequired(() =>
+            {
+                toolStripStatusLabelFilePath.Text = "No file loaded";
+            });
+
+            statusStrip.InvokeIfRequired(() =>
+            {
+                toolStripStatusLabelFileDate.Text = "";
+            });
+
+            ClearAllSelections();
+            UpdateIndexLabel();
+            UpdateButtonStates();
+        }
+
+
+        private void ActionAfterTaskCompletion_ActionExecuting(object? sender, ActionExecutingEventArgs e)
+        {
+            if (e.Action is IActionRemovesInputFile && e.Action.Task.InputFilePath == this.fileBeingPlayed)
+            {
+                if (this.shouldNotifyIfCurrentFileIsBeingDeletedOrMoved)
+                {
+                    DialogResult dialogResult = MessageBox.Show("As per the settings, the original file will be deleted/moved after the cut was saved." +
+                        " Since you are currently playing this file, it will be unloaded." +
+                        "\n\nDo you want to see this message the next time this happens?",
+                        "Playing file about to be deleted/moved",
+                        MessageBoxButtons.YesNo
+                    );
+
+                    if (dialogResult == DialogResult.No)
+                    {
+                        this.shouldNotifyIfCurrentFileIsBeingDeletedOrMoved = false;
+                    }
+                }
+
+                UnloadVideo();
+            }
+        }
+
+        private ActionAfterTaskCompletion? GetActionAfterTaskCompletion(FFmpegTask task)
+        {
+            if (VideoCutterSettings.Instance.ActionAfterTaskCompletion == null)
+            {
+                return null;
+            }
+
+            Type? type = Type.GetType("SimpleVideoCutter.Actions." + VideoCutterSettings.Instance.ActionAfterTaskCompletion);
+
+            if (type != null)
+            {
+                if (Activator.CreateInstance(type, new object[] { task }) is not ActionAfterTaskCompletion action)
+                {
+                    return null;
+                }
+
+                action.ActionExecuting += this.ActionAfterTaskCompletion_ActionExecuting;
+
+                return action;
+            }
+
+            return null;
+        }
+
+        private FFmpegTask? PrepareTask(bool showAddTaskDialog = false)
         {
             if (videoCutterTimeline1.Selections.Count == 0)
             {
-                return;
+                return null;
             }
 
             if (!EnsureFFmpegConfigured())
-                return;
+                return null;
             if (fileBeingPlayed == null)
-                return;
+                return null;
 
             FileInfo fileInfo = new FileInfo(fileBeingPlayed);
-            var outputDir = ReplaceStandardDirectoryPatterns(VideoCutterSettings.Instance.OutputDirectory);
-            var outputFileName = ReplaceFilePatterns(VideoCutterSettings.Instance.OutputFilePattern, fileBeingPlayed);
+            var outputDir = placeholderFiller.ReplaceStandardDirectoryPatterns(VideoCutterSettings.Instance.OutputDirectory, fileBeingPlayed);
+            var outputFileName = placeholderFiller.ReplaceFilePatterns(VideoCutterSettings.Instance.OutputFilePattern, fileBeingPlayed);
             var outputFilePath = Path.Combine(outputDir, outputFileName);
             var fileExtension = Path.GetExtension(outputFilePath);
 
@@ -646,6 +709,7 @@ namespace SimpleVideoCutter
             }).ToArray();
 
             var selectionsOnKeyFrames = videoCutterTimeline1.AreSelectionsOnKeyFrames;
+
             FFmpegTask task = new FFmpegTask()
             {
                 InputFilePath = fileInfo.FullName,
@@ -658,30 +722,56 @@ namespace SimpleVideoCutter
                 State = FFmpegTaskState.Scheduled,
             };
 
-            bool shiftPressed = ModifierKeys == Keys.Shift;
-            if (VideoCutterSettings.Instance.ShowTaskWindow || shiftPressed || !selectionsOnKeyFrames)
+            if (VideoCutterSettings.Instance.ShowTaskWindow || showAddTaskDialog || !selectionsOnKeyFrames)
             {
-
                 using (var addTaskDialog = new FormAddTask(task, selectionsOnKeyFrames))
                 {
                     var result = addTaskDialog.ShowDialog(this);
                     if (result == DialogResult.Retry)
                     {
                         videoCutterTimeline1.AdjustSelectionsToKeyFrames();
-                        return;
+                        return null;
                     }
                     else if (result != DialogResult.OK)
                     {
-                        return;
+                        return null;
                     }
 
                     task = addTaskDialog.Task;
                 }
             }
 
+            if(VideoCutterSettings.Instance.ShowQuickSubDirectoryDialog)
+            {
+                using (var chooseOutputDirectory = new ChooseOutputDirectory(task))
+                {
+                    var result = chooseOutputDirectory.ShowDialog(this);
+
+                    task = chooseOutputDirectory.Task;
+                }
+            }
+
             VideoCutterSettings.Instance.ShowTaskWindow = false;
 
+            task.ActionAfterTaskCompletion = GetActionAfterTaskCompletion(task);
+
+            return task;
+        }
+
+
+        private void EnqeueNewTask(bool showAddTaskDialog = false)
+        {
+            FFmpegTask? task = this.PrepareTask(showAddTaskDialog);
+
+            if (task == null)
+            {
+                return;
+            }
+
+            FileHelper.MaybeCreateParentDirectory(task.OutputFilePath);
+
             taskProcessor.EnqueueTask(task);
+
             if (!VideoCutterSettings.Instance.KeepSelectionAfterCut)
             {
                 ClearAllSelections();
@@ -732,6 +822,11 @@ namespace SimpleVideoCutter
 
             var videoFilesArr = GetVideoFilesInDirectory(currentFilePath);
 
+            if(videoFilesArr.Count() == 1)
+            {
+                return null;
+            }
+
             int index = videoFilesArr
                 .TakeWhile(f => f.ToLowerInvariant() != Path.GetFileName(currentFilePath).ToLowerInvariant())
                 .Count();
@@ -756,7 +851,7 @@ namespace SimpleVideoCutter
             {
                 toolStripStatusLabelVolume.Text = $"{GlobalStrings.MainForm_Volume}: {volume} %";
             });
-            
+
             vlcControl1.MediaPlayer!.Volume = volume;
         }
 
@@ -772,7 +867,9 @@ namespace SimpleVideoCutter
             else
             {
                 var videoFilesArr = GetVideoFilesInDirectory(fileBeingPlayed);
-                int index = videoFilesArr.IndexOf(Path.GetFileName(fileBeingPlayed).ToLowerInvariant());
+                int index = videoFilesArr.TakeWhile(f => f.ToLowerInvariant() != Path.GetFileName(fileBeingPlayed).ToLowerInvariant())
+                    .Count();
+
                 statusStrip.InvokeIfRequired(() =>
                 {
                     toolStripStatusLabelIndex.Text = string.Format("{0}/{1}", index + 1, videoFilesArr.Count);
@@ -810,7 +907,7 @@ namespace SimpleVideoCutter
 
         }
 
-        private void EnableButtons()
+        private void UpdateButtonStates()
         {
             var isFileLoaded = fileBeingPlayed != null;
             var isSelection = videoCutterTimeline1.Selections.Count > 0;
@@ -827,8 +924,8 @@ namespace SimpleVideoCutter
 
             toolStripFile.InvokeIfRequired(() =>
             {
-                toolStripButtonFileNext.Enabled = isFileLoaded;
-                toolStripButtonFilePrev.Enabled = isFileLoaded;
+                toolStripButtonFileNext.Enabled = this.nextFileInDirectory != null;
+                toolStripButtonFilePrev.Enabled = this.prevFileInDirectory != null;
             });
 
             toolStripSelection.InvokeIfRequired(() =>
@@ -944,7 +1041,7 @@ namespace SimpleVideoCutter
         {
             VideoCutterSettings.Instance.Mute = !VideoCutterSettings.Instance.Mute;
             vlcControl1.MediaPlayer!.Mute = VideoCutterSettings.Instance.Mute;
-            EnableButtons();
+            UpdateButtonStates();
         }
 
         private void PlaySelection()
@@ -1034,26 +1131,19 @@ namespace SimpleVideoCutter
             }
         }
 
+
         private void OpenNextFileInDirectory()
         {
-            if (fileBeingPlayed != null)
+            if (nextFileInDirectory != null && String.Compare(nextFileInDirectory, fileBeingPlayed, true) != 0)
             {
-                var newFile = GetNextPrevFileInDirectory(fileBeingPlayed, +1);
-                if (newFile != null && String.Compare(newFile, fileBeingPlayed, true) != 0)
-                {
-                    OpenFile(newFile);
-                }
+                OpenFile(nextFileInDirectory);
             }
         }
         private void OpenPrevFileInDirectory()
         {
-            if (fileBeingPlayed != null)
+            if (prevFileInDirectory != null && String.Compare(prevFileInDirectory, fileBeingPlayed, true) != 0)
             {
-                var newFile = GetNextPrevFileInDirectory(fileBeingPlayed, -1);
-                if (newFile != null && String.Compare(newFile, fileBeingPlayed, true) != 0)
-                {
-                    OpenFile(newFile);
-                }
+                OpenFile(prevFileInDirectory);
             }
         }
 

@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using System.Windows.Forms;
 
 namespace SimpleVideoCutter
 {
+    [SupportedOSPlatform("windows")]
     public partial class FormSettings : Form
     {
         public FormSettings()
@@ -51,6 +53,9 @@ namespace SimpleVideoCutter
                     Title = ps.ToString()
                 }).ToList();
 
+            this.radioDeleteInputFile.Tag = typeof(Actions.DeleteInputFile).Name;
+            this.radioMoveInputFileToRelativeDirectory.Tag = typeof(Actions.MoveInputFileToRelativeDirectory).Name;
+            this.radioMoveInputFileToDirectory.Tag = typeof(Actions.MoveInputFileToDirectory).Name;
         }
 
         public void ShowSettingsDialog()
@@ -71,6 +76,13 @@ namespace SimpleVideoCutter
             textBoxFFmpegPath.Text = settings.FFmpegPath;
             textBoxVideoFileExtensions.Text = String.Join(" ,", settings.VideoFilesExtensions);
             comboBoxPreviewSize.SelectedValue = settings.PreviewSize;
+            checkBoxShowQuickSubDirectoryDialog.Checked = settings.ShowQuickSubDirectoryDialog;
+            groupInputFileActions.Controls.OfType<RadioButton>()
+                .FirstOrDefault(rb => rb.Tag?.ToString() == settings.ActionAfterTaskCompletion, radioKeepInputFile)
+                .Checked = true;
+            textBoxInputFileTargetDirectory.Text = settings.ActionInputFileTargetDirectory;
+            textBoxInputFileRelativeTargetDirectory.Text = settings.ActionInputFileRelativeTargetDirectory;
+            checkBoxCreateMissingDirectories.Checked = settings.CreateMissingDirectories;
 
             SetBackgroundOfFFmpegPath();
         }
@@ -84,6 +96,12 @@ namespace SimpleVideoCutter
             settings.OutputFilePattern = textBoxOutputFilePattern.Text;
             settings.FFmpegPath = textBoxFFmpegPath.Text;
             settings.PreviewSize = (PreviewSize)(Enum.Parse(typeof(PreviewSize), comboBoxPreviewSize.SelectedValue?.ToString() ?? "L"));
+            settings.ShowQuickSubDirectoryDialog = checkBoxShowQuickSubDirectoryDialog.Checked;
+            settings.ActionAfterTaskCompletion = groupInputFileActions.Controls.OfType<RadioButton>().First(rb => rb.Checked).Tag?.ToString();
+            settings.ActionInputFileTargetDirectory = textBoxInputFileTargetDirectory.Text;
+            settings.ActionInputFileRelativeTargetDirectory = textBoxInputFileRelativeTargetDirectory.Text;
+            settings.CreateMissingDirectories = checkBoxCreateMissingDirectories.Checked;
+
             // TODO: parse VideoFilesExtensions
 
             settings.StoreSettings();
@@ -132,38 +150,65 @@ namespace SimpleVideoCutter
             }
         }
 
-        private void textBoxFFmpegPath_TextChanged(object sender, EventArgs e)
+        private void TextBoxFFmpegPath_TextChanged(object sender, EventArgs e)
         {
             SetBackgroundOfFFmpegPath();
         }
 
-        private void buttonFFmpegPath_Click(object sender, EventArgs e)
+        private void ButtonFFmpegPath_Click(object sender, EventArgs e)
         {
             var ffmpegPath = SelectFile("ffmpeg.exe");
             if (ffmpegPath != null)
                 textBoxFFmpegPath.Text = ffmpegPath;
         }
 
-        private void buttonDefaultDirectory_Click(object sender, EventArgs e)
+        private void ButtonDefaultDirectory_Click(object sender, EventArgs e)
         {
             var defaultDirectoryPath = SelectFolder();
             if (defaultDirectoryPath != null)
                 comboBoxDefaultDirectory.Text = defaultDirectoryPath;
         }
 
-        private void buttonOutputDirectory_Click(object sender, EventArgs e)
+        private void ButtonOutputDirectory_Click(object sender, EventArgs e)
         {
             var outputDirectoryPath = SelectFolder();
             if (outputDirectoryPath != null)
                 comboBoxOutputDirectory.Text = outputDirectoryPath;
         }
 
-        private void buttonOK_Click(object sender, EventArgs e)
+        private void ButtonInputFileTargetDirectory_Click(object sender, EventArgs e)
+        {
+            var moveToDirectoryPath = SelectFolder();
+
+            if (moveToDirectoryPath != null)
+                textBoxInputFileTargetDirectory.Text = moveToDirectoryPath;
+        }
+
+        private void ButtonOK_Click(object sender, EventArgs e)
         {
             GUIToSettings();
             Close();
         }
 
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboBoxPreviewSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FolderBrowserDialog1_HelpRequest(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormSettings_Load(object sender, EventArgs e)
+        {
+
+        }
 
         internal class ComboBoxItem<T>
         {

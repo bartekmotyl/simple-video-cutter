@@ -1,4 +1,5 @@
 ﻿using FFmpeg.NET;
+using SimpleVideoCutter.Actions;
 using SimpleVideoCutter.FFmpegNET;
 using SimpleVideoCutter.Properties;
 using System;
@@ -121,6 +122,11 @@ namespace SimpleVideoCutter
 
                 ffmpeg.Complete += (object? sender, FFmpeg.NET.Events.ConversionCompleteEventArgs e) =>
                 {
+                    if (task.ActionAfterTaskCompletion != null)
+                    {
+                        task.ActionAfterTaskCompletion.Execute();
+                    }
+
                     task.State = FFmpegTaskState.FinishedOK;
                     taskInProgress = false;
                     OnPropertyChanged("Tasks");
@@ -144,7 +150,9 @@ namespace SimpleVideoCutter
                 CancellationTokenSource taskCts = new CancellationTokenSource();
                 
                 var inputFile = new InputFile(task.InputFilePath);
-                var metadata = await ffmpeg.GetMetaDataAsync(inputFile, taskCts.Token);
+
+                //Unused variable. This also leads to an error, if the input file was moved.
+                //var metadata = await ffmpeg.GetMetaDataAsync(inputFile, taskCts.Token);
 
                 try
                 {
@@ -189,6 +197,7 @@ namespace SimpleVideoCutter
         public FFmpegTaskSelection[]? Selections { get; set; }   
         public long OverallDuration { get; set; }
         public bool Lossless { get; set; }
+        public ActionAfterTaskCompletion? ActionAfterTaskCompletion { get; set; }
         public FFmpegTaskState? State { get; set; }
         public string? ErrorMessage { get; set; }
 
